@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-family: "Source Sans Pro",sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #059;
+}
+
+input, textarea, select {
+    display: block;
+    margin: 10px 0;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+input, textarea {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+.buttons {
+    display: flex;
+    flex-flow: row;
+    margin-top: 40px;
+
+    .button {
+        color: #007bff;
+        border: 1px solid #007bff;
+        margin-right: 16px;
+        line-height: 1.5;
+        border-radius: .25rem;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        cursor: pointer;
+        transition-property: color, background-color;
+        transition-duration: 0.25s;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+    }
+}
+
+a, a:visited {
+    color: #059;
+}

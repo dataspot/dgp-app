@@ -1,0 +1,6 @@
+sqlalchemy
+flask-cors
+PyYAML
+awesome-slugify
+psycopg2-binary
+apache-airflow[postgres]

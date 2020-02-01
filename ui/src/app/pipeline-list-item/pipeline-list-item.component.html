@@ -1,0 +1,6 @@
+<div class='name'>{{item.name}}</div>
+<div class='status'><span [class]='item.status.status'>{{item.status.status}}</span></div>
+<div class='kind'>{{((api.configuration | async).kinds_map[item.kind] || {display:item.kind}).display }}</div>
+<div class='schedule'>{{item.schedule}}</div>
+<div class='view-status'><a [routerLink]='"/status/" + item.id'>View Status</a></div>
+<div class='edit'><a [routerLink]='"/edit/" + item.id'>Edit</a></div>

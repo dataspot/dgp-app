@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: etls
+    expose:
+      - 5432
+    ports:
+      - 55432:5432
+    volumes: 
+      - /var/lib/postgresql/data
+
+  server:
+    build: .
+    image: akariv/etl-server
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db/etls
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql://postgres:postgres@db/etls
+    expose:
+      - 5000
+      - 8080
+    ports:
+      - 5000:5000
+      - 8080:8080
+    depends_on: 
+      - db
+      
