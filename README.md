@@ -2,6 +2,15 @@
 
 This library provides a wrapper around airflow, providing a means to add / remove DAGs (Pipelines) via a web-ui based on a configuration defining the Pipeline 'kinds' and the parameters each kind requires.
 
+### Pipeline Dashboard
+![Pipeline Dashboard](docs/images/dashboard.png)
+
+### Edit/New Pipeline
+![Edit/New Pipeline](docs/images/edit.png)
+
+### Pipeline Status
+![Pipeline Status](docs/images/status.png)
+
 ## Quickstart
 
 1. Create a folder containing:
