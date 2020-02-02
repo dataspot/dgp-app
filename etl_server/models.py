@@ -80,18 +80,24 @@ class Models():
                 ret['created'] = True
             else:
                 document.value = value
+            if 'status' in value:
+                value.pop('status', None)
             session.add(document)
         return ret
 
-    def query(self):
+    def _pipelines(self):
         results = []
-        ret = dict(success=False, result=results)
         with self.session_scope() as session:
             documents = session.query(Pipeline)
             for doc in documents:
                 results.append(self.object_as_dict(doc))
-            ret['success'] = True
-        return ret
+        return results
+
+    def all_pipelines(self):
+        return list(map(lambda p: p['value'], self._pipelines()))
+
+    def query(self):
+        return dict(success=True, result=self._pipelines())
 
     def query_one(self, key):
         ret = dict(success=False)

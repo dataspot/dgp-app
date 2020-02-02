@@ -1,24 +1,20 @@
-language:
-  python
-
+language: python
 python:
-  - 3.6
-
+- 3.6
 sudo: required
-
 env:
   global:
   - TRAVIS_CI_OPERATOR=1
-
+  - secure: ECSJN5Dbso1SGWZbrLrXFu4vS7qnUUNH2Hmp70mfyx2ggnQaQMC7EjRi6NE9C0weKQWcaULc2LXWmTmQGY2VU+inibePbJVNrU8jQUddEgEPHa1dnqy9RGZDQzIVq7VreiD835JesMbBtjmdK57UWJ7j2egAyHTNMZkvopS6wGriXXpr+9kbkaERxZ0STrZssTSzufMDbqLpJQti0030/3Z5wGzIhowZECsBtkIfXoaH0GNbDfIi+EwFOd1wRAzFt33s0ewN5k/7NAtvXqB46Vwb3FCCANQ+LnG4kELDdFUAl9vm+6jtD9V4afMfnPZwnDg2S5m2lf45pX1wZrpSXQevODAGrvQOkE6in5d0B0G/qEFeEt1eiwh+JTnYwtAzltmbxFMHFhj9+h6dKaps+V/hFQwjjEBnN2dvQk9xTGFHvWTknprkh0cVbSHuaYQ2r8JwOP3Z6GHQM9OPH9tZ1oIp6vp/ACIyGEyqSlr7go8S2bb8bAv9cp++rMWhnFS6JSV0c7P0iLzGwymTnwC/y1BfcmY8CB/seLcY3WTNjwFYdatOQnbwmpMeSBHiAhOg0u4W8wlTY1EVKI2pucnC4jzZtrPdMfipQwm5ARZy7Dc8bGQZz1N7ToF25Y46cEEIh11iTFHI46dztxENrD/BGOCmVpy64Cx5M5Zi4PywfB4=
+  - secure: QQuCx7lGz5WdqcDkrm3vVxEaqR5PgIO3VbX9YZ/zL6DcefKjhF4GAdIHJKamqCSyXyV0jQs/u3gAlvp65bB0oOmNRPnUI0f2EHIAwZn2ZdvKZGmg6SDp4Dd9w8oIK5olpgYdI/NNl6tutgIcrjjOGlkR2PQbSthoskXjwRb+VjXq3fERuW3OV/XeGD/hqDKbGKqnEgv8oY1PYWtDlqn0N0zZmq1IX3ny5gDuNZkaHuTdL65PzVMr3bxnbHdNA9udpm4a0NKsQ2RVFjT35hLlhiYtoE0oV6l8qwHy1+vgVM/x90EKgp73Fg/RATz0jsdTTOoSaVEBB8MCoUY7IpL8M4eEwa0Qjdq/23ANVQ+I4rRVa5pN3i3jjR2jnErsjNC9lK4oI4MpDJqoSS6VusfdkFmMge8u+BvH9DglM/2qy10Jq+uHa+xfw9sJjSqABnONq6xPgAJ3vrHAPtpULh8R8dP38lAMHPjDUHaXtf7DlWrCWSPiqPGonyDjXruSNFAeLfMM+yW5VtL6j44jzO1wJPopFwMXAgwgGrh5VWKlt5lENmnU2JAugecEi8ZeT6O3m1/tAxCCNk5Jx9zpuTnrqx2kZHOGBLkOfcNfH0robc4qM6J2CYpK6s4fdOfgIhvZNsdoVYWLW40KQ+PAwNz9Sj0lC+cR6ZUI95DJrmGUEWM=
 services:
-  - docker
-
+- docker
 install:
-  - bash .travis.sh install
-
+- nvm install 10
+- "(cd ui && npm install && npm run package)"
+- bash .travis.sh install
 script:
-  - bash .travis.sh script
-
+- bash .travis.sh script
 deploy:
   skip_cleanup: true
   provider: script

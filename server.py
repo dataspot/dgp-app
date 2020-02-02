@@ -2,7 +2,7 @@ import os
 import logging
 import json
 
-from flask import Flask, redirect
+from flask import Flask, redirect, send_file
 from flask_cors import CORS
 
 from etl_server.blueprint import make_blueprint
@@ -13,11 +13,11 @@ app = Flask(__name__, static_folder='./ui/dist/ui/', static_url_path='/')
 # CORS support
 CORS(app, supports_credentials=True)
 
-configuration = json.load(open('configuration.json'))
+configuration = json.load(open('dags/configuration.json'))
 
 @app.route('/')
 def main():
-    return redirect('/index.html')
+    return send_file('ui/dist/ui/index.html')
 
 app.register_blueprint(
     make_blueprint(db_connection_string=os.environ.get('DATABASE_URL'),

@@ -1,2 +1,3 @@
 .git/
-ui/
+ui/node_modules/
+ui/src/

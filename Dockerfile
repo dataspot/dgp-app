@@ -3,7 +3,7 @@ FROM python:3.7-alpine
 WORKDIR /app
 
 RUN apk --update --no-cache add libpq postgresql-dev libffi libffi-dev build-base ca-certificates bash \
-    && pip install --upgrade gunicorn cython numpy pandas \
+    && pip install --upgrade gunicorn cython numpy 'pandas<1.0.0' \
     && adduser -D -h /app etl \ 
     && update-ca-certificates
 
