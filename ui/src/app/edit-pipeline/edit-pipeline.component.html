@@ -12,19 +12,21 @@
   <select [(ngModel)]='item.schedule'>
     <option [value]='schedule.name' *ngFor='let schedule of api.currentConfig.schedules'>{{schedule.display}}</option>
   </select>
-  <app-dynamic-fields-editor [item]='item.params' [fields]='(api.currentConfig.kinds_map[item.kind] || {fields:[]}).fields'></app-dynamic-fields-editor>
-  <div class='buttons'>
-    <div class='dgp button' (click)='dgp()' *ngIf='api.currentConfig.kinds_map[item.kind].dgp'>
-      <i class="fas fa-cogs" aria-hidden="true"></i>
-      Save &amp; go to Workbench
+  <ng-container *ngIf='api.currentConfig.kinds_map[item.kind]'>
+    <app-dynamic-fields-editor [item]='item.params' [fields]='(api.currentConfig.kinds_map[item.kind] || {fields:[]}).fields'></app-dynamic-fields-editor>
+    <div class='buttons'>
+      <div class='dgp button' (click)='dgp()' *ngIf='api.currentConfig.kinds_map[item.kind].dgp'>
+        <i class="fas fa-cogs" aria-hidden="true"></i>
+        Save &amp; go to Workbench
+      </div>
+      <div class='save button' (click)='save()'>
+        <i class="fas fa-save" aria-hidden="true"></i>
+        Save Pipeline
+      </div>
+      <div class='delete button' (click)='delete()' *ngIf='item.id'>
+        <i class="fas fa-trash" aria-hidden="true"></i>
+        Delete Pipeline
+      </div>
     </div>
-    <div class='save button' (click)='save()'>
-      <i class="fas fa-save" aria-hidden="true"></i>
-      Save Pipeline
-    </div>
-    <div class='delete button' (click)='delete()' *ngIf='item.id'>
-      <i class="fas fa-trash" aria-hidden="true"></i>
-      Delete Pipeline
-    </div>
-  </div>
+  </ng-container>
 </ng-container>
