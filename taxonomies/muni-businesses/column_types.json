@@ -1,0 +1,117 @@
+[
+    {
+        "name": "municipality:code",
+        "title": "מזהה הרשות המקומית",
+        "description": "מזהה משרד הפנים של הרשות המקומית",
+        "dataType": "integer",
+        "unique": true
+    },
+    {
+        "name": "municipality:name",
+        "title": "שם הרשות המקומית",
+        "description": "השם של הרשות המקומית",
+        "dataType": "string",
+        "labelOf": "municipality:code",
+        "mandatory": true
+    },
+    {
+        "name": "city:code",
+        "title": "מזהה הישוב",
+        "description": "מזהה משרד הפנים הישוב בתוך הרשות המקומית",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "city:name",
+        "title": "שם הישוב",
+        "description": "שם הישוב בתוך הרשות המקומית",
+        "dataType": "string",
+        "labelOf": "city:code"
+    },
+    {
+        "name": "business:name",
+        "title": "שם בית העסק",
+        "description": "השם המלא והידוע של בית העסק",
+        "dataType": "string",
+        "unique": true,
+        "mandatory": true
+    },
+    {
+        "name": "business:corporation-id",
+        "title": "מספר תאגיד",
+        "description": "מספר התאגיד של בית העסק (למשל, ח.פ, ע״ר וכו׳)",
+        "dataType": "string"
+    },
+    {
+        "name": "address:full",
+        "title": "כתובת מלאה",
+        "description": "כתובת מלאה של בית העסק",
+        "dataType": "string"
+    },
+    {
+        "name": "address:city",
+        "title": "שם העיר",
+        "description": "העיר בכתובת של בית העסק",
+        "dataType": "string"
+    },
+    {
+        "name": "address:street",
+        "title": "רחוב",
+        "description": "שם הרחוב בכתובת מלאה של בית העסק",
+        "dataType": "string"
+    },
+    {
+        "name": "address:house-number",
+        "title": "מספר בית",
+        "description": "מספר הבית בכתובת של של בית העסק",
+        "dataType": "string"
+    },
+    {
+        "name": "location:lat",
+        "title": "קו אורך",
+        "description": "קו האורך בנ.צ. של מיקום בית העסק",
+        "dataType": "number"
+    },
+    {
+        "name": "location:lon",
+        "title": "קו רוחב",
+        "description": "קו הרוחב בנ.צ. של מיקום בית העסק",
+        "dataType": "number"
+    },
+    {
+        "name": "business:phone-number",
+        "title": "מספר טלפון ראשי",
+        "description": "מספר טלפון ראשי של בית העסק",
+        "dataType": "string"
+    },
+    {
+        "name": "business:kind",
+        "title": "מהות בית העסק",
+        "description": "מהות בית העסק",
+        "dataType": "string"
+    },
+    {
+        "name": "property:code",
+        "title": "מזהה נכס פיזי",
+        "description": "הנכס הפיזי בו ממוקם בית העסק",
+        "dataType": "string",
+        "unique": true,
+        "mandatory": true
+    },
+    {
+        "name": "source:kind",
+        "title": "סוג מאגר הנתונים",
+        "description": "ארנונה/רישוי עסקים",
+        "dataType": "string",
+        "unique": true,
+        "mandatory": true
+    },
+    {
+        "name": "source:date",
+        "title": "זמן המקור",
+        "description": "מועד נכונות הנתונים / ייצוא המאגר - YYYY-MM-DD",
+        "dataType": "date",
+        "unique": true,
+        "mandatory": true
+    }
+]

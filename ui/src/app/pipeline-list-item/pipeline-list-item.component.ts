@@ -13,6 +13,7 @@ export class PipelineListItemComponent implements OnInit {
   constructor(public api: ApiService) { }
 
   ngOnInit() {
+    this.item.status = this.item.status || {status: 'Didn\'t run'};
   }
 
 }

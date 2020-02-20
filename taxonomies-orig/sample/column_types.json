@@ -1,0 +1,30 @@
+[
+    {
+        "name": "key1",
+        "title": "Key Column #1",
+        "dataType": "string",
+        "unique": true,
+        "mandatory": true
+    },
+    {
+        "name": "key2",
+        "title": "Key Column #2",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "key3",
+        "title": "Key Column #3",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "value",
+        "title": "The Numeric Value",
+        "dataType": "number",
+        "mandatory": true,
+        "options": {
+            "groupChar": ","
+        }
+    }
+]

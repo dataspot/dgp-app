@@ -1,0 +1,6 @@
+<ng-container *ngIf='item'>
+  <ng-container *ngFor='let field of fields'>
+    <label>{{field.display}}</label>
+    <input type='text' [(ngModel)]='item[field.name]'/>
+  </ng-container>
+</ng-container>

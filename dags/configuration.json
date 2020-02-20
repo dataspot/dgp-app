@@ -1,40 +1,36 @@
 {
     "kinds": [
         {
-            "name": "csv",
-            "display": "CSV",
+            "name": "printer",
+            "display": "Printer",
             "fields": [
                 {
                     "name": "url",
                     "display": "URL"
-                },
-                {
-                    "name": "param1",
-                    "display": "Parameter 1"
-                },
-                {
-                    "name": "param2",
-                    "display": "Parameter 2"
                 }
             ]
         },
         {
-            "name": "kind2",
-            "display": "Kind 2",
+            "name": "dgp_kind",
+            "display": "DGP",
             "fields": [
                 {
-                    "name": "url",
-                    "display": "URL"
-                },
-                {
-                    "name": "param3",
-                    "display": "Parameter 3"
-                },
-                {
-                    "name": "param4",
-                    "display": "Parameter 4"
+                    "name": "snippet",
+                    "display": "Snippet"
                 }
-            ]
+            ],
+            "dgp": true
+        },
+        {
+            "name": "datacity",
+            "display": "DataCity",
+            "fields": [
+                {
+                    "name": "snippet",
+                    "display": "Snippet"
+                }
+            ],
+            "dgp": true
         }
     ]
 }

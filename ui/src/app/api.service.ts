@@ -18,21 +18,26 @@ export class ApiService {
     this.getConfiguration();
   }
 
+  createMap(obj, field, target) {
+    const ret = {};
+    for (const item of obj[field]) {
+      ret[item.name] = item;
+    }
+    obj[target] = ret;
+  }
+
   getConfiguration() {
     this.http.get(`${this.API_ENDPOINT}/configuration`)
       .subscribe((result) => {
         const configuration = result['result'];
-        const kinds = {};
-        for (const kind of configuration.kinds) {
-          kinds[kind.name] = kind;
-        }
-        configuration['kinds_map'] = kinds;
+        this.createMap(configuration, 'kinds', 'kinds_map');
+        this.createMap(configuration, 'schedules', 'schedules_map');
         this.configuration.next(configuration);
         this.currentConfig = configuration;
       });
   }
 
-  queryPipelines() {    
+  queryPipelines() {
     this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/pipelines`)),
       map((result: any) => {
@@ -44,8 +49,8 @@ export class ApiService {
     ).subscribe((pipelines) => {
       console.log('pipelines', pipelines);
       for (const x of pipelines) {
-        x['params']= x['params'] || {};
-        x['status']= x['status'] || {};
+        x['params'] = x['params'] || {};
+        x['status'] = x['status'] || {};
       }
       this.pipelines.next(pipelines);
     });

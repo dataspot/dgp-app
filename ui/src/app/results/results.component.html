@@ -1,0 +1,6 @@
+<app-result-table
+    *ngFor='let table of TABLES'
+    [kind]='table[0]' [hidden]='step!==table[1]'
+    [kindName]='table[1]'
+    (validate)='validate_kind($event)'
+></app-result-table>

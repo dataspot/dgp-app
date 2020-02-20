@@ -4,30 +4,60 @@ body {
     display: flex;
     flex-flow: column;
     align-items: center;
-    font-family: "Source Sans Pro",sans-serif;
+    font-family: 'Assistant', 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
+
+    font-size: 16px;
+
+    .only-rtl {
+        display: none;
+    }
+
+    &.rtl {
+        * {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        app-step-tabs {
+            .tab-container {
+                right: 20px;
+                left: auto !important;
+            }
+        }
+
+        .only-ltr {
+            display: none;
+        }
+        .only-rtl {
+            display: initial;
+        }        
+    }
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;    
 }
 
 h1 {
     color: #059;
 }
 
-input, textarea, select {
-    display: block;
-    margin: 10px 0;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-}
-
-input, textarea {
-    width: 100%;
+app-edit-pipeline, app-pipeline-status {
+    input, textarea, select {
+        display: block;
+        margin: 10px 0;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+    }
+    
+    input, textarea {
+        width: 100%;
+    }    
 }
 
 label {
@@ -63,4 +93,38 @@ label {
 
 a, a:visited {
     color: #059;
+    cursor: pointer;
+}
+
+app-dgp-workbench {
+    .formish {
+        padding: 10px 0;
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: center;
+    
+        * {
+            flex: 0 0 auto;
+        }
+    
+        label {
+            flex: 0 0 auto;
+            min-width: 150px;
+            white-space: nowrap;
+            align-self: flex-start;
+            position: relative;
+            top: 4px;
+        }
+    
+        & > input[type='url'] {
+            min-width: 400px;
+        }
+    }
+    
+    .fas {
+        color: black;
+        font-size: 14px;
+        padding: 3px 5px;
+    }
 }

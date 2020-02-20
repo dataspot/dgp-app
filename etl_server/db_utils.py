@@ -3,16 +3,11 @@ import json
 
 from contextlib import contextmanager
 
-from sqlalchemy import types
-from sqlalchemy import inspect
-from sqlalchemy.ext.declarative import declarative_base
-
-from sqlalchemy import Column, String, create_engine
-from sqlalchemy.orm import sessionmaker
-
-
-# ## SQL DB
-Base = declarative_base()
+from sqlalchemy import (
+    Column, String, types,
+    create_engine, inspect
+)
+from sqlalchemy.orm.session import sessionmaker
 
 
 # ## Json as string Type
@@ -32,22 +27,21 @@ class JsonType(types.TypeDecorator):
         return JsonType(self.impl.length)
 
 
-# ## Pipeline Model
-class Pipeline(Base):
-    __tablename__ = 'etl_pipeline'
+class Common():
     key = Column(String(128), primary_key=True)
     value = Column(JsonType)
 
 
-class Models():
+class ModelsBase():
 
-    def __init__(self, connection_string=None):
+    def __init__(self, base, cls, connection_string):
         connection_string = connection_string or os.environ.get('DATABASE_URL')
         assert connection_string is not None,\
             "No database defined, please set your DATABASE_URL env-var"
         self._sql_engine = create_engine(connection_string)
         self._sql_session = None
-        Base.metadata.create_all(self._sql_engine)
+        self._cls = cls
+        base.metadata.create_all(self._sql_engine)
 
     @contextmanager
     def session_scope(self):
@@ -73,47 +67,43 @@ class Models():
     def create_or_edit(self, key, value):
         ret = dict(created=False, success=True, result=value)
         with self.session_scope() as session:
-            document = session.query(Pipeline)\
-                .filter(Pipeline.key == key).first()
+            document = session.query(self._cls)\
+                .filter(self._cls.key == key).first()
             if document is None:
-                document = Pipeline(key=key, value=value)
+                document = self._cls(key=key, value=value)
                 ret['created'] = True
             else:
                 document.value = value
-            if 'status' in value:
-                value.pop('status', None)
             session.add(document)
         return ret
 
-    def _pipelines(self):
-        results = []
-        with self.session_scope() as session:
-            documents = session.query(Pipeline)
-            for doc in documents:
-                results.append(self.object_as_dict(doc))
-        return results
-
-    def all_pipelines(self):
-        return list(map(lambda p: p['value'], self._pipelines()))
-
-    def query(self):
-        return dict(success=True, result=self._pipelines())
-
-    def query_one(self, key):
+    def query_one(self, key, case_sensitive=True):
         ret = dict(success=False)
         with self.session_scope() as session:
-            document = session.query(Pipeline)\
-                .filter(Pipeline.key == key).first()
+            if case_sensitive:
+                document = session.query(self._cls)\
+                    .filter(self._cls.key == key).first()
+            else:
+                document = session.query(self._cls)\
+                    .filter(self._cls.key.ilike(key)).first()
             if document is not None:
                 ret['success'] = True
                 ret['result'] = self.object_as_dict(document)
         return ret
 
+    def query(self):
+        ret = dict(result=[], success=True)
+        with self.session_scope() as session:
+            documents = session.query(self._cls)
+            for doc in documents:
+                ret['result'].append(self.object_as_dict(doc))
+        return ret
+
     def delete(self, key):
         ret = dict(success=False)
         with self.session_scope() as session:
-            document = session.query(Pipeline)\
-                .filter(Pipeline.key == key).first()
+            document = session.query(self._cls)\
+                .filter(self._cls.key == key).first()
             if document is not None:
                 ret['success'] = True
                 session.delete(document)

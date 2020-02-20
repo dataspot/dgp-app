@@ -1,0 +1,239 @@
+[
+    {
+        "name": "municipality:code",
+        "title": "מזהה הרשות המקומית",
+        "description": "מזהה משרד הפנים של הרשות המקומית",
+        "dataType": "integer",
+        "unique": true
+    },
+    {
+        "name": "municipality:name",
+        "title": "שם הרשות המקומית",
+        "description": "השם של הרשות המקומית",
+        "dataType": "string",
+        "labelOf": "municipality:code",
+        "mandatory": true
+    },
+    {
+        "name": "city:code",
+        "title": "מזהה הישוב",
+        "description": "מזהה משרד הפנים הישוב בתוך הרשות המקומית",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "city:name",
+        "title": "שם הישוב",
+        "description": "שם הישוב בתוך הרשות המקומית",
+        "dataType": "string",
+        "labelOf": "city:code"
+    },
+    {
+        "name": "card:code",
+        "title": "מזהה כרטיס",
+        "description": "מזהה של כרטיס (סעיף התקציבי)",
+        "dataType": "string",
+        "unique": true,
+        "mandatory": true,
+        "alternatives": [
+            ["card:code:part1", "card:code:part2", "card:code:part3"]
+        ]
+    },
+    {
+        "name": "card:name",
+        "title": "שם כרטיס",
+        "description": "שם בעברית של כרטיס (סעיף התקציבי)",
+        "dataType": "string",
+        "labelOf": "card:code"
+    },
+    {
+        "name": "card:code:part1",
+        "title": "מזהה כרטיס מפורק - חלק 1",
+        "description": "מזהה של כרטיס שמופיע בחלקים 1 (סעיף התקציבי)",
+        "dataType": "string"
+    },
+    {
+        "name": "card:code:part2",
+        "title": "מזהה כרטיס מפורק - חלק 2",
+        "description": "מזהה של כרטיס שמופיע בחלקים 2 (סעיף התקציבי)",
+        "dataType": "string"
+    },
+    {
+        "name": "card:code:part3",
+        "title": "מזהה כרטיס מפורק - חלק 3",
+        "description": "מזהה של כרטיס שמופיע בחלקים 3 (סעיף התקציבי)",
+        "dataType": "string"
+    },
+    {
+        "name": "fiscal-year",
+        "title": "שנת התקציב",
+        "description": "שנת התקציב אליה התקציב מתייחס",
+        "dataType": "integer",
+        "unique": true,
+        "mandatory": true
+    },
+    {
+        "name": "phase",
+        "title": "שלב",
+        "description": "השלב התקצובי, למשל: מתוכנן, מאושר, מבוצע וכו׳",
+        "dataType": "string",
+        "unique": true,
+        "mandatory": true
+    },
+    {
+        "name": "direction:code",
+        "title": "כיוון",
+        "description": "הכנסה או הוצאה",
+        "unique": true,
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level1:code",
+        "title": "ספרור משרד הפנים - קוד רמה 1",
+        "description": "הקוד של הרמה העליונה בספרור התקני של משרד הפנים",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "functional-classification:moin:level2:code",
+        "title": "ספרור משרד הפנים - קוד רמה 2",
+        "description": "הקוד של הרמה השניה בספרור התקני של משרד הפנים",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "functional-classification:moin:level3:code",
+        "title": "ספרור משרד הפנים - קוד רמה 3",
+        "description": "הקוד של הרמה השלישית בספרור התקני של משרד הפנים",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "functional-classification:moin:level4:code",
+        "title": "ספרור משרד הפנים - קוד רמה 4",
+        "description": "הקוד של הרמה הרביעית בספרור התקני של משרד הפנים",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "functional-classification:moin:level1:name",
+        "title": "ספרור משרד הפנים - שם רמה 1",
+        "description": "השם של הרמה העליונה בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level2:name",
+        "title": "ספרור משרד הפנים - שם רמה 2",
+        "description": "השם של הרמה השניה בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level3:name",
+        "title": "ספרור משרד הפנים - שם רמה 3",
+        "description": "השם של הרמה השלישית בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level4:name",
+        "title": "ספרור משרד הפנים - שם רמה 4",
+        "description": "השם של הרמה הרביעית בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level1:name-en",
+        "title": "ספרור משרד הפנים - שם רמה 1 באנגלית",
+        "description": "השם באנגלית של הרמה העליונה בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level2:name-en",
+        "title": "ספרור משרד הפנים - שם רמה 2 באנגלית",
+        "description": "השם באנגלית של הרמה השניה בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level3:name-en",
+        "title": "ספרור משרד הפנים - שם רמה 3 באנגלית",
+        "description": "השם באנגלית של הרמה השלישית בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level4:name-en",
+        "title": "ספרור משרד הפנים - שם רמה 4 באנגלית",
+        "description": "השם באנגלית של הרמה הרביעית בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level1:code",
+        "title": "ספרור משרד הפנים - קוד רמה 1",
+        "description": "הקוד של הרמה העליונה בספרור התקני של משרד הפנים",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "functional-classification:moin:level2:code",
+        "title": "ספרור משרד הפנים - קוד רמה 2",
+        "description": "הקוד של הרמה השניה בספרור התקני של משרד הפנים",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "functional-classification:moin:level3:code",
+        "title": "ספרור משרד הפנים - קוד רמה 3",
+        "description": "הקוד של הרמה השלישית בספרור התקני של משרד הפנים",
+        "dataType": "string",
+        "unique": true
+    },
+    {
+        "name": "functional-classification:moin:level1:name",
+        "title": "ספרור משרד הפנים - שם רמה 1",
+        "description": "השם של הרמה העליונה בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level2:name",
+        "title": "ספרור משרד הפנים - שם רמה 2",
+        "description": "השם של הרמה השניה בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level3:name",
+        "title": "ספרור משרד הפנים - שם רמה 3",
+        "description": "השם של הרמה השלישית בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level1:name-en",
+        "title": "ספרור משרד הפנים - שם רמה 1 באנגלית",
+        "description": "השם באנגלית של הרמה העליונה בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level2:name-en",
+        "title": "ספרור משרד הפנים - שם רמה 2 באנגלית",
+        "description": "השם באנגלית של הרמה השניה בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "functional-classification:moin:level3:name-en",
+        "title": "ספרור משרד הפנים - שם רמה 3 באנגלית",
+        "description": "השם באנגלית של הרמה השלישית בספרור התקני של משרד הפנים",
+        "dataType": "string"
+    },
+    {
+        "name": "value",
+        "title": "סכום",
+        "description": "התקציב עצמו, בשקלים חדשים",
+        "dataType": "number",
+        "mandatory": true,
+        "alternatives": [
+            ["value-thousands"]
+        ]
+    },
+    {
+        "name": "value-thousands",
+        "title": "סכום באלפים",
+        "description": "התקציב עצמו, באלפי שקלים חדשים",
+        "dataType": "number"
+    }
+]

@@ -1,0 +1,214 @@
+[
+    {
+        "name": "municipality:code",
+        "title": "מזהה הרשות המקומית",
+        "description": "מזהה משרד הפנים של הרשות המקומית",
+        "dataType": "integer"
+    },
+    {
+        "name": "municipality:name",
+        "title": "שם הרשות המקומית",
+        "description": "השם של הרשות המקומית",
+        "dataType": "string",
+        "labelOf": "municipality:code",
+        "mandatory": true
+    },
+    {
+        "name": "city:code",
+        "title": "מזהה הישוב",
+        "description": "מזהה משרד הפנים הישוב בתוך הרשות המקומית",
+        "dataType": "string"
+    },
+    {
+        "name": "city:name",
+        "title": "שם הישוב",
+        "description": "שם הישוב בתוך הרשות המקומית",
+        "dataType": "string",
+        "labelOf": "city:code"
+    },
+    {
+        "name": "school:name",
+        "title": "שם המוסד החינוכי",
+        "description": "השם המלא והידוע של המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "school:symbol",
+        "title": "סמל המוסד",
+        "description": "סמל המוסד",
+        "dataType": "string",
+        "unique": true,
+        "mandatory": true
+    },
+    {
+        "name": "address:full",
+        "title": "כתובת מלאה",
+        "description": "כתובת מלאה של המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "address:city",
+        "title": "שם העיר",
+        "description": "העיר בכתובת של המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "address:street",
+        "title": "רחוב",
+        "description": "שם הרחוב בכתובת מלאה של המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "address:house-number",
+        "title": "מספר בית",
+        "description": "מספר הבית בכתובת של של המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "location:lat",
+        "title": "קו אורך",
+        "description": "קו האורך בנ.צ. של מיקום המוסד החינוכי",
+        "dataType": "number"
+    },
+    {
+        "name": "location:lon",
+        "title": "קו רוחב",
+        "description": "קו הרוחב בנ.צ. של מיקום המוסד החינוכי",
+        "dataType": "number"
+    },
+    {
+        "name": "location:lat:ilgrid",
+        "title": "קו אורך (רשת ישראל)",
+        "description": "קו האורך בנ.צ. (רשת ישראל) של מיקום המוסד החינוכי",
+        "dataType": "number"
+    },
+    {
+        "name": "location:lon:ilgrid",
+        "title": "קו רוחב (רשת ישראל)",
+        "description": "קו הרוחב בנ.צ. (רשת ישראל) של מיקום המוסד החינוכי",
+        "dataType": "number"
+    },
+    {
+        "name": "school:phone-number",
+        "title": "מספר טלפון ראשי",
+        "description": "מספר טלפון ראשי של המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "school:email-address",
+        "title": "כתובת אימייל",
+        "description": "כתובת אימייל של המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "school:manager",
+        "title": "מנהל/ת המוסד החינוכי",
+        "description": "השם המלא של מנהל/ת המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "school:kind",
+        "title": "סוג המוסד",
+        "description": "סוג המוסד החינוכי ",
+        "dataType": "string"
+    },
+    {
+        "name": "school:phase",
+        "title": "שלבי חינוך במוסד",
+        "description": "לאיזה שלב חינוכי מיועד המוסד",
+        "dataType": "string"
+    },
+    {
+        "name": "school:grade-range",
+        "title": "טווח שכבות",
+        "description": "אילו שכבות גיל לומדות במוסד",
+        "dataType": "string"
+    },
+    {
+        "name": "school:sector",
+        "title": "מגזר",
+        "description": "המגזר אליו שייך המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "school:oversight",
+        "title": "פיקוח",
+        "description": "הפיקוח אליו שייך המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "school:legal-status",
+        "title": "מעמד משפטי",
+        "description": "המעמד המשפטי של המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "school:ownership",
+        "title": "בעלות",
+        "description": "הבעלים של המוסד החינוכי",
+        "dataType": "string"
+    },
+    {
+        "name": "school:founded-year",
+        "title": "שנת ייסוד",
+        "description": "שנת ייסוד של המוסד",
+        "dataType": "integer"
+    },
+    {
+        "name": "school:year",
+        "title": "שנת לימוד",
+        "description": "שנת לימוד (שנה עברית)",
+        "dataType": "string"
+    },
+    {
+        "name": "school:num-students",
+        "title": "מספר תלמידים",
+        "description": "מספר התלמידים הלומדים במוסד",
+        "dataType": "integer"
+    },
+    {
+        "name": "school:num-students:regular",
+        "title": "מספר תלמידים בחינוך רגיל",
+        "description": "מספר התלמידים הלומדים במוסד בחינוך רגיל",
+        "dataType": "integer"
+    },
+    {
+        "name": "school:num-students:special",
+        "title": "מספר תלמידים בחינוך מיוחד",
+        "description": "מספר התלמידים הלומדים במוסד בחינוך מיוחד",
+        "dataType": "integer"
+    },
+    {
+        "name": "school:num-classrooms:regular",
+        "title": "מספר כיתות רגילות",
+        "description": "מספר הכיתות הרגילות במוסד",
+        "dataType": "number"
+    },
+    {
+        "name": "school:num-classrooms:special",
+        "title": "מספר כיתות מיוחדות",
+        "description": "מספר הכיתות המיוחדות במוסד",
+        "dataType": "number"
+    },
+    {
+        "name": "school:num-classrooms:effective",
+        "title": "מספר כיתות אפקטיבי",
+        "description": "מספר הכיתות במוסד לצורך חישוב ממוצע",
+        "dataType": "number"
+    },
+    {
+        "name": "school:budget",
+        "title": "סה״כ תקציב",
+        "description": "סך התקציב השנתי של המוסד",
+        "dataType": "number"
+    },
+    {
+        "name": "school:active",
+        "title": "סטטוס המוסד",
+        "description": "האם המוסד החינוכי פעיל/לא פעיל",
+        "dataType": "boolean",
+        "options": {
+            "truthValues": ["פעיל"]
+        }
+    }
+]

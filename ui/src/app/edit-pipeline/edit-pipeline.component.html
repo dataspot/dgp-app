@@ -4,28 +4,27 @@
 <label>Description</label>
 <textarea rows='3' [(ngModel)]='item.description'></textarea>
 <label>Kind</label>
-<select [(ngModel)]='item.kind' *ngIf='api.currentConfig'>
-  <option [value]='kind.name' *ngFor='let kind of (api.configuration | async).kinds'>{{kind.display}}</option>
-</select>
-<label>Schedule</label>
-<select [(ngModel)]='item.schedule'>
-  <option value='manually'>Manually</option>
-  <option value='daily'>Daily</option>
-  <option value='weekly'>Weekly</option>
-  <option value='hourly'>Hourly</option>
-  <option value='monthly'>Monthly</option>
-</select>
-<ng-container *ngIf='item.kind'>
-  <ng-container *ngFor='let field of ((api.configuration | async).kinds_map[item.kind] || {fields:[]}).fields'>
-    <label>{{field.display}}</label>
-    <input type='text' [(ngModel)]='item.params[field.name]'/>
-  </ng-container>
+<ng-container *ngIf='api.currentConfig'>
+  <select [(ngModel)]='item.kind'>
+    <option [value]='kind.name' *ngFor='let kind of api.currentConfig.kinds'>{{kind.display}}</option>
+  </select>
+  <label>Schedule</label>
+  <select [(ngModel)]='item.schedule'>
+    <option [value]='schedule.name' *ngFor='let schedule of api.currentConfig.schedules'>{{schedule.display}}</option>
+  </select>
+  <app-dynamic-fields-editor [item]='item.params' [fields]='(api.currentConfig.kinds_map[item.kind] || {fields:[]}).fields'></app-dynamic-fields-editor>
+  <div class='buttons'>
+    <div class='dgp button' (click)='dgp()' *ngIf='api.currentConfig.kinds_map[item.kind].dgp'>
+      <i class="fas fa-cogs" aria-hidden="true"></i>
+      Save &amp; go to Workbench
+    </div>
+    <div class='save button' (click)='save()'>
+      <i class="fas fa-save" aria-hidden="true"></i>
+      Save Pipeline
+    </div>
+    <div class='delete button' (click)='delete()' *ngIf='item.id'>
+      <i class="fas fa-trash" aria-hidden="true"></i>
+      Delete Pipeline
+    </div>
+  </div>
 </ng-container>
-<div class='buttons'>
-<div class='save button' (click)='save()'>
-<i class="fas fa-save" aria-hidden="true"></i>
-Save Pipeline</div>
-<div class='delete button' (click)='delete()' *ngIf='item.id'>
-<i class="fas fa-trash" aria-hidden="true"></i>
-Delete Pipeline</div>
-</div>

@@ -10,8 +10,8 @@ def read(*paths):
     fullpath = os.path.join(basedir, *paths)
     contents = io.open(fullpath, encoding='utf-8').read().strip()
     return contents
-    
-    
+
+
 # Prepare
 PACKAGE = 'etl_server'
 NAME = 'etl-server'

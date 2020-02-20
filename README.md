@@ -48,9 +48,22 @@ This library provides a wrapper around airflow, providing a means to add / remov
                 }
             ]
         }
+    ],
+    "schedules": [
+        {
+            "name": "monthly",
+            "display": "Monthly"
+        },
+        {
+            "name": "daily",
+            "display": "Daily"
+        }
     ]
+
 }
 ```
+
+(If schedules are not specified, a default schedules list will be used).
 
 - The Airflow DAGs Creator - a Python file that reads the pipeline configuration and creates your Airflow DAGs.
   Sample code:

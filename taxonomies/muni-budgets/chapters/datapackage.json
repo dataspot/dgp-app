@@ -1,0 +1,108 @@
+{
+  "bytes": 88998,
+  "count_of_rows": 680,
+  "hash": "9f3ca30234bba1147b4e8dc39e196f0a",
+  "profile": "data-package",
+  "resources": [
+    {
+      "bytes": 88998,
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "257fabc019f02199bf575e1c59da05c5",
+      "name": "chapters",
+      "path": "chapters.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "CODE",
+            "type": "integer"
+          },
+          {
+            "format": "default",
+            "name": "PARENT",
+            "type": "integer"
+          },
+          {
+            "format": "default",
+            "name": "PARENT SCOPE",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "DIRECTION",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "INVERSE",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "INVERSE SCOPE",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "COMPARABLE",
+            "type": "boolean"
+          },
+          {
+            "format": "default",
+            "name": "NAME",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "NAME_EN",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "NAME_RU",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "NAME_AR",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "DESCRIPTION",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "DESCRIPTION_EN",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "DESCRIPTION_RU",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "DESCRIPTION_AR",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ]
+}

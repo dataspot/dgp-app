@@ -1,0 +1,6 @@
+<app-step-tabs [validation]='validation' [selected]='step' (change)='select($event)'></app-step-tabs>
+<div class='separator'></div>
+<app-step-extract *ngIf="step=='extract'"></app-step-extract>
+<app-step-mapping *ngIf="step=='map'"></app-step-mapping>
+<app-step-enrich *ngIf="step=='enrich'"></app-step-enrich>
+<app-step-publish *ngIf="step=='publish'"></app-step-publish>

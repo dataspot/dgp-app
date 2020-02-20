@@ -11,7 +11,7 @@ def make_blueprint(db_connection_string=None, configuration={}):  # noqa
                               connection_string=db_connection_string)
 
     # Create instance
-    blueprint = Blueprint('etl_server', 'etl_server')
+    blueprint = Blueprint('pipelines', 'pipelines')
 
     def query_pipelines_():
         return controllers.query_pipelines()

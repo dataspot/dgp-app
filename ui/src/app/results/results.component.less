@@ -1,0 +1,19 @@
+:host {
+    position: fixed;
+    z-index: 1;
+    height: 70vh;
+    width: 100%;
+    bottom: ~'calc(100px - 70vh)';
+    flex: 0 0 auto;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    border-top: 3px double #444;
+    transition-property: bottom;
+    transition-duration: 1s;
+    background-color: #fff;
+
+    &:hover {
+        bottom: 0px;
+    }
+  }
+  

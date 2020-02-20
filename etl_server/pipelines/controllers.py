@@ -1,9 +1,12 @@
 import logging
 import time
+import re
 
 from slugify import slugify
 
 from .models import Models
+
+TABLE_RE = re.compile('<table>.+</table>', re.MULTILINE | re.DOTALL)
 
 
 class Controllers():
@@ -11,6 +14,14 @@ class Controllers():
     def __init__(self, configuration, connection_string):
         self.models = Models(connection_string=connection_string)
         self.config = configuration
+        if 'schedules' not in configuration:
+            configuration['schedules'] = [
+                dict(name='hourly', display='Hourly'),
+                dict(name='weekly', display='Weekly'),
+                dict(name='monthly', display='Monthly'),
+                dict(name='yearly', display='Yearly'),
+                dict(name='manual', display='Manual'),
+            ]
 
     def create_or_edit_pipeline(self, id, body):
         # Calculate id if necessary
@@ -61,18 +72,32 @@ class Controllers():
             dag = dagbag.get_dag(id)
             if dag:
                 ti.task = dag.get_task(ti.task_id)
-            logs, _ = handler.read(ti, None, metadata={})
-            return logs
+                logs, _ = handler.read(ti, None, metadata={})
+            else:
+                logs = ''
+            if isinstance(logs, list):
+                logs = ''.join(logs)
+            if not logs:
+                return '', ''
+            logging.error('::: %r %r', logs, type(logs))
+            table = TABLE_RE.findall(logs)
+            if len(table) > 0:
+                table = table[-1]
+                logs = TABLE_RE.sub('', logs)
+            else:
+                table = ''
+            return logs, table
         else:
-            return ''
+            return '', ''
 
     def query_pipelines(self):
         query_results = self.models.query()
     
         statuses = self.__get_latest_runs()
         for res in query_results.get('result', []):
-            if res['key'] in statuses:
-                res['value']['status'] = statuses[res['key']]
+            status = dict(status='didnt-run')
+            status = statuses.get(res['key'], status)
+            res['value']['status'] = status
         query_results['result'] = list(map(lambda x: x.get('value'),query_results.get('result', [])))
 
         return query_results
@@ -83,9 +108,11 @@ class Controllers():
         key = result.get('result', {}).get('key')
         if key in statuses:
             status = statuses[key]
-            status['logs'] = self.__get_logs(key)
-            result.setdefault('result', {}).setdefault('value', {})\
-                .setdefault('status', status)
+            status['logs'], status['table'] = self.__get_logs(key)
+        else:
+            status = dict(status='didnt-run', logs='')
+        result.setdefault('result', {}).setdefault('value', {})\
+            .setdefault('status', status)
         result['result'] = result.get('result', {}).get('value')
         return result
 

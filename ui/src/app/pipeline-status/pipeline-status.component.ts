@@ -28,14 +28,12 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
       })
     ).subscribe((pipeline) => {
       this.item = pipeline;
-      this.item.status = this.item.status || {status: 'Didn\'t run'};
       if (this.item.status.status === 'running' && this.visible) {
         setTimeout(() => { this.refresh(); }, 1000);
       }
     });
   }
 
-  
   ngOnInit() {
     this.visible = true;
   }
@@ -49,7 +47,7 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
       .subscribe((result) => {
         console.log(result);
         this.refresh();
-      })
+      });
   }
 
 }

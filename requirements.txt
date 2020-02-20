@@ -1,6 +1,15 @@
+aiopg
+dhq-auth
 sqlalchemy
 flask-cors
+flask-jsonpify
+flask-session
 PyYAML
 awesome-slugify
 psycopg2-binary
 apache-airflow[postgres]
+requests
+dgp-server
+geocoder
+pyproj
+dataflows>=0.0.70

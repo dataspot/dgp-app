@@ -2,14 +2,19 @@
 Code that goes along with the Airflow tutorial located at:
 https://github.com/apache/airflow/blob/master/airflow/example_dags/tutorial.py
 """
+import sys
+import os
 import datetime 
 import logging
-from airflow import DAG
-from airflow.operators.bash_operator import BashOperator
-from airflow.utils import dates
-from etl_server.models import Models
+import importlib
 
-etl_models = Models()
+from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from airflow.utils import dates
+
+from etl_server.pipelines.models import Models as PipelineModels
+
+etl_models = PipelineModels()
 
 default_args = {
     'owner': 'Airflow',
@@ -19,11 +24,20 @@ default_args = {
 
 for pipeline in etl_models.all_pipelines():
     dag_id = pipeline['id']
-    logging.info('Initializing DAG %s, %r', dag_id, pipeline)
-    dag = DAG(dag_id, default_args=default_args, schedule_interval=datetime.timedelta(days=1))
-    t1 = BashOperator(task_id=dag_id,
-                      bash_command='for x in "1 2 3 4 5 6 7 8 9 10" ; do echo "$x: %s" ; sleep 10 ; done' % pipeline['name'],
-                      dag=dag)
+    logging.info('Initializing DAG %s', dag_id)
+
+    schedule = pipeline['schedule']
+    schedule = ('@' + schedule) if schedule != 'manual' else None
+
+    dag = DAG(dag_id, default_args=default_args, schedule_interval=schedule)
+
+    kind = pipeline['kind']
+    operator = importlib.import_module('.' + kind, package='operators').operator
+
+    t1 = PythonOperator(task_id=dag_id,
+                        python_callable=operator,
+                        op_args=[pipeline['params']],
+                        dag=dag)
     globals()[dag_id] = dag
 
 

@@ -1,0 +1,51 @@
+.failure-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+    width: 100vw;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    top: -50vh;
+    transition-property: top;
+    transition-duration: 1s;
+
+    &.active {
+        top: ~'calc(43px - 50vh)';
+        &:hover {
+            top: 0;
+        }
+    }
+
+    .failure-marquee {
+        background-color: lightpink;
+        border: 1px solid lightsalmon;
+        border-top: none;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        height: 50vh;
+        max-width: 50vw;
+        padding: 5px;
+        padding-top: 0px;
+        display: flex;
+        flex-flow: column;
+
+        pre {
+            background-color: white;
+            width: 100%;
+            direction: ltr;
+            text-align: left;
+            min-height: 20px;
+            margin: 0px;
+            flex: 0 0 auto;
+            &:first-child {
+                flex: 1 1 100%;
+                overflow: scroll;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}

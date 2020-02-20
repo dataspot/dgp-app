@@ -1,0 +1,3 @@
+<label>{{question.title}}</label>
+<input *ngIf='question.kind==="text"' type='text' [(ngModel)]='value'/>
+<input *ngIf='question.kind==="boolean"' type='checkbox' [(ngModel)]='value'/>

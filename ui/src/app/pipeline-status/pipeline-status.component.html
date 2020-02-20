@@ -17,18 +17,19 @@
   </div>
 </div>
 <h3>Last Execution Status :</h3>
-<pre>{{item.status.logs}}</pre>
+<div class='logs'>{{item.status.logs}}</div>
+<div *ngIf='item.status.table'  class='result-table' [innerHtml]='item.status.table'></div>
 <div class='buttons'>
-<a class='refresh button' (click)='refresh()'>
-  <i class="fas fa-redo-alt" aria-hidden="true"></i>
-  Refresh
-</a>
-<a class='trigger button' (click)='trigger()'>
-  <i class="fas fa-play" aria-hidden="true"></i>
-  Trigger Pipeline
-</a>
 <a class='edit button' [routerLink]='"/edit/" + item.id'>
   <i class="fas fa-pencil-alt" aria-hidden="true"></i>
   Edit Pipeline
+</a>
+<a class='refresh button' (click)='refresh()' *ngIf='item.status.status === "running"'>
+  <i class="fas fa-redo-alt" aria-hidden="true"></i>
+  Refresh Status
+</a>
+<a class='trigger button' (click)='trigger()' *ngIf='item.status.status !== "running"'>
+  <i class="fas fa-play" aria-hidden="true"></i>
+  Trigger Pipeline
 </a>
 </div>

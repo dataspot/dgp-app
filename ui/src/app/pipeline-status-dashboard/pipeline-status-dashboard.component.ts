@@ -12,7 +12,7 @@ export class PipelineStatusDashboardComponent implements OnInit {
   successful = 0;
   failed = 0;
 
-  constructor(private api: ApiService) { 
+  constructor(private api: ApiService) {
     this.api.pipelines
       .subscribe((pipelines) => {
         this.total = pipelines.length;
@@ -20,7 +20,7 @@ export class PipelineStatusDashboardComponent implements OnInit {
         console.log(pipelines.filter((x) => x.status.status === 'success'));
         this.successful = pipelines.filter((x) => x.status.status === 'success').length;
         this.failed = pipelines.filter((x) => x.status.status === 'failed').length;
-      })
+      });
   }
 
   ngOnInit() {
