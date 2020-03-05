@@ -14,7 +14,7 @@ from airflow.utils import dates
 
 from etl_server.pipelines.models import Models as PipelineModels
 
-etl_models = PipelineModels()
+etl_models = PipelineModels(os.environ['ETLS_DATABASE_URL'])
 
 default_args = {
     'owner': 'Airflow',

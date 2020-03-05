@@ -1,8 +1,0 @@
-muni-budgets:
-  title: Sample
-  column_types: sample/column_types.json
-  header_mapping: sample/header_mapping.yaml
-  processing_module: sample/process.py
-  config:
-    key-fields:
-      - key1

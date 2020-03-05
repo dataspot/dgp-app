@@ -1,0 +1,6 @@
+<app-container>
+  <h1>Users</h1>
+  <ng-container *ngFor='let item of (api.users | async)'>
+    <app-user-list-item [item]='item'></app-user-list-item>
+  </ng-container>
+</app-container>

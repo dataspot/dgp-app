@@ -1,7 +1,5 @@
-<h1>Dashboard</h1>
-<div class='add-new'><a routerLink='/edit/new'>Add New Pipeline</a></div>
 <div class='indicators'>
-  <div class='indicator'><span class='number'>{{total}}</span><span class='text'>Total Pipelines</span></div>
-  <div class='indicator'><span class='number'>{{successful}}</span><span class='text'>Successful Pipelines</span></div>
-  <div class='indicator'><span class='number'>{{failed}}</span><span class='text'>Failed Pipelines</span></div>
+  <div class='indicator' [routerLink]='"/pipelines"'><span class='number'>{{total}}</span><span class='text'>Total Pipelines</span></div>
+  <div class='indicator' [routerLink]='"/pipelines"'><span class='number'>{{successful}}</span><span class='text'>Successful Pipelines</span></div>
+  <div class='indicator' [routerLink]='"/pipelines"'><span class='number'>{{failed}}</span><span class='text'>Failed Pipelines</span></div>
 </div>

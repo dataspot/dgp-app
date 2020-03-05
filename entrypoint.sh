@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 cd /app
 airflow initdb
 airflow scheduler &

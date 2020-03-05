@@ -1,35 +1,8 @@
 muni-budgets:
-  title: תקציב
-  column_types: muni-budgets/column_types.json
-  header_mapping: muni-budgets/header_mapping.yaml
-  processing_module: muni-budgets/process.py
+  title: Sample
+  column_types: sample/column_types.json
+  header_mapping: sample/header_mapping.yaml
+  processing_module: sample/process.py
   config:
     key-fields:
-      - municipality:name
-      - fiscal-year
-      - phase
-muni-procurement:
-  title: תהליכי רכש/השמה
-  column_types: muni-procurement/column_types.json
-  processing_module: muni-procurement/process.py
-  config:
-    key-fields:
-      - municipality:name
-      - process:kind
-muni-businesses:
-  title: מאגר עסקים
-  column_types: muni-businesses/column_types.json
-  processing_module: muni-businesses/process.py
-  config:
-    key-fields:
-      - municipality:name
-      - source:kind
-      - source:date
-schools:
-  title: מוסדות חינוך
-  column_types: schools/column_types.json
-  processing_module: schools/process.py
-  config:
-    key-fields:
-      - municipality:name
-    db-update-mode: update
+      - key1

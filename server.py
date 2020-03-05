@@ -7,10 +7,11 @@ from flask import Flask, redirect, send_file, Response, stream_with_context, req
 from flask_cors import CORS
 from flask_session import Session
 
-os.environ['ALLOWED_SERVICES'] = 'ckan-cloud-provisioner:ckan_cloud_provisioner'
+os.environ['ALLOWED_SERVICES'] = 'etl-server:etl_server'
 
 from etl_server.pipelines.blueprint import make_blueprint as pipelines_blueprint
 from etl_server.users.blueprint import make_blueprint as users_blueprint
+from etl_server.permissions import check_permission, Permissions
 from auth import make_blueprint as auth_blueprint
 
 # Configuration
@@ -37,7 +38,7 @@ def proxy(base_url, prefix):
             print(request.method, url)
             if request.method == 'GET':
                 req = requests.get(url, stream=True)
-                return Response(stream_with_context(req.iter_content(chunk_size=1)), content_type=req.headers['content-type'])
+                return Response(stream_with_context(req.iter_content(chunk_size=10)), content_type=req.headers['content-type'])
             elif request.method == 'POST':
                 req = requests.post(url, json=request.json, headers=request.headers)
             elif request.method == 'OPTIONS':
@@ -47,7 +48,10 @@ def proxy(base_url, prefix):
     return func
 
 def dgp_proxy(app, route, methods=['GET']):
-    app.add_url_rule(route, route[1:].replace('/', '_'), proxy('http://localhost:5001', '/api'), methods=methods)
+    app.add_url_rule(route, 
+                     route[1:].replace('/', '_'),
+                     check_permission([Permissions.workbench])(proxy('http://localhost:5001', '/api')),
+                     methods=methods)
 
 
 dgp_proxy(app, '/api/events/<path:subpath>')
@@ -55,12 +59,12 @@ dgp_proxy(app, '/api/config', methods=['POST', 'OPTIONS'])
 dgp_proxy(app, '/api/configs')
 
 app.register_blueprint(
-    pipelines_blueprint(db_connection_string=os.environ.get('DATABASE_URL'),
+    pipelines_blueprint(db_connection_string=os.environ.get('ETLS_DATABASE_URL'),
                         configuration=configuration),
     url_prefix='/api/'
 )
 app.register_blueprint(
-    users_blueprint(db_connection_string=os.environ.get('DATABASE_URL')),
+    users_blueprint(db_connection_string=os.environ.get('ETLS_DATABASE_URL')),
     url_prefix='/api/'
 )
 app.register_blueprint(
@@ -69,8 +73,9 @@ app.register_blueprint(
 )
 
 
-@app.route('/')
-def main():
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def main(path):
     return send_file('ui/dist/ui/index.html')
 
 

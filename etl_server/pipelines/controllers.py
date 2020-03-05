@@ -23,7 +23,7 @@ class Controllers():
                 dict(name='manual', display='Manual'),
             ]
 
-    def create_or_edit_pipeline(self, id, body):
+    def create_or_edit_pipeline(self, id, body, owner, allowed_all):
         # Calculate id if necessary
         if not id:
             title = body['name']
@@ -32,12 +32,12 @@ class Controllers():
             body['id'] = id
 
         # Add record to DB
-        ret = self.models.create_or_edit(id, body)
+        ret = self.models.create_or_edit(id, body, owner=owner, allowed_all=allowed_all)
         return ret
 
-    def delete_pipeline(self, id):
+    def delete_pipeline(self, id, user=None):
         # Delete pipeline from DB
-        ret = self.models.delete(id)
+        ret = self.models.delete(id, user)
         return ret
 
     def __get_latest_runs(self):
@@ -90,20 +90,28 @@ class Controllers():
         else:
             return '', ''
 
-    def query_pipelines(self):
+    def query_pipelines(self, user=None, public=None):
         query_results = self.models.query()
+        results = query_results.get('result', [])
+        if user:
+            results = list(filter(lambda p: not p['private'] or p['owner'] == user, results))
+        elif public:
+            results = list(filter(lambda p: not p['private'], results))
     
         statuses = self.__get_latest_runs()
-        for res in query_results.get('result', []):
+        for res in results:
             status = dict(status='didnt-run')
             status = statuses.get(res['key'], status)
             res['value']['status'] = status
-        query_results['result'] = list(map(lambda x: x.get('value'),query_results.get('result', [])))
+        query_results['result'] = list(map(lambda x: dict(x.get('value'), owner=x.get('owner'), private=x.get('private')), results))
 
         return query_results
 
-    def query_pipeline(self, id):
+    def query_pipeline(self, id, user=None, public=None):
         result = self.models.query_one(id)
+        if (user and (result['owner'] != user or not result['private'])) or (public and result['private']):
+            return dict(success=False)
+
         statuses = self.__get_latest_runs()
         key = result.get('result', {}).get('key')
         if key in statuses:

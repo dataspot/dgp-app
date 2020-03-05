@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { RolesService } from '../roles.service';
 
 @Component({
   selector: 'app-pipeline-list',
@@ -8,8 +9,7 @@ import { ApiService } from '../api.service';
 })
 export class PipelineListComponent implements OnInit {
 
-  constructor(public api: ApiService) {
-    this.api.queryPipelines();
+  constructor(public api: ApiService, public roles: RolesService) {
   }
 
   ngOnInit() {

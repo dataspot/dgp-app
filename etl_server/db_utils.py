@@ -64,17 +64,22 @@ class ModelsBase():
         return {c.key: getattr(obj, c.key)
                 for c in inspect(obj).mapper.column_attrs}
 
-    def create_or_edit(self, key, value):
+    def create_or_edit(self, key, value, edit_allowed=None, create_kw={}, update_kw={}):
         ret = dict(created=False, success=True, result=value)
         with self.session_scope() as session:
             document = session.query(self._cls)\
                 .filter(self._cls.key == key).first()
             if document is None:
-                document = self._cls(key=key, value=value)
+                document = self._cls(key=key, value=value, **create_kw)
                 ret['created'] = True
+                session.add(document)
             else:
-                document.value = value
-            session.add(document)
+                if edit_allowed is None or edit_allowed(document):
+                    document.value = value
+                    for k, v in update_kw.items():
+                        setattr(document, k, v)
+                else:
+                    ret['success'] = False
         return ret
 
     def query_one(self, key, case_sensitive=True):
@@ -99,12 +104,13 @@ class ModelsBase():
                 ret['result'].append(self.object_as_dict(doc))
         return ret
 
-    def delete(self, key):
+    def delete(self, key, delete_allowed=None):
         ret = dict(success=False)
         with self.session_scope() as session:
             document = session.query(self._cls)\
                 .filter(self._cls.key == key).first()
             if document is not None:
-                ret['success'] = True
-                session.delete(document)
+                if not delete_allowed or delete_allowed(document):
+                    ret['success'] = True
+                    session.delete(document)
         return ret

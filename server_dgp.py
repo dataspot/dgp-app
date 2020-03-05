@@ -6,7 +6,7 @@ from dgp_server.blueprint import DgpServer
 from dgp_server.log import logger
 
 BASE_PATH = os.environ.get('BASE_PATH', '/var/dgp')
-DB_URL = os.environ.get('DATABASE_URL')
+DB_URL = os.environ.get('DATASETS_DATABASE_URL')
 
 app = web.Application()
 app.add_subapp('/api/', DgpServer(BASE_PATH, DB_URL))

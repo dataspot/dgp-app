@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+import { BudgetkeyNg2AuthModule, getAuthServiceConfigProvider } from 'budgetkey-ng2-auth';
 import { AppComponent } from './app.component';
 import { PipelineStatusComponent } from './pipeline-status/pipeline-status.component';
 import { EditPipelineComponent } from './edit-pipeline/edit-pipeline.component';
@@ -29,6 +30,13 @@ import { ExtendableKeyvalueListComponent } from './extendable-keyvalue-list/exte
 import { FailureMarqueeComponent } from './failure-marquee/failure-marquee.component';
 import { ExtraConfigQuestionComponent } from './extra-config-question/extra-config-question.component';
 import { ExtraConfigQuestionsComponent } from './extra-config-questions/extra-config-questions.component';
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { ContainerComponent } from './container/container.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LogoutComponent } from './logout/logout.component';
+import { UsersComponent } from './users/users.component';
+import { UserListItemComponent } from './user-list-item/user-list-item.component';
 
 @NgModule({
   declarations: [
@@ -56,15 +64,25 @@ import { ExtraConfigQuestionsComponent } from './extra-config-questions/extra-co
     ExtendableKeyvalueListComponent,
     FailureMarqueeComponent,
     ExtraConfigQuestionComponent,
-    ExtraConfigQuestionsComponent
+    ExtraConfigQuestionsComponent,
+    LoginComponent,
+    HeaderComponent,
+    ContainerComponent,
+    DashboardComponent,
+    LogoutComponent,
+    UsersComponent,
+    UserListItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BudgetkeyNg2AuthModule,
   ],
-  providers: [],
+  providers: [
+    getAuthServiceConfigProvider('http://localhost:5000'),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

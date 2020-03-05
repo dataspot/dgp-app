@@ -1,0 +1,8 @@
+<app-container>
+  <div class='intro' *ngIf='profile'>
+    <img [src]='profile.avatar_url'/>
+    <h1>Welcome, {{profile.name}}!</h1>
+    <a class='logout' routerLink='/logout'>Logout</a>
+  </div>
+  <app-pipeline-status-dashboard></app-pipeline-status-dashboard>
+</app-container>

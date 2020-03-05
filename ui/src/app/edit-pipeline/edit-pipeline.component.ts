@@ -4,6 +4,7 @@ import { ApiService } from '../api.service';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { StoreService } from '../store.service';
+import { RolesService } from '../roles.service';
 
 @Component({
   selector: 'app-edit-pipeline',
@@ -15,7 +16,8 @@ export class EditPipelineComponent implements OnInit {
   item: any = {params: {}, schedule: ''};
   isNew = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, public api: ApiService, public store: StoreService) {
+  constructor(private route: ActivatedRoute, private router: Router, public api: ApiService,
+              public store: StoreService, public roles: RolesService) {
     this.route.paramMap.pipe(
       switchMap((params) => {
         const id = params.get('id');
@@ -37,8 +39,13 @@ export class EditPipelineComponent implements OnInit {
     this.store.newConfig();
   }
 
+  _save() {
+    this.item.private = this.item.private !== 'false';
+    return this.api.savePipeline(this.item);
+  }
+
   save() {
-    this.api.savePipeline(this.item)
+    this._save()
         .subscribe((result) => {
           if (result.id) {
             this.router.navigate(['/']);
@@ -49,7 +56,7 @@ export class EditPipelineComponent implements OnInit {
   }
 
   dgp() {
-    this.api.savePipeline(this.item)
+    this._save()
         .subscribe((result) => {
           if (result.id) {
             this.router.navigate(['/dgp/' + result.id]);

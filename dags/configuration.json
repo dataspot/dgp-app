@@ -20,17 +20,6 @@
                 }
             ],
             "dgp": true
-        },
-        {
-            "name": "datacity",
-            "display": "DataCity",
-            "fields": [
-                {
-                    "name": "snippet",
-                    "display": "Snippet"
-                }
-            ],
-            "dgp": true
         }
     ]
 }

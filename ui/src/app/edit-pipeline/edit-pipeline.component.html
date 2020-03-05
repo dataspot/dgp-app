@@ -1,32 +1,41 @@
-<h1>Edit Pipeline</h1>
-<label>Pipeline Name</label>
-<input type='text' [(ngModel)]='item.name'/>
-<label>Description</label>
-<textarea rows='3' [(ngModel)]='item.description'></textarea>
-<label>Kind</label>
-<ng-container *ngIf='api.currentConfig'>
-  <select [(ngModel)]='item.kind'>
-    <option [value]='kind.name' *ngFor='let kind of api.currentConfig.kinds'>{{kind.display}}</option>
-  </select>
-  <label>Schedule</label>
-  <select [(ngModel)]='item.schedule'>
-    <option [value]='schedule.name' *ngFor='let schedule of api.currentConfig.schedules'>{{schedule.display}}</option>
-  </select>
-  <ng-container *ngIf='api.currentConfig.kinds_map[item.kind]'>
-    <app-dynamic-fields-editor [item]='item.params' [fields]='(api.currentConfig.kinds_map[item.kind] || {fields:[]}).fields'></app-dynamic-fields-editor>
-    <div class='buttons'>
-      <div class='dgp button' (click)='dgp()' *ngIf='api.currentConfig.kinds_map[item.kind].dgp'>
-        <i class="fas fa-cogs" aria-hidden="true"></i>
-        Save &amp; go to Workbench
+<app-container>
+  <h1>Edit Pipeline</h1>
+  <label>Pipeline Name</label>
+  <input type='text' [(ngModel)]='item.name'/>
+  <label>Description</label>
+  <textarea rows='3' [(ngModel)]='item.description'></textarea>
+  <label>Kind</label>
+  <ng-container *ngIf='api.currentConfig'>
+    <select [(ngModel)]='item.kind'>
+      <option [value]='kind.name' *ngFor='let kind of api.currentConfig.kinds'>{{kind.display}}</option>
+    </select>
+    <label>Schedule</label>
+    <select [(ngModel)]='item.schedule'>
+      <ng-container *ngFor='let schedule of api.currentConfig.schedules'>
+        <option *ngIf='schedule.name === "manual" || roles._.pipelinesExecute' [value]='schedule.name'>{{schedule.display}}</option>
+      </ng-container>
+    </select>
+    <label>Visibility</label>
+    <select type='checkbox' [(ngModel)]='item.private'>
+      <option [value]='true'>Only Visible to Me</option>
+      <option [value]='false'>Publicly Visible</option>
+    </select>
+    <ng-container *ngIf='api.currentConfig.kinds_map[item.kind]'>
+      <app-dynamic-fields-editor [item]='item.params' [fields]='(api.currentConfig.kinds_map[item.kind] || {fields:[]}).fields'></app-dynamic-fields-editor>
+      <div class='buttons'>
+        <div class='dgp button' (click)='dgp()' *ngIf='roles._.workbench && api.currentConfig.kinds_map[item.kind].dgp'>
+          <i class="fas fa-cogs" aria-hidden="true"></i>
+          Save &amp; go to Workbench
+        </div>
+        <div class='save button' (click)='save()'>
+          <i class="fas fa-save" aria-hidden="true"></i>
+          Save Pipeline
+        </div>
+        <div *ngIf='roles._.pipelinesDeleteOwn && item.id' class='delete button' (click)='delete()'>
+          <i class="fas fa-trash" aria-hidden="true"></i>
+          Delete Pipeline
+        </div>
       </div>
-      <div class='save button' (click)='save()'>
-        <i class="fas fa-save" aria-hidden="true"></i>
-        Save Pipeline
-      </div>
-      <div class='delete button' (click)='delete()' *ngIf='item.id'>
-        <i class="fas fa-trash" aria-hidden="true"></i>
-        Delete Pipeline
-      </div>
-    </div>
+    </ng-container>
   </ng-container>
-</ng-container>
+</app-container>

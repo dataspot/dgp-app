@@ -4,6 +4,8 @@ from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy import Column, String
 
+from auth.models import get_user
+
 from ..db_utils import Common, ModelsBase
 
 
@@ -22,4 +24,4 @@ class Models(ModelsBase):
         super().__init__(Base, User, connection_string)
 
     def query_one(self, key):
-        super().query_one(key, case_sensitive=False)
+        return super().query_one(key, case_sensitive=False)

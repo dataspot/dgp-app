@@ -18,17 +18,17 @@ def make_blueprint(db_connection_string=None):
     blueprint = Blueprint('users', 'users')
 
     # Controller Proxies
-    @check_permission(Permissions.Admin)
+    @check_permission([Permissions.usersList])
     def query_users_():
         return controllers.query_users(g.permissions.get('userid'))
 
-    @check_permission(Permissions.Admin)
-    def edit_user_():
+    @check_permission([Permissions.usersEdit, Permissions.usersNew])
+    def edit_user_(role=None):
         body = request.json
         id = body['id']
         return controllers.create_or_edit_user(id, body)
 
-    @check_permission(Permissions.Admin)
+    @check_permission([Permissions.usersDelete])
     def delete_user_(id):
         return controllers.delete_user(id)
 

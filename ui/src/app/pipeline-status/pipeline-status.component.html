@@ -1,35 +1,37 @@
-<h1>Pipeline Status</h1>
-<h2>{{item.name}}</h2>
-<h3>Current Status :</h3>
-<div class='status-box'>
-  <div [class]='"status " + item.status.status'>{{item.status.status}}</div>
-  <div class='started' *ngIf='item.status.start_date'>
-    <label>Started:</label>
-    <span [title]='item.status.start_date'>{{ _moment(item.status.start_date).fromNow() }}</span>
+<app-container>
+  <h1>Pipeline Status</h1>
+  <h2>{{item.name}}</h2>
+  <h3>Current Status :</h3>
+  <div class='status-box'>
+    <div [class]='"status " + item.status.status'>{{item.status.status}}</div>
+    <div class='started' *ngIf='item.status.start_date'>
+      <label>Started:</label>
+      <span [title]='item.status.start_date'>{{ _moment(item.status.start_date).fromNow() }}</span>
+    </div>
+    <div class='finished' *ngIf='item.status.end_date'>
+      <label>Finished:</label>
+      <span [title]='item.status.end_date'>{{ _moment(item.status.end_date).fromNow() }}</span>
+    </div>
+    <div class='duration' *ngIf='item.status.end_date'>
+      <label>Took:</label>
+      <span>{{ _moment(item.status.end_date).from(item.status.start_date, true) }}</span>
+    </div>
   </div>
-  <div class='finished' *ngIf='item.status.end_date'>
-    <label>Finished:</label>
-    <span [title]='item.status.end_date'>{{ _moment(item.status.end_date).fromNow() }}</span>
+  <h3>Last Execution Status :</h3>
+  <div class='logs'>{{item.status.logs}}</div>
+  <div *ngIf='item.status.table'  class='result-table' [innerHtml]='item.status.table'></div>
+  <div class='buttons'>
+  <a *ngIf='roles._.pipelinesEditOwn' class='edit button' [routerLink]='"/edit/" + item.id'>
+    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+    Edit Pipeline
+  </a>
+  <a class='refresh button' (click)='refresh()' *ngIf='item.status.status === "running"'>
+    <i class="fas fa-redo-alt" aria-hidden="true"></i>
+    Refresh Status
+  </a>
+  <a *ngIf='roles._.pipelinesExecute && item.status.status !== "running"' class='trigger button' (click)='trigger()'>
+    <i class="fas fa-play" aria-hidden="true"></i>
+    Trigger Pipeline
+  </a>
   </div>
-  <div class='duration' *ngIf='item.status.end_date'>
-    <label>Took:</label>
-    <span>{{ _moment(item.status.end_date).from(item.status.start_date, true) }}</span>
-  </div>
-</div>
-<h3>Last Execution Status :</h3>
-<div class='logs'>{{item.status.logs}}</div>
-<div *ngIf='item.status.table'  class='result-table' [innerHtml]='item.status.table'></div>
-<div class='buttons'>
-<a class='edit button' [routerLink]='"/edit/" + item.id'>
-  <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-  Edit Pipeline
-</a>
-<a class='refresh button' (click)='refresh()' *ngIf='item.status.status === "running"'>
-  <i class="fas fa-redo-alt" aria-hidden="true"></i>
-  Refresh Status
-</a>
-<a class='trigger button' (click)='trigger()' *ngIf='item.status.status !== "running"'>
-  <i class="fas fa-play" aria-hidden="true"></i>
-  Trigger Pipeline
-</a>
-</div>
+</app-container>

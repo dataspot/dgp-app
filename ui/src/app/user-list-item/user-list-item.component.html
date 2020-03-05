@@ -1,0 +1,11 @@
+<img class='avatar' [src]='item.avatar_url'/>
+<div class='name'>{{item.name || item.username}}</div>
+<div class='email'>{{item.email}}</div>
+<ng-container *ngIf='!item.self'>
+  <select class='role' [(ngModel)]='level' [disabled]='item.self'>
+    <option value='1'>Viewer</option>
+    <option value='2'>Maintainer</option>
+    <option value='3'>Administrator</option>
+  </select>
+  <a class='delete' (click)='delete($event)' href='#'>Delete</a>
+</ng-container>
