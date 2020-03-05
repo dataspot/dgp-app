@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOCKER_IMAGE=akariv/airflow-config-ui
+DOCKER_IMAGE=akariv/dgp-app
 
 if [ "${1}" == "install" ]; then
     curl -L https://raw.githubusercontent.com/OriHoch/travis-ci-operator/master/travis_ci_operator.sh > $HOME/bin/travis_ci_operator.sh &&\
