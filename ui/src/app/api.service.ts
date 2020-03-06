@@ -71,7 +71,7 @@ export class ApiService {
     return this.token_;
   }
 
-  get httpOptions() {
+  get httpOptions(): any {
     return this.options;
   }
 
