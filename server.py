@@ -77,12 +77,16 @@ app.register_blueprint(
 )
 
 
-@app.route('/', defaults={'subpath': ''})
-def main(subpath):
-    return send_file('ui/dist/ui/index.html')
-
-@app.route('/<path:subpath>')
-def main_subpath(subpath):
+@app.route('/')
+@app.route('/logout')
+@app.route('/pipelines')
+@app.route('/dashboard')
+@app.route('/users')
+@app.route('/files')
+@app.route('/dgp/<path:subpath>')
+@app.route('/status/<path:subpath>')
+@app.route('/edit/<path:subpath>')
+def main(subpath=None):
     return send_file('ui/dist/ui/index.html')
 
 
