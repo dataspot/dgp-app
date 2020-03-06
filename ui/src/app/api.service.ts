@@ -187,7 +187,7 @@ export class ApiService {
   }
 
   triggerPipeline(id: any) {
-    return this.http.post(`${this.API_ENDPOINT}/pipeline/start/${id}`, {})
+    return this.http.post(`${this.API_ENDPOINT}/pipeline/start/${id}`, {}, this.options)
       .pipe(
         map((result: any) => {
           if (result.success) {
