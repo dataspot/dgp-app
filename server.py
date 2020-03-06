@@ -78,8 +78,11 @@ app.register_blueprint(
 
 
 @app.route('/', defaults={'subpath': ''})
-@app.route('/<path:subpath>')
 def main(subpath):
+    return send_file('ui/dist/ui/index.html')
+
+@app.route('/<path:subpath>')
+def main_subpath(subpath):
     return send_file('ui/dist/ui/index.html')
 
 
