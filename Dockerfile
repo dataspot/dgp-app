@@ -22,7 +22,7 @@ ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
 ENV AIRFLOW__CORE__DAGS_FOLDER=/app/dags
 ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
 
-RUN mkdir /var/dgp && chown etl:etl /var/ && chown -R etl:etl .
+RUN mkdir /var/dgp && chown -R etl:etl /var/ && chown -R etl:etl .
 
 EXPOSE 5000
 USER etl

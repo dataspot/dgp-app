@@ -96,20 +96,11 @@ export class WorkbenchService {
   storeConfig(config: any) {
     if (!config['_result']) {
       const suffix = this.executionId ? '?uid=' + this.executionId : '';
-      return this.http.post(this.SERVER + '/config' + suffix, config);
+      console.log('OPT', this.api.httpOptions);
+      return this.http.post(this.SERVER + '/config' + suffix, config, this.api.httpOptions);
     } else {
       return from([]);
     }
-  }
-
-  refreshConfigurations() {
-    this.http.get(this.CONFIGS)
-               .pipe(
-                  map((resp: any) => resp.configurations)
-               )
-               .subscribe((configurations) => {
-                 this.configurations.next(configurations);
-               });
   }
 
   fetchEvents(executionId: string) {
@@ -124,6 +115,7 @@ export class WorkbenchService {
           heartbeatTimeout: 300000,
           errorOnTimeout: false,
           connectionTimeout: 300000,
+          headers: this.api.httpOptions.headers,
         });
       } catch (e) {
         // this.error.emit(e.message);

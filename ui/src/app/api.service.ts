@@ -60,7 +60,7 @@ export class ApiService {
           this.getConfiguration();
           this.queryPipelines();
         }
-        this.options = {headers: {'X-Auth': token}};      });
+        this.options = {headers: {'X-Auth': token}}; });
   }
 
   get providers() {
@@ -69,6 +69,10 @@ export class ApiService {
 
   get token() {
     return this.token_;
+  }
+
+  get httpOptions() {
+    return this.options;
   }
 
   createMap(obj, field, target) {

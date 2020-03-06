@@ -32,6 +32,7 @@ session.init_app(app)
 
 # Routes
 def proxy(base_url, prefix):
+    @check_permission([Permissions.workbench])
     def func(*args, **kwargs):
         if request.full_path.startswith(prefix):
             url = base_url + request.full_path
@@ -50,13 +51,16 @@ def proxy(base_url, prefix):
 def dgp_proxy(app, route, methods=['GET']):
     app.add_url_rule(route, 
                      route[1:].replace('/', '_'),
-                     check_permission([Permissions.workbench])(proxy('http://localhost:5001', '/api')),
+                     proxy('http://localhost:5001', '/api'),
                      methods=methods)
 
 
 dgp_proxy(app, '/api/events/<path:subpath>')
-dgp_proxy(app, '/api/config', methods=['POST', 'OPTIONS'])
-dgp_proxy(app, '/api/configs')
+dgp_proxy(app, '/api/config', methods=['POST'])
+
+@app.route('/api/config', methods=['OPTIONS'])
+def options():
+    return {}
 
 app.register_blueprint(
     pipelines_blueprint(db_connection_string=os.environ.get('ETLS_DATABASE_URL'),
@@ -73,9 +77,9 @@ app.register_blueprint(
 )
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def main(path):
+@app.route('/', defaults={'subpath': ''})
+@app.route('/<path:subpath>')
+def main(subpath):
     return send_file('ui/dist/ui/index.html')
 
 

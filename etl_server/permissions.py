@@ -77,7 +77,7 @@ def check_permission(roles):
                             kw['role'] = role
                         if 'user' in fargs:
                             kw['user'] = permissions['userid']
-                        return jsonpify(func(*args, **kw))
+                        return func(*args, **kw)
             abort(403)
         return wrapper
     return decorator

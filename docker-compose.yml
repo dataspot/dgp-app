@@ -16,7 +16,7 @@ services:
 
   server:
     build: .
-    image: akariv/airflow-config-ui
+    image: akariv/dgp-app
     environment:
       ETLS_DATABASE_URL: postgresql://postgres:postgres@db/etls
       DATABASE_URL: postgresql://postgres:postgres@db/auth
