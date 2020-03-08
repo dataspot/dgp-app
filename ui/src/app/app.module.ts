@@ -81,7 +81,7 @@ import { UserListItemComponent } from './user-list-item/user-list-item.component
     BudgetkeyNg2AuthModule,
   ],
   providers: [
-    getAuthServiceConfigProvider('http://localhost:5000'),
+    getAuthServiceConfigProvider(''),
   ],
   bootstrap: [AppComponent]
 })
