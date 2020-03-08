@@ -76,7 +76,9 @@ class Controllers():
             else:
                 logs = ''
             if isinstance(logs, list):
-                logs = ''.join(logs)
+                pre, post = logs[:50], logs[50:]
+                post = post[-500:]
+                logs = ''.join(pre + ['...'] + post)
             if not logs:
                 return '', ''
             logging.error('::: %r %r', logs, type(logs))
