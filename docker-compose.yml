@@ -4,9 +4,6 @@ services:
 
   db:
     build: db
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
     ports:
       - 55432:5432
     expose:
