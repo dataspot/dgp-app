@@ -6,6 +6,13 @@ from slugify import slugify
 
 from .models import Models
 
+from airflow.models import TaskInstance, DagBag, DagRun
+from airflow.utils.db import create_session
+from airflow import settings
+
+dagbag = DagBag(settings.DAGS_FOLDER, store_serialized_dags=settings.STORE_SERIALIZED_DAGS)
+
+
 TABLE_RE = re.compile('<table>.+</table>', re.MULTILINE | re.DOTALL)
 
 
@@ -41,7 +48,6 @@ class Controllers():
         return ret
 
     def __get_latest_runs(self):
-        from airflow.models import DagRun
         dagruns = DagRun.get_latest_runs()
         statuses = {}
         for run in dagruns:
@@ -54,11 +60,6 @@ class Controllers():
         return statuses
 
     def __get_logs(self, id):
-        from airflow.models import TaskInstance, DagBag
-        from airflow.utils.db import create_session
-        from airflow import settings
-        
-        dagbag = DagBag(settings.DAGS_FOLDER, store_serialized_dags=settings.STORE_SERIALIZED_DAGS)
         logger = logging.getLogger('airflow.task')
         handler = next((handler for handler in logger.handlers
                         if handler.name == 'task'), None)
