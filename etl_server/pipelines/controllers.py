@@ -81,7 +81,6 @@ class Controllers():
                 logs = ''.join(pre + ['...'] + post)
             if not logs:
                 return '', ''
-            logging.error('::: %r %r', logs, type(logs))
             table = TABLE_RE.findall(logs)
             if len(table) > 0:
                 table = table[-1]
