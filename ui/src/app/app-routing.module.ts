@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UsersComponent } from './users/users.component';
+import { FilesComponent } from './files/files.component';
 
 const routes: Routes = [
   { path: 'edit/:id', component: EditPipelineComponent,  data: {name: 'pipeline-edit'} },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, data: {name: 'dashboard'} },
   { path: 'pipelines', component: PipelineListComponent, data: {name: 'pipelines'} },
   { path: 'users', component: UsersComponent, data: {name: 'users'} },
+  { path: 'files', component: FilesComponent, data: {name: 'files'} },
   { path: 'logout', component: LogoutComponent, data: {name: 'logout'} },
   { path: '', component: LoginComponent, data: {name: 'login'} }
 ];

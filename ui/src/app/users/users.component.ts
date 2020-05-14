@@ -9,10 +9,11 @@ import { ApiService } from '../api.service';
 export class UsersComponent implements OnInit {
 
   constructor(public api: ApiService) {
-    this.api.queryUsers();
   }
 
   ngOnInit() {
+    console.log('queryUsers');
+    this.api.queryUsers();
   }
 
 }

@@ -11,6 +11,7 @@ os.environ['ALLOWED_SERVICES'] = 'etl-server:etl_server'
 
 from etl_server.pipelines.blueprint import make_blueprint as pipelines_blueprint
 from etl_server.users.blueprint import make_blueprint as users_blueprint
+from etl_server.files.blueprint import make_blueprint as files_blueprint
 from etl_server.permissions import check_permission, Permissions
 from auth import make_blueprint as auth_blueprint
 
@@ -72,6 +73,16 @@ app.register_blueprint(
     url_prefix='/api/'
 )
 app.register_blueprint(
+    files_blueprint(
+        bucket_name=os.environ.get('BUCKET_NAME'),
+        endpoint_url=os.environ.get('S3_ENDPOINT_URL'),
+        aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
+        aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'),
+        aws_region=os.environ.get('AWS_REGION'),
+    ),
+    url_prefix='/api/'
+)
+app.register_blueprint(
     auth_blueprint(os.environ.get('EXTERNAL_ADDRESS')),
     url_prefix='/auth/'
 )
@@ -89,8 +100,10 @@ app.register_blueprint(
 def main(subpath=None):
     return send_file('ui/dist/ui/index.html')
 
-
-logging.getLogger().setLevel(logging.INFO)
-
 if __name__=='__main__':
     app.run()
+else:
+    gunicorn_error_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers.extend(gunicorn_error_logger.handlers)
+    app.logger.setLevel(logging.DEBUG)
+    app.logger.error('BOO!')

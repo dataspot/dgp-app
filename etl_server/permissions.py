@@ -43,11 +43,20 @@ class Permissions():
     usersEdit = 'usersEdit'
     usersDelete = 'usersDelete'
 
+    filesList = 'filesList'
+    filesDownload = 'filesDownload'
+    filesUpload = 'filesUpload'
+    filesUpdateOwn = 'filesUpdateOwn'
+    filesUpdateAll = 'filesUpdateAll'
+    filesDeleteOwn = 'filesDeleteOwn'
+    filesDeleteAll = 'filesDeleteAll'
+
     # Level Roles
-    ViewerRoles = { login, pipelinesListPublic, pipelinesStatusPublic }
-    MaintainerRoles = ViewerRoles | { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench, pipelinesDeleteOwn }
+    ViewerRoles = { login, pipelinesListPublic, pipelinesStatusPublic, filesList }
+    MaintainerRoles = ViewerRoles | { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench, pipelinesDeleteOwn,
+                                      filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn }
     AdminRoles = MaintainerRoles | { pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
-                                     usersList, usersNew, usersEdit, usersDelete }
+                                     usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll }
 
     # Level Roles Mapping
     Roles = {
@@ -65,7 +74,6 @@ def check_permission(roles):
             global __verifyer
             token = request.values.get('jwt') or request.headers.get('X-Auth')
             permissions = __verifyer.extract_permissions(token)
-            logging.info('CHECK_PERMISSION required: %s, actual: %s', roles, permissions)
             if not (permissions is False):
                 level = permissions.get('permissions', {}).get('level', 0)
                 user_roles = Permissions.Roles.get(level, [])

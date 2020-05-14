@@ -1,0 +1,8 @@
+<app-container>
+  <h1>Files</h1>
+  <div *ngIf='roles._.filesUpload' class='add-new'><a (click)='upload()'>Upload File</a></div>
+  <app-file-uploader *ngIf='uploaderVisible' (close)='uploaderVisible=false' [filename]='forceFilename'></app-file-uploader>
+  <ng-container *ngFor='let item of (api.files | async)'>
+    <app-file-list-item [item]='item' (update)='update(item.filename)'></app-file-list-item>
+  </ng-container>
+</app-container>

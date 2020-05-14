@@ -1,0 +1,85 @@
+:host {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    flex: 0 0 auto;
+
+    input[type='file'] {
+        display: none;
+    }
+
+    .button {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 7px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.08);
+        border: dashed 1px #059;
+        width: 100%;
+        padding: 18px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: #059;
+        cursor: pointer;
+        position: relative;
+
+        .message {
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            &:before {
+                content: '';
+                display: inline-block;
+                width: 20px;
+                height: 20px;   
+                background-image: url('../../assets/img/upload.svg');
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                vertical-align: text-bottom;
+                margin: 0 7px;    
+            }
+        }
+
+        .progress {
+            border: none;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            border-radius: 7px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: transparent;
+
+            .bar {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                background-color: #059;
+                opacity: 0.1;
+                border-radius: 7px;
+                background-image: radial-gradient(circle at 14% 0, #059, lighten(#059, 10%));                            
+            }
+        }
+
+        &.success {
+            border: solid 1px #059;
+            background-image: radial-gradient(circle at 14% 0, #059, lighten(#059, 10%));                            
+            color: white;
+            
+            .message {
+                &:before {
+                    background-image: url('../../assets/img/uploaded.svg');
+                    margin: 0 7px;
+                }
+            }
+        }
+
+        pointer-events: none;
+        &:not(.selected) {
+            pointer-events: initial;
+        }
+    }
+}

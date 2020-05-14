@@ -1,0 +1,32 @@
+:host {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    border: 0.5px solid #888;
+    margin: 0;
+    padding: 0.25rem 1rem;
+    margin-top: 10px;
+
+    > * {
+        flex: 0 0 auto;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-right: 1px solid rgba(0,0,0,0.2);
+        padding: 0 20px;
+        white-space: nowrap;
+        &:last-child {
+            border: none;
+        }
+    }
+
+    .name {
+        flex: 0 0 30%;
+        font-weight: bold;
+    }
+
+    .separator {
+        margin-inline-start: auto;
+    }
+
+}

@@ -11,16 +11,35 @@ services:
     volumes: 
       - /var/lib/postgresql/data
 
+  minio:
+    image: minio/minio:edge
+    command:
+      - server
+      - /data
+    environment:
+      MINIO_ACCESS_KEY: access_key
+      MINIO_SECRET_KEY: secret_key
+      MINIO_REGION_NAME: us-east-1
+    expose:
+      - 9000
+    ports:
+      - 9000:9000
+    volumes: 
+      - /Users/adam/code/dataspot/etl-server/minio-data:/data
+
   server:
     build: .
     image: akariv/dgp-app
     environment:
       ETLS_DATABASE_URL: postgresql://postgres:postgres@db/etls
+      BUCKET_NAME: dgp-app-2
+      AWS_ACCESS_KEY_ID: access_key
+      AWS_SECRET_ACCESS_KEY: secret_key
+      AWS_REGION: us-east-1
+      S3_ENDPOINT_URL: http://minio:9000
       DATABASE_URL: postgresql://postgres:postgres@db/auth
       DATASETS_DATABASE_URL: postgresql://postgres:postgres@db/datasets
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql://postgres:postgres@db/airflow
-      GITHUB_KEY: '24b09ed6cd4d3a8fdbb9'
-      GITHUB_SECRET: '50ba6a4a30f0557420a5793fdfe9be8e9272dca2'
       EXTERNAL_ADDRESS: http://localhost:5000
       PUBLIC_KEY: |
         -----BEGIN PUBLIC KEY-----
@@ -66,5 +85,5 @@ services:
       - 5000:5000
     depends_on: 
       - db
-    # volumes: 
-    #   - /Users/adam/code/dataspot/etl-server/dags:/app/dags
+    volumes: 
+      - /Users/adam/code/dataspot/etl-server/dags:/app/dags

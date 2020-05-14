@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, ReplaySubject } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
+import { BehaviorSubject, ReplaySubject, of } from 'rxjs';
+import { map, switchMap, last, catchError, filter } from 'rxjs/operators';
 import { AuthService } from 'budgetkey-ng2-auth';
 import { Router } from '@angular/router';
 import { RolesService } from './roles.service';
@@ -13,12 +13,14 @@ export class ApiService {
 
   public pipelines = new BehaviorSubject<any[]>([]);
   public users = new BehaviorSubject<any[]>([]);
+  public files = new BehaviorSubject<any[]>([]);
   public configuration = new ReplaySubject(1);
 
   public currentConfig: any = null;
-  private options = {};
+  private options: any = {};
 
-  API_ENDPOINT = '/api';
+  API_ENDPOINT = 'http://localhost:5000/api';
+  // API_ENDPOINT = '/api';
 
   private token_ = new ReplaySubject<string>(1);
   private providers_: any = null;
@@ -198,5 +200,69 @@ export class ApiService {
       );
   }
 
+  queryFiles() {
+    this.configuration.pipe(
+      switchMap(() => this.http.get(`${this.API_ENDPOINT}/files`, this.options)),
+      map((result: any) => {
+        if (result.success) {
+          return result.result;
+        }
+        return [];
+      })
+    ).subscribe((files) => {
+      console.log('FILES', files);
+      this.files.next(files);
+    });
+  }
+
+  uploadFile(
+    file: File, filename: string,
+    progress, success
+  ) {
+    this.configuration.pipe(
+      switchMap(() => {
+        return this.http.post(`${this.API_ENDPOINT}/upload`, file, Object.assign({
+          observe: 'events',
+          reportProgress: true,
+          params: {
+            filename: filename
+          }
+        }, this.options));
+      }),
+      catchError((err) => {
+        success(false);
+        return of([err]);
+      }),
+      map((event: any) => {
+        console.log('EVENT', event);
+        if (event.type === HttpEventType.UploadProgress) {
+          const percentDone = Math.round(100 * event.loaded / event.total);
+          progress(percentDone);
+        } else {
+          return event;
+        }
+      }),
+      filter((event: any) => event && (!event.type || event.type === HttpEventType.Response))
+    ).subscribe((result) => {
+      if (result.body) {
+        success(result.body.success);
+        this.queryFiles();
+      }
+    });
+  }
+
+  deleteFile(filename) {
+    return this.http.delete(`${this.API_ENDPOINT}/file`, Object.assign({
+              params: {
+                filename: filename
+              }
+           }, this.options))
+            .pipe(
+              map((result) => {
+                this.queryFiles();
+                return result;
+              })
+            );
+  }
 
 }

@@ -43,6 +43,10 @@ class ModelsBase():
         self._cls = cls
         base.metadata.create_all(self._sql_engine)
 
+    def __delete(self):
+        if self._sql_session:
+            self._sql_session
+
     @contextmanager
     def session_scope(self):
         """Provide a transactional scope around a series of operations."""

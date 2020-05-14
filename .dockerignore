@@ -1,3 +1,4 @@
 .git/
 ui/node_modules/
 ui/src/
+minio_data/

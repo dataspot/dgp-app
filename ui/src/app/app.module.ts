@@ -37,6 +37,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UsersComponent } from './users/users.component';
 import { UserListItemComponent } from './user-list-item/user-list-item.component';
+import { FilesComponent } from './files/files.component';
+import { FileUploaderComponent } from './file-uploader/file-uploader.component';
+import { FileListItemComponent } from './file-list-item/file-list-item.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,10 @@ import { UserListItemComponent } from './user-list-item/user-list-item.component
     DashboardComponent,
     LogoutComponent,
     UsersComponent,
-    UserListItemComponent
+    UserListItemComponent,
+    FilesComponent,
+    FileUploaderComponent,
+    FileListItemComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +87,7 @@ import { UserListItemComponent } from './user-list-item/user-list-item.component
     BudgetkeyNg2AuthModule,
   ],
   providers: [
-    getAuthServiceConfigProvider(''),
+    getAuthServiceConfigProvider('http://localhost:5000'),
   ],
   bootstrap: [AppComponent]
 })

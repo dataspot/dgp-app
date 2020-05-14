@@ -76,3 +76,5 @@ flask_session/
 # Keys
 *.pem
 creds.sh
+
+minio-data/

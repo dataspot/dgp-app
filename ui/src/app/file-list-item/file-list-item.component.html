@@ -1,0 +1,7 @@
+<div class='name'>{{item.filename || item.username}}</div>
+<div class='size'>{{size}}</div>
+<div class='last-modified'>{{last_modified}}</div>
+<div class='owner'>{{item.owner_name}}</div>
+<div class='separator'></div>
+<a *ngIf='updateable()' class='update' (click)='requestUpdate()'>Update Contents</a>
+<a *ngIf='deletable()' class='delete' (click)='delete()'>Delete</a>
