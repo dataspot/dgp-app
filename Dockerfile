@@ -15,7 +15,7 @@ RUN echo "etl ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ADD . .
 RUN pip install -e .
-# RUN pip install -U https://github.com/dataspot/dgp/archive/master.zip#1
+RUN pip install https://github.com/frictionlessdata/tabulator-py/archive/fix/full-html-table-support.zip
 
 ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
 ENV AIRFLOW__CORE__DAGS_FOLDER=/app/dags

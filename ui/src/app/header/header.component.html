@@ -1,4 +1,4 @@
 <a [class.active]='detected === "dashboard"' routerLink='/dashboard'>Dashboard</a>
 <a *ngIf='roles._.pipelinesListPublic' [class.active]='detected === "pipelines"' routerLink='/pipelines'>Pipelines</a>
 <a *ngIf='roles._.usersList' [class.active]='detected === "users"' routerLink='/users'>Users</a>
-<a [class.active]='detected === "files"' routerLink='/files' disabled>Files</a>
+<a [class.active]='detected === "files"' routerLink='/files'>Source Files</a>

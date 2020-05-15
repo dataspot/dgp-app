@@ -1,2 +1,67 @@
+import sys
+import tempfile
+import yaml
+import os
+import logging
+
+from sqlalchemy import create_engine
+
+from dataflows import Flow, printer
+
+from dgp.core import Config, Context
+from dgp.genera import SimpleDGP, LoaderDGP, TransformDGP, EnricherDGP
+from dgp.taxonomies import TaxonomyRegistry
+from dgp_server.blueprint import PublishFlow
+
+from .fileloader import FileLoaderDGP
+# from .datacity_dgp import DataCityDGP
+# from .db_preparer_dgp import DBPreparerDGP
+
+
+engine = None
+
+def get_engine():
+    global engine
+    if engine is None:
+        engine = create_engine(os.environ['DATASETS_DATABASE_URL'])
+    return engine
+
+
 def operator(params):
-    print('Hi There!')
+    with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8') as config_file:
+        params['dgpConfig'].setdefault('publish', {})['allowed'] = True
+        yaml.dump(params['dgpConfig'], config_file)
+        config_file.flush()
+        config = Config(config_file.name)
+        taxonomy_registry = TaxonomyRegistry('taxonomies/index.yaml')
+        context = Context(config, taxonomy_registry)
+
+        logging.getLogger().setLevel(logging.DEBUG)
+
+        steps = [
+            FileLoaderDGP,
+            LoaderDGP,
+            DataCityDGP,
+            TransformDGP,
+            EnricherDGP,
+        ]
+
+        dgp = SimpleDGP(
+            config, context,
+            steps=steps
+        )
+
+        ret = dgp.analyze()
+        if not ret:
+            logging.error('Errors:')
+            logging.error('\n\t - '.join([str(x) for x in dgp.errors]))
+            sys.exit(0)
+
+        flow = dgp.flow()
+        flow = Flow(
+            flow,
+            printer(tablefmt='html')
+        )
+        flow.process()
+
+        logging.info('Success')

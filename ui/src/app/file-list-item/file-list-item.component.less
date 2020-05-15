@@ -9,20 +9,39 @@
     margin-top: 10px;
 
     > * {
-        flex: 0 0 auto;
+        flex: 0 0 10%;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
-        border-right: 1px solid rgba(0,0,0,0.2);
+        border-left: 1px solid rgba(0,0,0,0.2);
         padding: 0 20px;
         white-space: nowrap;
-        &:last-child {
+        text-align: center;
+        &:first-child {
             border: none;
+        }
+        &:nth-child(2) {
+            margin-left: auto;
         }
     }
 
     .name {
         flex: 0 0 30%;
         font-weight: bold;
+        text-align: left;
+    }
+
+    .owner {
+        flex: 0 0 15%;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+    }
+
+    .last-modified, .delete, .update {
+        flex: 0 0 auto;
+    }
+
+    .size {
+        text-align: right;
     }
 
     .separator {

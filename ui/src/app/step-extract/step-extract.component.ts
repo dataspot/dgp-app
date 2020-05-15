@@ -7,8 +7,9 @@ import { Subscription } from 'rxjs';
   selector: 'app-step-extract',
   template: `
     <app-step-extract-source [source]='config.source'
+                             [loader]='config.loader'
                              *ngIf='config.source'
-                             (update)='store.setConfig($event ? {source:{path:$event}} : config)'>
+                             (update)='updateUrl($event)'>
     </app-step-extract-source>
     <app-step-extract-structure [structure]='config.structure'
                                 *ngIf='config.structure'
@@ -31,11 +32,18 @@ export class StepExtractComponent implements OnInit, OnDestroy {
   constructor(private store: StoreService) { }
 
   ngOnInit() {
-    this.sub = this.store.getConfig().subscribe(config => this.config = config);
+    this.sub = this.store.getConfig().subscribe(config => {
+      this.config = config;
+      this.config.source = this.config.source || {};
+      this.config.loader = this.config.loader || {};
+    });
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
+  updateUrl(url) {
+    this.store.setConfig(url ? Object.assign({}, this.config, {source: {path: url}}) : this.config);
+  }
 }

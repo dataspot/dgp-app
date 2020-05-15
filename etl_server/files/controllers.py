@@ -1,5 +1,6 @@
 import calendar
 import boto3
+from botocore.exceptions import ClientError
 import json
 import tempfile
 import shutil
@@ -17,13 +18,20 @@ class Controllers():
         self.s3client = boto3.client('s3', **kw)
         self.s3 = boto3.resource('s3', **kw)
         self.bucket = self.s3.Bucket(bucket_name)
-        if not self.bucket.creation_date:
-            self.bucket.create(ACL='authenticated-read')
+        exists = False
+        try:
+            exists = self.bucket.creation_date is not None
+        except:
+            pass
+        if not exists:
+            try:
+                self.bucket.create(ACL='authenticated-read')
+            except:
+                # Avoid race conditions
+                pass
 
 
     def list_files(self):
-        from flask import current_app
-        current_app.logger.error('XXX')
         ret = [
             (
                 o.key,
@@ -62,11 +70,9 @@ class Controllers():
         o = self.bucket.Object(filename)
         allowed = False
         try:
-            print(admin, o.metadata)
-            from Flask import request; request.application.logger.error('BOO %s %s', admin, o.metadata)
-            if admin or o.metadata.get('ownerid') == user:
+            if admin or o.metadata.get('Ownerid') == user:
                 allowed = True
-        except:
+        except ClientError:
             allowed = True
         if allowed:
             metadata = dict(

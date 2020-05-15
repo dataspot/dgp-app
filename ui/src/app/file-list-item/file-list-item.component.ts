@@ -21,8 +21,12 @@ export class FileListItemComponent implements OnInit {
     });
   }
 
-  get last_modified() {
-    return new Date(this.item.last_modified).toLocaleDateString();
+  get last_modified_date() {
+    return new Date(this.item.last_modified * 1000).toLocaleDateString();
+  }
+
+  get last_modified_time() {
+    return new Date(this.item.last_modified * 1000).toLocaleTimeString();
   }
 
   get size() {

@@ -22,6 +22,7 @@ export class FileUploaderComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.addFiles();
   }
 
   addFiles() {

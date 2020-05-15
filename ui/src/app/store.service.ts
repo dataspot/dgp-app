@@ -60,6 +60,8 @@ export class StoreService {
     source: {
       path: ''
     },
+    loader: {
+    },
     constants: {}, model: {},
   };
   private _config = new BehaviorSubject<any>(Object.assign({}, this.BASE_CONFIG));
