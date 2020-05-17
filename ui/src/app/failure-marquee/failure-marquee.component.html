@@ -1,6 +1,3 @@
-<div class='failure-container'  [class.active]='!!error'>
-  <div class='failure-marquee'>
-    <pre>{{error}}</pre>
-    <pre>{{message}}</pre>
-  </div>
+<div class='failure-marquee' *ngIf='!!error'>
+  <pre>{{error}}</pre>
 </div>

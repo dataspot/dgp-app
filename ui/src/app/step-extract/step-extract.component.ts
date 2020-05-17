@@ -43,7 +43,12 @@ export class StepExtractComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  updateUrl(url) {
-    this.store.setConfig(url ? Object.assign({}, this.config, {source: {path: url}}) : this.config);
+  updateUrl(config) {
+    console.log('UPDATE, got config', config);
+    if (config) {
+      console.log('UPDATE, new config', Object.assign({}, config));
+    }
+
+    this.store.setConfig(config ? Object.assign({}, this.store.BASE_CONFIG, config) : this.config);
   }
 }

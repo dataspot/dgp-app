@@ -1,8 +1,12 @@
 :host {
     display: flex;
     flex-flow: row;
+    align-items: center;
 
-    > * {
-        flex: 0 0 50%;
+    > *:first-child {
+        flex: 0 0 200px;
+    }
+    > *:last-child {
+        flex: 1 1 auto;
     }
 }

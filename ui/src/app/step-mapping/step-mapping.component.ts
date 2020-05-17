@@ -51,10 +51,6 @@ import { Subscription } from 'rxjs';
   `,
   styles: [
     `
-        :host {
-          padding: 10px;
-        }
-
         .missing span {
           display: flex;
           flex-flow: row;
@@ -70,6 +66,11 @@ import { Subscription } from 'rxjs';
           border: solid 1px #400;
           border-radius: 10px;
           background-color: #fcc;
+        }
+
+        app-extendable-keyvalue-list {
+          width: 100%;
+          max-width: 60vw;
         }
     `
       ]

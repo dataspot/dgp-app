@@ -1,3 +1,7 @@
 <label>{{question.title}}</label>
 <input *ngIf='question.kind==="text"' type='text' [(ngModel)]='value'/>
 <input *ngIf='question.kind==="boolean"' type='checkbox' [(ngModel)]='value'/>
+<select *ngIf='question.kind==="select"' [(ngModel)]='value'>
+    <option value=''>-</option>
+    <option [value]='option' *ngFor='let option of question.options'>{{option}}</option>
+</select>

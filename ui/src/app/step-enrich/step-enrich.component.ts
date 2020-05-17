@@ -5,9 +5,6 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-step-enrich',
   template: `
-    <p i18n>
-      Loading taxonomy specific enrichments...
-    </p>
     <app-extra-config-questions [questions]='questions'></app-extra-config-questions>
   `,
   styles: [

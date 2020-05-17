@@ -2,76 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-step-mapping-field',
-  template: `
-    <div class='mapping'>
-      <div class='formish'>
-        <label class='main'>{{mapping.name}}</label>
-        <div class='compound'>
-          <input [(ngModel)]='compound' type='checkbox'>
-          <small *ngIf='!compound' i18n>Regular</small>
-          <small *ngIf='compound' i18n>Normalized</small>
-        </div>
-      </div>
-      <div class='formish'>
-        <label i18n>Title:</label>
-        <input [(ngModel)]='mapping.title' type='text'>
-      </div>
-      <div class='formish' *ngIf='!compound'>
-        <select [value]='mapping.columnType' (change)='updateMapping($event.target.value); changed()'>
-          <option [value]='null'>-</option>
-          <option *ngFor='let ct of taxonomy.columnTypes'
-                  [value]='ct.name'>{{ct.title}} - {{ct.description}}
-          </option>
-        </select>
-      </div>
-      <div class='mapping' *ngIf='compound'>
-        <span>
-          <select [value]='mapping.normalizeTarget' (change)='mapping.normalizeTarget = $event.target.value; changed()'>
-            <option [value]='null'>-</option>
-            <option *ngFor='let ct of taxonomy.columnTypes'
-                    [value]='ct.title'>{{ct.title}} - {{ct.description}}
-            </option>
-          </select>
-        </span>
-        <span class='for' i18n>for</span>
-        <app-extendable-keyvalue-list
-          [taxonomy]='taxonomy'
-          [data]='mapping.normalize || {}'
-          (update)='mapping.normalize = $event; changed()'
-        ></app-extendable-keyvalue-list>
-      </div>
-    </div>
-`,
-  styles: [`
-  :host {
-    display: block;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    margin-bottom: 10px;
-  }
-  .mapping {
-    display: flex;
-    flex-flow: column;
-  }
-  .compound {
-    flex: 0 1 auto;
-  }
-  .formish {
-    justify-content: space-between;
-  }
-  .formish > * {
-    min-width: 0;
-    flex: 1 1 auto;
-  }
-  label.main {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  input[type='checkbox'] {
-    margin: 0 5px;
-  }
-  `]
+  templateUrl: 'step-mapping-field.component.html',
+  styleUrls: ['step-mapping-field.component.less'],
 })
 export class StepMappingFieldComponent implements OnInit {
 
@@ -81,9 +13,12 @@ export class StepMappingFieldComponent implements OnInit {
   @Input() taxonomy: any;
   @Output() change = new EventEmitter<any>();
 
+  more: false;
+
   constructor() { }
 
   ngOnInit() {
+    this.mapping.options = this.mapping.options || {};
   }
 
   changed() {
@@ -109,13 +44,15 @@ export class StepMappingFieldComponent implements OnInit {
   updateMapping(ctName) {
     if (ctName !== 'null') {
       this.mapping.columnType = ctName;
-      if (!this.mapping.title) {
-        for (const ct of this.taxonomy.columnTypes) {
-          if (ct.name === ctName) {
-            console.log('updating title to', ct.title);
+      for (const ct of this.taxonomy.columnTypes) {
+        if (ct.name === ctName) {
+          if (!this.mapping.title) {
             this.mapping.title = ct.title;
-            break;
           }
+          if (!this.mapping.description) {
+            this.mapping.description = ct.description;
+          }
+          break;
         }
       }
     } else {

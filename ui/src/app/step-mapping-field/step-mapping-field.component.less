@@ -1,0 +1,49 @@
+:host {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    margin-bottom: 10px;
+    max-width: 60vw;
+
+    .selection {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+    
+        label.main {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    
+        .fa {
+            margin: 0 10px;
+        }
+
+        select {
+            flex: 1 1 auto;
+        }
+    }
+
+    .formish {
+        padding: 0;
+    }
+
+    .toggle-compound {
+        align-self: flex-end;
+    }
+
+    .more-toggle {
+        display: flex;
+        width: 100%;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+}

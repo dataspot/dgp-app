@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
   template: `
   <div class='formish'>
     <label i18n>Uploaded Source File:</label>
-    <select [(ngModel)]='loader.filename' (change)='changed("loading...")'>
+    <select [(ngModel)]='loader.filename' (change)='changed({loader: {filename: loader.filename}, source:{}})'>
       <option *ngFor='let file of (api.files | async)' [value]='file.filename'>{{file.filename}}</option>
     </select>
   </div>
@@ -14,7 +14,7 @@ import { ApiService } from '../api.service';
     <label i18n>Direct URL:</label>
     <input type='url'
       [(ngModel)]='source.path'
-      (change)='changed(source.path)'
+      (change)='changed({source: {path: source.path}, loader:{}})'
     />
   </div>
   <div class='formish'>
@@ -61,6 +61,7 @@ import { ApiService } from '../api.service';
         [(ngModel)]='source.selector'
         (change)='changed()'
       />
+      <a (click)='source.selector = ""; changed()'>Set no selector</a>
     </div>
   </ng-container>
 `,

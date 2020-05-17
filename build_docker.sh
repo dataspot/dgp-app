@@ -1,2 +1,2 @@
-docker build . -t akariv/etl-server:latest && \
-docker push akariv/etl-server:latest
+docker build . -t akariv/dgp-app:latest && \
+docker push akariv/dgp-app:latest

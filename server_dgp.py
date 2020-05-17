@@ -24,13 +24,13 @@ class HeaderMappings(ConfigHeaderMappings):
                 value = json.loads(row.value)
                 params = value.get('params', {})
                 if 'dgpConfig' in params:
-                    configurations.append(params['dgpConfig'])
+                    configurations.append(dict(config=params['dgpConfig']))
             return configurations
 
 class Server(DgpServer):
     def __init__(self, *args):
         super().__init__(*args)
-        self.header_mappings = HeaderMappings()
+        self.header_mappings = HeaderMappings(self.taxonomy_registry)
 
     def preload_dgps(self, config, context):
         return [FileLoaderDGP]

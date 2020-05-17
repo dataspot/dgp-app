@@ -3,6 +3,7 @@ import tempfile
 import yaml
 import os
 import logging
+import json
 
 from sqlalchemy import create_engine
 
@@ -11,11 +12,8 @@ from dataflows import Flow, printer
 from dgp.core import Config, Context
 from dgp.genera import SimpleDGP, LoaderDGP, TransformDGP, EnricherDGP
 from dgp.taxonomies import TaxonomyRegistry
-from dgp_server.blueprint import PublishFlow
 
 from .fileloader import FileLoaderDGP
-# from .datacity_dgp import DataCityDGP
-# from .db_preparer_dgp import DBPreparerDGP
 
 
 engine = None
@@ -41,7 +39,6 @@ def operator(params):
         steps = [
             FileLoaderDGP,
             LoaderDGP,
-            DataCityDGP,
             TransformDGP,
             EnricherDGP,
         ]

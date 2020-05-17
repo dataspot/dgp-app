@@ -9,20 +9,12 @@ import { StoreService } from '../store.service';
 export class FailureMarqueeComponent implements OnInit {
 
   error: string = null;
-  message: string = null;
 
   constructor(private store: StoreService) { }
 
   ngOnInit() {
     this.store.getFailure().subscribe((failure) => {
       this.error = failure;
-      if (failure) {
-        const parts = failure.split('\n');
-        console.log(parts);
-        this.message = parts[parts.length - 2];
-      } else {
-        this.message = null;
-      }
     });
   }
 

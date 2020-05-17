@@ -36,20 +36,27 @@ class FileLoaderAnalyzer(BaseAnalyzer):
 
     CONFIG_SOURCE_FILENAME = 'loader.filename'
 
-    def analyze(self):
+    def downlaod_out_filename(self):
+        filename = self.config.get(self.CONFIG_SOURCE_FILENAME)
+        logger.warning('FileLoaderAnalyzer filename=%s', filename)
+        obj = bucket().Object(filename)
+        out_filename = os.path.join(cache_dir(), '{}-{}'.format(obj.last_modified.isoformat(), filename))
+        if not os.path.exists(out_filename):
+            logger.warning('FileLoaderAnalyzer downloading')
+            obj.download_file(Filename=out_filename)
+        return out_filename
+
+    def run(self):
         if self.config.get(self.CONFIG_SOURCE_FILENAME):
-            filename = self.config.get(self.CONFIG_SOURCE_FILENAME)
-            obj = bucket().Object(filename)
-            filename = os.path.join(cache_dir(), '{}-{}'.format(obj.last_modified.isoformat(), filename))
             current_url = self.config.get(CONFIG_URL)
             logger.warning('FileLoaderAnalyzer current_url=%s', current_url)
-            if current_url != filename:
-                self.config.set(CONFIG_URL, filename)
+            if current_url != self.cached_out_filename:
+                self.config.set(CONFIG_URL, self.cached_out_filename)
                 self.context.reset_stream()
-            if not os.path.exists(filename):
-                logger.warning('FileLoaderAnalyzer downloading')
-                obj.download_file(Filename=filename)
-        return True
+
+    def analyze(self):
+        self.cached_out_filename = self.downlaod_out_filename()
+        return super().analyze()
 
 
 class FileLoaderDGP(BaseDataGenusProcessor):

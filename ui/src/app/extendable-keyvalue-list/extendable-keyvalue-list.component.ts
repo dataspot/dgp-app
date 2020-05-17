@@ -9,16 +9,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
           <option *ngFor='let ct of taxonomy.columnTypes'
                   [value]='ct.title'>{{ct.title}}</option>
         </select>
-        (<input type='text'
-          [(ngModel)]='value[0]'
-          (change)='changed()'
-        />)
-        <span> = </span>
+        <span class='separator'> = </span>
         <input type='text'
           [(ngModel)]='value[1]'
           (change)='changed()'
         />
-        <a href='#' *ngIf='value[0]' (click)='value[0]=""; changed()'><i class="fas fa-trash"></i></a>
+        <a *ngIf='value[0]' (click)='value[0]=""; changed()'><i class="fas fa-trash"></i></a>
       </span>
     </div>
   `,
@@ -30,9 +26,17 @@ div {
   padding: 5px 10px;
 }
 
+.separator {
+  margin: 0 5px;
+}
+
 .item {
   display: flex;
   flex-flow: row;
+}
+
+input {
+  flex: 1 1 auto;
 }
     `
   ]

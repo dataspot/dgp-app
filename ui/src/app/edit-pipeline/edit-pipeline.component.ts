@@ -40,7 +40,7 @@ export class EditPipelineComponent implements OnInit {
   }
 
   _save() {
-    this.item.private = this.item.private !== 'false';
+    this.item.private = this.item.private !== 'false' && this.item.private !== false;
     return this.api.savePipeline(this.item);
   }
 

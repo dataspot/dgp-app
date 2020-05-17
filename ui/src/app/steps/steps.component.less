@@ -1,15 +1,22 @@
 :host {
-    flex: 1 1 auto;
+    flex: 0 0 100%;
     display: flex;
     flex-flow: row;
+    align-items: stretch;
+    justify-content: flex-start;
     width: 100%;
 
     .separator {
         width: 0px;
-        min-height: 100vh;
+        height: 100%;
         border: 0.5px solid rgba(0,0,0,.25);
     }
     
-    margin-bottom: 150px;
+    > *:last-child {
+        flex: 1 1 auto;
+        overflow: scroll;
+        padding: 0 10px;
+        margin-bottom: 120px;
+    }
 }
   
