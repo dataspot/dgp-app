@@ -26,23 +26,23 @@ export class ApiService {
   private providers_: any = null;
   private authenticated_ = false;
   private authorized_ = false;
+  private currentUser_ = null;
 
   constructor(private http: HttpClient, private auth: AuthService, private router: Router, private roles: RolesService) {
       this.auth.check(window.location.href)
         .subscribe((authInfo) => {
-          console.log('authInfo', authInfo);
           if (authInfo) {
             this.providers_ = authInfo.providers;
             this.authenticated_ = authInfo.authenticated;
             if (!this.authenticated_) {
-              console.log('navigate');
               this.router.navigate(['/'], {queryParams: {next: window.location.pathname}});
+            } else {
+              this.currentUser_ = authInfo;
             }
           }
         });
       this.auth.getJwt()
           .subscribe((token) => {
-            console.log('GOT JWT', token);
             if (token) {
               this.auth.permission('etl-server')
                 .subscribe((permission: any) => {
@@ -51,7 +51,6 @@ export class ApiService {
                     this.token_.next(permission.token);
                     this.roles.setRoles(permission.permissions.roles || []);
                   } else {
-                    console.log('navigate');
                     this.router.navigate(['/']);
                   }
                 });
@@ -63,6 +62,18 @@ export class ApiService {
           this.queryPipelines();
         }
         this.options = {headers: {'X-Auth': token}}; });
+  }
+
+  get authenticated() {
+    return this.authenticated_;
+  }
+
+  get authorized() {
+    return this.authenticated_ && this.authorized_;
+  }
+
+  get currentUser() {
+    return this.currentUser_;
   }
 
   get providers() {
@@ -107,7 +118,6 @@ export class ApiService {
         return [];
       })
     ).subscribe((users) => {
-      console.log('USERS', users);
       this.users.next(users);
     });
   }
@@ -142,7 +152,6 @@ export class ApiService {
         return [];
       })
     ).subscribe((pipelines) => {
-      console.log('pipelines', pipelines);
       for (const x of pipelines) {
         x['params'] = x['params'] || {};
         x['status'] = x['status'] || {};
@@ -210,7 +219,6 @@ export class ApiService {
         return [];
       })
     ).subscribe((files) => {
-      console.log('FILES', files);
       this.files.next(files);
     });
   }
@@ -234,7 +242,6 @@ export class ApiService {
         return of([err]);
       }),
       map((event: any) => {
-        console.log('EVENT', event);
         if (event.type === HttpEventType.UploadProgress) {
           const percentDone = Math.round(100 * event.loaded / event.total);
           progress(percentDone);

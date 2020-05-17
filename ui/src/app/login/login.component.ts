@@ -14,14 +14,13 @@ export class LoginComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
-              private api: ApiService,
-              private auth: AuthService) {
+              public api: ApiService) {
     this.activatedRoute.queryParamMap.subscribe((params) => {
       if (params.has('next')) {
         const next = params.get('next');
         if (next && next.indexOf('logout') === -1) {
           this.next = next;
-        } 
+        }
       }
     });
     this.api.token.subscribe((token) => {
@@ -36,7 +35,6 @@ export class LoginComponent implements OnInit {
 
 
   login_href() {
-    console.log('login_href', this.api.providers);
     if (this.api.providers) {
       if (this.api.providers.google) {
         return this.api.providers.google.url;
