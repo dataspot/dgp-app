@@ -25,7 +25,7 @@ class Controllers():
             pass
         if not exists:
             try:
-                self.bucket.create(ACL='authenticated-read')
+                self.bucket.create(ACL='private')
             except:
                 # Avoid race conditions
                 pass
@@ -89,7 +89,7 @@ class Controllers():
                     Key=filename,
                     ContentType=file_obj.mimetype or 'application/octet-stream',
                     Metadata=metadata,
-                    ACL='authenticated-read'
+                    ACL='private'
                 )
             return dict(
                 success=True,
