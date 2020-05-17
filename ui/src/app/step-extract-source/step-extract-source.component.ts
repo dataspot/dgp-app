@@ -12,7 +12,7 @@ import { ApiService } from '../api.service';
   </div>
   <div class='formish'>
     <label i18n>Direct URL:</label>
-    <input type='url'
+    <input type='text' class='url'
       [(ngModel)]='source.path'
       (change)='changed({source: {path: source.path}, loader:{}})'
     />
