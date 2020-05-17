@@ -13,7 +13,7 @@ export class StepMappingFieldComponent implements OnInit {
   @Input() taxonomy: any;
   @Output() change = new EventEmitter<any>();
 
-  more: false;
+  more = false;
 
   constructor() { }
 
