@@ -1,3 +1,4 @@
 <app-failure-marquee></app-failure-marquee>
+<app-header></app-header>
 <app-steps [step]='step' [validation]='validation' (selected)='step=$event'></app-steps>
 <app-results [step]='step' (validate)='validation[$event.kind] = $event'></app-results>

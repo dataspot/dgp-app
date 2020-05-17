@@ -1,5 +1,5 @@
 <img src='assets/logo.png'/>
-<a class'login' [href]='login_href()' *ngIf='!api.authenticated'>Login to the System</a>
+<a class='login' [href]='login_href()' *ngIf='!api.authenticated'>Login to the System</a>
 <h2 *ngIf='api.authenticated && !api.authorized'>
     You don't have access to this system<br/>
     Please ask an administrator to grant {{api.currentUser.profile.email}} access<br/>
