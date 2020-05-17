@@ -1,4 +1,5 @@
 import calendar
+from urllib.parse import unquote_plus
 import boto3
 from botocore.exceptions import ClientError
 import json
@@ -32,16 +33,22 @@ class Controllers():
 
 
     def list_files(self):
+        filenames = [
+            unquote_plus(o.key)
+            for o in self.bucket.objects.all() or []
+        ]
+        objects = [
+            self.bucket.Object(f) for f in filenames
+        ]
         ret = [
             (
                 o.key,
                 o.last_modified,
-                oo.content_length,
-                oo.metadata.get('Ownerid'),
-                oo.metadata.get('Ownername'),
+                o.content_length,
+                o.metadata.get('Ownerid'),
+                o.metadata.get('Ownername'),
             )
-            for o in self.bucket.objects.all() or []
-            for o, oo in [(o, o.Object())]
+            for o in objects
         ]
         ret = [
             dict(
