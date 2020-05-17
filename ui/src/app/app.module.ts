@@ -87,7 +87,8 @@ import { FileListItemComponent } from './file-list-item/file-list-item.component
     BudgetkeyNg2AuthModule,
   ],
   providers: [
-    getAuthServiceConfigProvider('http://localhost:5000'),
+    getAuthServiceConfigProvider(''),
+    // getAuthServiceConfigProvider('http://localhost:5000'),
   ],
   bootstrap: [AppComponent]
 })

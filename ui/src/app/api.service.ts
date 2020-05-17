@@ -19,8 +19,8 @@ export class ApiService {
   public currentConfig: any = null;
   private options: any = {};
 
-  API_ENDPOINT = 'http://localhost:5000/api';
-  // API_ENDPOINT = '/api';
+  // API_ENDPOINT = 'http://localhost:5000/api';
+  API_ENDPOINT = '/api';
 
   private token_ = new ReplaySubject<string>(1);
   private providers_: any = null;
