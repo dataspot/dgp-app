@@ -15,8 +15,6 @@ RUN echo "etl ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ADD . .
 RUN pip install -e .
-RUN pip install https://github.com/frictionlessdata/tabulator-py/archive/fix/full-html-table-support.zip
-RUN pip install https://github.com/frictionlessdata/tableschema-py/archive/fix/281.zip
 # RUN pip install -U -e deps/dgp-server
 
 ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor

@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from dataflows import Flow, printer
 
 from dgp.core import Config, Context
-from dgp.genera import SimpleDGP, LoaderDGP, TransformDGP, EnricherDGP
+from dgp.genera import SimpleDGP, LoaderDGP, TransformDGP, EnricherDGP, PublisherDGP
 from dgp.taxonomies import TaxonomyRegistry
 
 from .fileloader import FileLoaderDGP
@@ -41,6 +41,7 @@ def operator(params):
             LoaderDGP,
             TransformDGP,
             EnricherDGP,
+            PublisherDGP,
         ]
 
         dgp = SimpleDGP(
