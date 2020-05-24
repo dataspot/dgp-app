@@ -9,7 +9,7 @@ awesome-slugify
 psycopg2-binary
 apache-airflow[postgres]
 requests
-dgp-server>=0.0.70
+dgp-server>=0.0.71
 geocoder
 pyproj
 dataflows>=0.0.70
