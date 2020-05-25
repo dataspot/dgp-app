@@ -12,6 +12,6 @@ requests
 dgp-server>=0.0.72
 geocoder
 pyproj
-dataflows>=0.0.73
+dataflows>=0.0.74
 tabulator[html]>=1.48
 tableschema>=1.18
