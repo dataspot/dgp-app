@@ -36,8 +36,10 @@ class FileLoaderAnalyzer(BaseAnalyzer):
 
     CONFIG_SOURCE_FILENAME = 'loader.filename'
 
-    def downlaod_out_filename(self):
+    def download_out_filename(self):
         filename = self.config.get(self.CONFIG_SOURCE_FILENAME)
+        if not filename:
+            return
         logger.warning('FileLoaderAnalyzer filename=%s', filename)
         obj = bucket().Object(filename)
         out_filename = os.path.join(cache_dir(), '{}-{}'.format(obj.last_modified.isoformat(), filename))
@@ -55,7 +57,7 @@ class FileLoaderAnalyzer(BaseAnalyzer):
                 self.context.reset_stream()
 
     def analyze(self):
-        self.cached_out_filename = self.downlaod_out_filename()
+        self.cached_out_filename = self.download_out_filename()
         return super().analyze()
 
 

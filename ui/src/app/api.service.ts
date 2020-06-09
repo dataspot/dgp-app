@@ -14,6 +14,8 @@ export class ApiService {
   public pipelines = new BehaviorSubject<any[]>([]);
   public users = new BehaviorSubject<any[]>([]);
   public files = new BehaviorSubject<any[]>([]);
+  public ownFiles = new BehaviorSubject<any[]>([]);
+  public otherFiles = new BehaviorSubject<any[]>([]);
   public configuration = new ReplaySubject(1);
 
   public currentConfig: any = null;
@@ -220,6 +222,8 @@ export class ApiService {
       })
     ).subscribe((files) => {
       this.files.next(files);
+      this.ownFiles.next(files.filter((x) => x.owner_id === this.currentUser_.profile.id));
+      this.otherFiles.next(files.filter((x) => x.owner_id !== this.currentUser_.profile.id));
     });
   }
 

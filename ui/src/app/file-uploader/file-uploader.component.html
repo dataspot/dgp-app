@@ -9,7 +9,7 @@
     <div *ngIf='!_active && _selected && _success' class='message'>File upload successful</div>
     <div *ngIf='!_active && _selected && !_success' class='message'>Failed to upload file</div>
     <div *ngIf='_active' class='progress'>
-        <div class='bar' [style.left]='(_progress-100) + "%"'>
+        <div class='bar theme-primary-bg' [style.left]='(_progress-100) + "%"'>
         </div>
     </div>
 </div>

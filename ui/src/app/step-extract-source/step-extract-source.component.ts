@@ -7,7 +7,12 @@ import { ApiService } from '../api.service';
   <div class='formish'>
     <label i18n>Uploaded Source File:</label>
     <select [(ngModel)]='loader.filename' (change)='changed({loader: {filename: loader.filename}, source:{}})'>
-      <option *ngFor='let file of (api.files | async)' [value]='file.filename'>{{file.filename}}</option>
+      <optgroup label='My Files'>
+        <option *ngFor='let file of (api.ownFiles | async)' [value]='file.filename'>{{file.filename}}</option>
+      </optgroup>
+      <optgroup label='Other Files'>
+        <option *ngFor='let file of (api.otherFiles | async)' [value]='file.filename'>{{file.filename}}</option>
+      </optgroup>
     </select>
   </div>
   <div class='formish'>

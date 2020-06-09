@@ -1,5 +1,5 @@
 <app-container>
-  <h1>Pipeline Status</h1>
+  <h1 class='theme-primary-fg'>Task Status</h1>
   <h2>{{item.name}}</h2>
   <h3>Current Status :</h3>
   <div class='status-box'>
@@ -23,7 +23,7 @@
   <div class='buttons'>
   <a *ngIf='roles._.pipelinesEditOwn' class='edit button' [routerLink]='"/edit/" + item.id'>
     <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-    Edit Pipeline
+    Edit Task
   </a>
   <a class='refresh button' (click)='refresh()' *ngIf='item.status.status === "running"'>
     <i class="fas fa-redo-alt" aria-hidden="true"></i>
@@ -31,7 +31,7 @@
   </a>
   <a *ngIf='roles._.pipelinesExecute && item.status.status !== "running"' class='trigger button' (click)='trigger()'>
     <i class="fas fa-play" aria-hidden="true"></i>
-    Trigger Pipeline
+    Trigger Task
   </a>
   </div>
 </app-container>

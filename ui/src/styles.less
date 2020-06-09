@@ -47,10 +47,6 @@ body {
     margin: 0;    
 }
 
-h1 {
-    color: #059;
-}
-
 app-edit-pipeline, app-pipeline-status {
     input, textarea, select {
         display: block;
@@ -77,8 +73,8 @@ label {
     margin-top: 40px;
 
     .button {
-        color: #007bff;
-        border: 1px solid #007bff;
+        border-width: 1px;
+        border-style: solid;
         margin-right: 16px;
         line-height: 1.5;
         border-radius: .25rem;
@@ -89,16 +85,10 @@ label {
         transition-property: color, background-color;
         transition-duration: 0.25s;
         text-decoration: none;
-
-        &:hover {
-            background-color: #007bff;
-            color: #fff;
-        }
     }
 }
 
 a, a:visited {
-    color: #059;
     cursor: pointer;
     text-decoration: none;
 }

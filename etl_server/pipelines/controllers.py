@@ -23,13 +23,13 @@ class Controllers():
         self.config = configuration
         if 'schedules' not in configuration:
             configuration['schedules'] = [
-                dict(name='hourly', display='Hourly'),
-                dict(name='weekly', display='Weekly'),
-                dict(name='monthly', display='Monthly'),
-                dict(name='yearly', display='Yearly'),
+                dict(name='@hourly', display='Hourly'),
+                dict(name='@daily', display='Daily'),
+                dict(name='@weekly', display='Weekly'),
+                dict(name='@monthly', display='Monthly'),
+                dict(name='@yearly', display='Yearly'),
                 dict(name='manual', display='Manual'),
             ]
-
     def create_or_edit_pipeline(self, id, body, owner, allowed_all):
         # Calculate id if necessary
         if not id:

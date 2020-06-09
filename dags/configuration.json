@@ -21,5 +21,10 @@
             ],
             "dgp": true
         }
-    ]
+    ],
+    "theme": {
+        "primary": "#333",
+        "primary_dark": "#222",
+        "secondary": "#fff"
+    }
 }

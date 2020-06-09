@@ -1,6 +1,6 @@
 <app-container>
-  <h1>Edit Pipeline</h1>
-  <label>Pipeline Name</label>
+  <h1 class='theme-primary-fg'>Edit Task</h1>
+  <label>Task Name</label>
   <input type='text' [(ngModel)]='item.name'/>
   <label>Description</label>
   <textarea rows='3' [(ngModel)]='item.description'></textarea>
@@ -29,11 +29,11 @@
         </div>
         <div class='save button' (click)='save()'>
           <i class="fas fa-save" aria-hidden="true"></i>
-          Save Pipeline
+          Save Task
         </div>
         <div *ngIf='roles._.pipelinesDeleteOwn && item.id' class='delete button' (click)='delete()'>
           <i class="fas fa-trash" aria-hidden="true"></i>
-          Delete Pipeline
+          Delete Task
         </div>
       </div>
     </ng-container>

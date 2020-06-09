@@ -1,27 +1,28 @@
 :host {
     width: 100%;
-    display: flex;
-    flex-flow: row;
-    border-bottom: 1px solid fade(#059, 20);
-    margin-bottom: 20px;
-    align-items: center;
 
-    img.logo {
-        margin: 20px;
-        height: 50px;
-    }
-
-    a.menu {
-        display: block;
-        margin: 0px 20px;
-        padding: 3px 10px;
-
-        border: 3px solid transparent;
-
-        &.active {
-            border-left: 3px solid #059;
-            border-right: 3px solid #059;
-            border-radius: 40px;
+    .container {
+        width: 100%;
+        display: flex;
+        flex-flow: row;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        margin-bottom: 20px;
+        align-items: center;
+    
+        a.logo {
+            line-height: 0;
+            img {
+                margin: 2.5px 20px;
+                height: 40px;
+            }
+        }
+    
+        a.menu {
+            display: block;
+            margin: 0px 20px;
+            padding: 0px 10px;
+            line-height: 45px;
         }
     }
 }

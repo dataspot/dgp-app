@@ -1,6 +1,9 @@
 <app-container>
-  <h1>Pipelines</h1>
-  <div *ngIf='roles._.pipelinesNew' class='add-new'><a routerLink='/edit/new'>Add New Pipeline</a></div>
+  <h1 class='theme-primary-fg'>Processing Tasks</h1>
+  <div *ngIf='roles._.pipelinesNew' class='add-new'><a routerLink='/edit/new'>
+    <i class="fas fa-plus-circle" aria-hidden="true"></i>
+    New Processing Task
+  </a></div>
   <app-pipeline-list-headers></app-pipeline-list-headers>
   <ng-container *ngFor='let item of (api.pipelines | async)'>
     <app-pipeline-list-item [item]='item'></app-pipeline-list-item>
