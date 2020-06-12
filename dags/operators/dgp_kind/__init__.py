@@ -24,10 +24,20 @@ def get_engine():
         engine = create_engine(os.environ['DATASETS_DATABASE_URL'])
     return engine
 
+def set_dots(o, k, v):
+    k = k.split('.')
+    while len(k) > 1:
+        p = k.pop(0)
+        o = o.setdefault(p, {})
+    o[k[0]] = v
+
 
 def operator(params):
     with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8') as config_file:
         params['dgpConfig'].setdefault('publish', {})['allowed'] = True
+        for k, v in params.items():
+            if k.startswith('extra.'):
+                set_dots(params['dgpConfig'], k, v)
         yaml.dump(params['dgpConfig'], config_file)
         config_file.flush()
         config = Config(config_file.name)
