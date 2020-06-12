@@ -211,20 +211,28 @@ export class ApiService {
       );
   }
 
-  queryFiles() {
-    this.configuration.pipe(
+  queryFiles(subscribe = true) {
+    const o = this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/files`, this.options)),
       map((result: any) => {
         if (result.success) {
           return result.result;
         }
         return [];
+      }),
+      map((files) => {
+        this.files.next(files);
+        this.ownFiles.next(files.filter((x) => x.owner_id === this.currentUser_.profile.id));
+        this.otherFiles.next(files.filter((x) => x.owner_id !== this.currentUser_.profile.id));
+        return files;
       })
-    ).subscribe((files) => {
-      this.files.next(files);
-      this.ownFiles.next(files.filter((x) => x.owner_id === this.currentUser_.profile.id));
-      this.otherFiles.next(files.filter((x) => x.owner_id !== this.currentUser_.profile.id));
-    });
+    );
+    if (subscribe) {
+      o.subscribe((files) => {
+        console.log('FILES:', files);
+      });
+    }
+    return o;
   }
 
   uploadFile(

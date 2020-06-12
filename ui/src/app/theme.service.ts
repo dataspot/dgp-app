@@ -45,6 +45,25 @@ export class ThemeService {
               background-color: ${secondary};
               color: ${primary};
           }
+          h2.workbench-subtitle {
+            color: ${secondary};
+            background-color: ${primary};
+            min-width: 70%;
+            padding: 3px 10px;
+            margin: 20px -10px;
+            font-size: 18px;
+            font-weight: bold;
+          }
+          h3.workbench-subsubtitle {
+            color: ${secondary};
+            background-color: ${primary};
+            min-width: 70%;
+            padding: 3px 8px;
+            margin: 12px -8px;
+            font-size: 16px;
+            font-weight: normal;
+            margin-right: 40px;
+          }
       `;
       const style = document.createElement('style');
       style.type = 'text/css';

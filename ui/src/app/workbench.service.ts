@@ -51,7 +51,7 @@ export class WorkbenchService {
               that.store.setConfig(config, true);
             }
           } else if (event.t === 'r') {
-            if (event.i % 1000 === 0) {
+            if (event.i % 1000 === 0 || event.i <= 0) {
               console.log('ROW', event);
             }
             that.store.addRow({

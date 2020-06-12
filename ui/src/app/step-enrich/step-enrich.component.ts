@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-step-enrich',
   template: `
+    <h2 class='workbench-subtitle'>Extra Configuration</h2>
     <app-extra-config-questions [questions]='questions'></app-extra-config-questions>
   `,
   styles: [

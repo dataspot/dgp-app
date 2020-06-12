@@ -1,4 +1,22 @@
-<app-failure-marquee></app-failure-marquee>
-<app-header></app-header>
-<app-steps [step]='step' [validation]='validation' (selected)='step=$event'></app-steps>
-<app-results [step]='step' (validate)='validation[$event.kind] = $event'></app-results>
+<app-container>
+    <h1 class='theme-primary-fg'>Data Import Workbench</h1>
+    <app-step-extract-source [source]='config.source'
+                             [loader]='config.loader'
+                             *ngIf='stage >= STAGE_SPECIFY_SOURCE'
+                             (update)='updateUrl($event)'>
+    </app-step-extract-source>
+    <app-step-extract-structure [structure]='config.structure'
+                                *ngIf='stage >= STAGE_SOURCE_PARAMETERS'
+                                (change)='store.setConfig(config)'>
+    </app-step-extract-structure>
+    <app-step-taxonomy [taxonomy]='config.taxonomy'
+                        *ngIf='stage >= STAGE_SELECT_TAXONOMY'
+                        (change)='store.setConfig(config)'>
+    </app-step-taxonomy>
+    <app-step-mapping *ngIf='stage >= STAGE_MAPPING'>
+    </app-step-mapping>
+    <app-step-enrich *ngIf='stage >= STAGE_METADATA'>
+    </app-step-enrich>
+
+    <app-results></app-results>
+</app-container>

@@ -1,4 +1,5 @@
 <div class='selection'>
+  <i class="fas fa-caret-right" [class.open]='more' (click)='more = !more'></i>
   <label class='main'>{{mapping.name}}</label>
   <i class='fa fa-arrow-right'></i>
   <select *ngIf='!mapping.compound'
@@ -31,7 +32,7 @@
     (update)='mapping.normalize = $event; changed()'
   ></app-extendable-keyvalue-list>
 </div>
-<ng-container *ngIf='more'>
+<div class='more' *ngIf='more'>
   <div class='formish'>
     <label i18n>Title:</label>
     <input [(ngModel)]='mapping.title' type='text'>
@@ -42,8 +43,4 @@
   </div>
   <a class='toggle-compound' (click)='mapping.compound=true' i18n *ngIf='!mapping.compound'>Change to compound mapping</a>
   <a class='toggle-compound' (click)='mapping.compound=false' i18n *ngIf='mapping.compound'>Change to simple mapping</a>
-</ng-container>
-<div class='more-toggle' (click)='more = !more'>
-  <i *ngIf='more' class='fa fa-chevron-up'></i>
-  <i *ngIf='!more' class='fa fa-chevron-down'></i>
-  </div>
+</div>

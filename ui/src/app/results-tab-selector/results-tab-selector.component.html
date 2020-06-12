@@ -1,0 +1,13 @@
+<div class='selector theme-secondary-fg' [class.theme-primary-dark-bg]='active'  [class.theme-primary-bg]='!active' (click)='select.emit()'>
+  <div class='main'>
+    <i class='fa fa-check-circle' *ngIf='state === "success"'></i>
+    <i class='fa fa-circle-notch fa-spin' *ngIf='state === "progress"'></i>
+    <i class='fa fa-question-circle' *ngIf='state === "unknown"'></i>
+    <i class='fa fa-exclamation-triangle' [title]='table.errors'  *ngIf='state === "fail"'></i>
+    <label>{{ label }}</label>
+  </div>
+  <div class='secondary'>
+    <span class='number'>{{ table.rowCount }}</span>&nbsp;
+    <span class='text'>rows</span>
+  </div>
+</div>

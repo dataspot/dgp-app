@@ -40,6 +40,8 @@ import { UserListItemComponent } from './user-list-item/user-list-item.component
 import { FilesComponent } from './files/files.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { FileListItemComponent } from './file-list-item/file-list-item.component';
+import { StepTaxonomyComponent } from './step-taxonomy/step-taxonomy.component';
+import { ResultsTabSelectorComponent } from './results-tab-selector/results-tab-selector.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { FileListItemComponent } from './file-list-item/file-list-item.component
     UserListItemComponent,
     FilesComponent,
     FileUploaderComponent,
-    FileListItemComponent
+    FileListItemComponent,
+    StepTaxonomyComponent,
+    ResultsTabSelectorComponent
   ],
   imports: [
     BrowserModule,

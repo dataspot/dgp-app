@@ -4,6 +4,7 @@ import { ApiService } from '../api.service';
 @Component({
   selector: 'app-step-extract-source',
   template: `
+  <h2 class='workbench-subtitle'>Source of Data</h2>
   <div class='formish'>
     <label i18n>Uploaded Source File:</label>
     <select [(ngModel)]='loader.filename' (change)='changed({loader: {filename: loader.filename}, source:{}})'>
@@ -79,7 +80,6 @@ export class StepExtractSourceComponent implements OnInit {
   @Output() update = new EventEmitter<string>();
 
   constructor(public api: ApiService) {
-    this.api.queryFiles();
   }
 
   ngOnInit() {

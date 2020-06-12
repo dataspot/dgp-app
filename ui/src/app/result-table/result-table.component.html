@@ -1,0 +1,13 @@
+<table>
+    <thead>
+        <th class='theme-primary-bg theme-secondary-fg' *ngFor='let hdr of headers'>{{hdr}}</th>
+    </thead>
+    <tbody>
+        <ng-container *ngFor='let row of rows'>
+            <tr [class.errd]='row.errd'>
+                <td *ngFor='let val of row.data' [innerHtml]='val'>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

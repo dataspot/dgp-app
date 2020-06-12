@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-step-extract-structure',
   template: `
+  <h2 class='workbench-subtitle'>Data Structure</h2>
   <div class='formish'>
     <label i18n>Skip Rows:</label>
     <input type='number'

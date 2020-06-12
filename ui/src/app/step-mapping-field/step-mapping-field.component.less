@@ -2,12 +2,14 @@
     display: flex;
     flex-flow: column;
     align-items: stretch;
+    margin: 0 10px;
 
-    padding: 5px 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    // padding: 5px 10px;
+    // border-radius: 10px;
+    // box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     margin-bottom: 10px;
     max-width: 60vw;
+    font-size: 14px;
 
     .selection {
         display: flex;
@@ -15,8 +17,8 @@
         align-items: center;
     
         label.main {
-            font-size: 18px;
-            font-weight: bold;
+            font-weight: normal;
+            font-family: monospace;
         }
     
         .fa {
@@ -25,6 +27,16 @@
 
         select {
             flex: 1 1 auto;
+        }
+
+        .fa-caret-right {
+            cursor: pointer;
+            transition: transform 250ms;
+            transform: rotate(0deg);
+
+            &.open {
+                transform: rotate(90deg);
+            }
         }
     }
 
@@ -36,14 +48,12 @@
         align-self: flex-end;
     }
 
-    .more-toggle {
-        display: flex;
+    .more {
         width: 100%;
-        flex-flow: row;
-        align-items: center;
-        justify-content: center;
-        padding: 5px 10px;
-        cursor: pointer;
+        padding-left: 40px;
+        display: flex;
+        flex-flow: column;
+        align-items: stretch;    
     }
 
 }
