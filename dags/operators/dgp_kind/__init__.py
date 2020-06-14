@@ -32,10 +32,10 @@ def set_dots(o, k, v):
     o[k[0]] = v
 
 
-def operator(params):
+def operator(name, params):
     with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8') as config_file:
         params['dgpConfig'].setdefault('publish', {})['allowed'] = True
-        params['dgpConfig'].setdefault('extra', {}).setdefault('metadata', {})['title'] = params['name']
+        params['dgpConfig'].setdefault('extra', {}).setdefault('metadata', {})['title'] = name
         for k, v in params.items():
             if k.startswith('extra.'):
                 set_dots(params['dgpConfig'], k, v)

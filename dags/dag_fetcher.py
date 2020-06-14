@@ -36,7 +36,7 @@ for pipeline in etl_models.all_pipelines():
 
     t1 = PythonOperator(task_id=dag_id,
                         python_callable=operator,
-                        op_args=[pipeline['params']],
+                        op_args=[pipeline['name'], pipeline['params']],
                         dag=dag)
     globals()[dag_id] = dag
 
