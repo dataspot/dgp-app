@@ -1,6 +1,16 @@
 <ng-container *ngIf='item'>
-  <ng-container *ngFor='let field of fields'>
-    <label>{{field.display}}</label>
-    <input type='text' [(ngModel)]='item[field.name]'/>
-  </ng-container>
+  <div *ngFor='let field of fields'>
+    <label [innerHtml]='field.display'></label>
+    <ng-container *ngIf='field.type === "text" || !field.type'>
+      <input type='text' [(ngModel)]='item[field.name]'/>
+    </ng-container>
+    <ng-container *ngIf='field.type === "boolean"'>
+      <input type='checkbox' [(ngModel)]='item[field.name]'/>
+    </ng-container>
+    <ng-container *ngIf='field.type === "enum" || field.options'>
+      <select [(ngModel)]='item[field.name]'>
+        <option *ngFor='let option of field.options' [value]='option'>{{ option }}</option>
+      </select>
+    </ng-container>
+  </div>
 </ng-container>
