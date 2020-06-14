@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-step-mapping-field',
@@ -14,15 +15,47 @@ export class StepMappingFieldComponent implements OnInit {
   @Output() change = new EventEmitter<any>();
 
   more = false;
+  ct = null;
 
-  constructor() { }
+  constructor(public api: ApiService) { }
 
   ngOnInit() {
     this.mapping.options = this.mapping.options || {};
+    this.updateOwnCt();
+    if (this.ct) {
+      if (this.ct.dataType === 'date') {
+        this.mapping.options.format = this.mapping.options.format || 'default';
+      } else if (this.ct.dataType === 'boolean') {
+        this.mapping.options.trueValues = this.mapping.options.trueValues || ['true', 'True', 'TRUE', '1'];
+        this.mapping.options.falseValues = this.mapping.options.falseValues || [ 'false', 'False', 'FALSE', '0'];
+      } else if (this.ct.dataType === 'number') {
+        this.mapping.options.decimalChar = this.mapping.options.decimalChar || '.';
+        this.mapping.options.groupChar = this.mapping.options.groupChar || '';
+        this.mapping.options.bareNumber = this.mapping.options.bareNumber === undefined ? true : this.mapping.options.bareNumber;
+      } else if (this.ct.dataType === 'integer') {
+        this.mapping.options.bareNumber = this.mapping.options.bareNumber === undefined ? true : this.mapping.options.bareNumber;
+      }
+    }
   }
 
   changed() {
     this.change.emit();
+  }
+
+  set trueValues(values: string) {
+    this.mapping.options.trueValues = values.split(',');
+  }
+
+  set falseValues(values: string) {
+    this.mapping.options.trueValues = values.split(',');
+  }
+
+  get trueValues() {
+    return this.mapping.options.trueValues.join(',');
+  }
+
+  get falseValues() {
+    return this.mapping.options.falseValues.join(',');
   }
 
   get compound(): boolean {
@@ -39,6 +72,17 @@ export class StepMappingFieldComponent implements OnInit {
       delete this.mapping['normalizeTarget'];
       this.mapping['columnType'] = '';
     }
+  }
+
+  updateOwnCt() {
+    const ctName = this.mapping.columnType;
+    for (const ct of this.taxonomy.columnTypes) {
+      if (ct.name === ctName) {
+        this.ct = ct;
+        return;
+      }
+    }
+    this.ct = null;
   }
 
   updateMapping(ctName) {
@@ -58,6 +102,7 @@ export class StepMappingFieldComponent implements OnInit {
     } else {
       delete this.mapping['columnType'];
     }
+    this.updateOwnCt();
     this.changed();
   }
 

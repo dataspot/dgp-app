@@ -58,7 +58,8 @@ export class WorkbenchService {
               kind: event.j,
               index: event.i,
               data: event.p,
-              errors: event.e
+              errors: event.e,
+              errors_field: event.ef
             });
             that.store.setRowCount({
               kind: event.j,

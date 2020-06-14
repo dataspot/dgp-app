@@ -26,5 +26,10 @@
         "primary": "#333",
         "primary_dark": "#222",
         "secondary": "#fff"
-    }
+    },
+    "dateFormats": [
+        {"display": "Standard ISO format (YYYY-MM-DD)",    "format": "default"},
+        {"display": "DD/MM/YYYY",                          "format": "%d/%m/%Y"},
+        {"display": "YYYY-MM-DD HH:MM:SS UTC",             "format": "%Y-%m-%d %H:%M:%S UTC"}
+    ]
 }

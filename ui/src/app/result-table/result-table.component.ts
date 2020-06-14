@@ -35,13 +35,11 @@ export class ResultTableComponent implements OnInit, OnDestroy {
                   this.rows.push({data: this.headers.map((h) => '&hellip;')});
                 }
               }
-              const mapped: any = this.headers.map((h) => this.strize(row.data[h]));
-              mapped[0] = row.index + 1;
-              const errd = row.errors && row.errors.length > 0;
-              this.rows.push({
-                data: mapped,
-                errd: errd
-              });
+              const data: any = this.headers.map((h) => this.strize(row.data[h]));
+              data[0] = row.index + 1;
+              const errd = row.errors && row.errors.length > 0 && !row.errors_field;
+              const errd_field = row.errors_field ? this.headers.indexOf(row.errors_field) : null;
+              this.rows.push({data, errd, errd_field});
             }
           }
         })

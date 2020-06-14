@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WorkbenchService } from '../workbench.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StoreService } from '../store.service';
 import { switchMap, map } from 'rxjs/operators';
 import { ApiService } from '../api.service';
@@ -23,7 +23,7 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
   STAGE_METADATA = 40;
 
   constructor(private route: ActivatedRoute, private workbench: WorkbenchService,
-              public store: StoreService, private api: ApiService) {
+              public store: StoreService, private api: ApiService, private router: Router) {
     this.route.paramMap.pipe(
       switchMap((params) => {
         this.id = params.get('id');
@@ -42,11 +42,6 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
   }
 
   updateUrl(config) {
-    console.log('updateUrl, got config', config);
-    if (config) {
-      console.log('updateUrl, new config', Object.assign({}, config));
-    }
-
     this.store.setConfig(config ? Object.assign({}, this.store.BASE_CONFIG, config) : this.config);
   }
 
@@ -64,7 +59,6 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
     if (config.mapping) { // TODO: use validation instead
       this.stage = this.STAGE_METADATA;
     }
-    console.log('CALCULATE STAGE:', this.stage);
   }
 
   ngOnInit() {
@@ -72,6 +66,11 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.store.setPipelineId(null);
+  }
+
+  finalize() {
+    this.store.setConfig(this.config);
+    this.router.navigate(['/edit/' + this.store.getPipelineId()]);
   }
 
 }

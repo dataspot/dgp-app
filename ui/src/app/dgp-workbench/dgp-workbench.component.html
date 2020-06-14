@@ -18,5 +18,12 @@
     <app-step-enrich *ngIf='stage >= STAGE_METADATA'>
     </app-step-enrich>
 
+    <div class='buttons'>
+        <div class='button' (click)='finalize()'>
+            <i class="fas fa-save" aria-hidden="true"></i>
+            Finish and Back to Edit
+        </div>
+    </div>
+
     <app-results></app-results>
 </app-container>

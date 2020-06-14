@@ -13,10 +13,10 @@ export class ApiService {
 
   public pipelines = new BehaviorSubject<any[]>([]);
   public users = new BehaviorSubject<any[]>([]);
-  public files = new BehaviorSubject<any[]>([]);
-  public ownFiles = new BehaviorSubject<any[]>([]);
-  public otherFiles = new BehaviorSubject<any[]>([]);
-  public configuration = new ReplaySubject(1);
+  public files = new ReplaySubject<any[]>(1);
+  public ownFiles = new ReplaySubject<any[]>(1);
+  public otherFiles = new ReplaySubject<any[]>(1);
+  public configuration = new ReplaySubject<any>(1);
 
   public currentConfig: any = null;
   private options: any = {};

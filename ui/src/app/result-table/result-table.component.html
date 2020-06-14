@@ -5,7 +5,7 @@
     <tbody>
         <ng-container *ngFor='let row of rows'>
             <tr [class.errd]='row.errd'>
-                <td *ngFor='let val of row.data' [innerHtml]='val'>
+                <td *ngFor='let val of row.data; let idx=index' [innerHtml]='val' [class.errd]='row.errd_field === idx'>
                 </td>
             </tr>
         </ng-container>

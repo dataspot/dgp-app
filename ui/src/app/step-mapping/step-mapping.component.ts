@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { StoreService } from '../store.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-step-mapping',
@@ -83,14 +84,32 @@ export class StepMappingComponent implements OnInit, OnDestroy {
   config: any = null;
   errors: any = [];
   subs: Subscription[] = [];
-  mappingChanged = false;
+  changedStream = new Subject<void>();
+  _mappingChanged = false;
 
-  constructor(private store: StoreService) { }
+  constructor(private store: StoreService) {
+    this.changedStream.pipe(
+      debounceTime(5000)
+    ).subscribe(() => {
+      this.changed();
+    })
+  }
 
   ngOnInit() {
     this.subs.push(this.store.getConfig().subscribe(config => this.config = config));
     this.subs.push(this.store.getErrors().subscribe(errors => this.errors = errors));
     this.config.taxonomy = this.config.taxonomy || {};
+  }
+
+  set mappingChanged(value) {
+    if (value) {
+      this.changedStream.next(null);
+    }
+    this._mappingChanged = value;
+  }
+
+  get mappingChanged() {
+    return this._mappingChanged;
   }
 
   changed() {

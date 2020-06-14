@@ -2,6 +2,7 @@
     <h2 class='workbench-subtitle'>Data Sample</h2>
 
     <div class='failure' *ngIf='failure'>{{ failureMain }}</div>
+    <div class='failure' *ngIf='errors.length > 0'>{{ errors }}</div>
 
     <div class='tab-selectors' [class.visible]='hasResults'>
         <app-results-tab-selector [table]='TABLES[0]' [active]='step === TABLES[0].slug' (select)='step = TABLES[0].slug' label='Original Data'></app-results-tab-selector>

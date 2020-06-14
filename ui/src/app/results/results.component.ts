@@ -15,6 +15,7 @@ export class ResultsComponent implements OnInit {
   hasResults = false;
   failure = null;
   failureMain = null;
+  errors = [];
 
   TABLES = [
     {slug: 'extract', rowCount: 0, progress: false, errors: null, valid: null},
@@ -42,6 +43,9 @@ export class ResultsComponent implements OnInit {
             table.rowCount = row.index + 1;
             if (table.errors === null && row.errors && row.errors.length > 0) {
               table.errors = row.errors;
+              if (this.errors.length === 0) {
+                this.errors = row.errors;
+              }
             }
           }
         }
@@ -73,5 +77,6 @@ export class ResultsComponent implements OnInit {
       x.valid = null;
       this.hasResults = false;
     });
+    this.errors = [];
   }
 }

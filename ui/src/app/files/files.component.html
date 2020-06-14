@@ -5,7 +5,22 @@
     Upload Data File</a>
   </div>
   <app-file-uploader *ngIf='uploaderVisible' (close)='uploaderVisible=false' [filename]='forceFilename'></app-file-uploader>
-  <ng-container *ngFor='let item of (api.files | async)'>
+
+  <div class='controls'>
+    <a i18n (click)='sort = "alpha"; processFiles()'>
+      <i class='far' [class.fa-check-square]="sort==='alpha'" [class.fa-square]="sort!=='alpha'"></i>
+      Sort Alphabetically
+    </a>&nbsp;|&nbsp;
+    <a i18n (click)='sort = "date"; processFiles()'>
+      <i class='far' [class.fa-check-square]="sort==='date'" [class.fa-square]="sort!=='date'"></i>
+      Sort by Update Date
+    </a>&nbsp;|&nbsp;
+    <a i18n (click)='justMine = !justMine; processFiles()'>
+      <i class='far' [class.fa-check-square]='justMine' [class.fa-square]='!justMine'></i>
+      Show only My Files
+    </a>
+  </div>
+  <ng-container *ngFor='let item of showFiles'>
     <app-file-list-item [item]='item' (update)='update(item.filename)'></app-file-list-item>
   </ng-container>
 </app-container>

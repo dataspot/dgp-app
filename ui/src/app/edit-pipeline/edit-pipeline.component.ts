@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { StoreService } from '../store.service';
 import { RolesService } from '../roles.service';
@@ -23,7 +23,15 @@ export class EditPipelineComponent implements OnInit {
         const id = params.get('id');
         if (id === 'new') {
           this.isNew = true;
-          return of({});
+          return api.configuration.pipe(
+            map((configuration) => {
+              return {
+                private: true,
+                kind: configuration.kinds[0].name,
+                schedule: 'manual'
+              };
+            })
+          );
         }
         return this.api.queryPipeline(id);
       })

@@ -12,7 +12,6 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('queryUsers');
     this.api.queryUsers();
   }
 

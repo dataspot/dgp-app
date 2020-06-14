@@ -19,7 +19,6 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private api: ApiService, public roles: RolesService) {
     this.refresh();
     this._moment = moment;
-    console.log(this._moment);
   }
 
   refresh() {
@@ -46,7 +45,6 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
   trigger() {
     this.api.triggerPipeline(this.item.id)
       .subscribe((result) => {
-        console.log(result);
         this.refresh();
       });
   }

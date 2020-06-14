@@ -1,6 +1,8 @@
 <div class='name'>{{item.filename || item.username}}</div>
-<div class='size'>{{size}}</div>
-<div class='last-modified' [title]='last_modified_date + " " + last_modified_time'>{{last_modified_date}}</div>
-<div class='owner'>{{item.owner_name}}</div>
-<a *ngIf='updateable()' class='update' (click)='requestUpdate()'>Update Contents</a>
-<a *ngIf='deletable()' class='delete' (click)='delete()'>Delete</a>
+<div class='part'>
+    <div class='size'>{{size}}</div>
+    <div class='last-modified' [title]='item.last_modified_date + " " + item.last_modified_time'>{{item.last_modified_date}}</div>
+    <div class='owner'>{{item.owner_name}}</div>
+    <a *ngIf='updateable()' class='update' (click)='requestUpdate()'>Update Contents</a>
+    <a *ngIf='deletable()' class='delete' (click)='delete()'>Delete</a>
+</div>

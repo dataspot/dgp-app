@@ -1,7 +1,7 @@
 :host {
     width: 100%;
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     align-items: center;
     border: 0.5px solid #888;
     margin: 0;
@@ -9,40 +9,50 @@
     padding: 0.5rem 1rem;
     margin-top: -1px;
     
-    > * {
-        flex: 0 0 10%;
+    > *, .part > * {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
         border-left: 1px solid rgba(0,0,0,0.2);
         padding: 0 20px;
         white-space: nowrap;
         text-align: center;
-        &:first-child {
-            border: none;
-        }
-        &:nth-child(2) {
-            margin-left: auto;
-        }
+    }
+
+    .part {
+        flex: 1 0 570px;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: auto;
+        border: none;
+        padding: 0;
     }
 
     .name {
-        flex: 0 0 30%;
+        flex: 0 0 40%;
         font-weight: bold;
         text-align: left;
+        border: none;
     }
 
-    .owner {
-        flex: 0 0 15%;
-        text-overflow: ellipsis;
-        overflow-x: hidden;
-    }
+    .part {
+        .owner {
+            flex: 0 0 25%;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+        }
 
-    .last-modified, .delete, .update {
-        flex: 0 0 auto;
-    }
+        .last-modified, .delete, .update {
+            flex: 0 0 auto;
+        }
 
-    .size {
-        text-align: right;
+        .size {
+            flex: 0 0 auto;
+            font-weight: bold;
+            border: none;
+            text-align: right;
+        }
     }
 
     .separator {
