@@ -52,11 +52,11 @@
   <ng-container *ngIf='ct.dataType === "boolean"'>
     <div class='formish'>
       <label i18n>True Values:</label>
-      <input [(ngModel)]='mapping.options.trueValues' type='text'>
+      <input [(ngModel)]='trueValues' type='text'>
     </div>
     <div class='formish'>
       <label i18n>False Values:</label>
-      <input [(ngModel)]='mapping.options.falseValues' type='text'>
+      <input [(ngModel)]='falseValues' type='text'>
     </div>
   </ng-container>
   <a class='toggle-compound' (click)='mapping.compound=true' i18n *ngIf='!mapping.compound'>Change to compound mapping</a>

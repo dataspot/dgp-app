@@ -10,6 +10,7 @@ import importlib
 
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
+from airflow.operators.bash_operator import BashOperator
 from airflow.utils import dates
 
 from etl_server.pipelines.models import Models as PipelineModels
@@ -41,3 +42,5 @@ for pipeline in etl_models.all_pipelines():
     globals()[dag_id] = dag
 
 
+clean_scheduler_logs_dag = DAG('clean_scheduler_logs', default_args=default_args, schedule_interval='@hourly')
+clean_scheduler_logs = BashOperator('cd /app/airflow/logs/scheduler/ && rm -rf * && echo cleaned', dag=clean_scheduler_logs_dag)

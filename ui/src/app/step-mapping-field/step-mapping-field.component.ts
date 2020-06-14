@@ -47,15 +47,21 @@ export class StepMappingFieldComponent implements OnInit {
   }
 
   set falseValues(values: string) {
-    this.mapping.options.trueValues = values.split(',');
+    this.mapping.options.falseValues = values.split(',');
   }
 
   get trueValues() {
-    return this.mapping.options.trueValues.join(',');
+    if (this.mapping.options.trueValues && Array.isArray(this.mapping.options.trueValues)) {
+      return this.mapping.options.trueValues.join(',');
+    }
+    return null;
   }
 
   get falseValues() {
-    return this.mapping.options.falseValues.join(',');
+    if (this.mapping.options.falseValues && Array.isArray(this.mapping.options.falseValues)) {
+      return this.mapping.options.falseValues.join(',');
+    }
+    return null;
   }
 
   get compound(): boolean {
