@@ -21,6 +21,7 @@ default_args = {
     'owner': 'Airflow',
     'depends_on_past': False,
     'start_date': dates.days_ago(1),
+    'is_paused_upon_creation': False
 }
 
 for pipeline in etl_models.all_pipelines():
