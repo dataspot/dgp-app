@@ -58,7 +58,8 @@ export class StoreService {
 
   public BASE_CONFIG = {
     source: {
-      path: ''
+      path: '',
+      deduplicate_headers: true
     },
     loader: {
     },
