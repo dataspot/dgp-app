@@ -1,7 +1,7 @@
 <div class='container theme-primary-dark-border theme-primary-bg'>
     <a [href]='homepage' class='logo'><img src='assets/logo.png'/></a>
     <a class='menu theme-secondary-fg' [class.theme-primary-dark-bg]='detected === "dashboard"' routerLink='/dashboard'>Dashboard</a>
-    <a class='menu theme-secondary-fg' *ngIf='roles._.pipelinesListPublic' [class.theme-primary-dark-bg]='detected === "pipelines"' routerLink='/pipelines'>Processing Tasks</a>
     <a class='menu theme-secondary-fg' [class.theme-primary-dark-bg]='detected === "files"' routerLink='/files'>Source Data</a>
+    <a class='menu theme-secondary-fg' *ngIf='roles._.pipelinesListPublic' [class.theme-primary-dark-bg]='detected === "pipelines"' routerLink='/pipelines'>Processing Tasks</a>
     <a class='menu theme-secondary-fg' *ngIf='roles._.usersList' [class.theme-primary-dark-bg]='detected === "users"' routerLink='/users'>User Management</a>
 </div>

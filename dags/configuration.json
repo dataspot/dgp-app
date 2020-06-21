@@ -7,6 +7,58 @@
                 {
                     "name": "url",
                     "display": "URL"
+                },
+                {
+                    "name": "question-text",
+                    "display": "Question#1",
+                    "description": "This is the description text of question #1"
+                },
+                {
+                    "name": "question-enum",
+                    "display": "Question-Enum",
+                    "description": "This is the description text of the enum question",
+                    "type": "enum",
+                    "options": [
+                        "Option #1",
+                        "Option #2",
+                        "Option #3"
+                    ]
+                },
+                {
+                    "name": "question-bool",
+                    "display": "Question-Boolean",
+                    "description": "This is the description text of the boolean question<br/>In multiple lines and some <strong>formatting</strong>.",
+                    "type": "boolean"
+                },
+                {
+                    "name": "section",
+                    "display": "Question Section",
+                    "description": "This is the description text of the section<br/>In multiple lines and some <strong>formatting</strong>.",
+                    "type": "section",
+                    "fields": [
+                        {
+                            "name": "question-text",
+                            "display": "Question#1",
+                            "description": "This is the description text of question #1"
+                        },
+                        {
+                            "name": "question-enum",
+                            "display": "Question-Enum",
+                            "description": "This is the description text of the enum question",
+                            "type": "enum",
+                            "options": [
+                                "Option #1",
+                                "Option #2",
+                                "Option #3"
+                            ]
+                        },
+                        {
+                            "name": "question-bool",
+                            "display": "Question-Boolean",
+                            "description": "This is the description text of the boolean question<br/>In multiple lines and some <strong>formatting</strong>.",
+                            "type": "boolean"
+                        }
+                    ]
                 }
             ]
         },

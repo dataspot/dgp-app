@@ -1,6 +1,8 @@
 <ng-container *ngIf='item'>
-  <div *ngFor='let field of fields'>
-    <label [innerHtml]='field.display'></label>
+  <div class='field' *ngFor='let field of fields'>
+    <ng-container *ngIf='field.type !== "section"'>
+      <label [innerHtml]='field.display'></label>
+    </ng-container>
     <ng-container *ngIf='field.type === "text" || !field.type'>
       <input type='text' [(ngModel)]='item[field.name]'/>
     </ng-container>
@@ -12,5 +14,16 @@
         <option *ngFor='let option of field.options' [value]='option'>{{ option }}</option>
       </select>
     </ng-container>
+    <ng-container *ngIf='field.type !== "section"'>
+      <div class='field-description' [innerHtml]='field.description' *ngIf='field.description'></div>
+    </ng-container>
+    <ng-container *ngIf='field.type === "section"'>
+      <div class='section'>
+        <h2 [innerHtml]='field.display' class='theme-secondary-fg theme-primary-bg'></h2>
+        <div class='section-description' [innerHtml]='field.description' *ngIf='field.description'></div>
+        <app-dynamic-fields-editor [item]='item' [fields]='field.fields'></app-dynamic-fields-editor>
+      </div>
+    </ng-container>
+
   </div>
 </ng-container>

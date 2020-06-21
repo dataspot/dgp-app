@@ -6,14 +6,25 @@ import { StoreService } from '../store.service';
   templateUrl: './step-taxonomy.component.html',
   styleUrls: ['./step-taxonomy.component.less']
 })
-export class StepTaxonomyComponent implements OnInit {
+export class StepTaxonomyComponent implements OnInit, OnChanges {
 
   @Input() taxonomy: any;
   @Output() change = new EventEmitter<void>();
+  hidden = false;
 
   constructor(private store: StoreService) { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    if (this.taxonomy && this.taxonomy.options && this.taxonomy.options.length === 1 && !this.taxonomy.id) {
+      this.taxonomy.id = this.taxonomy.options[0].id;
+      this.changed();
+      setTimeout(() => {
+        this.hidden = true;
+      }, 0);
+    }
   }
 
   changed() {

@@ -1,7 +1,9 @@
-<h2 class='workbench-subtitle'>Data Taxonomy</h2>
-<div class='formish'>
-  <label i18n>Taxonomy:</label>
-  <select [(ngModel)]='taxonomy.id' (change)='changed()'>
-    <option *ngFor='let txid of taxonomy.options' [value]='txid.id'>{{txid.title}}</option>
-  </select>
-</div>
+<ng-container *ngIf='!hidden'>
+  <h2 class='workbench-subtitle'>Data Taxonomy</h2>
+  <div class='formish'>
+    <label i18n>Taxonomy:</label>
+    <select [(ngModel)]='taxonomy.id' (change)='changed()'>
+      <option *ngFor='let txid of taxonomy.options' [value]='txid.id'>{{txid.title}}</option>
+    </select>
+  </div>
+</ng-container>
