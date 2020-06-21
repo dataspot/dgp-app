@@ -15,7 +15,7 @@ RUN echo "etl ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ADD . .
 RUN pip install -e .
-# RUN pip install -U -e deps/dgp-server
+# RUN pip install -U -e deps/dgp
 
 ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
 ENV AIRFLOW__CORE__DAGS_FOLDER=/app/dags

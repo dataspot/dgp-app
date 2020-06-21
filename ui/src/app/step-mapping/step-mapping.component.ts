@@ -9,7 +9,7 @@ import { debounceTime } from 'rxjs/operators';
   template: `
     <h2 class='workbench-subtitle' i18n>Column Mapping</h2>
     <ng-container *ngIf='errors.length > 0'>
-      <h3 class='workbench-subsubtitle' i18n>Missing <em>Required</em> Mappings:</h3>
+      <h3 class='workbench-subsubtitle' i18n>Missing&nbsp;<em>Required</em>&nbsp;Mappings:</h3>
       <div class='missing'>
         <span>
           <ng-container *ngFor='let error of errors' >

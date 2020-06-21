@@ -4,17 +4,21 @@
   <input type='text' [(ngModel)]='item.name'/>
   <label>Description</label>
   <textarea rows='3' [(ngModel)]='item.description'></textarea>
-  <label>Kind</label>
   <ng-container *ngIf='api.currentConfig'>
-    <select [(ngModel)]='item.kind'>
-      <option [value]='kind.name' *ngFor='let kind of api.currentConfig.kinds'>{{kind.display}}</option>
-    </select>
-    <label>Schedule</label>
-    <select [(ngModel)]='item.schedule'>
-      <ng-container *ngFor='let schedule of api.currentConfig.schedules'>
-        <option *ngIf='schedule.name === "manual" || roles._.pipelinesExecute' [value]='schedule.name'>{{schedule.display}}</option>
-      </ng-container>
-    </select>
+    <ng-container *ngIf='api.currentConfig.kinds && api.currentConfig.kinds.length > 1'>
+      <label>Kind</label>
+      <select [(ngModel)]='item.kind'>
+        <option [value]='kind.name' *ngFor='let kind of api.currentConfig.kinds'>{{kind.display}}</option>
+      </select>
+    </ng-container>
+    <ng-container *ngIf='roles._.pipelinesExecute'>
+      <label>Schedule</label>
+      <select [(ngModel)]='item.schedule'>
+        <ng-container *ngFor='let schedule of api.currentConfig.schedules'>
+          <option *ngIf='schedule.name === "manual" || roles._.pipelinesExecute' [value]='schedule.name'>{{schedule.display}}</option>
+        </ng-container>
+      </select>
+    </ng-container>
     <label>Visibility</label>
     <select type='checkbox' [(ngModel)]='item.private'>
       <option [value]='true'>Only Visible to Me</option>

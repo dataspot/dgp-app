@@ -59,6 +59,16 @@
       <input [(ngModel)]='falseValues' type='text'>
     </div>
   </ng-container>
+  <ng-container *ngIf='ct.dataType === "number"'>
+    <div class='formish'>
+      <label i18n>Decimal Separator:</label>
+      <input [(ngModel)]='mapping.options.decimalChar' type='text'>
+    </div>
+    <div class='formish'>
+      <label i18n>Thousands Separator:</label>
+      <input [(ngModel)]='mapping.options.groupChar' type='text'>
+    </div>
+  </ng-container>
   <a class='toggle-compound' (click)='mapping.compound=true' i18n *ngIf='!mapping.compound'>Change to compound mapping</a>
   <a class='toggle-compound' (click)='mapping.compound=false' i18n *ngIf='mapping.compound'>Change to simple mapping</a>
 </div>
