@@ -43,7 +43,8 @@ for pipeline in etl_models.all_pipelines():
     globals()[dag_id] = dag
 
 
-clean_scheduler_logs_dag = DAG('_clean_scheduler_logs_dag', default_args=default_args, schedule_interval='@hourly')
+clean_scheduler_logs_dag = DAG('_clean_scheduler_logs_dag', default_args=default_args,
+                               schedule_interval='0 * * * *')
 clean_scheduler_logs = BashOperator(task_id='_clean_scheduler_logs',
                                     bash_command='cd /app/airflow/logs/scheduler/ && rm -rf * && echo cleaned',
                                     dag=clean_scheduler_logs_dag)
