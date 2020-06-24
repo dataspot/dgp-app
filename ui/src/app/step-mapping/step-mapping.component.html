@@ -1,0 +1,34 @@
+<h2 class='workbench-subtitle' i18n>Column Mapping</h2>
+<ng-container *ngIf='errors.length > 0'>
+    <h3 class='workbench-subsubtitle' i18n>Missing&nbsp;<em>Required</em>&nbsp;Mappings:</h3>
+    <div class='missing'>
+    <span>
+        <ng-container *ngFor='let error of errors' >
+        <span *ngIf='error[0] === 1' [title]='error[1].description'>
+            {{ error[1].title }}
+        </span>
+        </ng-container>
+    </span>
+    </div>
+</ng-container>
+<h3 class='workbench-subsubtitle' i18n>Constants:</h3>
+<app-extendable-keyvalue-list
+    [dataList]='config.constants || []'
+    [taxonomy]='config.taxonomy'
+    (updateList)='updateConstants($event)'
+></app-extendable-keyvalue-list>
+<ng-container *ngIf='config.model && config.taxonomy'>
+    <h3 class='workbench-subsubtitle'>
+    <span i18n>Mapping:</span><br/>
+    <button class='btn btn-outline-success btn-sm theme-primary-dark-fg theme-secondary-bg'
+            *ngIf='mappingChanged' (click)='changed()' i18n>Update</button>
+    </h3>
+    <app-step-mapping-field
+        *ngFor='let mapping of config.model.mapping'
+        [mapping]='mapping'
+        [taxonomy]='config.taxonomy'
+        [sample]='badSample[mapping.columnType]'
+        (change)='mappingChanged = true'
+    >
+    </app-step-mapping-field>
+</ng-container>

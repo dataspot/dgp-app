@@ -64,6 +64,11 @@ export class ThemeService {
             font-weight: normal;
             margin-right: 40px;
           }
+          div.workbench-explanation {
+            color: ${primary};
+            font-size: 14px;
+            font-weight: lighter;
+          }
       `;
       const style = document.createElement('style');
       style.type = 'text/css';

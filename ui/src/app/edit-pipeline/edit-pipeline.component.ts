@@ -56,7 +56,7 @@ export class EditPipelineComponent implements OnInit {
     this._save()
         .subscribe((result) => {
           if (result.id) {
-            this.router.navigate(['/']);
+            this.router.navigate(['/pipelines']);
           } else {
             console.log('Failed to SAVE!');
           }

@@ -27,9 +27,9 @@ export class ResultsComponent implements OnInit {
     this.store.getRows()
       .subscribe((row) => {
         if (row.kind === -1) {
+          this.hasResults = true;
           this.stop();
         } else if (row.kind >= 0 && row.kind < this.TABLES.length) {
-          this.hasResults = true;
           const table = this.TABLES[row.kind];
           if (row.index === -1) {
             table.rowCount = 0;
@@ -75,7 +75,6 @@ export class ResultsComponent implements OnInit {
       x.rowCount = 0;
       x.errors = null;
       x.valid = null;
-      this.hasResults = false;
     });
     this.errors = [];
   }

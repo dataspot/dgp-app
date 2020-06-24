@@ -154,4 +154,20 @@ export class StoreService {
   setRowCount(count: any) {
     this._rowcount.next(count);
   }
+
+  strize(v) {
+    if (v !== null && v !== undefined) {
+      if (v.hasOwnProperty('type{decimal}')) {
+        return `<span class='number'>${parseFloat(v['type{decimal}']).toFixed(2)}</span>`;
+      } else if (v.hasOwnProperty('type{date}')) {
+        return v['type{date}'];
+      } else if (v.hasOwnProperty('type{datetime}')) {
+        return v['type{datetime}'];
+      } else if (v.hasOwnProperty('type{time}')) {
+        return v['type{time}'];
+      }
+    }
+    return '' + v;
+  }
+
 }

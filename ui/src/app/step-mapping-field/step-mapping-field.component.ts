@@ -12,6 +12,7 @@ export class StepMappingFieldComponent implements OnInit {
 
   @Input() mapping: any;
   @Input() taxonomy: any;
+  @Input() sample: any;
   @Output() change = new EventEmitter<any>();
 
   more = false;
@@ -22,24 +23,14 @@ export class StepMappingFieldComponent implements OnInit {
   ngOnInit() {
     this.mapping.options = this.mapping.options || {};
     this.updateOwnCt();
-    if (this.ct) {
-      if (this.ct.dataType === 'date') {
-        this.mapping.options.format = this.mapping.options.format || 'default';
-      } else if (this.ct.dataType === 'boolean') {
-        this.mapping.options.trueValues = this.mapping.options.trueValues || ['true', 'True', 'TRUE', '1'];
-        this.mapping.options.falseValues = this.mapping.options.falseValues || [ 'false', 'False', 'FALSE', '0'];
-      } else if (this.ct.dataType === 'number') {
-        this.mapping.options.decimalChar = this.mapping.options.decimalChar || '.';
-        this.mapping.options.groupChar = this.mapping.options.groupChar || '';
-        this.mapping.options.bareNumber = this.mapping.options.bareNumber === undefined ? true : this.mapping.options.bareNumber;
-      } else if (this.ct.dataType === 'integer') {
-        this.mapping.options.bareNumber = this.mapping.options.bareNumber === undefined ? true : this.mapping.options.bareNumber;
-      }
-    }
   }
 
   changed() {
     this.change.emit();
+  }
+
+  get hasErrors() {
+    return this.sample && this.sample.length > 0;
   }
 
   set trueValues(values: string) {
@@ -85,6 +76,21 @@ export class StepMappingFieldComponent implements OnInit {
     for (const ct of this.taxonomy.columnTypes) {
       if (ct.name === ctName) {
         this.ct = ct;
+        this.ct.options = this.ct.options || {};
+        if (this.ct.dataType === 'date') {
+          this.mapping.options.format = this.mapping.options.format || 'default';
+        } else if (this.ct.dataType === 'boolean') {
+          this.mapping.options.trueValues = this.mapping.options.trueValues ||
+            this.ct.options.trueValues || ['true', 'True', 'TRUE', '1'];
+          this.mapping.options.falseValues = this.mapping.options.falseValues ||
+            this.ct.options.falseValues || [ 'false', 'False', 'FALSE', '0'];
+        } else if (this.ct.dataType === 'number') {
+          this.mapping.options.decimalChar = this.mapping.options.decimalChar || this.ct.options.decimalChar || '.';
+          this.mapping.options.groupChar = this.mapping.options.groupChar || this.ct.options.groupChar || '';
+          this.mapping.options.bareNumber = this.mapping.options.bareNumber === undefined ? true : this.mapping.options.bareNumber;
+        } else if (this.ct.dataType === 'integer') {
+          this.mapping.options.bareNumber = this.mapping.options.bareNumber === undefined ? true : this.mapping.options.bareNumber;
+        }
         return;
       }
     }
@@ -99,9 +105,7 @@ export class StepMappingFieldComponent implements OnInit {
           if (!this.mapping.title) {
             this.mapping.title = ct.title;
           }
-          if (!this.mapping.description) {
-            this.mapping.description = ct.description;
-          }
+          this.mapping.description = ct.description;
           break;
         }
       }

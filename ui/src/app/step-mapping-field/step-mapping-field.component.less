@@ -21,7 +21,7 @@
             font-family: monospace;
         }
     
-        .fa {
+        .fa, .fas {
             margin: 0 10px;
         }
 
@@ -29,7 +29,7 @@
             flex: 1 1 auto;
         }
 
-        .fa-caret-right {
+        .fa-caret-right, .fa-exclamation-triangle {
             margin-right: 10px;
             cursor: pointer;
             transition: transform 250ms;
@@ -40,6 +40,17 @@
                 transform: rotate(90deg);
             }
         }
+
+        .fa-exclamation-triangle {
+            cursor: auto;
+            margin-left: 5px;
+            color: salmon;
+            font-size: 14px;
+        }
+    }
+
+    .description {
+        margin: 0 40px;
     }
 
     .formish {
@@ -58,7 +69,43 @@
         padding-left: 40px;
         display: flex;
         flex-flow: column;
-        align-items: stretch;    
+        align-items: stretch;
+
+        .options {
+            display: flex;
+            flex-flow: row;
+            & > * {
+                flex: 0 1 50%;
+            }
+        }
+
+        .sample {
+            display: flex;
+            flex-flow: row;
+            table {
+                margin: 8px;
+                width: ~'calc(100% - 16px)';
+                border-collapse: collapse;
+                border: 1px solid #444;
+        
+                th {
+                    font-weight: bold;
+                    text-align: start;
+                    padding: 3px 6px;
+                }
+                
+                tr {
+                    &:nth-child(2n+1) {
+                        background-color: #eee;
+                    }
+                    
+                    td {
+                        padding: 1px 6px;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
     }
 
 }

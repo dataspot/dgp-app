@@ -1,10 +1,11 @@
 import os
 import json
+import datetime
 
 from contextlib import contextmanager
 
 from sqlalchemy import (
-    Column, String, types,
+    Column, String, DateTime, types,
     create_engine, inspect
 )
 from sqlalchemy.orm.session import sessionmaker
@@ -30,6 +31,8 @@ class JsonType(types.TypeDecorator):
 class Common():
     key = Column(String(128), primary_key=True)
     value = Column(JsonType)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
 
 
 class ModelsBase():
@@ -100,10 +103,11 @@ class ModelsBase():
                 ret['result'] = self.object_as_dict(document)
         return ret
 
-    def query(self):
+    def query(self, order_by=None):
+        order_by = order_by or self._cls.updated_at.desc()
         ret = dict(result=[], success=True)
         with self.session_scope() as session:
-            documents = session.query(self._cls)
+            documents = session.query(self._cls).order_by(order_by)
             for doc in documents:
                 ret['result'].append(self.object_as_dict(doc))
         return ret

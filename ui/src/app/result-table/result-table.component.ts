@@ -35,7 +35,7 @@ export class ResultTableComponent implements OnInit, OnDestroy {
                   this.rows.push({data: this.headers.map((h) => '&hellip;')});
                 }
               }
-              const data: any = this.headers.map((h) => this.strize(row.data[h]));
+              const data: any = this.headers.map((h) => this.store.strize(row.data[h]));
               data[0] = row.index + 1;
               const errd = row.errors && row.errors.length > 0 && !row.errors_field;
               const errd_field = row.errors_field ? this.headers.indexOf(row.errors_field) : null;
@@ -44,21 +44,6 @@ export class ResultTableComponent implements OnInit, OnDestroy {
           }
         })
       );
-  }
-
-  strize(v) {
-    if (v !== null && v !== undefined) {
-      if (v.hasOwnProperty('type{decimal}')) {
-        return `<span class='number'>${parseFloat(v['type{decimal}']).toFixed(2)}</span>`;
-      } else if (v.hasOwnProperty('type{date}')) {
-        return v['type{date}'];
-      } else if (v.hasOwnProperty('type{datetime}')) {
-        return v['type{datetime}'];
-      } else if (v.hasOwnProperty('type{time}')) {
-        return v['type{time}'];
-      }
-    }
-    return '' + v;
   }
 
   ngOnInit() {

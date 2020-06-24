@@ -1,5 +1,25 @@
 <app-container>
     <h1 class='theme-primary-fg'>Data Import Workbench</h1>
+
+    <div class='buttons'>
+        <div class='button' (click)='finalize()'>
+            <i class="fas fa-save" aria-hidden="true"></i>
+            Save
+        </div>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === null'>
+            Please select a data source
+        </h4>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === "progress"'>
+            Data is processing...
+        </h4>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === true'>
+            Mapping completed successfully, click save to proceed
+        </h4>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === false'>
+            Mapping completed with errors, you can save and continue editing later
+        </h4>
+    </div>
+
     <app-step-extract-source [source]='config.source'
                              [loader]='config.loader'
                              *ngIf='stage >= STAGE_SPECIFY_SOURCE'
@@ -18,11 +38,20 @@
     <app-step-enrich *ngIf='stage >= STAGE_METADATA'>
     </app-step-enrich>
 
-    <div class='buttons'>
+    <div class='buttons' *ngIf='complete !== null'>
         <div class='button' (click)='finalize()'>
             <i class="fas fa-save" aria-hidden="true"></i>
-            Finish and Back to Edit
+            Save
         </div>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === "progress"'>
+            Data is processing...
+        </h4>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === true'>
+            Mapping completed successfully, click save to proceed
+        </h4>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === false'>
+            Mapping completed with errors, you can save and continue editing later
+        </h4>
     </div>
 
     <app-results></app-results>

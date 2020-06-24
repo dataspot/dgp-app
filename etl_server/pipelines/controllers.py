@@ -6,7 +6,7 @@ from slugify import slugify
 
 from .models import Models
 
-from airflow.models import TaskInstance, DagBag, DagRun
+from airflow.models import TaskInstance, DagBag, DagRun, DagModel
 from airflow.utils.db import create_session
 from airflow import settings
 
@@ -30,6 +30,15 @@ class Controllers():
                 dict(name='@yearly', display='Yearly'),
                 dict(name='manual', display='Manual'),
             ]
+        self.unpause_all()
+
+    def unpause_all(self):
+        dagbag = DagBag(settings.DAGS_FOLDER)
+        dag_ids = dagbag.dag_ids
+        for dag_id in dag_ids:
+            DagModel.get_dagmodel(dag_id).set_is_paused(is_paused=False)
+        
+
     def create_or_edit_pipeline(self, id, body, owner, allowed_all):
         # Calculate id if necessary
         if not id:

@@ -2,97 +2,55 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { StoreService } from '../store.service';
 import { Subscription, Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-step-mapping',
-  template: `
-    <h2 class='workbench-subtitle' i18n>Column Mapping</h2>
-    <ng-container *ngIf='errors.length > 0'>
-      <h3 class='workbench-subsubtitle' i18n>Missing&nbsp;<em>Required</em>&nbsp;Mappings:</h3>
-      <div class='missing'>
-        <span>
-          <ng-container *ngFor='let error of errors' >
-            <span *ngIf='error[0] === 1' [title]='error[1].description'>
-              {{ error[1].title }}
-            </span>
-          </ng-container>
-        </span>
-      </div>
-    </ng-container>
-    <h3 class='workbench-subsubtitle' i18n>Constants:</h3>
-    <app-extendable-keyvalue-list
-        [dataList]='config.constants || []'
-        [taxonomy]='config.taxonomy'
-        (updateList)='updateConstants($event)'
-    ></app-extendable-keyvalue-list>
-    <ng-container *ngIf='config.model && config.taxonomy'>
-      <h3 class='workbench-subsubtitle'>
-        <span i18n>Mapping:</span><br/>
-        <button class='btn btn-outline-success btn-sm theme-primary-dark-fg theme-secondary-bg'
-                *ngIf='mappingChanged' (click)='changed()' i18n>Update</button>
-      </h3>
-      <app-step-mapping-field
-        *ngFor='let mapping of config.model.mapping'
-        [mapping]='mapping'
-        [taxonomy]='config.taxonomy'
-        (change)='mappingChanged = true'
-      >
-      </app-step-mapping-field>
-    </ng-container>
-  `,
-  styles: [
-    `
-        .missing span {
-          display: flex;
-          flex-flow: row;
-        }
-
-        .missing span span {
-          font-size: 12px;
-          list-style: none;
-          display: block;
-          padding: 1px 15px;
-          margin: 0px 10px;
-          margin-start: 0;
-          border: solid 1px #400;
-          border-radius: 10px;
-          background-color: #fcc;
-        }
-
-        app-extendable-keyvalue-list {
-          width: 100%;
-          max-width: 60vw;
-        }
-
-        .workbench-subsubtitle {
-          display: flex;
-          flex-flow: row;
-          align-items: center;
-        }
-
-        .workbench-subsubtitle button {
-          margin: 0 20px;
-          cursor: pointer;
-        }
-
-    `
-      ]
+  templateUrl: 'step-mapping.component.html',
+  styleUrls: ['step-mapping.component.less']
 })
 export class StepMappingComponent implements OnInit, OnDestroy {
 
   config: any = null;
   errors: any = [];
+  badSample: any = {};
   subs: Subscription[] = [];
   changedStream = new Subject<void>();
   _mappingChanged = false;
+
+  SAMPLE_SIZE = 5;
 
   constructor(private store: StoreService) {
     this.changedStream.pipe(
       debounceTime(5000)
     ).subscribe(() => {
       this.changed();
-    })
+    });
+
+    this.store.getRows().pipe(
+      map((row) => {
+        if (row.index === -1) {
+          this.badSample = {};
+        } else {
+          if (row.index >= 0) {
+            if (row.kind === 1) {
+              if (row.errors_field) {
+                const field = row.errors_field;
+                this.badSample[field] = this.badSample[field] || [];
+                const list = this.badSample[field];
+                if (list.length < this.SAMPLE_SIZE) {
+                  const value = this.store.strize(row.data[field]);
+                  if (list.map((x) => x.value).indexOf(value) < 0) {
+                    const idx = row.index;
+                    list.push({idx, value});
+                  }
+                }
+              }
+            }
+          }
+        }
+      })
+    ).subscribe(() => { console.log('collected sample!'); });
   }
 
   ngOnInit() {
