@@ -1,9 +1,25 @@
-<ng-container *ngIf='!hidden'>
   <h2 class='workbench-subtitle'>Data Taxonomy</h2>
-  <div class='formish'>
-    <label i18n>Taxonomy:</label>
-    <select [(ngModel)]='taxonomy.id' (change)='changed()'>
-      <option *ngFor='let txid of taxonomy.options' [value]='txid.id'>{{txid.title}}</option>
-    </select>
+
+  <ng-container *ngIf='!hidden'>
+    <div class='workbench-explanation' i18n>
+      The detected data taxonomy for this dataset -
+    </div>
+    <div class='formish'>
+      <label i18n>Taxonomy:</label>
+      <select [(ngModel)]='taxonomy.id' (change)='changed()'>
+        <option *ngFor='let txid of taxonomy.options' [value]='txid.id'>{{txid.title}}</option>
+      </select>
+    </div>
+  </ng-container>
+
+  <div class='workbench-explanation' i18n>
+    By default, only empty cells will be considered as empty.<br/>
+    If other values need to be ignored as well, add them here in a comma separated list.
   </div>
-</ng-container>
+  <div class='formish'>
+    <label i18n>Empty Values:</label>
+    <input type='text'
+      [(ngModel)]='missingValues'
+      (change)='changed()'
+    />
+  </div>

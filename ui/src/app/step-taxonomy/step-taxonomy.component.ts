@@ -27,6 +27,17 @@ export class StepTaxonomyComponent implements OnInit, OnChanges {
     }
   }
 
+  set missingValues(missingValues: string) {
+    this.taxonomy.missingValues = missingValues.split(',');
+    this.taxonomy.missingValues.push('');
+  }
+
+  get missingValues() {
+    if (this.taxonomy && this.taxonomy.missingValues && Array.isArray(this.taxonomy.missingValues)) {
+      return this.taxonomy.missingValues.filter((i) => i !== '').join(',');
+    }
+  }
+
   changed() {
     this.change.emit();
   }
