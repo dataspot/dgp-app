@@ -27,30 +27,28 @@ export class StepMappingComponent implements OnInit, OnDestroy {
       this.changed();
     });
 
-    this.store.getRows().pipe(
-      map((row) => {
-        if (row.index === -1) {
-          this.badSample = {};
-        } else {
-          if (row.index >= 0) {
-            if (row.kind === 1) {
-              if (row.errors_field) {
-                const field = row.errors_field;
-                this.badSample[field] = this.badSample[field] || [];
-                const list = this.badSample[field];
-                if (list.length < this.SAMPLE_SIZE) {
-                  const value = this.store.strize(row.data[field]);
-                  if (list.map((x) => x.value).indexOf(value) < 0) {
-                    const idx = row.index;
-                    list.push({idx, value});
-                  }
+    this.store.getRows().subscribe((row) => {
+      if (row.index === -1) {
+        this.badSample = {};
+      } else {
+        if (row.index >= 0) {
+          if (row.kind === 1) {
+            if (row.errors_field) {
+              const field = row.errors_field;
+              this.badSample[field] = this.badSample[field] || [];
+              const list = this.badSample[field];
+              if (list.length < this.SAMPLE_SIZE) {
+                const value = this.store.strize(row.data[field]);
+                if (list.map((x) => x.value).indexOf(value) < 0) {
+                  const idx = row.index;
+                  list.push({idx, value});
                 }
               }
             }
           }
         }
-      })
-    ).subscribe(() => { console.log('collected sample!'); });
+      }
+    });
   }
 
   ngOnInit() {

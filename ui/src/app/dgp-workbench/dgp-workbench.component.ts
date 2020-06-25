@@ -45,18 +45,16 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
       this.calculateStage(config);
     });
 
-    this.store.getRows().pipe(
-      map((row) => {
-        if (row.index === -2 && row.kind === 2) {
-          this.complete = !this.hasErrors;
-        } else if (row.index === -1 && row.kind === 0) {
-          this.complete = 'progress';
-          this.hasErrors = false;
-        } else if (row.errors && row.errors.length > 0) {
-          this.hasErrors = true;
-        }
-      })
-    ).subscribe(() => { console.log('collected sample!'); });
+    this.store.getRows().subscribe((row) => {
+      if (row.index === -2 && row.kind === 2) {
+        this.complete = !this.hasErrors;
+      } else if (row.index === -1 && row.kind === 0) {
+        this.complete = 'progress';
+        this.hasErrors = false;
+      } else if (row.errors && row.errors.length > 0) {
+        this.hasErrors = true;
+      }
+    });
 
   }
 
