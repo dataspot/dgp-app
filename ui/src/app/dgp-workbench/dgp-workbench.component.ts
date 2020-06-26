@@ -42,7 +42,9 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
       this.config.source = this.config.source || {};
       this.config.loader = this.config.loader || {};
       this.config.taxonomy = this.config.taxonomy || {};
-      this.calculateStage(config);
+      setTimeout(() => {
+        this.calculateStage(config);
+      }, 0);
     });
 
     this.store.getRows().subscribe((row) => {

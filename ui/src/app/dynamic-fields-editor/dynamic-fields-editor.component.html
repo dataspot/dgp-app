@@ -21,9 +21,9 @@
       <div class='section'>
         <h2 [innerHtml]='field.display' class='theme-secondary-fg theme-primary-bg'></h2>
         <div class='section-description' [innerHtml]='field.description' *ngIf='field.description'></div>
-        <a class='expander' *ngIf='expanded' (click)='expanded=false'>less...</a>
-        <a class='expander' *ngIf='!expanded' (click)='expanded=true'>more...</a>
-        <app-dynamic-fields-editor [item]='item' [fields]='field.fields'></app-dynamic-fields-editor>
+        <app-dynamic-fields-editor [item]='item' [fields]='field.fields' *ngIf='!field.expandable || expanded[field.display]'></app-dynamic-fields-editor>
+        <a class='expander' *ngIf='field.expandable && expanded[field.display]' (click)='expanded[field.display]=false'>less...</a>
+        <a class='expander' *ngIf='field.expandable && !expanded[field.display]' (click)='expanded[field.display]=true'>more...</a>
       </div>
     </ng-container>
 

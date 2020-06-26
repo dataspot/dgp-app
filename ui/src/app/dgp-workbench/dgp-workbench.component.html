@@ -54,5 +54,5 @@
         </h4>
     </div>
 
-    <app-results></app-results>
+    <app-results *ngIf='config.source.path || config.loader.filename'></app-results>
 </app-container>

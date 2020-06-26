@@ -9,7 +9,7 @@ export class DynamicFieldsEditorComponent implements OnInit {
 
   @Input() item: any;
   @Input() fields: any[];
-  expanded = false;
+  expanded = {};
 
   constructor() { }
 
