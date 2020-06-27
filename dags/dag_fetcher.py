@@ -65,12 +65,17 @@ clean_scheduler_logs = BashOperator(task_id=task_id,
                                     dag=clean_scheduler_logs_dag)
 
 def event_proxy(handler, **kwargs):
-    return handler(**kwargs['dag_run'].conf)
+    conf = kwargs['dag_run'].conf
+    pipeline_id = conf['pipeline_id']
+    pipeline = etl_models.query_one(pipeline_id).get('result')
+    if pipeline:
+        return handler(pipeline)
 
 for event in ('delete', 'failed', 'new'):
     handler = importlib.import_module(f'events.{event}_pipeline').handler
     task_id = f'event_hander_{event}_pipeline'
     dag_id = task_id + '_dag'
     dag = DAG(dag_id, default_args=default_args, schedule_interval=None)
-    task = PythonOperator(task_id=task_id, python_callable=event_proxy, op_args=[handler], dag=dag)
+    task = PythonOperator(task_id=task_id, python_callable=event_proxy,
+                          op_args=[handler], dag=dag, provide_context=True)
     globals()[dag_id] = dag

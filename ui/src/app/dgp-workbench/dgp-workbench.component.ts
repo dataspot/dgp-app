@@ -48,8 +48,12 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
     });
 
     this.store.getRows().subscribe((row) => {
-      if (row.index === -2 && row.kind === 2) {
-        this.complete = !this.hasErrors;
+      if (row.index === -2) {
+        if (this.hasErrors) {
+          this.complete = 'errors';
+        } else {
+          this.complete = row.kind === 2;
+        }
       } else if (row.index === -1 && row.kind === 0) {
         this.complete = 'progress';
         this.hasErrors = false;

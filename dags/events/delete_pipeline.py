@@ -1,2 +1,4 @@
-def handler(pipeline):
-    pass
+import logging
+
+def handler(pipeline=None):
+    logging.info('Deleting pipeline %r', pipeline)

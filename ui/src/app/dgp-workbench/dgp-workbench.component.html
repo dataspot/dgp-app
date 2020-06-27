@@ -6,16 +6,19 @@
             <i class="fas fa-save" aria-hidden="true"></i>
             Save
         </div>
-        <h4 class='workbench-subsubtitle' *ngIf='complete === null'>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === null && (!config.source || !config.source.path)'>
             Please select a data source
         </h4>
-        <h4 class='workbench-subsubtitle' *ngIf='complete === "progress"'>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === "progress" || (config.source && config.source.path)'>
             Data is processing...
         </h4>
         <h4 class='workbench-subsubtitle' *ngIf='complete === true'>
             Mapping completed successfully, click save to proceed
         </h4>
         <h4 class='workbench-subsubtitle' *ngIf='complete === false'>
+            Mapping is still incomplete, you can save and continue editing later
+        </h4>
+        <h4 class='workbench-subsubtitle' *ngIf='complete === "errors"'>
             Mapping completed with errors, you can save and continue editing later
         </h4>
     </div>

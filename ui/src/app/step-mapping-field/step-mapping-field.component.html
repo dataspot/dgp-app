@@ -53,6 +53,7 @@
           <label i18n>Custom Format:</label>
           <input [(ngModel)]='mapping.options.format' type='text'>
         </div>
+        <div class='workbench-explanation' i18n>More information on custom formats can be found <a href='https://strftime.org/' target='_blank'>here</a>.</div>
       </ng-container>
       <ng-container *ngIf='ct.dataType === "boolean"'>
         <div class='formish'>
