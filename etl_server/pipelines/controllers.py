@@ -49,11 +49,15 @@ class Controllers():
 
         # Add record to DB
         ret = self.models.create_or_edit(id, body, owner=owner, allowed_all=allowed_all)
+        if ret.get('success'):
+            self.trigger_event('new', id)
         return ret
 
     def delete_pipeline(self, id, user=None):
         # Delete pipeline from DB
         ret = self.models.delete(id, user)
+        if ret.get('success'):
+            self.trigger_event('delete', id)
         return ret
 
     def __get_latest_runs(self):
@@ -144,3 +148,10 @@ class Controllers():
         models.DagModel.get_dagmodel(id).set_is_paused(is_paused=False)
         run = trigger_dag(id)
         return dict(result=run.run_id if run else None) 
+
+    def trigger_event(self, event, id):
+        from airflow.api.common.experimental.trigger_dag import trigger_dag
+        from airflow import models
+        dag_id = f'event_hander_{event}_pipeline_dag'
+        models.DagModel.get_dagmodel(dag_id).set_is_paused(is_paused=False)
+        trigger_dag(dag_id, conf=dict(pipeline_id=id))

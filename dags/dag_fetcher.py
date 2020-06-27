@@ -55,15 +55,22 @@ for pipeline in etl_models.all_pipelines():
         logging.error(f'Failed to create a DAG with id {dag_id}, schedule {schedule} because {e}')
 
 
-try:
-    task_id = '_clean_scheduler_logs' 
+task_id = '_clean_scheduler_logs' 
+dag_id = task_id + '_dag'
+schedule = '0 * * * *'
+clean_scheduler_logs_dag = DAG(dag_id, default_args=default_args,
+                                schedule_interval=schedule)
+clean_scheduler_logs = BashOperator(task_id=task_id,
+                                    bash_command='cd /app/airflow/logs/scheduler/ && rm -rf * && echo cleaned',
+                                    dag=clean_scheduler_logs_dag)
+
+def event_proxy(handler, **kwargs):
+    return handler(**kwargs['dag_run'].conf)
+
+for event in ('delete', 'failed', 'new'):
+    handler = importlib.import_module(f'events.{event}_pipeline').handler
+    task_id = f'event_hander_{event}_pipeline'
     dag_id = task_id + '_dag'
-    schedule = '0 * * * *'
-    dag = DAG(dag_id, default_args=default_args,
-              schedule_interval=schedule)
-    clean_scheduler_logs = BashOperator(task_id=task_id,
-                                        bash_command='cd /app/airflow/logs/scheduler/ && rm -rf * && echo cleaned',
-                                        dag=dag)
+    dag = DAG(dag_id, default_args=default_args, schedule_interval=None)
+    task = PythonOperator(task_id=task_id, python_callable=event_proxy, op_args=[handler], dag=dag)
     globals()[dag_id] = dag
-except Exception as e:
-    logging.error(f'Failed to create a DAG with id {dag_id}, schedule {schedule} because {e}')
