@@ -1,4 +1,4 @@
-import logging
+from dgp_server.log import logger
 
 def handler(pipeline=None):
-    logging.info('New pipeline %r', pipeline)
+    logger.info('New pipeline %r', pipeline)

@@ -1,2 +1,2 @@
-def handler(pipeline):
+def handler(pipeline=None):
     pass
