@@ -26,8 +26,23 @@ export class PipelineListItemComponent implements OnInit {
   }
 
   canEdit() {
-    console.log('canEdit?', this.item.name, this.item.owner, this.userId);
-    return this.item.owner === this.userId || this.roles._.pipelinesEditAll;
+    return (this.item.owner === this.userId && this.roles._.pipelinesEditOwn) || this.roles._.pipelinesEditAll;
+  }
+
+  canDelete() {
+    return (this.item.owner === this.userId && this.roles._.pipelinesDeleteOwn) || this.roles._.pipelinesDeleteAll;
+  }
+
+  delete(e) {
+    console.log('DELETING', this.item);
+    this.api.deletePipeline(this.item.id)
+        .subscribe((result) => {
+          if (!result) {
+            console.log('Failed to DELETE!');
+          }
+        });
+    e.preventDefault();
+    return false;
   }
 
 }
