@@ -125,12 +125,12 @@ class Controllers():
         return query_results
 
     def query_pipeline(self, id, user=None, public=None):
-        result = self.models.query_one(id)
+        result = self.models.query_one(id)[.get('result', {})
         if (user and (result['owner'] != user or not result['private'])) or (public and result['private']):
             return dict(success=False)
 
         statuses = self.__get_latest_runs()
-        key = result.get('result', {}).get('key')
+        key = result.get('key')
         if key in statuses:
             status = statuses[key]
             status['logs'], status['table'] = self.__get_logs(key)

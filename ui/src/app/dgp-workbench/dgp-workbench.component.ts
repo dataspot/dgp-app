@@ -65,13 +65,12 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
   }
 
   get status() {
+    if ((!this.config.source || !this.config.source.path) &&
+        (!this.config.loader || !this.config.loader.filename)) {
+      return 'no-source';
+    }
     if (this.complete === null) {
-      if ((!this.config.source || !this.config.source.path) && 
-          (!this.config.loader || !this.config.loader.filename)) {
-        return 'no-source';
-      } else {
-        return 'progress';
-      }
+      return 'progress';
     } else {
       return this.complete;
     }
