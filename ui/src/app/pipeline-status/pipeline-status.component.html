@@ -21,7 +21,7 @@
   <div class='logs'>{{item.status.logs}}</div>
   <div *ngIf='item.status.table'  class='result-table' [innerHtml]='item.status.table'></div>
   <div class='buttons'>
-  <a *ngIf='roles._.pipelinesEditOwn' class='edit button' [routerLink]='"/edit/" + item.id'>
+  <a *ngIf='canEdit()' class='edit button' [routerLink]='"/edit/" + item.id'>
     <i class="fas fa-pencil-alt" aria-hidden="true"></i>
     Edit Task
   </a>

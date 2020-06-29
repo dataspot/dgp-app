@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, first, filter } from 'rxjs/operators';
 import * as moment from 'moment';
 import { RolesService } from '../roles.service';
+import { AuthService } from 'budgetkey-ng2-auth';
 
 @Component({
   selector: 'app-pipeline-status',
@@ -14,9 +15,13 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
 
   item: any = {status: {}};
   visible = false;
+  userId = null;
   _moment: any;
 
-  constructor(private route: ActivatedRoute, private api: ApiService, public roles: RolesService) {
+  constructor(private route: ActivatedRoute, private api: ApiService, public roles: RolesService, public auth: AuthService) {
+    this.auth.getUser().pipe(filter((x) => !!x.profile), first()).subscribe((user) => {
+      this.userId = user.profile.id;
+    });
     this.refresh();
     this._moment = moment;
   }
@@ -40,6 +45,10 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.visible = false;
+  }
+
+  canEdit() {
+    return (this.item.owner === this.userId && this.roles._.pipelinesEditOwn) || this.roles._.pipelinesEditAll;
   }
 
   trigger() {

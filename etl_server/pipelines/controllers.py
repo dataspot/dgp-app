@@ -128,7 +128,7 @@ class Controllers():
         ret = self.models.query_one(id)
         result = ret.setdefault('result', {})
         value = result.setdefault('value', {})
-        if (user and (result['owner'] != user or not result['private'])) or (public and result['private']):
+        if (user and result['owner'] != user and result['private']) or (public and result['private']):
             return dict(success=False)
 
         statuses = self.__get_latest_runs()

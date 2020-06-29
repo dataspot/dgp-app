@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { RolesService } from '../roles.service';
 import { AuthService } from 'budgetkey-ng2-auth';
+import { first, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pipeline-list-item',
@@ -15,7 +16,7 @@ export class PipelineListItemComponent implements OnInit {
   userId: string = null;
 
   constructor(public api: ApiService, public roles: RolesService, public auth: AuthService) {
-    this.auth.getUser().subscribe((user) => {
+    this.auth.getUser().pipe(filter((x) => !!x.profile), first()).subscribe((user) => {
       this.userId = user.profile.id;
     });
   }
