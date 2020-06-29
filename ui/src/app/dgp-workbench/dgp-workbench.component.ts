@@ -52,9 +52,9 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
         if (this.hasErrors) {
           this.complete = 'errors';
         } else {
-          this.complete = row.kind === 2;
+          this.complete = row.kind === 2 ? 'complete' : 'incomplete';
         }
-      } else if (row.index === -1 && row.kind === 0) {
+      } else if (row.kind === -1) {
         this.complete = 'progress';
         this.hasErrors = false;
       } else if (row.errors && row.errors.length > 0) {
@@ -62,6 +62,19 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
       }
     });
 
+  }
+
+  get status() {
+    if (this.complete === null) {
+      if ((!this.config.source || !this.config.source.path) && 
+          (!this.config.loader || !this.config.loader.filename)) {
+        return 'no-source';
+      } else {
+        return 'progress';
+      }
+    } else {
+      return this.complete;
+    }
   }
 
   updateUrl(config) {
