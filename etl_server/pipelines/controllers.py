@@ -125,7 +125,7 @@ class Controllers():
         return query_results
 
     def query_pipeline(self, id, user=None, public=None):
-        result = self.models.query_one(id)[.get('result', {})
+        result = self.models.query_one(id).get('result', {})
         if (user and (result['owner'] != user or not result['private'])) or (public and result['private']):
             return dict(success=False)
 
