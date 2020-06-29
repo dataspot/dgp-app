@@ -125,7 +125,9 @@ class Controllers():
         return query_results
 
     def query_pipeline(self, id, user=None, public=None):
-        result = self.models.query_one(id).get('result', {})
+        ret = self.models.query_one(id)
+        result = ret.setdefault('result', {})
+        value = result.setdefault('value', {})
         if (user and (result['owner'] != user or not result['private'])) or (public and result['private']):
             return dict(success=False)
 
@@ -136,10 +138,9 @@ class Controllers():
             status['logs'], status['table'] = self.__get_logs(key)
         else:
             status = dict(status='didnt-run', logs='')
-        result.setdefault('result', {}).setdefault('value', {})\
-            .setdefault('status', status)
-        result['result'] = result.get('result', {}).get('value')
-        return result
+        value.setdefault('status', status)
+        ret['result'] = value
+        return ret
 
     def configuration(self):
         return dict(result=self.config)
