@@ -80,6 +80,11 @@
         "secondary": "#fff"
     },
     "dateFormats": [
+        {"display": "Automatic",                           "format": "auto"},
+        {"display": "Automatic - YMD",                     "format": "auto_ymd"},
+        {"display": "Automatic - YDM",                     "format": "auto_ydm"},
+        {"display": "Automatic - DMY",                     "format": "auto_dmy"},
+        {"display": "Automatic - MDY",                     "format": "auto_mdy"},
         {"display": "Standard ISO format (YYYY-MM-DD)",    "format": "default"},
         {"display": "DD/MM/YYYY",                          "format": "%d/%m/%Y"},
         {"display": "YYYY-MM-DD HH:MM:SS UTC",             "format": "%Y-%m-%d %H:%M:%S UTC"}
