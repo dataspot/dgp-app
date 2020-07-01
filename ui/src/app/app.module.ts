@@ -43,6 +43,7 @@ import { FileListItemComponent } from './file-list-item/file-list-item.component
 import { StepTaxonomyComponent } from './step-taxonomy/step-taxonomy.component';
 import { ResultsTabSelectorComponent } from './results-tab-selector/results-tab-selector.component';
 
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,8 +92,7 @@ import { ResultsTabSelectorComponent } from './results-tab-selector/results-tab-
     BudgetkeyNg2AuthModule,
   ],
   providers: [
-    getAuthServiceConfigProvider(''),
-    // getAuthServiceConfigProvider('http://localhost:5000'),
+    getAuthServiceConfigProvider(environment.auth_endpoint),
   ],
   bootstrap: [AppComponent]
 })

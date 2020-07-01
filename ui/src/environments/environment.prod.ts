@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  api_endpoint: '/api',
+  auth_endpoint: ''
 };
