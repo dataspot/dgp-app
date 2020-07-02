@@ -64,6 +64,16 @@ export class ThemeService {
             font-weight: normal;
             margin-right: 40px;
           }
+          h4.workbench-subsubsubtitle {
+            color: ${primary};
+            border-left: solid 8px ${primary};
+            padding: 0px 8px;
+            margin-left: -16px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: bold;
+          }
           div.workbench-explanation {
             color: ${primary};
             font-size: 14px;

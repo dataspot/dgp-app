@@ -44,6 +44,8 @@ import { StepTaxonomyComponent } from './step-taxonomy/step-taxonomy.component';
 import { ResultsTabSelectorComponent } from './results-tab-selector/results-tab-selector.component';
 
 import { environment } from '../environments/environment';
+import { StepFlippedMappingComponent } from './step-flipped-mapping/step-flipped-mapping.component';
+import { StepFlippedMappingFieldComponent } from './step-flipped-mapping-field/step-flipped-mapping-field.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +84,9 @@ import { environment } from '../environments/environment';
     FileUploaderComponent,
     FileListItemComponent,
     StepTaxonomyComponent,
-    ResultsTabSelectorComponent
+    ResultsTabSelectorComponent,
+    StepFlippedMappingComponent,
+    StepFlippedMappingFieldComponent
   ],
   imports: [
     BrowserModule,
