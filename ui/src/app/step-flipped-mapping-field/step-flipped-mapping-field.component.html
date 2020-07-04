@@ -7,12 +7,12 @@
     <option value='constant' i18n>Constant...</option>
     <option [selected]='ct.mandatory' disabled value=''>---</option>
     <optgroup label='Source Columns'>
-      <option *ngFor='let field of config.model.mapping'>{{ field.name }}</option>
+      <option *ngFor='let header of config.structure.headers'>{{ header }}</option>
     </optgroup>
   </select>
   <div class='constant' *ngIf='mappingType === "constant"'>
     <label i18n>Constant Value:</label>
-    <input type='text' [(ngModel)]='constantValue'/>
+    <input type='text' [(ngModel)]='constant' (change)='changed()'>
   </div>
 </div>
 <div *ngIf='expanded'>
@@ -20,20 +20,20 @@
     <div>
       <div class='formish'>
         <label i18n>Title:</label>
-        <input [(ngModel)]='mapping.title' type='text'>
+        <input [(ngModel)]='mapping.title' type='text' (change)='changed()'>
       </div>
       <ng-container *ngIf='ct.dataType === "date"'>
         <ng-container *ngIf='api.currentConfig.dateFormats && api.currentConfig.dateFormats.length > 0'>
           <div class='formish'>
             <label i18n>Date Format:</label>
-            <select [(ngModel)]='mapping.options.format'>
+            <select [(ngModel)]='mapping.options.format' (change)='changed()'>
               <option [value]='df.format' *ngFor='let df of api.currentConfig.dateFormats'>{{df.display}}</option>
             </select>
           </div>
         </ng-container>
         <div class='formish'>
           <label i18n>Custom Format:</label>
-          <input [(ngModel)]='mapping.options.format' type='text'>
+          <input [(ngModel)]='mapping.options.format' type='text' (change)='changed()'>
         </div>
         <div class='workbench-explanation' i18n>More information on custom formats can be found <a href='https://strftime.org/' target='_blank'>here</a>.</div>
       </ng-container>
@@ -50,11 +50,11 @@
       <ng-container *ngIf='ct.dataType === "number"'>
         <div class='formish'>
           <label i18n>Decimal Separator:</label>
-          <input [(ngModel)]='mapping.options.decimalChar' type='text'>
+          <input [(ngModel)]='mapping.options.decimalChar' type='text' (change)='changed()'>
         </div>
         <div class='formish'>
           <label i18n>Thousands Separator:</label>
-          <input [(ngModel)]='mapping.options.groupChar' type='text'>
+          <input [(ngModel)]='mapping.options.groupChar' type='text' (change)='changed()'>
         </div>
       </ng-container>
     </div>
@@ -70,5 +70,5 @@
     </div>
   </div>
 </div>
-<a class='expander' *ngIf='expanded' (click)='expanded=false'>less...</a>
-<a class='expander' *ngIf='!expanded' (click)='expanded=true'>more...</a>
+<a class='expander' *ngIf='expanded' (click)='expanded=false'>less settings...</a>
+<a class='expander' *ngIf='!expanded' (click)='expanded=true'>more settings...</a>

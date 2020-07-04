@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-step-flipped-mapping-field',
@@ -11,9 +11,9 @@ export class StepFlippedMappingFieldComponent implements OnInit {
   @Input() mapping: any;
   @Input() constant: any;
   @Input() config: any;
+  @Output() update = new EventEmitter<any>();
 
-  mappingType = '';
-  constantValue = null;
+  _mappingType = '';
 
   constructor() { }
 
@@ -22,11 +22,23 @@ export class StepFlippedMappingFieldComponent implements OnInit {
     this.mapping.columnType = this.mapping.columnType || this.ct.name;
     this.mapping.title = this.mapping.title || this.ct.name;
     this.mapping.options = this.mapping.options || {};
-    this.mappingType = this.mapping.name || '';
+    this._mappingType = this.mapping.name || '';
     if (this.constant !== null) {
-      this.mappingType = 'constant';
+      this._mappingType = 'constant';
     }
     this.updateMappingOptions();
+  }
+
+  set mappingType(mt: string) {
+    this._mappingType = mt;
+    if (mt !== '' && mt !== 'constant') {
+      this.constant = null;
+      this.changed();
+    }
+  }
+
+  get mappingType() {
+    return this._mappingType;
   }
 
   updateMappingOptions() {
@@ -49,10 +61,12 @@ export class StepFlippedMappingFieldComponent implements OnInit {
 
   set trueValues(values: string) {
     this.mapping.options.trueValues = values.split(',');
+    this.changed();
   }
 
   set falseValues(values: string) {
     this.mapping.options.falseValues = values.split(',');
+    this.changed();
   }
 
   get trueValues() {
@@ -69,5 +83,10 @@ export class StepFlippedMappingFieldComponent implements OnInit {
     return null;
   }
 
+  changed() {
+    setTimeout(() => {
+      this.update.emit({ct: this.ct, mappingType: this.mappingType, mapping: this.mapping, constant: this.constant});
+    }, 0);
+  }
 
 }

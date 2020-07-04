@@ -63,6 +63,7 @@ export class StoreService {
     loader: {
     },
     constants: {}, model: {},
+    __revision: 1
   };
   private _config = new BehaviorSubject<any>(Object.assign({}, this.BASE_CONFIG));
   private currentConfig = JSON.parse(JSON.stringify(this._config.getValue()));
@@ -74,7 +75,6 @@ export class StoreService {
 
   constructor(private api: ApiService) {
     this._config.subscribe((config) => {
-      console.log('GOT CONFIG, pipeline is', this.pipeline);
       if (this.pipeline) {
         this.pipeline.params.dgpConfig = this.currentConfig;
         this.api.savePipeline(this.pipeline)
@@ -132,10 +132,15 @@ export class StoreService {
       this._config.next(newConfig);
       return;
     }
-    if (!compare(this.currentConfig, newConfig, null)) {
+    const newRevision = newConfig.__revision || 1;
+    const currentRevision = this.currentConfig.__revision || 1;
+    if (newRevision < currentRevision) {
+      console.log('DISCARDING OLD CONFIG', newRevision, '<', currentRevision);
+    } else if (!compare(this.currentConfig, newConfig, null)) {
       newConfig['_result'] = !!result;
+      newConfig.__revision = currentRevision + 1;
       this.currentConfig = JSON.parse(JSON.stringify(newConfig));
-      console.log('setting new configuration', this.currentConfig);
+      console.log('setting new configuration rev', this.currentConfig.__revision, this.currentConfig);
       this._config.next(newConfig);
     } else {
       console.log('new configuration identical', this.currentConfig, newConfig);
