@@ -1,0 +1,41 @@
+:host {
+    display: flex;
+    flex-flow: column;
+    padding: 0 8px;
+
+    .description {
+        font-size: 14px;
+        max-width: 70%;
+    }
+    
+    .constant {
+        display: flex;
+        flex-flow: row;
+        margin-left: 40px;
+        align-items: center;
+
+        input {
+            margin-left: 16px;
+        }
+    }
+
+    .formish label {
+        margin: 0;
+    }
+
+    .expander {
+        font-size: 14px;
+        color: #059;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .options {
+        display: flex;
+        flex-flow: row;
+        & > * {
+            flex: 0 1 50%;
+        }
+    }
+
+}

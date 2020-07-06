@@ -1,0 +1,46 @@
+<h2 class='workbench-subtitle' i18n>Column Mapping</h2>
+<ng-container *ngIf='mandatory_cts.length > 0'>
+  <h3 class='workbench-subsubtitle' i18n>Mandatory Fields</h3>
+  <app-step-flipped-mapping-field *ngFor='let ct of mandatory_cts' 
+      [ct]='ct.ct' [mapping]='ct.mapping' [constant]='ct.constant' [config]='config' [mappingType]='ct.mappingType'
+      [sample]='badSample[ct.ct.name]' (update)='updateMapping($event)'>
+  </app-step-flipped-mapping-field>
+</ng-container>
+<ng-container *ngIf='optional_cts.length > 0'>
+  <h3 class='workbench-subsubtitle' i18n>Optional Fields</h3>
+  <app-step-flipped-mapping-field *ngFor='let ct of optional_cts' 
+      [ct]='ct.ct' [mapping]='ct.mapping' [constant]='ct.constant' [config]='config' [mappingType]='ct.mappingType'
+      [sample]='badSample[ct.ct.name]' (update)='updateMapping($event)'>
+  </app-step-flipped-mapping-field>
+</ng-container>
+<ng-container *ngIf='unpivot_target !== null'>
+  <h3 class='workbench-subsubtitle' i18n>Data Unpivoting</h3>
+  <h4 class='unpivot-info workbench-subsubsubtitle'>Unpivoting into <strong>{{unpivot_target}}</strong></h4>
+  <table class='unpivot'>
+    <thead class='theme-primary-dark-bg theme-secondary-fg'>
+      <th i18n>Column to unpivot</th>
+      <th *ngFor='let unpivot_column of unpivot_columns'>{{ unpivot_column }}</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <ng-container  *ngFor='let unpivot_field of unpivot_fields'>
+        <tr *ngIf='unpivot_field.field_name !== FIELD_UNPIVOT_DUMMY'>
+          <td>{{unpivot_field.field_name}}</td>
+          <td *ngFor='let unpivot_column of unpivot_columns'>
+            <input [(ngModel)]='unpivot_field.mapping[unpivot_column]' type='text' (change)='recreateMappings()'>
+          </td>
+          <td><a (click)='delete_unpivot_field(unpivot_field.field_name)'><i class="fas fa-trash" aria-hidden="true"></i></a></td>
+        </tr>
+      </ng-container>  
+      <tr>
+        <td>
+          <select (change)='add_unpivot_field($event.target.value)'>
+            <option i18n disabled selected>Select source field to unpivot...</option>
+            <option *ngFor='let field_name of config.structure.headers'>{{field_name}}</option>
+          </select>
+        </td>
+        <td *ngFor='let unpivot_column of unpivot_columns'></td><td></td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
