@@ -2,20 +2,24 @@
 <div class='description' *ngIf='ct.description'>{{ct.description}}</div>
 <div class='formish'>
   <label i18n>Take value from...</label>
-  <select [(ngModel)]='mappingType'>
+  <select [(ngModel)]='_mappingType'>
     <option *ngIf='!ct.mandatory' selected value='' i18n>No value for this field</option>
-    <option value='constant' i18n>Constant...</option>
+    <option [value]='MT_FIELD_CONSTANT' i18n>Constant...</option>
     <option [selected]='ct.mandatory' disabled value=''>---</option>
+    <optgroup label='Un-pivoting'>
+      <option [value]='MT_FIELD_UNPIVOT_TARGET' i18n>Un-pivoting value</option>
+      <option [value]='MT_FIELD_UNPIVOT_COLUMN' i18n>Un-pivoting additional column</option>
+    </optgroup>
     <optgroup label='Source Columns'>
       <option *ngFor='let header of config.structure.headers'>{{ header }}</option>
     </optgroup>
   </select>
-  <div class='constant' *ngIf='mappingType === "constant"'>
+  <div class='constant' *ngIf='mappingType === MT_FIELD_CONSTANT'>
     <label i18n>Constant Value:</label>
     <input type='text' [(ngModel)]='constant' (change)='changed()'>
   </div>
 </div>
-<div *ngIf='expanded'>
+<div *ngIf='expanded || (sample && sample.length)'>
   <div class='options'>
     <div>
       <div class='formish'>
@@ -70,5 +74,7 @@
     </div>
   </div>
 </div>
-<a class='expander' *ngIf='expanded' (click)='expanded=false'>less settings...</a>
-<a class='expander' *ngIf='!expanded' (click)='expanded=true'>more settings...</a>
+<ng-container *ngIf='!sample || !sample.length'>
+  <a class='expander' *ngIf='expanded' (click)='expanded=false'>less settings...</a>
+  <a class='expander' *ngIf='!expanded' (click)='expanded=true'>more settings...</a>
+</ng-container>

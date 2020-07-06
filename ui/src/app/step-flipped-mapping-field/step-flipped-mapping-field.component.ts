@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import { ApiService } from '../api.service';
+import { FIELD_CONSTANT, FIELD_UNPIVOT_TARGET, FIELD_UNPIVOT_COLUMN } from '../step-flipped-mapping/step-flipped-mapping.component';
 @Component({
   selector: 'app-step-flipped-mapping-field',
   templateUrl: './step-flipped-mapping-field.component.html',
@@ -11,34 +12,36 @@ export class StepFlippedMappingFieldComponent implements OnInit {
   @Input() mapping: any;
   @Input() constant: any;
   @Input() config: any;
+  @Input() sample: any;
+  @Input() mappingType: any;
   @Output() update = new EventEmitter<any>();
 
-  _mappingType = '';
+  expanded = false;
 
-  constructor() { }
+  MT_FIELD_CONSTANT = FIELD_CONSTANT;
+  MT_FIELD_UNPIVOT_TARGET = FIELD_UNPIVOT_TARGET;
+  MT_FIELD_UNPIVOT_COLUMN = FIELD_UNPIVOT_COLUMN;
+
+  constructor(public api: ApiService) { }
 
   ngOnInit() {
     this.mapping = this.mapping || {};
     this.mapping.columnType = this.mapping.columnType || this.ct.name;
     this.mapping.title = this.mapping.title || this.ct.name;
     this.mapping.options = this.mapping.options || {};
-    this._mappingType = this.mapping.name || '';
-    if (this.constant !== null) {
-      this._mappingType = 'constant';
-    }
     this.updateMappingOptions();
   }
 
-  set mappingType(mt: string) {
-    this._mappingType = mt;
-    if (mt !== '' && mt !== 'constant') {
+  set _mappingType(mt: string) {
+    this.mappingType = mt;
+    if (mt !== FIELD_CONSTANT) {
       this.constant = null;
       this.changed();
     }
   }
 
-  get mappingType() {
-    return this._mappingType;
+  get _mappingType() {
+    return this.mappingType;
   }
 
   updateMappingOptions() {
