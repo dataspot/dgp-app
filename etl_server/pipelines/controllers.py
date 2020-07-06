@@ -45,7 +45,7 @@ class Controllers():
             title = body['name']
             title = title + ' ' + hex(int(time.time()))[2:]
             id = slugify(title, separator='-', to_lower=True)
-            body['id'] = id
+        body['id'] = id
 
         # Add record to DB
         ret = self.models.create_or_edit(id, body, owner=owner, allowed_all=allowed_all)

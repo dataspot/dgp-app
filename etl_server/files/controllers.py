@@ -45,8 +45,8 @@ class Controllers():
                 o.key,
                 o.last_modified,
                 o.content_length,
-                o.metadata.get('Ownerid'),
-                o.metadata.get('Ownername'),
+                o.metadata.get('Ownerid') or o.metadata.get('ownerid') ,
+                o.metadata.get('Ownername') or o.metadata.get('ownername'),
             )
             for o in objects
         ]
