@@ -63,7 +63,7 @@ export class StoreService {
     loader: {
     },
     constants: {}, model: {},
-    __revision: 1
+    __revision: -1
   };
   private _config = new BehaviorSubject<any>(Object.assign({}, this.BASE_CONFIG));
   private currentConfig = JSON.parse(JSON.stringify(this._config.getValue()));
