@@ -69,7 +69,7 @@ export class StepFlippedMappingComponent implements OnInit {
     this.unpivot_target = null;
     this.unpivot_columns = [];
     this.unpivot_fields = [];
-    const usedColumns = [];
+    // const usedColumns = [];
     for (const mapping of config.model.mapping) {
       if (mapping.normalizeTarget) {
         this.unpivot_target = mapping.normalizeTarget;
@@ -106,15 +106,15 @@ export class StepFlippedMappingComponent implements OnInit {
       } else if (mapping.name) {
         mappingType = mapping.name;
       }
-      if (mappingType !== FIELD_CONSTANT && mappingType !== FIELD_UNPIVOT_TARGET &&
-          mappingType !== FIELD_UNPIVOT_COLUMN && mappingType !== '') {
-        if (usedColumns.indexOf(mappingType) >= 0) {
-          mappingType = '';
-          delete mapping['name'];
-        } else {
-          usedColumns.push(mappingType);
-        }
-      }
+      // if (mappingType !== FIELD_CONSTANT && mappingType !== FIELD_UNPIVOT_TARGET &&
+      //     mappingType !== FIELD_UNPIVOT_COLUMN && mappingType !== '') {
+      //   if (usedColumns.indexOf(mappingType) >= 0) {
+      //     mappingType = '';
+      //     delete mapping['name'];
+      //   } else {
+      //     usedColumns.push(mappingType);
+      //   }
+      // }
       this.mapping[ct.name] = {ct, mapping, constant, mappingType};
       if (ct.mandatory) {
         this.mandatory_cts.push({ct, mapping, constant, mappingType});

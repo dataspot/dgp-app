@@ -86,6 +86,9 @@ export class StepExtractSourceComponent implements OnInit {
   }
 
   changed(config?: any) {
+    if (config) {
+      config.__revision = -1;
+    }
     this.update.emit(config);
   }
 

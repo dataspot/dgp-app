@@ -132,6 +132,10 @@ export class StoreService {
       this._config.next(newConfig);
       return;
     }
+    if (newConfig.__revision === -1) {
+      this.currentConfig.__revision = 1;
+      newConfig.__revision = 1;
+    }
     const newRevision = newConfig.__revision || 1;
     const currentRevision = this.currentConfig.__revision || 1;
     if (newRevision < currentRevision) {
