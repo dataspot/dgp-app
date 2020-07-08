@@ -96,6 +96,7 @@ export class StoreService {
       .subscribe((result) => {
         this.pipeline = result;
         if (result && result.params && result.params.dgpConfig) {
+          result.params.dgpConfig.__revision = -1;
           this.setConfig(result.params.dgpConfig);
         }
       });
