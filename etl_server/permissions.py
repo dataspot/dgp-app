@@ -53,10 +53,11 @@ class Permissions():
 
     # Level Roles
     ViewerRoles = { login, pipelinesListPublic, pipelinesStatusPublic, filesList }
-    MaintainerRoles = ViewerRoles | { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench, pipelinesDeleteOwn,
+    MaintainerRoles = ViewerRoles | { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
                                       filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn }
-    AdminRoles = MaintainerRoles | { pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
-                                     usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll }
+    SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn }
+    AdminRoles = SuperMaintainerRoles | { pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
+                                          usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll }
 
     # Level Roles Mapping
     Roles = {

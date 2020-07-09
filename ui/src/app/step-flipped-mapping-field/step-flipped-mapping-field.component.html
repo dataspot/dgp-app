@@ -44,11 +44,11 @@
       <ng-container *ngIf='ct.dataType === "boolean"'>
         <div class='formish'>
           <label i18n>True Values:</label>
-          <input [(ngModel)]='trueValues' type='text'>
+          <input [(ngModel)]='trueValues' type='text' (change)='changed()'>
         </div>
         <div class='formish'>
           <label i18n>False Values:</label>
-          <input [(ngModel)]='falseValues' type='text'>
+          <input [(ngModel)]='falseValues' type='text' (change)='changed()'>
         </div>
       </ng-container>
       <ng-container *ngIf='ct.dataType === "number"'>

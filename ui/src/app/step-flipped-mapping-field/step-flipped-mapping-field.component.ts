@@ -64,12 +64,10 @@ export class StepFlippedMappingFieldComponent implements OnInit {
 
   set trueValues(values: string) {
     this.mapping.options.trueValues = values.split(',');
-    this.changed();
   }
 
   set falseValues(values: string) {
     this.mapping.options.falseValues = values.split(',');
-    this.changed();
   }
 
   get trueValues() {
