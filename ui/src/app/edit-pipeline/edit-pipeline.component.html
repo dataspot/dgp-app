@@ -14,6 +14,19 @@
     </ng-container>
     <ng-container *ngIf='api.currentConfig.kinds_map[item.kind]'>
       <app-dynamic-fields-editor [item]='item.params' [fields]='(api.currentConfig.kinds_map[item.kind] || {fields:[]}).fields'></app-dynamic-fields-editor>
+      <ng-container *ngIf='roles._.pipelinesExecute'>
+        <label>Schedule</label>
+        <select [(ngModel)]='item.schedule'>
+          <ng-container *ngFor='let schedule of api.currentConfig.schedules'>
+            <option *ngIf='schedule.name === "manual" || roles._.pipelinesExecute' [value]='schedule.name'>{{schedule.display}}</option>
+          </ng-container>
+        </select>
+      </ng-container>
+      <label>Visibility</label>
+      <select type='checkbox' [(ngModel)]='item.private'>
+        <option [value]='true'>Only Visible to Me</option>
+        <option [value]='false'>Publicly Visible</option>
+      </select>
       <div class='buttons'>
         <div class='dgp button' (click)='dgp()' *ngIf='roles._.workbench && api.currentConfig.kinds_map[item.kind].dgp'>
           <i class="fas fa-cogs" aria-hidden="true"></i>
@@ -29,18 +42,5 @@
         </div>
       </div>
     </ng-container>
-    <ng-container *ngIf='roles._.pipelinesExecute'>
-      <label>Schedule</label>
-      <select [(ngModel)]='item.schedule'>
-        <ng-container *ngFor='let schedule of api.currentConfig.schedules'>
-          <option *ngIf='schedule.name === "manual" || roles._.pipelinesExecute' [value]='schedule.name'>{{schedule.display}}</option>
-        </ng-container>
-      </select>
-    </ng-container>
-    <label>Visibility</label>
-    <select type='checkbox' [(ngModel)]='item.private'>
-      <option [value]='true'>Only Visible to Me</option>
-      <option [value]='false'>Publicly Visible</option>
-    </select>
   </ng-container>
 </app-container>
