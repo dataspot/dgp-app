@@ -3,7 +3,7 @@
   <label>Task Name</label>
   <input type='text' [(ngModel)]='item.name'/>
   <label>Description</label>
-  <div class='field-description' [innerHtml]='api.currentConfig.taskDescription' *ngIf='api.currentConfig.taskDescription'></div>
+  <div class='field-description' [innerHtml]='api.currentConfig.taskDescription' *ngIf='api.currentConfig && api.currentConfig.taskDescription'></div>
   <textarea rows='3' [(ngModel)]='item.description'></textarea>
   <ng-container *ngIf='api.currentConfig'>
     <ng-container *ngIf='api.currentConfig.kinds && api.currentConfig.kinds.length > 1'>
