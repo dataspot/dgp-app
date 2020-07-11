@@ -14,7 +14,6 @@ export class DashboardComponent implements OnInit {
     this.auth.getUser().subscribe((user) => {
       if (user) {
         this.profile = user.profile;
-        console.log(this.profile);
       }
     });
   }

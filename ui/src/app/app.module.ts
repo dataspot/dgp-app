@@ -46,6 +46,7 @@ import { ResultsTabSelectorComponent } from './results-tab-selector/results-tab-
 import { environment } from '../environments/environment';
 import { StepFlippedMappingComponent } from './step-flipped-mapping/step-flipped-mapping.component';
 import { StepFlippedMappingFieldComponent } from './step-flipped-mapping-field/step-flipped-mapping-field.component';
+import { ConfirmerComponent } from './confirmer/confirmer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +87,8 @@ import { StepFlippedMappingFieldComponent } from './step-flipped-mapping-field/s
     StepTaxonomyComponent,
     ResultsTabSelectorComponent,
     StepFlippedMappingComponent,
-    StepFlippedMappingFieldComponent
+    StepFlippedMappingFieldComponent,
+    ConfirmerComponent
   ],
   imports: [
     BrowserModule,

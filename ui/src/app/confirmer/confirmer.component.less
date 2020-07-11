@@ -1,0 +1,44 @@
+:host {
+    .modal-bg, .modal-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .modal-bg {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-wrapper {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+
+        .modal {
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+
+            .modal-buttons {
+                margin-top: 20px;
+                display: flex;
+                flex-flow: row;
+                justify-content: space-evenly;
+                align-items: center;
+
+                .modal-button {
+                    cursor: pointer;
+                    padding: 4px 10px;
+                    border: 1px solid black;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}

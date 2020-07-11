@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { AuthService } from 'budgetkey-ng2-auth';
 
 @Component({
   selector: 'app-login',

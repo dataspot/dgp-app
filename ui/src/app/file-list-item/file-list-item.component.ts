@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'budgetkey-ng2-auth';
 import { RolesService } from '../roles.service';
 import { ApiService } from '../api.service';
+import { ConfirmerService } from '../confirmer.service';
+import { switchMap, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-file-list-item',
@@ -15,7 +17,8 @@ export class FileListItemComponent implements OnInit {
 
   userId: string;
 
-  constructor(private auth: AuthService, private roles: RolesService, private api: ApiService) {
+  constructor(private auth: AuthService, private roles: RolesService,
+              private api: ApiService, private confirmer: ConfirmerService) {
     this.auth.getUser().subscribe((user) => {
       this.userId = user.profile.id;
     });
@@ -51,9 +54,13 @@ export class FileListItemComponent implements OnInit {
   }
 
   delete() {
-    this.api.deleteFile(this.item.filename)
-        .subscribe((result) => {
+    this.confirmer.confirm(this.confirmer.ACTION_DELETE_FILE, this.item.filename)
+      .pipe(
+        filter((x) => x),
+        switchMap(() => this.api.deleteFile(this.item.filename))
+      ).subscribe((result) => {
           console.log('deleted', result);
+          this.api.queryFiles();
         });
   }
 

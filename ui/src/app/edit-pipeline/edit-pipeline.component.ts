@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, filter } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { StoreService } from '../store.service';
 import { RolesService } from '../roles.service';
+import { ConfirmerService } from '../confirmer.service';
 
 @Component({
   selector: 'app-edit-pipeline',
@@ -17,7 +18,7 @@ export class EditPipelineComponent implements OnInit {
   isNew = false;
 
   constructor(private route: ActivatedRoute, private router: Router, public api: ApiService,
-              public store: StoreService, public roles: RolesService) {
+              public store: StoreService, public roles: RolesService, private confirmer: ConfirmerService) {
     this.route.paramMap.pipe(
       switchMap((params) => {
         const id = params.get('id');
@@ -75,8 +76,11 @@ export class EditPipelineComponent implements OnInit {
   }
 
   delete() {
-    this.api.deletePipeline(this.item.id)
-        .subscribe((result) => {
+    this.confirmer.confirm(this.confirmer.ACTION_DELETE_TASK, this.item.name)
+      .pipe(
+        filter((x) => x),
+        switchMap(() => this.api.deletePipeline(this.item.id))
+      ).subscribe((result) => {
           if (result) {
             this.router.navigate(['/']);
           } else {

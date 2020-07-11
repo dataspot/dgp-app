@@ -2,7 +2,7 @@ import logging
 import time
 import re
 
-from slugify import slugify
+import slugify
 
 from .models import Models
 
@@ -44,7 +44,7 @@ class Controllers():
         if not id:
             title = body['name']
             title = title + ' ' + hex(int(time.time()))[2:]
-            id = slugify(title, separator='-', to_lower=True)
+            id = slugify.slugify(title, separator='-', lowercase=True)
         body['id'] = id
 
         # Add record to DB

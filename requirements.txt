@@ -5,7 +5,7 @@ flask-cors
 flask-jsonpify
 flask-session
 PyYAML
-awesome-slugify
+python-slugify
 psycopg2-binary
 apache-airflow[postgres]
 requests

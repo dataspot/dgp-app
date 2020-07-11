@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
+import { ConfirmerService } from '../confirmer.service';
+import { filter, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-list-item',
@@ -12,7 +14,7 @@ export class UserListItemComponent implements OnInit {
 
   _level = '';
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private confirmer: ConfirmerService) { }
 
   ngOnInit() {
     this._level = this.item.level + '';
@@ -32,10 +34,13 @@ export class UserListItemComponent implements OnInit {
   }
 
   delete(e) {
-    this.api.deleteUser(this.item.id)
-        .subscribe((result) => {
-          console.log('DELETED USER', result);
-        });
+    this.confirmer.confirm(this.confirmer.ACTION_DELETE_USER, this.item.email)
+      .pipe(
+        filter((x) => x),
+        switchMap(() => this.api.deleteUser(this.item.id))
+      ).subscribe((result) => {
+        console.log('DELETED USER', result);
+      });
     e.preventDefault();
     return false;
   }

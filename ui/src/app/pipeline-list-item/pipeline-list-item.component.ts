@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { RolesService } from '../roles.service';
 import { AuthService } from 'budgetkey-ng2-auth';
-import { first, filter } from 'rxjs/operators';
+import { first, filter, switchMap } from 'rxjs/operators';
+import { ConfirmerService } from '../confirmer.service';
 
 @Component({
   selector: 'app-pipeline-list-item',
@@ -15,7 +16,8 @@ export class PipelineListItemComponent implements OnInit {
 
   userId: string = null;
 
-  constructor(public api: ApiService, public roles: RolesService, public auth: AuthService) {
+  constructor(public api: ApiService, public roles: RolesService,
+              public auth: AuthService, private confirmer: ConfirmerService) {
     this.auth.getUser().pipe(filter((x) => !!x.profile), first()).subscribe((user) => {
       this.userId = user.profile.id;
     });
@@ -36,8 +38,11 @@ export class PipelineListItemComponent implements OnInit {
 
   delete(e) {
     console.log('DELETING', this.item);
-    this.api.deletePipeline(this.item.id)
-        .subscribe((result) => {
+    this.confirmer.confirm(this.confirmer.ACTION_DELETE_TASK, this.item.name)
+      .pipe(
+        filter((x) => x),
+        switchMap(() => this.api.deletePipeline(this.item.id))
+      ).subscribe((result) => {
           if (!result) {
             console.log('Failed to DELETE!');
           }
