@@ -3,6 +3,7 @@
   <label>Task Name</label>
   <input type='text' [(ngModel)]='item.name'/>
   <label>Description</label>
+  <div class='field-description' [innerHtml]='api.currentConfig.taskDescription' *ngIf='api.currentConfig.taskDescription'></div>
   <textarea rows='3' [(ngModel)]='item.description'></textarea>
   <ng-container *ngIf='api.currentConfig'>
     <ng-container *ngIf='api.currentConfig.kinds && api.currentConfig.kinds.length > 1'>
@@ -11,19 +12,6 @@
         <option [value]='kind.name' *ngFor='let kind of api.currentConfig.kinds'>{{kind.display}}</option>
       </select>
     </ng-container>
-    <ng-container *ngIf='roles._.pipelinesExecute'>
-      <label>Schedule</label>
-      <select [(ngModel)]='item.schedule'>
-        <ng-container *ngFor='let schedule of api.currentConfig.schedules'>
-          <option *ngIf='schedule.name === "manual" || roles._.pipelinesExecute' [value]='schedule.name'>{{schedule.display}}</option>
-        </ng-container>
-      </select>
-    </ng-container>
-    <label>Visibility</label>
-    <select type='checkbox' [(ngModel)]='item.private'>
-      <option [value]='true'>Only Visible to Me</option>
-      <option [value]='false'>Publicly Visible</option>
-    </select>
     <ng-container *ngIf='api.currentConfig.kinds_map[item.kind]'>
       <app-dynamic-fields-editor [item]='item.params' [fields]='(api.currentConfig.kinds_map[item.kind] || {fields:[]}).fields'></app-dynamic-fields-editor>
       <div class='buttons'>
@@ -41,5 +29,18 @@
         </div>
       </div>
     </ng-container>
+    <ng-container *ngIf='roles._.pipelinesExecute'>
+      <label>Schedule</label>
+      <select [(ngModel)]='item.schedule'>
+        <ng-container *ngFor='let schedule of api.currentConfig.schedules'>
+          <option *ngIf='schedule.name === "manual" || roles._.pipelinesExecute' [value]='schedule.name'>{{schedule.display}}</option>
+        </ng-container>
+      </select>
+    </ng-container>
+    <label>Visibility</label>
+    <select type='checkbox' [(ngModel)]='item.private'>
+      <option [value]='true'>Only Visible to Me</option>
+      <option [value]='false'>Publicly Visible</option>
+    </select>
   </ng-container>
 </app-container>
