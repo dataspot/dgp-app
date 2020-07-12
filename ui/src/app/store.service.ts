@@ -56,15 +56,6 @@ function compare(obj1, obj2, prefix) {
 })
 export class StoreService {
 
-  public BASE_CONFIG = {
-    source: {
-      path: '',
-    },
-    loader: {
-    },
-    constants: {}, model: {},
-    __revision: -1
-  };
   private _config = new BehaviorSubject<any>(Object.assign({}, this.BASE_CONFIG));
   private currentConfig = JSON.parse(JSON.stringify(this._config.getValue()));
   private _rows = new Subject<any>();
@@ -121,6 +112,19 @@ export class StoreService {
 
   getFailure(): Subject<string> {
     return this._failure;
+  }
+
+  get BASE_CONFIG() {
+    const base_config = {
+      source: {
+        path: '',
+      },
+      loader: {
+      },
+      constants: {}, model: {},
+      __revision: -1
+    };
+    return base_config;
   }
 
   newConfig() {
