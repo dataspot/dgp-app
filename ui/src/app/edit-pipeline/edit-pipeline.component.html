@@ -6,7 +6,7 @@
   <div class='field-description' [innerHtml]='api.currentConfig.taskDescription' *ngIf='api.currentConfig && api.currentConfig.taskDescription'></div>
   <textarea rows='3' [(ngModel)]='item.description'></textarea>
   <ng-container *ngIf='api.currentConfig'>
-    <ng-container *ngIf='api.currentConfig.kinds && api.currentConfig.kinds.length > 1'>
+    <ng-container *ngIf='(api.currentConfig.kinds && api.currentConfig.kinds.length > 1) || !api.currentConfig.kinds_map[item.kind]'>
       <label>Kind</label>
       <select [(ngModel)]='item.kind'>
         <option [value]='kind.name' *ngFor='let kind of api.currentConfig.kinds'>{{kind.display}}</option>
