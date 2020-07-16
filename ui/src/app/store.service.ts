@@ -121,7 +121,7 @@ export class StoreService {
       },
       loader: {
       },
-      constants: {}, model: {},
+      constants: {}, model: {}, structure: {},
       __revision: -1
     };
     return base_config;
