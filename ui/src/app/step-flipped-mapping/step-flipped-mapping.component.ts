@@ -69,16 +69,33 @@ export class StepFlippedMappingComponent implements OnInit {
     this.unpivot_target = null;
     this.unpivot_columns = [];
     this.unpivot_fields = [];
-    // const usedColumns = [];
+
+    // Mapping of mapping.name -> ct.title
+    const mNameToCtTitle = {};
+    for (const mapping of config.model.mapping) {
+      if (!mapping.columnType) {
+        continue;
+      }
+      for (const ct of config.taxonomy.columnTypes) {
+        if (mapping.columnType === ct.name) {
+          mNameToCtTitle[mapping.name] = ct.title;
+        }
+      }
+    }
+    // Normalize pivoting parameters
+    const usedColumns = [];
     for (const mapping of config.model.mapping) {
       if (mapping.normalizeTarget) {
-        this.unpivot_target = mapping.normalizeTarget;
+        this.unpivot_target = mNameToCtTitle[mapping.normalizeTarget] || mapping.normalizeTarget;
+        const _normalize = {}; 
         for (const column of Object.keys(mapping.normalize)) {
-          if (this.unpivot_columns.indexOf(column) < 0) {
-            this.unpivot_columns.push(column);
+          const _column = mNameToCtTitle[column] || column;
+          if (this.unpivot_columns.indexOf(_column) < 0) {
+            this.unpivot_columns.push(_column);
           }
+          _normalize[_column] = mapping.normalize[column];
         }
-        this.unpivot_fields.push({field_name: mapping.name, mapping: mapping.normalize});
+        this.unpivot_fields.push({field_name: mapping.name, mapping: _normalize});
       }
     }
     console.log('UNPIVOT: target', this.unpivot_target, 'columns', this.unpivot_columns, 'fields', this.unpivot_fields);
@@ -106,15 +123,15 @@ export class StepFlippedMappingComponent implements OnInit {
       } else if (mapping.name) {
         mappingType = mapping.name;
       }
-      // if (mappingType !== FIELD_CONSTANT && mappingType !== FIELD_UNPIVOT_TARGET &&
-      //     mappingType !== FIELD_UNPIVOT_COLUMN && mappingType !== '') {
-      //   if (usedColumns.indexOf(mappingType) >= 0) {
-      //     mappingType = '';
-      //     delete mapping['name'];
-      //   } else {
-      //     usedColumns.push(mappingType);
-      //   }
-      // }
+      if (mappingType !== FIELD_CONSTANT && mappingType !== FIELD_UNPIVOT_TARGET &&
+          mappingType !== FIELD_UNPIVOT_COLUMN && mappingType !== '') {
+        if (usedColumns.indexOf(mappingType) >= 0) {
+          mappingType = '';
+          delete mapping['name'];
+        } else {
+          usedColumns.push(mappingType);
+        }
+      }
       this.mapping[ct.name] = {ct, mapping, constant, mappingType};
       if (ct.mandatory) {
         this.mandatory_cts.push({ct, mapping, constant, mappingType});
