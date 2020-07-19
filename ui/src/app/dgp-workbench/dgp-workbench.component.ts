@@ -82,7 +82,7 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
 
   calculateStage(config: any): any {
     this.stage = this.STAGE_SPECIFY_SOURCE;
-    if (config.source && config.source.path) {
+    if (config.source && config.source.path && config.structure) {
       this.stage = this.STAGE_SOURCE_PARAMETERS;
     }
     if (config.taxonomy && config.taxonomy.options) {

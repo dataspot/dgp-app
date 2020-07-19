@@ -7,7 +7,7 @@ import { ApiService } from '../api.service';
   <h2 class='workbench-subtitle'>Source of Data</h2>
   <div class='formish'>
     <label i18n>Uploaded Source File:</label>
-    <select [(ngModel)]='loader.filename' (change)='changed({loader: {filename: loader.filename}, source:{}})'>
+    <select [(ngModel)]='loader.filename' (change)='changed({loader: {filename: loader.filename}, source:{}, structure: {}})'>
       <optgroup label='My Files'>
         <option *ngFor='let file of (api.ownFiles | async)' [value]='file.filename'>{{file.filename}}</option>
       </optgroup>
@@ -20,7 +20,7 @@ import { ApiService } from '../api.service';
     <label i18n>Direct URL:</label>
     <input type='text' class='url'
       [(ngModel)]='source.path'
-      (change)='changed({source: {path: source.path}, loader:{}})'
+      (change)='changed({source: {path: source.path}, loader:{}, structure:{}})'
     />
   </div>
   <div class='formish'>
