@@ -66,7 +66,7 @@ export class StoreService {
 
   constructor(private api: ApiService) {
     this._config.subscribe((config) => {
-      if (this.pipeline) {
+      if (this.pipeline && config.__revision > 1) {
         this.pipeline.params.dgpConfig = this.currentConfig;
         this.api.savePipeline(this.pipeline)
           .subscribe(() => {
@@ -119,9 +119,7 @@ export class StoreService {
       source: {
         path: '',
       },
-      loader: {
-      },
-      constants: {}, model: {}, structure: {},
+      loader: {}, constants: {}, model: {}, structure: {},
       __revision: -1
     };
     return base_config;
