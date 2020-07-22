@@ -51,13 +51,19 @@ class Permissions():
     filesDeleteOwn = 'filesDeleteOwn'
     filesDeleteAll = 'filesDeleteAll'
 
+    taxonomyRead = 'taxonomyRead'
+    taxonomyNew = 'taxonomyNew'
+    taxonomyEdit = 'taxonomyEdit'
+    taxonomyDelete = 'taxonomyDelete'
+
     # Level Roles
     ViewerRoles = { login, pipelinesListPublic, pipelinesStatusPublic, filesList }
     MaintainerRoles = ViewerRoles | { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
-                                      filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn }
+                                      filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, taxonomyRead }
     SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn }
     AdminRoles = SuperMaintainerRoles | { pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
-                                          usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll }
+                                          usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll,
+                                          taxonomyNew, taxonomyEdit, taxonomyDelete }
 
     # Level Roles Mapping
     Roles = {

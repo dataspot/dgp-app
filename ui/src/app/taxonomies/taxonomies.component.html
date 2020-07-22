@@ -1,0 +1,33 @@
+<app-container>
+  <h1 class='theme-primary-fg' i18n>Taxonomies</h1>
+  <div class='formish'>
+    <label class='theme-primary-fg' i18n>Choose taxonomy to edit</label>
+    <select [(ngModel)]='selected'>
+      <option value=''>-</option>
+      <ng-container *ngFor='let taxonomy of (api.taxonomies | async)'>
+        <option [value]='taxonomy.id'>{{taxonomy.title}}</option>
+      </ng-container>
+    </select>
+  </div>
+  <ng-container *ngIf='selectedTaxonomy'>
+    <app-taxonomy-item *ngFor='let ct of selectedTaxonomy.column_types' [ct]='ct' (changed)='changed()'></app-taxonomy-item>
+    <div class='add-new'>
+      <div class='formish'>
+        <label class='theme-primary-fg' i18n>Add new based on...</label>
+        <select (change)='addNew($event.target.value)'>
+          <option disabled i18n>Choose column type tp copy</option>
+          <ng-container *ngFor='let taxonomy of (api.taxonomies | async)'>
+            <optgroup [label]='taxonomy.title'>
+              <ng-container *ngFor='let ct of taxonomy.column_types'>
+                <option [value]='JSON.stringify(ct)'>{{ct.title}}</option>
+              </ng-container>
+            </optgroup>
+          </ng-container>
+        </select>
+        <strong>&nbsp;-&nbsp;OR&nbsp;-&nbsp;</strong>
+        <label class='theme-primary-fg' i18n>Add a new column type named... </label>
+        <input type='text' (change)='addNew(createNew($event.target.value))'/>
+      </div> 
+    </div>
+  </ng-container>
+</app-container>

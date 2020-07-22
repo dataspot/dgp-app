@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UsersComponent } from './users/users.component';
 import { FilesComponent } from './files/files.component';
+import { TaxonomiesComponent } from './taxonomies/taxonomies.component';
 
 const routes: Routes = [
   { path: 'edit/:id', component: EditPipelineComponent,  data: {name: 'pipeline-edit'} },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'pipelines', component: PipelineListComponent, data: {name: 'pipelines'} },
   { path: 'users', component: UsersComponent, data: {name: 'users'} },
   { path: 'files', component: FilesComponent, data: {name: 'files'} },
+  { path: 'taxonomies', component: TaxonomiesComponent, data: {name: 'taxonomies'} },
   { path: 'logout', component: LogoutComponent, data: {name: 'logout'} },
   { path: '', component: LoginComponent, data: {name: 'login'} }
 ];

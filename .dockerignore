@@ -2,3 +2,4 @@
 ui/node_modules/
 ui/src/
 minio_data/
+__pycache__

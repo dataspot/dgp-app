@@ -25,7 +25,7 @@ services:
     ports:
       - 9000:9000
     volumes: 
-      - /Users/adam/code/dataspot/etl-server/minio-data:/data
+      - /Users/adam/code/datariver/etl-server/minio-data:/data
 
   server:
     build: .
@@ -86,4 +86,4 @@ services:
     depends_on: 
       - db
     volumes: 
-      - /Users/adam/code/dataspot/etl-server/dags:/app/dags
+      - /Users/adam/code/datariver/etl-server/dags:/app/dags

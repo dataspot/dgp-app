@@ -18,6 +18,7 @@ export class ApiService {
   public ownFiles = new ReplaySubject<any[]>(1);
   public otherFiles = new ReplaySubject<any[]>(1);
   public configuration = new ReplaySubject<any>(1);
+  public taxonomies = new ReplaySubject<any>(1);
 
   public currentConfig: any = null;
   private options: any = {};
@@ -122,6 +123,24 @@ export class ApiService {
     ).subscribe((users) => {
       this.users.next(users);
     });
+  }
+
+  queryTaxonomies() {
+    this.configuration.pipe(
+      switchMap(() => this.http.get(`${this.API_ENDPOINT}/taxonomies`, this.options)),
+      map((result: any) => {
+        if (result.success) {
+          return (<any[]>result['result']).map((x) => Object.assign(x.value));
+        }
+        return [];
+      })
+    ).subscribe((taxonomies) => {
+      this.taxonomies.next(taxonomies);
+    });
+  }
+
+  updateTaxonomy(user) {
+    return this.http.post(`${this.API_ENDPOINT}/taxonomy`, user, this.options);
   }
 
   deleteUser(userId) {

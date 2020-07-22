@@ -12,6 +12,7 @@ os.environ['ALLOWED_SERVICES'] = 'etl-server:etl_server'
 from etl_server.pipelines.blueprint import make_blueprint as pipelines_blueprint
 from etl_server.users.blueprint import make_blueprint as users_blueprint
 from etl_server.files.blueprint import make_blueprint as files_blueprint
+from etl_server.taxonomies.blueprint import make_blueprint as taxonomies_blueprint
 from etl_server.permissions import check_permission, Permissions
 from auth import make_blueprint as auth_blueprint
 
@@ -73,6 +74,10 @@ app.register_blueprint(
     url_prefix='/api/'
 )
 app.register_blueprint(
+    taxonomies_blueprint(db_connection_string=os.environ.get('ETLS_DATABASE_URL')),
+    url_prefix='/api/'
+)
+app.register_blueprint(
     files_blueprint(
         bucket_name=os.environ.get('BUCKET_NAME'),
         endpoint_url=os.environ.get('S3_ENDPOINT_URL'),
@@ -97,6 +102,7 @@ app.register_blueprint(
 @app.route('/dgp/<path:subpath>')
 @app.route('/status/<path:subpath>')
 @app.route('/edit/<path:subpath>')
+@app.route('/taxonomy/<path:subpath>')
 def main(subpath=None):
     return send_file('ui/dist/ui/index.html')
 

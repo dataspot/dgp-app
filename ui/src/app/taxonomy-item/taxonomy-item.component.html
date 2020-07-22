@@ -1,0 +1,39 @@
+<div class='item'>
+  <div class='field title'>
+    <h4 class='workbench-subsubsubtitle' i18n>{{ct.name}}</h4>
+    <a (click)='ct.name = ""; emit()'>Delete</a>
+  </div>  
+  <div class='line'>
+    <div class='field'>
+      <label i18n>Title:</label>
+      <input type='text' [(ngModel)]='ct.title' (change)='emit()'/>
+    </div>
+    <div class='field small'>
+      <label i18n>Data Type:</label>
+      <select [(ngModel)]='ct.dataType' (change)='emit()'>
+        <option>string</option>
+        <option>integer</option>
+        <option>number</option>
+        <option>boolean</option>
+        <option>date</option>
+        <option>datetime</option>
+      </select>  
+    </div>
+  </div>
+  <div class='line'>
+    <div class='field'>
+      <label i18n>Required:</label>
+      <input type='checkbox' [(ngModel)]='ct.mandatory' (change)='emit()'/>
+    </div>
+    <div class='field'>
+      <label i18n>Primary Key:</label>
+      <input type='checkbox' [(ngModel)]='ct.unique' (change)='emit()'/>
+    </div>
+  </div>
+  <div class='line'>
+    <div class='field big'>
+      <label i18n>Description:</label>
+      <textarea rows='1' type='text' [(ngModel)]='ct.description' (change)='emit()'></textarea>
+    </div>  
+  </div>
+</div>

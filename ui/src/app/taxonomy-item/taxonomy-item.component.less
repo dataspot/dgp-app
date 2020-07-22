@@ -1,0 +1,51 @@
+:host {
+    padding: 0 20px;
+    .item {
+        .line {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+        }
+
+        .title {
+            max-width: 100%;
+            width: 710px;
+            a {
+                padding: 0px 8px;
+                margin-left: auto;
+                margin-top: 20px;
+                margin-bottom: 8px;
+                text-decoration: underline;
+                font-size: 12px;
+            }
+        }
+
+        .field {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+
+            margin-right: 40px;
+
+            label {
+                margin-right: 20px;
+            } 
+            input [type=text], textarea {
+                font-size: 11px;
+            }
+            input[type=text], select {
+                width: 200px;
+            }
+            input[type=checkbox] {
+                width: 50px;
+            }
+            &.big textarea {
+                width: 600px;
+                padding: 3px;
+            }
+            &.small input {
+                width: 100px;
+            }
+        }
+    }
+}
