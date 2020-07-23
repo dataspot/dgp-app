@@ -17,7 +17,7 @@ def make_blueprint(db_connection_string=None):
     # Controller Proxies
     @check_permission([Permissions.taxonomyRead])
     def query_taxonomies_():
-        return controllers.models.query()
+        return controllers.query()
 
     @check_permission([Permissions.taxonomyRead])
     def query_taxonomy_(id):

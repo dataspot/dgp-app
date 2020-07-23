@@ -8,3 +8,7 @@ class Controllers():
     def __init__(self, connection_string):
         self.models = Models(connection_string=connection_string)
 
+    def query(self):
+        ret = self.models.query()
+        ret['result'] = [x for x in ret['result'] if x['id'] != '_common_']
+        return ret
