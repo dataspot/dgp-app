@@ -16,6 +16,8 @@ from etl_server.taxonomies.blueprint import make_blueprint as taxonomies_bluepri
 from etl_server.permissions import check_permission, Permissions
 from auth import make_blueprint as auth_blueprint
 
+from server_extra import extra_server_init
+
 # Configuration
 configuration = json.load(open('dags/configuration.json'))
 
@@ -92,6 +94,7 @@ app.register_blueprint(
     url_prefix='/auth/'
 )
 
+extra_server_init(app) 
 
 @app.route('/')
 @app.route('/logout')
