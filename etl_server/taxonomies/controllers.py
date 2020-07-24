@@ -10,5 +10,5 @@ class Controllers():
 
     def query(self):
         ret = self.models.query()
-        ret['result'] = [x for x in ret['result'] if x['id'] != '_common_']
+        ret['result'] = [x for x in ret['result'] if x['key'] != '_common_']
         return ret
