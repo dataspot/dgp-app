@@ -39,6 +39,8 @@ def operator(name, params):
         for k, v in params.items():
             if k.startswith('extra.'):
                 set_dots(params['dgpConfig'], k, v)
+        logging.info('CONFIGURATION:\n--------------\n%s', 
+                     json.dumps(params['dgpConfig'], sort_keys=True, ensure_ascii=False, indent=2))
         yaml.dump(params['dgpConfig'], config_file)
         config_file.flush()
         config = Config(config_file.name)
