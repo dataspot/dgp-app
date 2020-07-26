@@ -39,7 +39,7 @@ def operator(name, params):
         for k, v in params.items():
             if k.startswith('extra.'):
                 set_dots(params['dgpConfig'], k, v)
-        logging.info('CONFIGURATION:\n--------------\n%s', 
+        logging.info('\nCONFIGURATION:\n--------------\n%s', 
                      json.dumps(params['dgpConfig'], sort_keys=True, ensure_ascii=False, indent=2))
         yaml.dump(params['dgpConfig'], config_file)
         config_file.flush()
@@ -67,6 +67,9 @@ def operator(name, params):
             logging.error('Errors:')
             logging.error('\n\t - '.join([str(x) for x in dgp.errors]))
             sys.exit(0)
+
+        logging.info('\nCONF (POST ANALYSIS):\n--------------\n%s', 
+                     json.dumps(config._unflatten(), sort_keys=True, ensure_ascii=False, indent=2))
 
         flow = dgp.flow()
         flow = Flow(
