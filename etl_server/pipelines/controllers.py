@@ -7,6 +7,7 @@ import json
 import slugify
 
 from .models import Models
+from .cache import Cache
 
 from airflow.models import TaskInstance, DagBag, DagRun, DagModel
 from airflow.utils.db import create_session
@@ -32,7 +33,7 @@ class Controllers():
                 dict(name='@yearly', display='Yearly'),
                 dict(name='manual', display='Manual'),
             ]
-        self.refresh_cached_pipelines()
+        Cache.refresh_cached_pipelines(self.models)
         self.unpause_all()
 
     def unpause_all(self):
@@ -166,17 +167,3 @@ class Controllers():
         models.DagModel.get_dagmodel(dag_id).set_is_paused(is_paused=False)
         trigger_dag(dag_id, conf=pipeline)
 
-
-    # Cached Pipelines
-
-    CACHED_PIPELINES_FILENAME = 'cached-pipelines.json'
-
-    def refresh_cached_pipelines(self):
-        return json.dump(self.models.all_pipelines(), open(self.CACHED_PIPELINES_FILENAME, 'w'))
-
-    @classmethod
-    def cached_pipelines(cls):
-        try:
-            return json.load(open(cls.CACHED_PIPELINES_FILENAME))
-        except:
-            return []
