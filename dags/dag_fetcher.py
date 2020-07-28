@@ -23,7 +23,7 @@ default_args = {
     'is_paused_upon_creation': False
 }
 
-for pipeline in cached_pipelines()
+for pipeline in cached_pipelines():
     dag_id = pipeline['id']
     logging.info('Initializing DAG %s', dag_id)
 
