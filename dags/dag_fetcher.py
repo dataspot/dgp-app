@@ -14,9 +14,7 @@ from airflow.operators.bash_operator import BashOperator
 from airflow.utils import dates
 from airflow.utils.dates import cron_presets
 
-from etl_server.pipelines.models import Models as PipelineModels
-
-etl_models = PipelineModels(os.environ['ETLS_DATABASE_URL'])
+from etl_server.pipelines.controllers import cached_pipelines
 
 default_args = {
     'owner': 'Airflow',
@@ -25,7 +23,7 @@ default_args = {
     'is_paused_upon_creation': False
 }
 
-for pipeline in etl_models.all_pipelines():
+for pipeline in cached_pipelines()
     dag_id = pipeline['id']
     logging.info('Initializing DAG %s', dag_id)
 

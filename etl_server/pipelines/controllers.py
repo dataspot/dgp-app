@@ -1,6 +1,8 @@
 import logging
 import time
 import re
+import os
+import json
 
 import slugify
 
@@ -30,6 +32,7 @@ class Controllers():
                 dict(name='@yearly', display='Yearly'),
                 dict(name='manual', display='Manual'),
             ]
+        self.refresh_cached_pipelines()
         self.unpause_all()
 
     def unpause_all(self):
@@ -49,8 +52,11 @@ class Controllers():
 
         # Add record to DB
         ret = self.models.create_or_edit(id, body, owner=owner, allowed_all=allowed_all)
+        self.refresh_cached_pipelines()
+
         if ret.get('created'):
             self.trigger_event('new', ret['result'])
+
         return ret
 
     def delete_pipeline(self, id, user=None):
@@ -58,6 +64,7 @@ class Controllers():
         pipeline = self.models.query_one(id)
         pipeline = pipeline.get('result', {}).get('value')
         ret = self.models.delete(id, user)
+        self.refresh_cached_pipelines()
         if ret.get('success'):
             self.trigger_event('delete', pipeline)
         return ret
@@ -158,3 +165,18 @@ class Controllers():
         dag_id = f'event_handler_{event}_pipeline_dag'
         models.DagModel.get_dagmodel(dag_id).set_is_paused(is_paused=False)
         trigger_dag(dag_id, conf=pipeline)
+
+
+    # Cached Pipelines
+
+    CACHED_PIPELINES_FILENAME = 'cached-pipelines.json'
+
+    def refresh_cached_pipelines(self):
+        return json.dump(self.models.all_pipelines(), open(self.CACHED_PIPELINES_FILENAME, 'w'))
+
+    @classmethod
+    def cached_pipelines(cls):
+        try:
+            return json.load(open(cls.CACHED_PIPELINES_FILENAME))
+        except:
+            return []
