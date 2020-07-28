@@ -9,7 +9,7 @@ python-slugify
 psycopg2-binary
 apache-airflow[postgres]
 requests
-dgp-server>=0.0.84
+dgp-server>=0.0.85
 dgp>=0.0.77
 geocoder
 pyproj
