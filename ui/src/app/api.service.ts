@@ -6,6 +6,7 @@ import { AuthService } from 'budgetkey-ng2-auth';
 import { Router } from '@angular/router';
 import { RolesService } from './roles.service';
 import { environment } from '../environments/environment';
+import { Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,8 @@ export class ApiService {
   private authorized_ = false;
   private currentUser_ = null;
 
-  constructor(private http: HttpClient, private auth: AuthService, private router: Router, private roles: RolesService) {
+  constructor(private http: HttpClient, private auth: AuthService, private router: Router,
+              private roles: RolesService, private title: Title) {
       this.auth.check(window.location.href)
         .subscribe((authInfo) => {
           if (authInfo) {
@@ -106,6 +108,9 @@ export class ApiService {
         const configuration = result['result'];
         this.createMap(configuration, 'kinds', 'kinds_map');
         this.createMap(configuration, 'schedules', 'schedules_map');
+        if (configuration.siteTitle) {
+          this.title.setTitle(configuration.siteTitle);
+        }
         this.configuration.next(configuration);
         this.currentConfig = configuration;
       });
