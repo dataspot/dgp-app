@@ -66,7 +66,7 @@ def operator(name, params):
         if not ret:
             logging.error('Errors:')
             logging.error('\n\t - '.join([str(x) for x in dgp.errors]))
-            sys.exit(0)
+            assert False
 
         # logging.info('\nCONF (POST ANALYSIS):\n--------------\n%s', 
         #              json.dumps(config._unflatten(), sort_keys=True, ensure_ascii=False, indent=2))
