@@ -14,4 +14,4 @@ time.sleep(30)
 for pipeline_id in pipeline_ids:
     ret = etl_pipelines.start_pipeline(pipeline_id)
     print(pipeline_id, ret)
-    time.sleep(180)
+    time.sleep(10)
