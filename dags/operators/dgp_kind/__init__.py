@@ -68,8 +68,8 @@ def operator(name, params):
             logging.error('\n\t - '.join([str(x) for x in dgp.errors]))
             sys.exit(0)
 
-        logging.info('\nCONF (POST ANALYSIS):\n--------------\n%s', 
-                     json.dumps(config._unflatten(), sort_keys=True, ensure_ascii=False, indent=2))
+        # logging.info('\nCONF (POST ANALYSIS):\n--------------\n%s', 
+        #              json.dumps(config._unflatten(), sort_keys=True, ensure_ascii=False, indent=2))
 
         flow = dgp.flow()
         flow = Flow(
