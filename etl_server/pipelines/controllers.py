@@ -53,7 +53,7 @@ class Controllers():
 
         # Add record to DB
         ret = self.models.create_or_edit(id, body, owner=owner, allowed_all=allowed_all)
-        self.refresh_cached_pipelines()
+        Cache.refresh_cached_pipelines(self.models)
 
         if ret.get('created'):
             self.trigger_event('new', ret['result'])
@@ -65,7 +65,7 @@ class Controllers():
         pipeline = self.models.query_one(id)
         pipeline = pipeline.get('result', {}).get('value')
         ret = self.models.delete(id, user)
-        self.refresh_cached_pipelines()
+        Cache.refresh_cached_pipelines(self.models)
         if ret.get('success'):
             self.trigger_event('delete', pipeline)
         return ret
