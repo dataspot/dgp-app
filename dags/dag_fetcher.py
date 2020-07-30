@@ -22,13 +22,16 @@ def wrapper(operator, id):
     def func(name, params):
         result = None
         try:
+            print('CALLING OPERATOR')
             result = _operator(name, params)
+            print('OPERATOR DONE, RESULT={}'.format(result))
         finally:
             from etl_server.pipelines.models import Models
             models = Models(os.environ['ETLS_DATABASE_URL'])
             pipeline = models.query_one(_id)['result']['value']
             pipeline['result'] = result
             models.create_or_edit(_id, pipeline)
+            print('SAVED PIPELINE={}, RESULT={}'.format(_id, result))
 
     return func
 
