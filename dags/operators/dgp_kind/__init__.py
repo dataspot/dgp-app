@@ -78,6 +78,8 @@ def operator(name, params):
             printer(tablefmt='html')
         )
         logging.info('Running Flow')
-        flow.process()
+        _, stats = flow.process()
 
         logging.info('Success')
+
+        return stats.get('view-url') 

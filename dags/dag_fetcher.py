@@ -16,6 +16,23 @@ from airflow.utils.dates import cron_presets
 
 from etl_server.pipelines.cache import Cache
 
+def wrapper(operator, id):
+    _id = id
+    _operator = operator
+    def func(name, params):
+        result = None
+        try:
+            result = _operator(name, params)
+        finally:
+            from etl_server.pipelines.models import Models
+            models = Models(os.environ['ETLS_DATABASE_URL'])
+            pipeline = models.query_one(_id)['result']['value']
+            pipeline['result'] = result
+            models.create_or_edit(_id, pipeline)
+
+    return func
+
+
 default_args = {
     'owner': 'Airflow',
     'depends_on_past': False,
@@ -45,7 +62,7 @@ for pipeline in Cache.cached_pipelines():
         operator = importlib.import_module('.' + kind, package='operators').operator
 
         t1 = PythonOperator(task_id=dag_id,
-                            python_callable=operator,
+                            python_callable=wrapper(operator, dag_id),
                             op_args=[pipeline['name'], pipeline['params']],
                             dag=dag)
         globals()[dag_id] = dag
