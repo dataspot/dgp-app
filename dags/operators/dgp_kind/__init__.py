@@ -82,4 +82,4 @@ def operator(name, params):
 
         logging.info('Success')
 
-        return stats.get('view-url') 
+        return stats
