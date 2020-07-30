@@ -71,11 +71,13 @@ def operator(name, params):
         # logging.info('\nCONF (POST ANALYSIS):\n--------------\n%s', 
         #              json.dumps(config._unflatten(), sort_keys=True, ensure_ascii=False, indent=2))
 
+        logging.info('Creating Flow')
         flow = dgp.flow()
         flow = Flow(
             flow,
             printer(tablefmt='html')
         )
+        logging.info('Running Flow')
         flow.process()
 
         logging.info('Success')
