@@ -73,7 +73,6 @@ class Permissions():
     }
 
 __verifyer = Verifyer(public_key=credentials.public_key)
-default_level = int(os.environ.get('DGP_APP_DEFAULT_ROLE', 0))
 
 def check_permission(roles):
     def decorator(func):
@@ -82,7 +81,7 @@ def check_permission(roles):
             token = request.values.get('jwt') or request.headers.get('X-Auth')
             permissions = __verifyer.extract_permissions(token)
             if not (permissions is False):
-                level = permissions.get('permissions', {}).get('level', default_level)
+                level = permissions.get('permissions', {}).get('level', 0)
                 user_roles = Permissions.Roles.get(level, [])
                 for role in roles:
                     if role in user_roles:
