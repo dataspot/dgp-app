@@ -13,7 +13,7 @@ def get_permissions(service, userid):
     if service != 'etl-server': return {'error':'unknown-service'}
    
     value = models.query_one(userid)
-    if value is None:
+    if value is None or not value.get('success'):
         if default_level:
             ret = default_level_ret
         else:
