@@ -102,10 +102,10 @@ extra_server_init(app)
 @app.route('/dashboard')
 @app.route('/users')
 @app.route('/files')
+@app.route('/taxonomies')
 @app.route('/dgp/<path:subpath>')
 @app.route('/status/<path:subpath>')
 @app.route('/edit/<path:subpath>')
-@app.route('/taxonomy/<path:subpath>')
 def main(subpath=None):
     return send_file('ui/dist/ui/index.html')
 
