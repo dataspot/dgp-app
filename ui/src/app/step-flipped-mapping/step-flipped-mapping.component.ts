@@ -178,6 +178,10 @@ export class StepFlippedMappingComponent implements OnInit {
         for (const column of unpivot_columns) {
           unpivot_field.mapping[column] = unpivot_field.mapping[column] || '';
         }
+        if (unpivot_field.field_name === this.FIELD_UNPIVOT_DUMMY &&
+            this.unpivot_fields.length > 1) {
+          continue;
+        }
         if (unpivot_field.field_name) {
           mapping.push({
             name: unpivot_field.field_name,
