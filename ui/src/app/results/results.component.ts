@@ -15,6 +15,7 @@ export class ResultsComponent implements OnInit {
   hasResults = false;
   failure = null;
   failureMain = null;
+  analysisErrors = [];
   errors = [];
 
   TABLES = [
@@ -62,6 +63,25 @@ export class ResultsComponent implements OnInit {
         const parts = failure.replace(/^\s+|\s+$/g, '').split('\n');
         this.failureMain = parts[parts.length - 1];
         this.stop(-1);
+      }
+    });
+    this.store.getErrors().subscribe((errors) => {
+      this.analysisErrors = [];
+      for (const error of errors) {
+        if (error && error.length === 3) {
+          const code = error[0];
+          const key = error[1];
+          const options = error[2];
+          let message = '';
+          if (code === 0) {
+            const description = options.description || key;
+            message = `Missing configuration: ${description} (${key})`;
+          } else if (code === 1) {
+            const description = options.description || key;
+            message = `Invalid configuration: ${description}`;
+          }
+          this.analysisErrors.push(message);
+        }
       }
     });
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { RolesService } from '../roles.service';
 import { first } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-files',
@@ -15,6 +16,7 @@ export class FilesComponent implements OnInit {
   sort = 'alpha';
   files = [];
   showFiles = [];
+  sub: Subscription = null;
 
   constructor(public api: ApiService, public roles: RolesService) {
     this.api.queryFiles();
@@ -37,7 +39,10 @@ export class FilesComponent implements OnInit {
   processFiles() {
 
     const source = this.justMine ? this.api.ownFiles : this.api.files;
-    source.pipe(first()).subscribe((files) => {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
+    this.sub = source.subscribe((files) => {
       this.showFiles = files.slice();
       this.showFiles.forEach((item) => {
         if (!item.last_modified_date) {

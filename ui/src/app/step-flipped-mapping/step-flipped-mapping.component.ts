@@ -87,7 +87,7 @@ export class StepFlippedMappingComponent implements OnInit {
     for (const mapping of config.model.mapping) {
       if (mapping.normalizeTarget) {
         this.unpivot_target = mNameToCtTitle[mapping.normalizeTarget] || mapping.normalizeTarget;
-        const _normalize = {}; 
+        const _normalize = {};
         for (const column of Object.keys(mapping.normalize)) {
           const _column = mNameToCtTitle[column] || column;
           if (this.unpivot_columns.indexOf(_column) < 0) {

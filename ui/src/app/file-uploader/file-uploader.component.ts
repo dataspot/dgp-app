@@ -59,6 +59,9 @@ export class FileUploaderComponent implements OnInit {
   set success(success) {
     if (this._active) {
       this._success = success;
+      if (success) {
+        this.api.queryFiles();
+      }
       this._active = false;
       this._progress = 100;
       setTimeout(() => {
