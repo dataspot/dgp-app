@@ -3,7 +3,7 @@ import tempfile
 import boto3
 
 from dgp.core import BaseDataGenusProcessor, BaseAnalyzer
-from dgp.config.consts import CONFIG_URL
+from dgp.config.consts import CONFIG_URL, CONFIG_PUBLISH_ALLOWED
 from dgp_server.log import logger
 
 
@@ -42,8 +42,8 @@ class FileLoaderAnalyzer(BaseAnalyzer):
             return
         logger.warning('FileLoaderAnalyzer filename=%s', filename)
         obj = bucket().Object(filename)
-        out_filename = os.path.join(cache_dir(), '{}-{}'.format(obj.last_modified.isoformat(), filename))
-        if not os.path.exists(out_filename):
+        out_filename = os.path.join(cache_dir(), filename)
+        if not os.path.exists(out_filename) or self.config.get(CONFIG_PUBLISH_ALLOWED):
             logger.warning('FileLoaderAnalyzer downloading')
             obj.download_file(Filename=out_filename)
         return out_filename
