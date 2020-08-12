@@ -49,7 +49,7 @@ class FileLoaderAnalyzer(BaseAnalyzer):
         return out_filename
 
     def run(self):
-        if self.config.get(self.CONFIG_SOURCE_FILENAME):
+        if self.cached_out_filename:
             current_url = self.config.get(CONFIG_URL)
             logger.warning('FileLoaderAnalyzer current_url=%s', current_url)
             if current_url != self.cached_out_filename:
@@ -58,7 +58,8 @@ class FileLoaderAnalyzer(BaseAnalyzer):
 
     def analyze(self):
         self.cached_out_filename = self.download_out_filename()
-        return super().analyze()
+        self.run()
+        return True
 
 
 class FileLoaderDGP(BaseDataGenusProcessor):
