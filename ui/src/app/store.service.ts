@@ -129,6 +129,14 @@ export class StoreService {
     this.setConfig(this.BASE_CONFIG);
   }
 
+  str(conf) {
+    const revision = conf.__revision || null;
+    const source = conf.source || null;
+    const loader = conf.loader || null;
+    const tid = (conf.taxonomy || {}).id || null;
+    return JSON.stringify({revision, source, loader, tid});
+  }
+
   setConfig(newConfig: any, result?: boolean) {
     if (!newConfig) {
       console.log('clearing configuration', newConfig);
@@ -136,21 +144,23 @@ export class StoreService {
       return;
     }
     if (newConfig.__revision === -1) {
+      console.log('Resetting the revision to 1');
       this.currentConfig.__revision = 1;
       newConfig.__revision = 1;
     }
     const newRevision = newConfig.__revision || 1;
     const currentRevision = this.currentConfig.__revision || 1;
+    console.log('NEW REV', newRevision, 'CURRENT REV', currentRevision);
     if (newRevision < currentRevision) {
       console.log('DISCARDING OLD CONFIG', newRevision, '<', currentRevision);
     } else if (!compare(this.currentConfig, newConfig, null)) {
       newConfig['_result'] = !!result;
       newConfig.__revision = currentRevision + 1;
       this.currentConfig = JSON.parse(JSON.stringify(newConfig));
-      console.log('setting new configuration rev', this.currentConfig.__revision, this.currentConfig);
+      console.log('setting new configuration rev', this.currentConfig.__revision, this.str(this.currentConfig));
       this._config.next(newConfig);
     } else {
-      console.log('new configuration identical', this.currentConfig, newConfig);
+      console.log('new configuration identical', this.str(this.currentConfig), this.str(newConfig));
     }
   }
 
