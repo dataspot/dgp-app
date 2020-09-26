@@ -1,6 +1,6 @@
 import os
 
-from auth.models import get_users, setup_engine
+from dgp_oauth2.models import get_users, setup_engine
 from etl_server.users.models import Models
 from etl_server.permissions import Permissions
 

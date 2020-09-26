@@ -3,7 +3,7 @@ from flask import Blueprint, request, g, redirect
 
 from .controllers import Controllers
 
-import auth.credentials as credentials
+import dgp_oauth2.credentials as credentials
 
 from ..permissions import check_permission, Permissions
 
@@ -18,9 +18,12 @@ def make_blueprint(bucket_name, endpoint_url, aws_access_key_id, aws_secret_acce
     blueprint = Blueprint('files', 'files')
 
     # Controller Proxies
-    @check_permission([Permissions.filesList])
-    def list_files_():
-        return controllers.list_files()
+    @check_permission([Permissions.filesListAll, Permissions.filesListOwn])
+    def list_files_(role=None, user=None):
+        if role == Permissions.filesListAll:
+            return controllers.list_files()
+        elif role == Permissions.filesListOwn:
+            return controllers.list_files(user)
 
     @check_permission([Permissions.filesDownload])
     def download_file_():

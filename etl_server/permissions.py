@@ -6,8 +6,8 @@ import logging
 from flask import request, g, abort
 from flask_jsonpify import jsonpify
 
-from auth import Verifyer
-import auth.credentials as credentials
+from dgp_oauth2 import Verifyer
+import dgp_oauth2.credentials as credentials
 
 
 class Permissions():
@@ -43,7 +43,8 @@ class Permissions():
     usersEdit = 'usersEdit'
     usersDelete = 'usersDelete'
 
-    filesList = 'filesList'
+    filesListOwn = 'filesListOwn'
+    filesListAll = 'filesListAll'
     filesDownload = 'filesDownload'
     filesUpload = 'filesUpload'
     filesUpdateOwn = 'filesUpdateOwn'
@@ -57,10 +58,10 @@ class Permissions():
     taxonomyDelete = 'taxonomyDelete'
 
     # Level Roles
-    ViewerRoles = { login, pipelinesListPublic, pipelinesStatusPublic, filesList }
+    ViewerRoles = { login, pipelinesListPublic, pipelinesStatusPublic }
     MaintainerRoles = ViewerRoles | { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
-                                      filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, taxonomyRead }
-    SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn }
+                                      filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, taxonomyRead }
+    SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn, filesListAll }
     AdminRoles = SuperMaintainerRoles | { pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
                                           usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll,
                                           taxonomyNew, taxonomyEdit, taxonomyDelete }

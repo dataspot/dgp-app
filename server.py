@@ -14,7 +14,7 @@ from etl_server.users.blueprint import make_blueprint as users_blueprint
 from etl_server.files.blueprint import make_blueprint as files_blueprint
 from etl_server.taxonomies.blueprint import make_blueprint as taxonomies_blueprint
 from etl_server.permissions import check_permission, Permissions
-from auth import make_blueprint as auth_blueprint
+from dgp_oauth2 import make_blueprint as auth_blueprint
 
 from server_extra import extra_server_init
 

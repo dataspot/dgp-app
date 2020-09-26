@@ -1,4 +1,4 @@
-from auth.models import get_user, delete_user
+from dgp_oauth2.models import get_user, delete_user
 
 from .models import Models
 

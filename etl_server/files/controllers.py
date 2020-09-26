@@ -5,7 +5,7 @@ from botocore.exceptions import ClientError
 import json
 import tempfile
 import shutil
-from auth.models import get_user
+from dgp_oauth2.models import get_user
 
 class Controllers():
 
@@ -32,7 +32,7 @@ class Controllers():
                 pass
 
 
-    def list_files(self):
+    def list_files(self, user=None):
         filenames = [
             unquote_plus(o.key)
             for o in self.bucket.objects.all() or []
@@ -59,6 +59,7 @@ class Controllers():
                 owner_name=ownername,
             )
             for filename, last_modified, size, ownerid, ownername in ret
+            if user in (None, ownerid)
         ]
         return dict(
             success=True, result=ret

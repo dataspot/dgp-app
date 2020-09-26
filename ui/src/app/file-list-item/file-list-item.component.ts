@@ -46,11 +46,11 @@ export class FileListItemComponent implements OnInit {
   }
 
   updateable() {
-    return this.roles._.filesUpdateAll || (this.roles._.filesUpdateOwn && this.item.ownerid === this.userId);
+    return this.roles._.filesUpdateAll || (this.roles._.filesUpdateOwn && this.item.owner_id === this.userId);
   }
 
   deletable() {
-    return this.roles._.filesDeleteAll || (this.roles._.filesDeleteOwn && this.item.ownerid === this.userId);
+    return this.roles._.filesDeleteAll || (this.roles._.filesDeleteOwn && this.item.owner_id === this.userId);
   }
 
   delete() {

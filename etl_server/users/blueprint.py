@@ -2,7 +2,7 @@ from flask import Blueprint, request, g
 
 from .controllers import Controllers
 
-import auth.credentials as credentials
+import dgp_oauth2.credentials as credentials
 
 from ..permissions import check_permission, Permissions
 
