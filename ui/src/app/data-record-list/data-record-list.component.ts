@@ -12,7 +12,7 @@ import { RolesService } from '../roles.service';
 export class DataRecordListComponent implements OnInit {
 
   datarecords = [];
-  def = {};
+  def: any = {};
 
   constructor(public api: ApiService, public roles: RolesService, private activatedRoute: ActivatedRoute) {
     let defs = null;

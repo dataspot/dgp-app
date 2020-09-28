@@ -103,8 +103,7 @@ import { DataRecordEditAuxDirective } from './data-record-edit-aux.directive';
     DataRecordEditComponent,
     DataRecordEditInnerComponent,
     DataRecordEditAuxDirective,
-  ]
-  .concat(extraDeclarations),
+  ],
   entryComponents: [
     DataRecordEditInnerComponent
   ].concat(extraDeclarations),
