@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ComponentFactoryResolver, ElementRef, OnInit, TemplateRef, Type, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ComponentFactoryResolver, OnInit, Type, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, ReplaySubject } from 'rxjs';
 import { first, switchMap } from 'rxjs/operators';
@@ -17,7 +17,7 @@ import { DataRecordEditAuxDirective } from '../data-record-edit-aux.directive';
 })
 export class DataRecordEditComponent implements OnInit {
 
-  def: any = {};  
+  def: any = {};
   datarecord: any = {};
   kind = '';
   editComponent =  new ReplaySubject<Type<any>>(1);
@@ -63,10 +63,10 @@ export class DataRecordEditComponent implements OnInit {
 
       const viewContainerRef = this.inner.viewContainerRef;
       viewContainerRef.clear();
-  
+
       const componentRef = viewContainerRef.createComponent<any>(componentFactory);
       componentRef.instance.datarecord = this.datarecord;
-      componentRef.instance.def = this.def;  
+      componentRef.instance.def = this.def;
     });
   }
 

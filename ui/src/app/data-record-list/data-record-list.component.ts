@@ -15,15 +15,15 @@ export class DataRecordListComponent implements OnInit {
   def = {};
 
   constructor(public api: ApiService, public roles: RolesService, private activatedRoute: ActivatedRoute) {
-    let datarecords = null;
+    let defs = null;
     this.api.configuration.pipe(
       switchMap((configuration) => {
-        datarecords = configuration.dataRecords || [];
+        defs = configuration.dataRecords || [];
         return this.activatedRoute.params;
       }),
       switchMap((params) => {
         const detectedName = params.name;
-        for (const def of datarecords) {
+        for (const def of defs) {
           if (def.name === detectedName) {
             this.def = def;
             return this.api.queryDatarecords(detectedName);

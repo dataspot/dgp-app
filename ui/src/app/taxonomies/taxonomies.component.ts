@@ -44,7 +44,7 @@ export class TaxonomiesComponent implements OnInit {
     this.api.updateTaxonomy(this.selectedTaxonomy)
         .subscribe((result) => {
           console.log('saved');
-        })
+        });
   }
 
   addNew(event) {
