@@ -42,13 +42,19 @@ import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { FileListItemComponent } from './file-list-item/file-list-item.component';
 import { StepTaxonomyComponent } from './step-taxonomy/step-taxonomy.component';
 import { ResultsTabSelectorComponent } from './results-tab-selector/results-tab-selector.component';
-
-import { environment } from '../environments/environment';
 import { StepFlippedMappingComponent } from './step-flipped-mapping/step-flipped-mapping.component';
 import { StepFlippedMappingFieldComponent } from './step-flipped-mapping-field/step-flipped-mapping-field.component';
 import { ConfirmerComponent } from './confirmer/confirmer.component';
 import { TaxonomiesComponent } from './taxonomies/taxonomies.component';
 import { TaxonomyItemComponent } from './taxonomy-item/taxonomy-item.component';
+import { DataRecordListComponent } from './data-record-list/data-record-list.component';
+import { DataRecordEditComponent } from './data-record-edit/data-record-edit.component';
+
+import { environment } from '../environments/environment';
+import { extraDeclarations } from './extras/extras';
+import { DataRecordEditInnerComponent } from './data-record-edit-inner/data-record-edit-inner.component';
+import { DataRecordEditAuxDirective } from './data-record-edit-aux.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,8 +98,16 @@ import { TaxonomyItemComponent } from './taxonomy-item/taxonomy-item.component';
     StepFlippedMappingFieldComponent,
     ConfirmerComponent,
     TaxonomiesComponent,
-    TaxonomyItemComponent
-  ],
+    TaxonomyItemComponent,
+    DataRecordListComponent,
+    DataRecordEditComponent,
+    DataRecordEditInnerComponent,
+    DataRecordEditAuxDirective,
+  ]
+  .concat(extraDeclarations),
+  entryComponents: [
+    DataRecordEditInnerComponent
+  ].concat(extraDeclarations),
   imports: [
     BrowserModule,
     AppRoutingModule,

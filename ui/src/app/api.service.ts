@@ -308,4 +308,40 @@ export class ApiService {
             );
   }
 
+  queryDatarecords(kind) {
+    return this.configuration.pipe(
+      switchMap(() => this.http.get(`${this.API_ENDPOINT}/datarecords/${kind}`, this.options)),
+      map((result: any) => {
+        if (result.success) {
+          return result['result'];
+        }
+        return [];
+      })
+    );
+  }
+
+  queryDatarecord(kind, id) {
+    return this.configuration.pipe(
+      switchMap(() => this.http.get(`${this.API_ENDPOINT}/datarecord/${kind}/${id}`, this.options)),
+      map((result: any) => {
+        if (result.success) {
+          return result['result'];
+        }
+        return {};
+      })
+    );
+  }
+
+  saveDatarecord(kind, datarecord) {
+    return this.http.post(`${this.API_ENDPOINT}/datarecord/${kind}`, datarecord, this.options)
+      .pipe(
+        map((result: any) => {
+          if (result.success) {
+            return result['result'];
+          }
+          return {};
+        })
+      );
+  }
+
 }

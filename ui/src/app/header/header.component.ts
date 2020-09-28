@@ -12,14 +12,22 @@ import { first } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
 
   detected = '';
+  detectedName = '';
   homepage: string;
+  datarecords = [];
 
   constructor(private activatedRoute: ActivatedRoute, public roles: RolesService, private api: ApiService) {
     this.activatedRoute.data.subscribe((data) => {
       this.detected = data.name;
     });
+    this.activatedRoute.params.subscribe((params) => {
+      this.detectedName = params.name;
+    });
+
     this.api.configuration.pipe(first()).subscribe((configuration: any) => {
       this.homepage = configuration.homepage || '/dashboard';
+      this.datarecords = configuration.dataRecords || [];
+      console.log(configuration);
     });
   }
 

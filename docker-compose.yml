@@ -25,11 +25,13 @@ services:
     ports:
       - 9000:9000
     volumes: 
-      - /Users/adam/code/datariver/etl-server/minio-data:/data
+      - ./minio-data:/data
 
   server:
     build: .
     image: akariv/dgp-app
+    env_file: 
+      - creds.sh
     environment:
       ETLS_DATABASE_URL: postgresql://postgres:postgres@db/etls
       BUCKET_NAME: dgp-app
@@ -86,4 +88,4 @@ services:
     depends_on: 
       - db
     volumes: 
-      - /Users/adam/code/datariver/etl-server/dags:/app/dags
+      - ./dags:/app/dags

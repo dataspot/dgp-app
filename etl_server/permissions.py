@@ -57,14 +57,21 @@ class Permissions():
     taxonomyEdit = 'taxonomyEdit'
     taxonomyDelete = 'taxonomyDelete'
 
+    datarecordRead = 'datarecordRead'
+    datarecordNew = 'datarecordNew'
+    datarecordEdit = 'datarecordEdit'
+    datarecordDelete = 'datarecordDelete'
+    
     # Level Roles
     ViewerRoles = { login, pipelinesListPublic, pipelinesStatusPublic }
-    MaintainerRoles = ViewerRoles | { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
-                                      filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, taxonomyRead }
+    DataEditorRoles = { datarecordRead, datarecordEdit, datarecordNew }
+    MaintainerRoles = ViewerRoles | DataEditorRoles | \
+                        { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
+                          filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, taxonomyRead }
     SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn, filesListAll }
     AdminRoles = SuperMaintainerRoles | { pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
                                           usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll,
-                                          taxonomyNew, taxonomyEdit, taxonomyDelete }
+                                          taxonomyNew, taxonomyEdit, taxonomyDelete, datarecordDelete }
 
     # Level Roles Mapping
     Roles = {
