@@ -49,11 +49,11 @@ import { TaxonomiesComponent } from './taxonomies/taxonomies.component';
 import { TaxonomyItemComponent } from './taxonomy-item/taxonomy-item.component';
 import { DataRecordListComponent } from './data-record-list/data-record-list.component';
 import { DataRecordEditComponent } from './data-record-edit/data-record-edit.component';
-
-import { environment } from '../environments/environment';
-import { extraDeclarations } from './extras/extras';
 import { DataRecordEditInnerComponent } from './data-record-edit-inner/data-record-edit-inner.component';
 import { DataRecordEditAuxDirective } from './data-record-edit-aux.directive';
+
+import { environment } from '../environments/environment';
+import { ExtraModule } from './extras/extras';
 
 @NgModule({
   declarations: [
@@ -106,13 +106,14 @@ import { DataRecordEditAuxDirective } from './data-record-edit-aux.directive';
   ],
   entryComponents: [
     DataRecordEditInnerComponent
-  ].concat(extraDeclarations),
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     BudgetkeyNg2AuthModule,
+    ExtraModule,
   ],
   providers: [
     getAuthServiceConfigProvider(environment.auth_endpoint),
