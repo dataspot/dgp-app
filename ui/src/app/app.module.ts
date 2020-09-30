@@ -14,11 +14,7 @@ import { PipelineStatusDashboardComponent } from './pipeline-status-dashboard/pi
 import { PipelineListHeadersComponent } from './pipeline-list-headers/pipeline-list-headers.component';
 import { DynamicFieldsEditorComponent } from './dynamic-fields-editor/dynamic-fields-editor.component';
 import { DgpWorkbenchComponent } from './dgp-workbench/dgp-workbench.component';
-import { StepsComponent } from './steps/steps.component';
-import { StepExtractComponent } from './step-extract/step-extract.component';
-import { StepMappingComponent } from './step-mapping/step-mapping.component';
 import { StepEnrichComponent } from './step-enrich/step-enrich.component';
-import { StepPublishComponent } from './step-publish/step-publish.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultTabsComponent } from './result-tabs/result-tabs.component';
 import { ResultTableComponent } from './result-table/result-table.component';
@@ -66,11 +62,7 @@ import { ExtraModule } from './extras/extras';
     PipelineListHeadersComponent,
     DynamicFieldsEditorComponent,
     DgpWorkbenchComponent,
-    StepsComponent,
-    StepExtractComponent,
-    StepMappingComponent,
     StepEnrichComponent,
-    StepPublishComponent,
     ResultsComponent,
     ResultTabsComponent,
     ResultTableComponent,

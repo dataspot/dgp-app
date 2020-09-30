@@ -13,7 +13,6 @@ export class WorkbenchService {
 
   private executionId = null;
   private SERVER: string;
-  private CONFIGS = this.SERVER + '/configs';
 
   public configurations = new BehaviorSubject<any[]>([]);
 
@@ -25,6 +24,10 @@ export class WorkbenchService {
     const events = (<Observable<any>>(this.store.getConfig()))
          .pipe(
             filter((x: any) => !!x),
+            filter((x: any) => (
+              (x.source && x.source.path && x.source.path.length) ||
+              (x.loader && x.loader.filename && x.loader.filename.length)
+            )),
             debounceTime(3000),
             switchMap((config: any) => this.storeConfig(config)),
             switchMap((response: any) => {

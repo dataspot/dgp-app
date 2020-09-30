@@ -11,7 +11,7 @@
       <option [value]='MT_FIELD_UNPIVOT_COLUMN' i18n>Un-pivoting additional column</option>
     </optgroup>
     <optgroup label='Source Columns'>
-      <option *ngFor='let header of config.structure.headers'>{{ header }}</option>
+      <option *ngFor='let header of config.structure.headers' [value]='header'>{{ header }}</option>
     </optgroup>
   </select>
   <div class='constant' *ngIf='mappingType === MT_FIELD_CONSTANT'>
