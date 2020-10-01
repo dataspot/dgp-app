@@ -15,7 +15,9 @@ class Controllers():
         id = slugify(id)
         key = self._key(kind, id)
         value['id'] = id
-        return self.models.create_or_edit(key, value, user)
+        return self.models.create_or_edit(key, value,
+            create_kw=dict(created_by=user),
+            update_kw=dict(updated_by=user))
 
     def query_one(self, kind, id):
         return self.models.query_one(self._key(kind, id))
