@@ -2,6 +2,41 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="f65253954b66e929a8b4d5ecaf61f9129f8cec64" datatype="html">
+        <source>Dashboard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">27,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="51e74c4b6ccfc5f3c369d35cc81f496a3834616c" datatype="html">
+        <source>Source Data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5dba74deb5622b78f497c8b008a1ec2f9cd252b9" datatype="html">
+        <source>Processing Tasks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6ad31729632818476420bb0f698d617436263675" datatype="html">
+        <source>User Management</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c651a5f519187e63192462480dc8db17f2394d41" datatype="html">
+        <source>Taxonomies</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="f92895f3d564c7ba4c773247e509cc100b72de0b" datatype="html">
         <source>Would you really like to</source>
         <context-group purpose="location">
@@ -44,13 +79,6 @@
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="c651a5f519187e63192462480dc8db17f2394d41" datatype="html">
-        <source>Taxonomies</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">33,43</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="757e1a2455609989a641aa6e4dcce895b4f29157" datatype="html">
         <source>Choose taxonomy to edit</source>
         <context-group purpose="location">
@@ -83,7 +111,7 @@
         <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&apos;far&apos; [class.fa-check-square]=&quot;sort===&apos;alpha&apos;&quot; [class.fa-square]=&quot;sort!==&apos;alpha&apos;&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Sort Alphabetically </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/files/files.component.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4681343d7298aed522ac848835c6b4dbe8dc91c5" datatype="html">
@@ -98,6 +126,104 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/files/files.component.html</context>
           <context context-type="linenumber">26,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fba1fd60f3d301bb3d99e585d32eeed68db0a7e3" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Upload Data File</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/files/files.component.html</context>
+          <context context-type="linenumber">26,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4d13a9cd5ed3dcee0eab22cb25198d43886942be" datatype="html">
+        <source>Users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/users.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f5ab45f24b27ec1ae726ef98086b97c1762ea4fd" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> New Processing Task </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list/pipeline-list.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="37c9057fa62251476388f330cf72adcadac74200" datatype="html">
+        <source>Viewer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-list-item/user-list-item.component.ts</context>
+          <context context-type="linenumber">37,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b367ace0dc9e06c3dd8b98e0b2bfe400eb073f83" datatype="html">
+        <source>Maintainer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-list-item/user-list-item.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ca2283fc765b9f44b69f0175d685dc2443da6011" datatype="html">
+        <source>Administrator</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-list-item/user-list-item.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="826b25211922a1b46436589233cb6f1a163d89b7" datatype="html">
+        <source>Delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-list-item/user-list-item.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="03a5668a6a5c0ee849df66c0e963fe64d53253e4" datatype="html">
+        <source>View Status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
+          <context context-type="linenumber">50,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="28f86ffd419b869711aa13f5e5ff54be6d70731c" datatype="html">
+        <source>Edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="81b97b8ea996ad1e4f9fca8415021850214884b1" datatype="html">
+        <source>Status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1142d1e241e766713838ec7055c1b912ef9a0d7f" datatype="html">
+        <source>Kind</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4a4f46a2dcec36bd5c8c371ceee55c2226dec27f" datatype="html">
+        <source>Schedule</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="030b4423b92167200e39519599f9b863b4f7c62c" datatype="html">
+        <source>Actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2818a5f73d055e9e4ccdaceefcd7b43669ad7c6f" datatype="html">
@@ -199,6 +325,55 @@
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="172e4481c051172cd8483faa4bf5efe3ec7443fe" datatype="html">
+        <source>Total Tasks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status-dashboard/pipeline-status-dashboard.component.ts</context>
+          <context context-type="linenumber">26,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0b830f91d2ffb261e8c4a50bde56025d623e41b9" datatype="html">
+        <source>Successful Tasks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status-dashboard/pipeline-status-dashboard.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5b1435a5e747660acec691e63771b56d5fc1f92c" datatype="html">
+        <source>Failed Tasks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status-dashboard/pipeline-status-dashboard.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="82ad3e492e87e79930fda5f5a22ef9ec043d1006" datatype="html">
+        <source>Update Contents</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/file-list-item/file-list-item.component.ts</context>
+          <context context-type="linenumber">34,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0cb32e637ad6d9357b0358c26db3bd532a038d1c" datatype="html">
+        <source>Select File...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/file-uploader/file-uploader.component.ts</context>
+          <context context-type="linenumber">41,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="684c86f5c95b29c67288eb7b0c982809ed1746db" datatype="html">
+        <source>File upload successful</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/file-uploader/file-uploader.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d9dd77d9dc27dc17b4651bad3b8179f1710e7c8d" datatype="html">
+        <source>Failed to upload file</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/file-uploader/file-uploader.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8839c39c4d42d36c8a15fe46fa0844c94fe4ac2c" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ct.name}}"/></source>
         <context-group purpose="location">
@@ -210,14 +385,56 @@
         <source>Title:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">14,24</context>
+          <context context-type="linenumber">34,40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="43b029978bc6f4f3b0e3a011210a2fba755fa298" datatype="html">
         <source>Data Type:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">35,40</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8f01b293637f2084fccc10e652bcdb985727ada0" datatype="html">
+        <source>string</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="33cb05c064f4256bf21675cd0feb3be66004e030" datatype="html">
+        <source>integer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d938d9f8530928e981811cabd72b0c58a8bc8171" datatype="html">
+        <source>number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="72261bb6b3004fec343ac8de8e80952805b12731" datatype="html">
+        <source>boolean</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1feb210f447e10eb214f2e184264d6e05b282959" datatype="html">
+        <source>date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="232a008b97373df65211e1b61a1e68934c21cd3e" datatype="html">
+        <source>datetime</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cb4e9f0e1110b694b441559d36453a941e35af94" datatype="html">

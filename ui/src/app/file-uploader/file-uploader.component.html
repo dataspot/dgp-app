@@ -4,10 +4,10 @@
      [class.active]='_active'
      [class.success]='_success'
      >
-    <div *ngIf='!_active && !_selected' class='message'>Select File...</div>
+    <div *ngIf='!_active && !_selected' class='message' i18n>Select File...</div>
     <div *ngIf='_active' class='message'>{{ selectedFile.name }}</div>
-    <div *ngIf='!_active && _selected && _success' class='message'>File upload successful</div>
-    <div *ngIf='!_active && _selected && !_success' class='message'>Failed to upload file</div>
+    <div *ngIf='!_active && _selected && _success' class='message' i18n>File upload successful</div>
+    <div *ngIf='!_active && _selected && !_success' class='message' i18n>Failed to upload file</div>
     <div *ngIf='_active' class='progress'>
         <div class='bar theme-primary-bg' [style.left]='(_progress-100) + "%"'>
         </div>

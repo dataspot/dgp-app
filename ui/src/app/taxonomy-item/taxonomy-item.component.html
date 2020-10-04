@@ -1,7 +1,7 @@
 <div class='item'>
   <div class='field title'>
     <h4 class='workbench-subsubsubtitle' i18n>{{ct.name}}</h4>
-    <a (click)='ct.name = ""; emit()'>Delete</a>
+    <a (click)='ct.name = ""; emit()' i18n>Delete</a>
   </div>  
   <div class='line'>
     <div class='field'>
@@ -11,12 +11,12 @@
     <div class='field small'>
       <label i18n>Data Type:</label>
       <select [(ngModel)]='ct.dataType' (change)='emit()'>
-        <option>string</option>
-        <option>integer</option>
-        <option>number</option>
-        <option>boolean</option>
-        <option>date</option>
-        <option>datetime</option>
+        <option i18n>string</option>
+        <option i18n>integer</option>
+        <option i18n>number</option>
+        <option i18n>boolean</option>
+        <option i18n>date</option>
+        <option i18n>datetime</option>
       </select>  
     </div>
   </div>

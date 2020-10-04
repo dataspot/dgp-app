@@ -1,5 +1,5 @@
 <app-container>
-  <h1 class='theme-primary-fg'>Users</h1>
+  <h1 class='theme-primary-fg' i18n>Users</h1>
   <ng-container *ngFor='let item of (api.users | async)'>
     <app-user-list-item [item]='item'></app-user-list-item>
   </ng-container>
