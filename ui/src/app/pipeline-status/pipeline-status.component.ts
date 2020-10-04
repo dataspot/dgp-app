@@ -4,7 +4,7 @@ import { ApiService } from '../api.service';
 import { switchMap, first, filter } from 'rxjs/operators';
 import * as moment from 'moment';
 import { RolesService } from '../roles.service';
-import { AuthService } from 'budgetkey-ng2-auth';
+import { AuthService } from 'dgp-oauth2-ng';
 
 @Component({
   selector: 'app-pipeline-status',

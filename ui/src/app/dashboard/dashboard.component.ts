@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'budgetkey-ng2-auth';
+import { AuthService } from 'dgp-oauth2-ng';
 
 @Component({
   selector: 'app-dashboard',

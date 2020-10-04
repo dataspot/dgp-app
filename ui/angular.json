@@ -147,5 +147,8 @@
       }
     }
   },
-  "defaultProject": "ui"
+  "defaultProject": "ui",
+  "cli": {
+    "analytics": false
+  }
 }

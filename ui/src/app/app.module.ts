@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { BudgetkeyNg2AuthModule, getAuthServiceConfigProvider } from 'budgetkey-ng2-auth';
+import { DgpOauth2Module } from 'dgp-oauth2-ng';
 import { AppComponent } from './app.component';
 import { PipelineStatusComponent } from './pipeline-status/pipeline-status.component';
 import { EditPipelineComponent } from './edit-pipeline/edit-pipeline.component';
@@ -104,12 +104,10 @@ import { ExtraModule } from './extras/extras';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BudgetkeyNg2AuthModule,
+    DgpOauth2Module,
     ExtraModule,
   ],
-  providers: [
-    getAuthServiceConfigProvider(environment.auth_endpoint),
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

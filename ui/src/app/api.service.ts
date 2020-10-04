@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { BehaviorSubject, ReplaySubject, of } from 'rxjs';
 import { map, switchMap, last, catchError, filter } from 'rxjs/operators';
-import { AuthService } from 'budgetkey-ng2-auth';
+import { AuthService } from 'dgp-oauth2-ng';
 import { Router } from '@angular/router';
 import { RolesService } from './roles.service';
 import { environment } from '../environments/environment';

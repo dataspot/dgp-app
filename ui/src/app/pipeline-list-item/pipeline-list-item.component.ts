@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { RolesService } from '../roles.service';
-import { AuthService } from 'budgetkey-ng2-auth';
+import { AuthService } from 'dgp-oauth2-ng';
 import { first, filter, switchMap } from 'rxjs/operators';
 import { ConfirmerService } from '../confirmer.service';
 

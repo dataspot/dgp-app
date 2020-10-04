@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AuthService } from 'budgetkey-ng2-auth';
+import { AuthService } from 'dgp-oauth2-ng';
 import { RolesService } from '../roles.service';
 import { ApiService } from '../api.service';
 import { ConfirmerService } from '../confirmer.service';
