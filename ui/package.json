@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "i18n": "ng xi18n && tx push --source && tx pull --mode sourceastranslation -l he,en",
-    "package": "ng build --prod"
+    "i18n": "ng xi18n --ivy --output-path src/locales && tx push --source && tx pull --mode sourceastranslation -l he,en",
+    "package": "ng build --prod --localize"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
     "core-js": "^3.6.5",
-    "dgp-oauth2-ng": "^2.0.4",
+    "dgp-oauth2-ng": "^2.1.0",
     "moment": "^2.29.0",
     "ng-event-source": "^1.0.14",
     "rxjs": "~6.6.3",
@@ -34,9 +34,10 @@
     "@angular/cli": "~10.1.4",
     "@angular/compiler-cli": "~10.1.4",
     "@angular/language-service": "~10.1.4",
-    "@types/node": "~14.11.2",
+    "@angular/localize": "^10.1.4",
     "@types/jasmine": "~3.5.14",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~14.11.2",
     "codelyzer": "~6.0.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~6.0.0",

@@ -112,8 +112,20 @@ extra_server_init(app)
 @app.route('/dgp/<path:subpath>')
 @app.route('/status/<path:subpath>')
 @app.route('/edit/<path:subpath>')
-def main(subpath=None):
-    return send_file('ui/dist/ui/index.html')
+@app.route('/<:locale>/')
+@app.route('/<:locale>/logout')
+@app.route('/<:locale>/pipelines')
+@app.route('/<:locale>/dashboard')
+@app.route('/<:locale>/users')
+@app.route('/<:locale>/files')
+@app.route('/<:locale>/taxonomies')
+@app.route('/<:locale>/datarecords/<path:subpath>')
+@app.route('/<:locale>/dgp/<path:subpath>')
+@app.route('/<:locale>/status/<path:subpath>')
+@app.route('/<:locale>/edit/<path:subpath>')
+def main(subpath=None, locale='en'):
+    locale = locale[:2]
+    return send_file(f'ui/dist/ui/{locale}/index.html')
 
 if __name__=='__main__':
     app.run()

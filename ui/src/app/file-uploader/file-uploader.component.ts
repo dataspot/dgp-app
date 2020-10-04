@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
 })
 export class FileUploaderComponent implements OnInit {
 
-  @ViewChild('file') file: ElementRef;
+  @ViewChild('file', { static: true }) file: ElementRef;
   @Input() filename: string;
   @Output() close = new EventEmitter<void>();
 

@@ -21,7 +21,7 @@ export class DataRecordEditComponent implements OnInit {
   datarecord: any = {};
   kind = '';
   editComponent =  new ReplaySubject<Type<any>>(1);
-  @ViewChild(DataRecordEditAuxDirective, {}) inner: DataRecordEditAuxDirective;
+  @ViewChild(DataRecordEditAuxDirective, { static: true }) inner: DataRecordEditAuxDirective;
 
 
   constructor(public api: ApiService, public roles: RolesService,

@@ -13,6 +13,14 @@
           "styleext": "less"
         }
       },
+      "i18n": {
+        "sourceLocale": {
+          "code": "en"
+        },
+        "locales": {
+          "he": "src/locales/messages.he.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
