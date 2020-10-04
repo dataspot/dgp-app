@@ -112,7 +112,6 @@ extra_server_init(app)
 @app.route('/dgp/<path:subpath>')
 @app.route('/status/<path:subpath>')
 @app.route('/edit/<path:subpath>')
-@app.route('/<locale>/')
 @app.route('/<locale>/logout')
 @app.route('/<locale>/pipelines')
 @app.route('/<locale>/dashboard')
@@ -126,6 +125,14 @@ extra_server_init(app)
 def main(subpath=None, locale='en'):
     locale = locale[:2]
     return send_file(f'ui/dist/ui/{locale}/index.html')
+
+@app.route('/he')
+def main_he():
+    return send_file(f'ui/dist/ui/he/index.html')
+
+@app.route('/en')
+def main_en():
+    return send_file(f'ui/dist/ui/en/index.html')
 
 if __name__=='__main__':
     app.run()
