@@ -8,12 +8,6 @@ import { ThemeService } from './theme.service';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  constructor(private theme: ThemeService, private auth: AuthService) {
-    auth.configure({
-      authServerUrl: '/',
-      jwtLocalStorageKey: 'jwt',
-      jwtQueryParam: 'jwt',
-      profilePagePath: '/p/'
-    });
+  constructor(private theme: ThemeService) {
   }
 }

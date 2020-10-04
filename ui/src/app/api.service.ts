@@ -34,6 +34,12 @@ export class ApiService {
 
   constructor(private http: HttpClient, private auth: AuthService, private router: Router,
               private roles: RolesService, private title: Title) {
+      this.auth.configure({
+        authServerUrl: environment.auth_endpoint,
+        jwtLocalStorageKey: 'jwt',
+        jwtQueryParam: 'jwt',
+        profilePagePath: '/p/'
+      });
       this.auth.check(window.location.href)
         .subscribe((authInfo) => {
           if (authInfo) {
