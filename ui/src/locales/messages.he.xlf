@@ -1,6 +1,118 @@
 <?xml version="1.0" ?><xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file datatype="plaintext" original="ng2.template" source-language="en" target-language="he">
     <body>
+      <trans-unit datatype="html" id="f92895f3d564c7ba4c773247e509cc100b72de0b">
+        <source>Would you really like to</source>
+        <target>האם באמת תרצו</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="d7b35c384aecd25a516200d6921836374613dfe7">
+        <source>Cancel</source>
+        <target>ביטול</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="68e710782ccb5398b3acb8844caf0b199da2c3da">
+        <source>Confirm</source>
+        <target>אישור</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="2ca2042d17e454fc99132b5ed91da9da599e0cfa">
+        <source> delete the user </source>
+        <target> למחוק את המשתמש </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="6f48d2b3a8b9572df0f4fdc6eea6fe1c1173d119">
+        <source> delete the task </source>
+        <target> למחוק את המשימה </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="76752bbc2393a06e613fcac2332bfeab6221e4f4">
+        <source> delete the file </source>
+        <target> למחוק את הקובץ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="c651a5f519187e63192462480dc8db17f2394d41">
+        <source>Taxonomies</source>
+        <target>טקסונומיות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">33,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="757e1a2455609989a641aa6e4dcce895b4f29157">
+        <source>Choose taxonomy to edit</source>
+        <target>בחירת טקסונומיה לעריכה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">56,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="4588912b6c9e5d4d471e23293cc5b4f5ed3d025e">
+        <source>Add new based on...</source>
+        <target>הוספת חדשה המבוססת על...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="749e4eab93ebf7f011abe46dc80461a427db8858">
+        <source>Choose column type tp copy</source>
+        <target>בחירת עמודה קיימת להעתקה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fce6cea9d731df04372f259de11b4993e99efee8">
+        <source>Add a new column type named... </source>
+        <target>הוספת עמודה חדשה בשם...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="94b45bdf76458c57291180a3241a2e4dbed59ce8">
+        <source><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='alpha'&quot; [class.fa-square]=&quot;sort!=='alpha'&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Sort Alphabetically </source>
+        <target><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='alpha'&quot; [class.fa-square]=&quot;sort!=='alpha'&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>מיון אלפביתי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/files/files.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="4681343d7298aed522ac848835c6b4dbe8dc91c5">
+        <source><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='date'&quot; [class.fa-square]=&quot;sort!=='date'&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Sort by Update Date </source>
+        <target><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='date'&quot; [class.fa-square]=&quot;sort!=='date'&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>מיון לפי מועד עדכון אחרון</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/files/files.component.html</context>
+          <context context-type="linenumber">23,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="8068affd400d2ed2e9f4ca7ee6b2f67afaec46af">
+        <source><x equiv-text="&lt;i class='far' [class.fa-check-square]='justMine' [class.fa-square]='!justMine'&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Show only My Files </source>
+        <target><x equiv-text="&lt;i class='far' [class.fa-check-square]='justMine' [class.fa-square]='!justMine'&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>הצגת רק הקבצים שלי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/files/files.component.html</context>
+          <context context-type="linenumber">26,19</context>
+        </context-group>
+      </trans-unit>
       <trans-unit datatype="html" id="8839c39c4d42d36c8a15fe46fa0844c94fe4ac2c">
         <source><x equiv-text="{{ct.name}}" id="INTERPOLATION"/></source>
         <target><x equiv-text="{{ct.name}}" id="INTERPOLATION"/></target>
@@ -11,7 +123,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="8737210008395d7b014e5118d2ed198ae9745215">
         <source>Title:</source>
-        <target>Title:</target>
+        <target>כותרת:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
           <context context-type="linenumber">14,24</context>
@@ -19,7 +131,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="43b029978bc6f4f3b0e3a011210a2fba755fa298">
         <source>Data Type:</source>
-        <target>Data Type:</target>
+        <target>טיפוס המידע:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
           <context context-type="linenumber">35,40</context>
@@ -27,7 +139,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="cb4e9f0e1110b694b441559d36453a941e35af94">
         <source>Required:</source>
-        <target>Required:</target>
+        <target>חובה:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
           <context context-type="linenumber">40</context>
@@ -35,7 +147,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="0dc79bc85b99317eeebbcf298c2211a9b3aa3e31">
         <source>Primary Key:</source>
-        <target>Primary Key:</target>
+        <target>שדה מפתח:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
           <context context-type="linenumber">40</context>
@@ -43,103 +155,15 @@
       </trans-unit>
       <trans-unit datatype="html" id="4a22c6843133f0b0d7dc0d28f864f2f90c1de7ad">
         <source>Description:</source>
-        <target>Description:</target>
+        <target>תיאור:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
           <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="c651a5f519187e63192462480dc8db17f2394d41">
-        <source>Taxonomies</source>
-        <target>Taxonomies</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">33,43</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="757e1a2455609989a641aa6e4dcce895b4f29157">
-        <source>Choose taxonomy to edit</source>
-        <target>Choose taxonomy to edit</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">56,59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="4588912b6c9e5d4d471e23293cc5b4f5ed3d025e">
-        <source>Add new based on...</source>
-        <target>Add new based on...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="749e4eab93ebf7f011abe46dc80461a427db8858">
-        <source>Choose column type tp copy</source>
-        <target>Choose column type tp copy</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="fce6cea9d731df04372f259de11b4993e99efee8">
-        <source>Add a new column type named... </source>
-        <target>Add a new column type named... </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="f92895f3d564c7ba4c773247e509cc100b72de0b">
-        <source>Would you really like to</source>
-        <target>Would you really like to</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="d7b35c384aecd25a516200d6921836374613dfe7">
-        <source>Cancel</source>
-        <target>Cancel</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="68e710782ccb5398b3acb8844caf0b199da2c3da">
-        <source>Confirm</source>
-        <target>Confirm</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="2ca2042d17e454fc99132b5ed91da9da599e0cfa">
-        <source> delete the user </source>
-        <target> delete the user </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="6f48d2b3a8b9572df0f4fdc6eea6fe1c1173d119">
-        <source> delete the task </source>
-        <target> delete the task </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="76752bbc2393a06e613fcac2332bfeab6221e4f4">
-        <source> delete the file </source>
-        <target> delete the file </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
       <trans-unit datatype="html" id="5d4a1df867f0ef2a75cbd5ecc9c0b1a574f9c127">
         <source>Take value from...</source>
-        <target>Take value from...</target>
+        <target>לקחת את הערך מ... </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.ts</context>
           <context context-type="linenumber">32,47</context>
@@ -147,7 +171,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="adfe42148333a5c62c3b8f2bd2790d4b62dd760a">
         <source>Constant...</source>
-        <target>Constant...</target>
+        <target>קבוע...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.ts</context>
           <context context-type="linenumber">54,58</context>
@@ -155,7 +179,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="baf795ef9d0540112f528598d33956629b5c657b">
         <source>Un-pivoting value</source>
-        <target>Un-pivoting value</target>
+        <target>ערך הצרנה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.ts</context>
           <context context-type="linenumber">65,74</context>
@@ -163,7 +187,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="61941d58c8549987a955206fb0f2a4fd6ae29e1f">
         <source>Un-pivoting additional column</source>
-        <target>Un-pivoting additional column</target>
+        <target>עמודה נוספת בהצרנה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.ts</context>
           <context context-type="linenumber">89,94</context>
@@ -171,7 +195,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="55e70f398e60f1e95551ebc06ba201b841550dde">
         <source>No value for this field</source>
-        <target>No value for this field</target>
+        <target>אין ערך לשדה זה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.ts</context>
           <context context-type="linenumber">94</context>
@@ -179,7 +203,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="9a25c97a693d37178735b61649cc35fb6a628b78">
         <source>Constant Value:</source>
-        <target>Constant Value:</target>
+        <target>ערך קבוע:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.ts</context>
           <context context-type="linenumber">94</context>
@@ -187,7 +211,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="7e82e8487b6c70d4df3632614a14fe77cb7e473d">
         <source>Custom Format:</source>
-        <target>Custom Format:</target>
+        <target>מבנה מותאם אישית:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.ts</context>
           <context context-type="linenumber">94</context>
@@ -195,7 +219,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="b9d215f587bdc2f1ab49b8edd7a8372083b5e207">
         <source>More information on custom formats can be found <x equiv-text="&lt;a href='https://strftime.org/' target='_blank'&gt;" id="START_LINK"/>here<x equiv-text="&lt;/a&gt;" id="CLOSE_LINK"/>.</source>
-        <target>More information on custom formats can be found <x equiv-text="&lt;a href='https://strftime.org/' target='_blank'&gt;" id="START_LINK"/>here<x equiv-text="&lt;/a&gt;" id="CLOSE_LINK"/>.</target>
+        <target>מידע נוסף על מבנים מותאמים אישית ניתן למצוא <x equiv-text="&lt;a href='https://strftime.org/' target='_blank'&gt;" id="START_LINK"/>כאן<x equiv-text="&lt;/a&gt;" id="CLOSE_LINK"/>.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.ts</context>
           <context context-type="linenumber">94</context>
@@ -203,7 +227,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="a1fbacc23936c55d9531e1713b021180d6695f97">
         <source>Date Format:</source>
-        <target>Date Format:</target>
+        <target>מבנה תאריך:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
           <context context-type="linenumber">54,59</context>
@@ -211,7 +235,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="b858777a22a72fc872be8c9aaaafa81b87002b8d">
         <source>True Values:</source>
-        <target>True Values:</target>
+        <target>ערכים חיוביים: </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
           <context context-type="linenumber">70,78</context>
@@ -219,7 +243,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="c97b43dc990ec7b0d6b04355dc6b1b9b07ff82b1">
         <source>False Values:</source>
-        <target>False Values:</target>
+        <target>ערכים שליליים:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
           <context context-type="linenumber">80</context>
@@ -227,7 +251,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="042dcee6e711ee72c2ec9b721568420cf3c5552c">
         <source>Decimal Separator:</source>
-        <target>Decimal Separator:</target>
+        <target>מפריד עשרוני:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
           <context context-type="linenumber">80</context>
@@ -235,7 +259,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="76dec0a013d61ed57e54e283c360b69858a26b08">
         <source>Thousands Separator:</source>
-        <target>Thousands Separator:</target>
+        <target>מפריד אלפים:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
           <context context-type="linenumber">80</context>
@@ -243,7 +267,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="27afaba7470ea5034e3a885c6762c017737f89fc">
         <source>Sample of bad values</source>
-        <target>Sample of bad values</target>
+        <target>דוגמאות לערכים לא חוקיים:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
           <context context-type="linenumber">80</context>
@@ -251,7 +275,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="46b00e79b4a77b4ad9864e67166a6891fc445d6d">
         <source>Row #</source>
-        <target>Row #</target>
+        <target># שורה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
           <context context-type="linenumber">80</context>
@@ -259,7 +283,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="2818a5f73d055e9e4ccdaceefcd7b43669ad7c6f">
         <source>Column Mapping</source>
-        <target>Column Mapping</target>
+        <target>מיפוי עמודות</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
           <context context-type="linenumber">32,36</context>
@@ -267,7 +291,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="7e786dda619572b9c6142d178c0b1315c21a3880">
         <source>Mandatory Fields</source>
-        <target>Mandatory Fields</target>
+        <target>שדות חובה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
           <context context-type="linenumber">50,54</context>
@@ -275,7 +299,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="d2d24ab76f356c1ffcd35098947a48955608c1cc">
         <source>Optional Fields</source>
-        <target>Optional Fields</target>
+        <target>שדות רשות </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
           <context context-type="linenumber">73,80</context>
@@ -283,7 +307,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="cc685565301b979e6255233f598041d9fe8dc5f6">
         <source>Data Unpivoting</source>
-        <target>Data Unpivoting</target>
+        <target>הצרנת מידע</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
           <context context-type="linenumber">91,97</context>
@@ -291,7 +315,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="80c7d4c304f6f276d2f9eeba1abbef69fe5b37db">
         <source>Column to unpivot</source>
-        <target>Column to unpivot</target>
+        <target>עמודה להצרנה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
           <context context-type="linenumber">106,117</context>
@@ -299,7 +323,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="897a8f838d33573765cbb517099c672731a8dce5">
         <source>Select source field to unpivot...</source>
-        <target>Select source field to unpivot...</target>
+        <target>בחירת עמודת מקור להצרנה...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
           <context context-type="linenumber">126,135</context>
@@ -307,7 +331,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="46ee09482783d9e8428cb5ebf7d11874cfc339be">
         <source> By default, only empty cells will be considered as empty.<x equiv-text="&lt;br/&gt;     " id="LINE_BREAK"/> If other values need to be ignored as well, add them here in a comma separated list (with no extra whitespace). </source>
-        <target> By default, only empty cells will be considered as empty.<x equiv-text="&lt;br/&gt;     " id="LINE_BREAK"/> If other values need to be ignored as well, add them here in a comma separated list (with no extra whitespace). </target>
+        <target>כברירת מחדל, רק תאים ריקים יחשבו כריקים. <x equiv-text="&lt;br/&gt;     " id="LINE_BREAK"/>אם נדרש להתעלם מערכים נוספים, ניתן לציין אותם כאן, מופרדים בפסיקים (וללא רווחים). </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.ts</context>
           <context context-type="linenumber">37</context>
@@ -315,7 +339,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="977c06fae53f5a6ad9aaff2d9eefd77eea303eb6">
         <source>Empty Values:</source>
-        <target>Empty Values:</target>
+        <target>ערכים ריקים:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
           <context context-type="linenumber">26</context>
@@ -323,7 +347,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="c1d007ee89267defe5140c1cc54c1853afe37043">
         <source> The detected data taxonomy for this dataset - </source>
-        <target> The detected data taxonomy for this dataset - </target>
+        <target>הטקסונומיה שזוהתה עבור מאגר זה - </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
           <context context-type="linenumber">26</context>
@@ -331,63 +355,15 @@
       </trans-unit>
       <trans-unit datatype="html" id="5d760eb1478bec279b2e53e5bcb6daa7053ada2b">
         <source>Taxonomy:</source>
-        <target>סוג המידע:</target>
+        <target>טקסונומיה:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="94b45bdf76458c57291180a3241a2e4dbed59ce8">
-        <source><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='alpha'&quot; [class.fa-square]=&quot;sort!=='alpha'&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Sort Alphabetically </source>
-        <target><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='alpha'&quot; [class.fa-square]=&quot;sort!=='alpha'&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Sort Alphabetically </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/files/files.component.ts</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="4681343d7298aed522ac848835c6b4dbe8dc91c5">
-        <source><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='date'&quot; [class.fa-square]=&quot;sort!=='date'&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Sort by Update Date </source>
-        <target><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='date'&quot; [class.fa-square]=&quot;sort!=='date'&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Sort by Update Date </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/files/files.component.html</context>
-          <context context-type="linenumber">23,15</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="8068affd400d2ed2e9f4ca7ee6b2f67afaec46af">
-        <source><x equiv-text="&lt;i class='far' [class.fa-check-square]='justMine' [class.fa-square]='!justMine'&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Show only My Files </source>
-        <target><x equiv-text="&lt;i class='far' [class.fa-check-square]='justMine' [class.fa-square]='!justMine'&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Show only My Files </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/files/files.component.html</context>
-          <context context-type="linenumber">26,19</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="2ece6d939db9540f4c191264cca196bd8e8859cc">
-        <source>for</source>
-        <target>עבור</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-mapping-field/step-mapping-field.component.ts</context>
-          <context context-type="linenumber">40,46</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="ffd03b989d36c89402032cfb7956cff65fcd7cd3">
-        <source>Change to compound mapping</source>
-        <target>Change to compound mapping</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-mapping-field/step-mapping-field.component.html</context>
-          <context context-type="linenumber">92</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="ad7cadff2aeefaf76e24446dfb9f8a0c2d9b3fcd">
-        <source>Change to simple mapping</source>
-        <target>Change to simple mapping</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-mapping-field/step-mapping-field.component.html</context>
-          <context context-type="linenumber">92</context>
-        </context-group>
-      </trans-unit>
       <trans-unit datatype="html" id="7abc91025875e601b4ee1458d88cf856764e187a">
         <source>Data Structure</source>
-        <target>Data Structure</target>
+        <target>מבנה הקובץ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
           <context context-type="linenumber">22</context>
@@ -395,7 +371,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="1fe16f6b66998fd156531bd0a203762e861ce832">
         <source> If the file headers are not located on the first row and column, set the following values to skip some rows or columns. </source>
-        <target> If the file headers are not located on the first row and column, set the following values to skip some rows or columns. </target>
+        <target>אם הכותרות של הטבלה לא ממוקמות בעמודה והשורה הראשונות, ניתן לקבוע את המיקום על ידיד שינוי הערכים הבאים.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
           <context context-type="linenumber">22</context>
@@ -417,49 +393,33 @@
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="c4208146d3ed5ec0a999ca95e4256429be88392c">
-        <source>Extract</source>
-        <target>טעינה</target>
+      <trans-unit datatype="html" id="2ece6d939db9540f4c191264cca196bd8e8859cc">
+        <source>for</source>
+        <target>עבור</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
-          <context context-type="linenumber">25,30</context>
+          <context context-type="sourcefile">src/app/step-mapping-field/step-mapping-field.component.ts</context>
+          <context context-type="linenumber">40,46</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="d2a2915d79ff31439a174fc3a147004542291e29">
-        <source>Map</source>
-        <target>מיפוי</target>
+      <trans-unit datatype="html" id="ffd03b989d36c89402032cfb7956cff65fcd7cd3">
+        <source>Change to compound mapping</source>
+        <target>שינוי למיפוי מורכב</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="sourcefile">src/app/step-mapping-field/step-mapping-field.component.html</context>
+          <context context-type="linenumber">92</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="1512221f846dffbb68785d8525209e0cfebd5806">
-        <source>Transform</source>
-        <target>עיבוד</target>
+      <trans-unit datatype="html" id="ad7cadff2aeefaf76e24446dfb9f8a0c2d9b3fcd">
+        <source>Change to simple mapping</source>
+        <target>שינוי למיפוי פשוט</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="9eb2b5da122b069c0ca256afd1d1885a7a195d2b">
-        <source>Finalize</source>
-        <target>Finalize</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="4bffc4df2c5d0b1d74d00c588b2bf9b388c27de6">
-        <source>&lt;&lt;&lt; Back</source>
-        <target>&lt;&lt;&lt; חזרה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="sourcefile">src/app/step-mapping-field/step-mapping-field.component.html</context>
+          <context context-type="linenumber">92</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="a37bd5a9ae5d5525d9712413e69133b0e506e6ca">
         <source>Uploaded Source File:</source>
-        <target>Uploaded Source File:</target>
+        <target>קובץ שהועלה:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
           <context context-type="linenumber">96</context>
@@ -467,7 +427,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="098f1f170b87427006da27c281ad1e484e090af6">
         <source>Direct URL:</source>
-        <target>Direct URL:</target>
+        <target>קישור ישיר:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
           <context context-type="linenumber">96</context>
@@ -523,7 +483,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="7a529a8f078d0c197804a7bc878a0273089d7a1d">
         <source>HTML Table</source>
-        <target>HTML Table</target>
+        <target>טבלת HTML</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
           <context context-type="linenumber">96</context>
@@ -555,15 +515,55 @@
       </trans-unit>
       <trans-unit datatype="html" id="d5b69b532e66a4fd31fc0fd91511f9c60c122f66">
         <source>CSS Selector:</source>
-        <target>CSS Selector:</target>
+        <target>סלקטור CSS:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
           <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
+      <trans-unit datatype="html" id="c4208146d3ed5ec0a999ca95e4256429be88392c">
+        <source>Extract</source>
+        <target>טעינה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
+          <context context-type="linenumber">25,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="d2a2915d79ff31439a174fc3a147004542291e29">
+        <source>Map</source>
+        <target>מיפוי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="1512221f846dffbb68785d8525209e0cfebd5806">
+        <source>Transform</source>
+        <target>עיבוד</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="9eb2b5da122b069c0ca256afd1d1885a7a195d2b">
+        <source>Finalize</source>
+        <target>סיום</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="4bffc4df2c5d0b1d74d00c588b2bf9b388c27de6">
+        <source>&lt;&lt;&lt; Back</source>
+        <target>&lt;&lt;&lt; חזרה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
       <trans-unit datatype="html" id="6284a2ae00de262f0b184def208f2965e8e64840">
         <source> Original </source>
-        <target> Original </target>
+        <target>מקור</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/result-tabs/result-tabs.component.ts</context>
           <context context-type="linenumber">37</context>
@@ -571,7 +571,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="1c5e52cea48a40f25c08d1d3328dc44634ec6400">
         <source> Transformed </source>
-        <target> Transformed </target>
+        <target>מעובד</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/result-tabs/result-tabs.component.ts</context>
           <context context-type="linenumber">37</context>

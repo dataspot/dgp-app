@@ -2,6 +2,203 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="f92895f3d564c7ba4c773247e509cc100b72de0b" datatype="html">
+        <source>Would you really like to</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d7b35c384aecd25a516200d6921836374613dfe7" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="68e710782ccb5398b3acb8844caf0b199da2c3da" datatype="html">
+        <source>Confirm</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2ca2042d17e454fc99132b5ed91da9da599e0cfa" datatype="html">
+        <source> delete the user </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6f48d2b3a8b9572df0f4fdc6eea6fe1c1173d119" datatype="html">
+        <source> delete the task </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="76752bbc2393a06e613fcac2332bfeab6221e4f4" datatype="html">
+        <source> delete the file </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c651a5f519187e63192462480dc8db17f2394d41" datatype="html">
+        <source>Taxonomies</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">33,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="757e1a2455609989a641aa6e4dcce895b4f29157" datatype="html">
+        <source>Choose taxonomy to edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">56,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4588912b6c9e5d4d471e23293cc5b4f5ed3d025e" datatype="html">
+        <source>Add new based on...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="749e4eab93ebf7f011abe46dc80461a427db8858" datatype="html">
+        <source>Choose column type tp copy</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fce6cea9d731df04372f259de11b4993e99efee8" datatype="html">
+        <source>Add a new column type named... </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="94b45bdf76458c57291180a3241a2e4dbed59ce8" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&apos;far&apos; [class.fa-check-square]=&quot;sort===&apos;alpha&apos;&quot; [class.fa-square]=&quot;sort!==&apos;alpha&apos;&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Sort Alphabetically </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/files/files.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4681343d7298aed522ac848835c6b4dbe8dc91c5" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&apos;far&apos; [class.fa-check-square]=&quot;sort===&apos;date&apos;&quot; [class.fa-square]=&quot;sort!==&apos;date&apos;&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Sort by Update Date </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/files/files.component.html</context>
+          <context context-type="linenumber">23,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8068affd400d2ed2e9f4ca7ee6b2f67afaec46af" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&apos;far&apos; [class.fa-check-square]=&apos;justMine&apos; [class.fa-square]=&apos;!justMine&apos;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Show only My Files </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/files/files.component.html</context>
+          <context context-type="linenumber">26,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2818a5f73d055e9e4ccdaceefcd7b43669ad7c6f" datatype="html">
+        <source>Column Mapping</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
+          <context context-type="linenumber">32,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e786dda619572b9c6142d178c0b1315c21a3880" datatype="html">
+        <source>Mandatory Fields</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
+          <context context-type="linenumber">50,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d2d24ab76f356c1ffcd35098947a48955608c1cc" datatype="html">
+        <source>Optional Fields</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
+          <context context-type="linenumber">73,80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc685565301b979e6255233f598041d9fe8dc5f6" datatype="html">
+        <source>Data Unpivoting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
+          <context context-type="linenumber">91,97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="80c7d4c304f6f276d2f9eeba1abbef69fe5b37db" datatype="html">
+        <source>Column to unpivot</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
+          <context context-type="linenumber">106,117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="897a8f838d33573765cbb517099c672731a8dce5" datatype="html">
+        <source>Select source field to unpivot...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
+          <context context-type="linenumber">126,135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="46ee09482783d9e8428cb5ebf7d11874cfc339be" datatype="html">
+        <source> By default, only empty cells will be considered as empty.<x id="LINE_BREAK" equiv-text="&lt;br/&gt;
+    "/> If other values need to be ignored as well, add them here in a comma separated list (with no extra whitespace). </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="977c06fae53f5a6ad9aaff2d9eefd77eea303eb6" datatype="html">
+        <source>Empty Values:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c1d007ee89267defe5140c1cc54c1853afe37043" datatype="html">
+        <source> The detected data taxonomy for this dataset - </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5d760eb1478bec279b2e53e5bcb6daa7053ada2b" datatype="html">
+        <source>Taxonomy:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7abc91025875e601b4ee1458d88cf856764e187a" datatype="html">
+        <source>Data Structure</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1fe16f6b66998fd156531bd0a203762e861ce832" datatype="html">
+        <source> If the file headers are not located on the first row and column, set the following values to skip some rows or columns. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d7ce0fda195934654ae1026766dccac9e4381b48" datatype="html">
+        <source>Skip Rows:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1c97b457d516dd885dd3cb09fdfb720c6cc381b4" datatype="html">
+        <source>Skip Columns:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8839c39c4d42d36c8a15fe46fa0844c94fe4ac2c" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ct.name}}"/></source>
         <context-group purpose="location">
@@ -44,81 +241,95 @@
           <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="c651a5f519187e63192462480dc8db17f2394d41" datatype="html">
-        <source>Taxonomies</source>
+      <trans-unit id="a37bd5a9ae5d5525d9712413e69133b0e506e6ca" datatype="html">
+        <source>Uploaded Source File:</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">33,43</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="757e1a2455609989a641aa6e4dcce895b4f29157" datatype="html">
-        <source>Choose taxonomy to edit</source>
+      <trans-unit id="098f1f170b87427006da27c281ad1e484e090af6" datatype="html">
+        <source>Direct URL:</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">56,59</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4588912b6c9e5d4d471e23293cc5b4f5ed3d025e" datatype="html">
-        <source>Add new based on...</source>
+      <trans-unit id="98427de0c30c7a7d6a77c8218888768215d13756" datatype="html">
+        <source>Format:</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="749e4eab93ebf7f011abe46dc80461a427db8858" datatype="html">
-        <source>Choose column type tp copy</source>
+      <trans-unit id="29e17d1563727ad13c58125f9b17a7f556e3c382" datatype="html">
+        <source>Excel (xls)</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="fce6cea9d731df04372f259de11b4993e99efee8" datatype="html">
-        <source>Add a new column type named... </source>
+      <trans-unit id="68da5a1b84bcfb0a156828a12c601209f10f507a" datatype="html">
+        <source>Excel (xlsx)</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="f92895f3d564c7ba4c773247e509cc100b72de0b" datatype="html">
-        <source>Would you really like to</source>
+      <trans-unit id="11db3f53da11cc43e48960e6cc537b79c5fd789e" datatype="html">
+        <source>CSV</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="d7b35c384aecd25a516200d6921836374613dfe7" datatype="html">
-        <source>Cancel</source>
+      <trans-unit id="7ad24bfc056ad2a41aa93fbfd75ec6765060606f" datatype="html">
+        <source>JSON</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="68e710782ccb5398b3acb8844caf0b199da2c3da" datatype="html">
-        <source>Confirm</source>
+      <trans-unit id="515c6be8fc828ffc7d1e3c46f42c199f44edcb59" datatype="html">
+        <source>Google Spreadsheet</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2ca2042d17e454fc99132b5ed91da9da599e0cfa" datatype="html">
-        <source> delete the user </source>
+      <trans-unit id="7a529a8f078d0c197804a7bc878a0273089d7a1d" datatype="html">
+        <source>HTML Table</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6f48d2b3a8b9572df0f4fdc6eea6fe1c1173d119" datatype="html">
-        <source> delete the task </source>
+      <trans-unit id="01bf9e8c87c0d16c2df48b777090eb2f5e8dc64b" datatype="html">
+        <source>Sheet:</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="76752bbc2393a06e613fcac2332bfeab6221e4f4" datatype="html">
-        <source> delete the file </source>
+      <trans-unit id="f1964e3e93a5aa2c64d4351fc862e41c0820b73d" datatype="html">
+        <source>Encoding:</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/confirmer/confirmer.component.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="808b5dde42baba14a0c985c4dc8486b8fdfa37cc" datatype="html">
+        <source>JSON Path:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d5b69b532e66a4fd31fc0fd91511f9c60c122f66" datatype="html">
+        <source>CSS Selector:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5d4a1df867f0ef2a75cbd5ecc9c0b1a574f9c127" datatype="html">
@@ -226,98 +437,6 @@
           <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2818a5f73d055e9e4ccdaceefcd7b43669ad7c6f" datatype="html">
-        <source>Column Mapping</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">32,36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7e786dda619572b9c6142d178c0b1315c21a3880" datatype="html">
-        <source>Mandatory Fields</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">50,54</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="d2d24ab76f356c1ffcd35098947a48955608c1cc" datatype="html">
-        <source>Optional Fields</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">73,80</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="cc685565301b979e6255233f598041d9fe8dc5f6" datatype="html">
-        <source>Data Unpivoting</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">91,97</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="80c7d4c304f6f276d2f9eeba1abbef69fe5b37db" datatype="html">
-        <source>Column to unpivot</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">106,117</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="897a8f838d33573765cbb517099c672731a8dce5" datatype="html">
-        <source>Select source field to unpivot...</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">126,135</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="46ee09482783d9e8428cb5ebf7d11874cfc339be" datatype="html">
-        <source> By default, only empty cells will be considered as empty.<x id="LINE_BREAK" equiv-text="&lt;br/&gt;
-    "/> If other values need to be ignored as well, add them here in a comma separated list (with no extra whitespace). </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.ts</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="977c06fae53f5a6ad9aaff2d9eefd77eea303eb6" datatype="html">
-        <source>Empty Values:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="c1d007ee89267defe5140c1cc54c1853afe37043" datatype="html">
-        <source> The detected data taxonomy for this dataset - </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5d760eb1478bec279b2e53e5bcb6daa7053ada2b" datatype="html">
-        <source>Taxonomy:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="94b45bdf76458c57291180a3241a2e4dbed59ce8" datatype="html">
-        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&apos;far&apos; [class.fa-check-square]=&quot;sort===&apos;alpha&apos;&quot; [class.fa-square]=&quot;sort!==&apos;alpha&apos;&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Sort Alphabetically </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/files/files.component.ts</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4681343d7298aed522ac848835c6b4dbe8dc91c5" datatype="html">
-        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&apos;far&apos; [class.fa-check-square]=&quot;sort===&apos;date&apos;&quot; [class.fa-square]=&quot;sort!==&apos;date&apos;&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Sort by Update Date </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/files/files.component.html</context>
-          <context context-type="linenumber">23,15</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8068affd400d2ed2e9f4ca7ee6b2f67afaec46af" datatype="html">
-        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&apos;far&apos; [class.fa-check-square]=&apos;justMine&apos; [class.fa-square]=&apos;!justMine&apos;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Show only My Files </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/files/files.component.html</context>
-          <context context-type="linenumber">26,19</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="2ece6d939db9540f4c191264cca196bd8e8859cc" datatype="html">
         <source>for</source>
         <context-group purpose="location">
@@ -337,34 +456,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-mapping-field/step-mapping-field.component.html</context>
           <context context-type="linenumber">92</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7abc91025875e601b4ee1458d88cf856764e187a" datatype="html">
-        <source>Data Structure</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1fe16f6b66998fd156531bd0a203762e861ce832" datatype="html">
-        <source> If the file headers are not located on the first row and column, set the following values to skip some rows or columns. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="d7ce0fda195934654ae1026766dccac9e4381b48" datatype="html">
-        <source>Skip Rows:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1c97b457d516dd885dd3cb09fdfb720c6cc381b4" datatype="html">
-        <source>Skip Columns:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-structure/step-extract-structure.component.ts</context>
-          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c4208146d3ed5ec0a999ca95e4256429be88392c" datatype="html">
@@ -400,97 +491,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-tabs/step-tabs.component.ts</context>
           <context context-type="linenumber">30</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="a37bd5a9ae5d5525d9712413e69133b0e506e6ca" datatype="html">
-        <source>Uploaded Source File:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="098f1f170b87427006da27c281ad1e484e090af6" datatype="html">
-        <source>Direct URL:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="98427de0c30c7a7d6a77c8218888768215d13756" datatype="html">
-        <source>Format:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="29e17d1563727ad13c58125f9b17a7f556e3c382" datatype="html">
-        <source>Excel (xls)</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="68da5a1b84bcfb0a156828a12c601209f10f507a" datatype="html">
-        <source>Excel (xlsx)</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="11db3f53da11cc43e48960e6cc537b79c5fd789e" datatype="html">
-        <source>CSV</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7ad24bfc056ad2a41aa93fbfd75ec6765060606f" datatype="html">
-        <source>JSON</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="515c6be8fc828ffc7d1e3c46f42c199f44edcb59" datatype="html">
-        <source>Google Spreadsheet</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7a529a8f078d0c197804a7bc878a0273089d7a1d" datatype="html">
-        <source>HTML Table</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="01bf9e8c87c0d16c2df48b777090eb2f5e8dc64b" datatype="html">
-        <source>Sheet:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="f1964e3e93a5aa2c64d4351fc862e41c0820b73d" datatype="html">
-        <source>Encoding:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="808b5dde42baba14a0c985c4dc8486b8fdfa37cc" datatype="html">
-        <source>JSON Path:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="d5b69b532e66a4fd31fc0fd91511f9c60c122f66" datatype="html">
-        <source>CSS Selector:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6284a2ae00de262f0b184def208f2965e8e64840" datatype="html">
