@@ -39,7 +39,6 @@ export class DataRecordEditComponent implements OnInit {
         for (const def of datarecords) {
           if (def.name === this.kind) {
             this.def = def;
-            this.editComponent.next(extraMapping[def.edit_component] || DataRecordEditInnerComponent);
             if (id === 'new') {
               return of({value: {}});
             } else {
@@ -52,6 +51,7 @@ export class DataRecordEditComponent implements OnInit {
     )
     .subscribe((datarecord) => {
       this.datarecord = datarecord.value;
+      this.editComponent.next(extraMapping[this.def.edit_component] || DataRecordEditInnerComponent);
     });
     console.log('constructed DataRecordEditComponent!');
   }
