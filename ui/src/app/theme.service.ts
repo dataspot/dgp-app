@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, LOCALE_ID } from '@angular/core';
+import { getLocaleDirection } from '@angular/common';
 import { ApiService } from './api.service';
 import { first } from 'rxjs/operators';
 
@@ -7,14 +8,18 @@ import { first } from 'rxjs/operators';
 })
 export class ThemeService {
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService, @Inject(LOCALE_ID) public locale: string) {
     this.api.configuration.pipe(first()).subscribe((configuration: any) => {
       const theme = configuration.theme || {};
       console.log('THEME=', configuration);
+      console.log('LOCALE=', locale);
       const primary = theme.primary || '#059';
       const primary_dark = theme.primary_dark || '#003b6b';
       const secondary = theme.secondary || '#fff';
       const css = `
+          body {
+            direction: ${getLocaleDirection(locale)};
+          }
           a, a:visited {
               color: ${primary};
           }
