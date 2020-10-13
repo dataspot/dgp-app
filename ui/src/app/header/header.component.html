@@ -1,5 +1,5 @@
 <div class='container theme-primary-dark-border theme-primary-bg'>
-    <a [href]='homepage' class='logo'><img src='assets/logo.png'/></a>
+    <a [href]='homepage' class='logo'><img class='theme-secondary-bg' src='assets/logo.png'/></a>
     <a class='menu theme-secondary-fg' [class.theme-primary-dark-bg]='detected === "dashboard"' routerLink='/dashboard' i18n>Dashboard</a>
     <a class='menu theme-secondary-fg' *ngIf='roles._.filesListOwn' [class.theme-primary-dark-bg]='detected === "files"' routerLink='/files' i18n>Source Data</a>
     <a class='menu theme-secondary-fg' *ngIf='roles._.pipelinesListPublic' [class.theme-primary-dark-bg]='detected === "pipelines"' routerLink='/pipelines' i18n>Processing Tasks</a>
