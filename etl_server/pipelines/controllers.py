@@ -51,13 +51,18 @@ class Controllers():
             id = slugify.slugify(title, separator='-', lowercase=True)
         body['id'] = id
 
+        submitted = False
+        if body.get('params', {}).get('dgpConfig', {}).get('__submit'):
+            submitted = True
+            body['params']['dgpConfig']['__submit'] = False
+
         # Add record to DB
         ret = self.models.create_or_edit(id, body, owner=owner, allowed_all=allowed_all)
         Cache.refresh_cached_pipelines(self.models)
 
         if ret.get('created'):
             self.trigger_event('new', ret['result'])
-        elif body.get('params', {}).get('dgpConfig', {}).get('__submit'):
+        elif submitted:
             self.trigger_event('submitted', ret['result'])
 
         return ret
