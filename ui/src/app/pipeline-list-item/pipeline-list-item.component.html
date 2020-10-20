@@ -1,6 +1,6 @@
 <div class='name'>{{item.name}}</div>
 <div class='status'>
-    <span>{{status}}</span>
+    <span [class]='item.status.status'>{{status}}</span>
 </div>
 <div class='kind'>{{((api.configuration | async).kinds_map[item.kind] || {display:item.kind}).display }}</div>
 <div class='schedule'>{{((api.configuration | async).schedules_map[item.schedule] || {display:item.schedules}).display }}</div>
