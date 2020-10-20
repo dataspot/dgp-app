@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WorkbenchService } from '../workbench.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoreService } from '../store.service';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { ApiService } from '../api.service';
 import { RolesService } from '../roles.service';
 
@@ -15,6 +15,7 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
 
   id = null;
   config = null;
+  params = null;
   stage = 0;
 
   STAGE_SPECIFY_SOURCE = 0;
@@ -34,8 +35,12 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
         this.id = params.get('id');
         return this.api.queryFiles(false);
       }),
-    ).subscribe(() => {
-      this.store.setPipelineId(this.id);
+      switchMap(() => {
+        return this.store.setPipelineId(this.id);
+      })
+    ).subscribe((pipeline) => {
+      this.params = pipeline.params;
+      console.log('got pipeline', this.params);
     });
     this.store.getConfig().subscribe((config) => {
       this.config = config;
@@ -91,16 +96,19 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
     if (config.taxonomy && config.taxonomy.id) {
       this.stage = this.STAGE_MAPPING;
     }
-    if (config.mapping) { // TODO: use validation instead
+    if (config.model && config.model.mapping) { // TODO: use validation instead
       this.stage = this.STAGE_METADATA;
     }
+    console.log('CALCULATE STAGE:', this.stage, config);
   }
 
   ngOnInit() {
   }
 
   ngOnDestroy() {
-    this.store.setPipelineId(null);
+    this.store.setPipelineId(null).subscribe(() => {
+      console.log('set pipeline to null');
+    });
   }
 
   finalize(submit) {

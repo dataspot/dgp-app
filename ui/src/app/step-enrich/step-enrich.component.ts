@@ -1,47 +1,37 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { StoreService } from '../store.service';
 import { Subscription } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-step-enrich',
-  template: `
-    <h2 class='workbench-subtitle'>Extra Configuration</h2>
-    <app-extra-config-questions [questions]='questions'></app-extra-config-questions>
-  `,
-  styles: [
-    `
-        :host {
-          padding: 10px;
-          min-width: 50%;
-        }
-    `
-      ]
+  templateUrl: 'step-enrich.component.html',
+  styleUrls: ['step-enrich.component.less']
 })
-export class StepEnrichComponent implements OnInit, OnDestroy {
+export class StepEnrichComponent implements OnInit {
 
-  sub: Subscription = null;
-  questions = [];
+  @Input() params: any = null;
+  fields = null;
 
   constructor(private store: StoreService) {}
 
   ngOnInit() {
-    this.sub = this.store.getConfig()
+    this.store.getConfig()
+      .pipe(
+        first()
+      )
       .subscribe((config) => {
         const transformConfig = (
           config &&
           config.taxonomy &&
           config.taxonomy.settings &&
           config.taxonomy.settings['extra-config'] &&
-          config.taxonomy.settings['extra-config'].transform
+          config.taxonomy.settings['extra-config'].metadata
         );
         if (transformConfig) {
-          this.questions = transformConfig;
+          this.fields = transformConfig;
         }
       });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
   }
 
 }

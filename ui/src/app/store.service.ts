@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, from, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ApiService } from './api.service';
 
 
@@ -83,14 +84,19 @@ export class StoreService {
   setPipelineId(pipelineId) {
     this.pipeline = null;
     if (pipelineId) {
-      this.api.queryPipeline(pipelineId)
-      .subscribe((result) => {
-        this.pipeline = result;
-        if (result && result.params && result.params.dgpConfig) {
-          result.params.dgpConfig.__revision = -1;
-          this.setConfig(result.params.dgpConfig);
-        }
-      });
+      return this.api.queryPipeline(pipelineId)
+        .pipe(
+          map((result) => {
+            this.pipeline = result;
+            if (result && result.params && result.params.dgpConfig) {
+              result.params.dgpConfig.__revision = -1;
+              this.setConfig(result.params.dgpConfig);
+            }
+            return result;
+          })
+        );
+    } else {
+      return from([null]);
     }
   }
 

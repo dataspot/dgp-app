@@ -18,7 +18,7 @@
     </app-step-taxonomy>
     <app-step-flipped-mapping *ngIf='stage >= STAGE_MAPPING'>
     </app-step-flipped-mapping>
-    <app-step-enrich *ngIf='stage >= STAGE_METADATA'>
+    <app-step-enrich [params]='params' *ngIf='stage >= STAGE_METADATA'>
     </app-step-enrich>
 
     <app-dgp-workbench-buttons (finalize)='finalize($event)' [status]='status' *ngIf='complete !== null'></app-dgp-workbench-buttons> 

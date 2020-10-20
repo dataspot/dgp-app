@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-dynamic-fields-editor',
@@ -9,11 +9,16 @@ export class DynamicFieldsEditorComponent implements OnInit {
 
   @Input() item: any;
   @Input() fields: any[];
+  @Output() updated = new EventEmitter<void>();
   expanded = {};
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  update() {
+    this.updated.emit();
   }
 
 }

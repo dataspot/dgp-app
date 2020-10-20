@@ -4,13 +4,13 @@
       <label [innerHtml]='field.display'></label>
     </ng-container>
     <ng-container *ngIf='field.type === "text" || !field.type'>
-      <input type='text' [(ngModel)]='item[field.name]'/>
+      <input type='text' [(ngModel)]='item[field.name]' (change)='update()'/>
     </ng-container>
     <ng-container *ngIf='field.type === "boolean"'>
-      <input type='checkbox' [(ngModel)]='item[field.name]'/>
+      <input type='checkbox' [(ngModel)]='item[field.name]' (change)='update()'/>
     </ng-container>
     <ng-container *ngIf='field.type === "enum" || field.options'>
-      <select [(ngModel)]='item[field.name]'>
+      <select [(ngModel)]='item[field.name]' (change)='update()'>
         <option *ngFor='let option of field.options' [value]='option'>{{ option }}</option>
       </select>
     </ng-container>
@@ -21,7 +21,7 @@
       <div class='section'>
         <h2 [innerHtml]='field.display' class='theme-secondary-fg theme-primary-bg'></h2>
         <div class='section-description' [innerHtml]='field.description' *ngIf='field.description'></div>
-        <app-dynamic-fields-editor [item]='item' [fields]='field.fields' *ngIf='!field.expandable || expanded[field.display]'></app-dynamic-fields-editor>
+        <app-dynamic-fields-editor [item]='item' [fields]='field.fields' *ngIf='!field.expandable || expanded[field.display]' (updated)='update()'></app-dynamic-fields-editor>
         <a class='expander' *ngIf='field.expandable && expanded[field.display]' (click)='expanded[field.display]=false'>less...</a>
         <a class='expander' *ngIf='field.expandable && !expanded[field.display]' (click)='expanded[field.display]=true'>more...</a>
       </div>
