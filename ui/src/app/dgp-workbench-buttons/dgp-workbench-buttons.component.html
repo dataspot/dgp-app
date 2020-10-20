@@ -1,0 +1,28 @@
+<div class='buttons'>
+    <div class='button' (click)='save()' *ngIf='!submittable()' i18n>
+        <i class="fas fa-save" aria-hidden="true"></i>
+        Save
+    </div>
+    <div class='button' (click)='submit()' *ngIf='submittable()' i18n>
+        <i class="fas fa-save" aria-hidden="true"></i>
+        Submit for Approval
+    </div>
+    <h4 *ngIf='status === "no-source"' i18n>
+        Please select a data source
+    </h4>
+    <h4 *ngIf='status === "progress"' i18n>
+        Data is processing...
+    </h4>
+    <h4 *ngIf='status === "complete" && submittable()' i18n>
+        Mapping completed successfully, click to submit data for approval
+    </h4>
+    <h4 *ngIf='status === "complete" && !submittable()' i18n>
+        Mapping completed successfully, click save to proceed
+    </h4>
+    <h4 *ngIf='status === "incomplete"' i18n>
+        Mapping is still incomplete, you can save and continue editing later
+    </h4>
+    <h4 *ngIf='status === "errors"' i18n>
+        Mapping completed with errors, you can save and continue editing later
+    </h4>
+</div>

@@ -50,6 +50,7 @@ import { DataRecordEditAuxDirective } from './data-record-edit-aux.directive';
 
 import { environment } from '../environments/environment';
 import { ExtraModule } from './extras/extras';
+import { DgpWorkbenchButtonsComponent } from './dgp-workbench-buttons/dgp-workbench-buttons.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { ExtraModule } from './extras/extras';
     DataRecordEditComponent,
     DataRecordEditInnerComponent,
     DataRecordEditAuxDirective,
+    DgpWorkbenchButtonsComponent,
   ],
   entryComponents: [
     DataRecordEditInnerComponent

@@ -1,27 +1,7 @@
 <app-container>
     <h1 class='theme-primary-fg'>Data Import Workbench</h1>
 
-    <div class='buttons'>
-        <div class='button' (click)='finalize()'>
-            <i class="fas fa-save" aria-hidden="true"></i>
-            Save
-        </div>
-        <h4 *ngIf='status === "no-source"'>
-            Please select a data source
-        </h4>
-        <h4 *ngIf='status === "progress"'>
-            Data is processing...
-        </h4>
-        <h4 *ngIf='status === "complete"'>
-            Mapping completed successfully, click save to proceed
-        </h4>
-        <h4 *ngIf='status === "incomplete"'>
-            Mapping is still incomplete, you can save and continue editing later
-        </h4>
-        <h4 *ngIf='status === "errors"'>
-            Mapping completed with errors, you can save and continue editing later
-        </h4>
-    </div>
+    <app-dgp-workbench-buttons (finalize)='finalize($event)' [status]='status'></app-dgp-workbench-buttons> 
 
     <app-step-extract-source [source]='config.source'
                              [loader]='config.loader'
@@ -41,24 +21,7 @@
     <app-step-enrich *ngIf='stage >= STAGE_METADATA'>
     </app-step-enrich>
 
-    <div class='buttons' *ngIf='complete !== null'>
-        <div class='button' (click)='finalize()'>
-            <i class="fas fa-save" aria-hidden="true"></i>
-            Save
-        </div>
-        <h4 *ngIf='status === "progress"'>
-            Data is processing...
-        </h4>
-        <h4 *ngIf='status === "complete"'>
-            Mapping completed successfully, click save to proceed
-        </h4>
-        <h4 *ngIf='status === "incomplete"'>
-            Mapping is still incomplete, you can save and continue editing later
-        </h4>
-        <h4 *ngIf='status === "errors"'>
-            Mapping completed with errors, you can save and continue editing later
-        </h4>
-    </div>
+    <app-dgp-workbench-buttons (finalize)='finalize($event)' [status]='status' *ngIf='complete !== null'></app-dgp-workbench-buttons> 
 
     <app-results *ngIf='config.source.path || config.loader.filename'></app-results>
 </app-container>

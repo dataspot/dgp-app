@@ -103,7 +103,9 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
     this.store.setPipelineId(null);
   }
 
-  finalize() {
+  finalize(submit) {
+    submit = !!submit;
+    this.config.__submit = submit;
     this.store.setConfig(this.config);
     if (this.roles._.pipelinesExecute && this.status === 'complete') {
       this.router.navigate(['/status/' + this.store.getPipelineId()]);

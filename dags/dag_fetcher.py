@@ -86,7 +86,7 @@ def event_proxy(handler, **kwargs):
     pipeline = kwargs['dag_run'].conf
     return handler(pipeline)
 
-for event in ('delete', 'failed', 'new'):
+for event in ('delete', 'failed', 'new', 'submitted'):
     handler = importlib.import_module(f'events.{event}_pipeline').handler
     task_id = f'event_handler_{event}_pipeline'
     dag_id = task_id + '_dag'

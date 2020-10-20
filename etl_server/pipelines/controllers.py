@@ -57,6 +57,8 @@ class Controllers():
 
         if ret.get('created'):
             self.trigger_event('new', ret['result'])
+        elif body.get('params', {}).get('dgpConfig', {}).get('__submit'):
+            self.trigger_event('submitted', ret['result'])
 
         return ret
 

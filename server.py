@@ -127,10 +127,12 @@ def main(subpath=None, locale='en'):
     return send_file(f'ui/dist/ui/{locale}/index.html')
 
 @app.route('/he')
+@app.route('/he/')
 def main_he():
     return send_file(f'ui/dist/ui/he/index.html')
 
 @app.route('/en')
+@app.route('/en/')
 def main_en():
     return send_file(f'ui/dist/ui/en/index.html')
 
