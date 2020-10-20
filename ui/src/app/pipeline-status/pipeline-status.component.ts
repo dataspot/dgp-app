@@ -17,6 +17,7 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
   visible = false;
   userId = null;
   _moment: any;
+  status = '';
 
   constructor(private route: ActivatedRoute, private api: ApiService, public roles: RolesService, public auth: AuthService) {
     this.auth.getUser().pipe(filter((x) => !!x.profile), first()).subscribe((user) => {
@@ -36,6 +37,7 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
       if (this.item.status.status === 'running' && this.visible) {
         setTimeout(() => { this.refresh(); }, 1000);
       }
+      this.status = (this.item.status && this.item.status.status === 'didnt-run' ? 'Pending for Approval' : this.item.status.status)
     });
   }
 

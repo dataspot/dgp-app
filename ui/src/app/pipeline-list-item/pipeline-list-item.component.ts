@@ -14,6 +14,7 @@ export class PipelineListItemComponent implements OnInit {
 
   @Input() item: any;
 
+  status = '';
   userId: string = null;
 
   constructor(public api: ApiService, public roles: RolesService,
@@ -25,7 +26,7 @@ export class PipelineListItemComponent implements OnInit {
 
   ngOnInit() {
     console.log('ITEM', this.item);
-    this.item.status = this.item.status || {status: 'Waiting for Approval'};
+    this.status = (this.item.status && this.item.status.status === 'didnt-run' ? 'Pending' : this.item.status.status)
   }
 
   canEdit() {

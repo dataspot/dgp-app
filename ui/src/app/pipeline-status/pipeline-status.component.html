@@ -3,7 +3,7 @@
   <h2>{{item.name}}</h2>
   <h3>Current Status :</h3>
   <div class='status-box'>
-    <div [class]='"status " + item.status.status'>{{item.status.status}}</div>
+    <div [class]='"status " + item.status.status'>{{status}}</div>
     <div class='started' *ngIf='item.status.start_date'>
       <label>Started:</label>
       <span [title]='item.status.start_date'>{{ _moment(item.status.start_date).fromNow() }}</span>
