@@ -25,7 +25,7 @@ export class PipelineListItemComponent implements OnInit {
 
   ngOnInit() {
     console.log('ITEM', this.item);
-    this.item.status = this.item.status || {status: 'Didn\'t run'};
+    this.item.status = this.item.status || {status: 'Waiting for Approval'};
   }
 
   canEdit() {

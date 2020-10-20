@@ -1,5 +1,7 @@
 <div class='name'>{{item.name}}</div>
-<div class='status'><span [class]='item.status.status'>{{item.status.status}}</span></div>
+<div class='status'>
+    <span [class]='item.status.status'>{{item.status.status}}</span>
+</div>
 <div class='kind'>{{((api.configuration | async).kinds_map[item.kind] || {display:item.kind}).display }}</div>
 <div class='schedule'>{{((api.configuration | async).schedules_map[item.schedule] || {display:item.schedules}).display }}</div>
 <div class='delete'><a *ngIf='canDelete()' (click)='delete($event)' i18n>Delete</a></div>
