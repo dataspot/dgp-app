@@ -1,6 +1,6 @@
 <h2 class='workbench-subtitle' i18n>Column Mapping</h2>
 <ng-container *ngIf='mandatory_cts.length > 0'>
-  <h3 class='workbench-subsubtitle' i18n>Mandatory Fields</h3>
+  <h3 class='workbench-subsubtitle' i18n>Required Fields</h3>
   <app-step-flipped-mapping-field *ngFor='let ct of mandatory_cts' 
       [ct]='ct.ct' [mapping]='ct.mapping' [constant]='ct.constant' [config]='config' [mappingType]='ct.mappingType'
       [sample]='badSample[ct.ct.name]' (update)='updateMapping($event)'>

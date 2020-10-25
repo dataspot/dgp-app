@@ -25,6 +25,10 @@
       <label i18n>Required:</label>
       <input type='checkbox' [(ngModel)]='ct.mandatory' (change)='emit()'/>
     </div>
+    <div class='field' *ngIf='!ct.mandatory'>
+      <label i18n>Show in 'Required' section:</label>
+      <input type='checkbox' [(ngModel)]='ct.treat_as_mandatory' (change)='emit()'/>
+    </div>
     <div class='field'>
       <label i18n>Primary Key:</label>
       <input type='checkbox' [(ngModel)]='ct.unique' (change)='emit()'/>

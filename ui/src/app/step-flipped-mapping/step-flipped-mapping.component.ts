@@ -133,7 +133,7 @@ export class StepFlippedMappingComponent implements OnInit {
         }
       }
       this.mapping[ct.name] = {ct, mapping, constant, mappingType};
-      if (ct.mandatory) {
+      if (ct.mandatory || ct.treat_as_mandatory) {
         this.mandatory_cts.push({ct, mapping, constant, mappingType});
       } else {
         this.optional_cts.push({ct, mapping, constant, mappingType});
