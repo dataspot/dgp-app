@@ -10,7 +10,7 @@ psycopg2-binary
 apache-airflow[postgres]
 requests
 dgp-server>=0.0.87
-dgp>=0.0.83
+dgp>=0.0.84
 geocoder
 pyproj
 dataflows[speedup]>=0.1.10
