@@ -17,7 +17,7 @@ def get_permissions(service, userid):
         if default_level:
             ret = default_level_ret
         else:
-            return {'error':'unknown-user-' + email}
+            return {'error':'unknown-user-' + userid}
     else:
         ret = value.get('result', {}).get('value')
     if ret is None: return {'error': 'no-value'}
