@@ -89,6 +89,12 @@ app-edit-pipeline, app-pipeline-status, app-data-record-edit {
         transition-property: color, background-color;
         transition-duration: 0.25s;
         text-decoration: none;
+
+        &.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: inherit;
+        }
     }
 }
 

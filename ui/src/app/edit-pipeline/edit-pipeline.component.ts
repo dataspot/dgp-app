@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { switchMap, map, filter } from 'rxjs/operators';
@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { StoreService } from '../store.service';
 import { RolesService } from '../roles.service';
 import { ConfirmerService } from '../confirmer.service';
+import { DynamicFieldsEditorComponent } from '../dynamic-fields-editor/dynamic-fields-editor.component';
 
 @Component({
   selector: 'app-edit-pipeline',
@@ -16,6 +17,7 @@ export class EditPipelineComponent implements OnInit {
 
   item: any = {params: {}, schedule: ''};
   isNew = false;
+  @ViewChild('fieldsEditor', {static: false}) fieldsEditor: DynamicFieldsEditorComponent;
 
   constructor(private route: ActivatedRoute, private router: Router, public api: ApiService,
               public store: StoreService, public roles: RolesService, private confirmer: ConfirmerService) {
@@ -46,6 +48,11 @@ export class EditPipelineComponent implements OnInit {
 
   ngOnInit() {
     this.store.newConfig();
+  }
+
+  valid() {
+    console.log(this.fieldsEditor);
+    return !!this.fieldsEditor && this.fieldsEditor.valid;
   }
 
   _save() {
