@@ -40,7 +40,11 @@ class Controllers():
         dagbag = DagBag(settings.DAGS_FOLDER)
         dag_ids = dagbag.dag_ids
         for dag_id in dag_ids:
-            DagModel.get_dagmodel(dag_id).set_is_paused(is_paused=False)
+            model = DagModel.get_dagmodel(dag_id)
+            if model:
+                model.set_is_paused(is_paused=False)
+            else:
+                logging.warning('Failed to unpause dag %s', dag_id)
         
 
     def create_or_edit_pipeline(self, id, body, owner, allowed_all):
@@ -90,7 +94,6 @@ class Controllers():
         return statuses
 
     def __get_logs(self, id):
-        logger = logging.getLogger('airflow.task')
         handler = next((handler for handler in logger.handlers
                         if handler.name == 'task'), None)
         with create_session() as session:
