@@ -71,7 +71,8 @@
               ]
             },
             "he": {
-              "localize": ["he"]
+              "localize": ["he"],
+              "aot": true
             },
             "wpdx": {
               "fileReplacements": [
@@ -79,7 +80,8 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.wpdx.ts"
                 }
-              ]
+              ],
+              "aot": true
             },
             "datacity-importer": {
               "fileReplacements": [
@@ -88,7 +90,8 @@
                   "with": "src/environments/environment.datacity-importer.ts"
                 }
               ],
-              "localize": ["he"]
+              "localize": ["he"],
+              "aot": true
             },
             "datacity-ckan": {
               "fileReplacements": [
@@ -96,7 +99,8 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.datacity-ckan.ts"
                 }
-              ]
+              ],
+              "aot": true
             }
           }
         },
