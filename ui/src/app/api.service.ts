@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
-import { BehaviorSubject, ReplaySubject, of } from 'rxjs';
+import { Subject, BehaviorSubject, ReplaySubject, of } from 'rxjs';
 import { map, switchMap, last, catchError, filter } from 'rxjs/operators';
 import { AuthService } from 'dgp-oauth2-ng';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class ApiService {
 
-  public pipelines = new BehaviorSubject<any[]>([]);
+  public pipelines = new Subject<any[]>([]);
   public users = new BehaviorSubject<any[]>([]);
   public files = new ReplaySubject<any[]>(1);
   public ownFiles = new ReplaySubject<any[]>(1);

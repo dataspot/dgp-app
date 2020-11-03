@@ -91,7 +91,11 @@
                 }
               ],
               "localize": ["he"],
-              "aot": true
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "vendorChunk": false
             },
             "datacity-ckan": {
               "fileReplacements": [

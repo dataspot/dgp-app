@@ -25,7 +25,6 @@ export class PipelineListItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('ITEM', this.item);
     this.status = (this.item.status && this.item.status.status === 'didnt-run' ? 'Pending' : this.item.status.status)
   }
 

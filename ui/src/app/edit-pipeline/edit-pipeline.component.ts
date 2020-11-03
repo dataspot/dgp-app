@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { switchMap, map, filter } from 'rxjs/operators';
@@ -17,6 +17,7 @@ export class EditPipelineComponent implements OnInit {
 
   item: any = {params: {}, schedule: ''};
   isNew = false;
+  _valid = false;
   @ViewChild('fieldsEditor', {static: false}) fieldsEditor: DynamicFieldsEditorComponent;
 
   constructor(private route: ActivatedRoute, private router: Router, public api: ApiService,
@@ -50,9 +51,12 @@ export class EditPipelineComponent implements OnInit {
     this.store.newConfig();
   }
 
+  updateValidity() {
+    this._valid = !!this.fieldsEditor && this.fieldsEditor.valid;
+  }
+  
   valid() {
-    console.log(this.fieldsEditor);
-    return !!this.fieldsEditor && this.fieldsEditor.valid;
+    return this._valid;
   }
 
   _save() {
@@ -64,6 +68,7 @@ export class EditPipelineComponent implements OnInit {
     this._save()
         .subscribe((result) => {
           if (result.id) {
+            this.api.queryPipelines();
             this.router.navigate(['/pipelines']);
           } else {
             console.log('Failed to SAVE!');

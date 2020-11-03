@@ -1,0 +1,23 @@
+<ng-container *ngIf='root'>
+    <app-pipeline-list-headers></app-pipeline-list-headers>
+</ng-container>
+
+<ng-container *ngFor='let item of sections'>
+    <ng-container *ngIf='item.type === "section"'>
+        <h2 class='theme-secondary-fg theme-primary-bg'>
+            <span [style.padding]='"0 " + (item.level * 8) + "px"'>
+                <ng-container *ngIf='!item.open'>
+                    <i class='fa fa-caret-left only-ltr' (click)='item.open = !item.open'></i>
+                    <i class='fa fa-caret-right only-rtl' (click)='item.open = !item.open'></i>
+                </ng-container>
+                <ng-container *ngIf='item.open'>
+                    <i class='fa fa-caret-down' (click)='item.open = !item.open'></i>
+                </ng-container>
+                &nbsp;
+                <span [innerHtml]='item.display'></span>
+            </span>
+        </h2>
+        <app-pipeline-list-section *ngIf='item.open' [sections]='item.items'></app-pipeline-list-section>
+    </ng-container>
+    <app-pipeline-list-item *ngIf='item.type === "pipeline"' [item]='item.item'></app-pipeline-list-item>
+</ng-container>

@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-dynamic-fields-editor',
   templateUrl: './dynamic-fields-editor.component.html',
   styleUrls: ['./dynamic-fields-editor.component.less']
 })
-export class DynamicFieldsEditorComponent implements OnInit {
+export class DynamicFieldsEditorComponent implements OnInit, AfterViewInit {
 
   @Input() item: any;
   @Input() fields: any[];
@@ -22,6 +22,12 @@ export class DynamicFieldsEditorComponent implements OnInit {
   update() {
     this.validate();
     this.updated.emit();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.update();
+    }, 0);
   }
 
   _validate(fields: any[], item) {

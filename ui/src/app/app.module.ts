@@ -48,9 +48,9 @@ import { DataRecordEditComponent } from './data-record-edit/data-record-edit.com
 import { DataRecordEditInnerComponent } from './data-record-edit-inner/data-record-edit-inner.component';
 import { DataRecordEditAuxDirective } from './data-record-edit-aux.directive';
 
-import { environment } from '../environments/environment';
 import { ExtraModule } from './extras/extras';
 import { DgpWorkbenchButtonsComponent } from './dgp-workbench-buttons/dgp-workbench-buttons.component';
+import { PipelineListSectionComponent } from './pipeline-list-section/pipeline-list-section.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +97,7 @@ import { DgpWorkbenchButtonsComponent } from './dgp-workbench-buttons/dgp-workbe
     DataRecordEditInnerComponent,
     DataRecordEditAuxDirective,
     DgpWorkbenchButtonsComponent,
+    PipelineListSectionComponent,
   ],
   entryComponents: [
     DataRecordEditInnerComponent
