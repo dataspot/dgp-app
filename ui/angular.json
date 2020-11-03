@@ -72,6 +72,31 @@
             },
             "he": {
               "localize": ["he"]
+            },
+            "wpdx": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.wpdx.ts"
+                }
+              ]
+            },
+            "datacity-importer": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.datacity-importer.ts"
+                }
+              ],
+              "localize": ["he"]
+            },
+            "datacity-ckan": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.datacity-ckan.ts"
+                }
+              ]
             }
           }
         },
@@ -86,6 +111,15 @@
             },
             "he": {
               "browserTarget": "ui:build:he"
+            },
+            "wpdx": {
+              "browserTarget": "ui:build:wpdx"
+            },
+            "datacity-importer": {
+              "browserTarget": "ui:build:datacity-importer"
+            },
+            "datacity-ckan": {
+              "browserTarget": "ui:build:datacity-ckan"
             }
           }
         },
