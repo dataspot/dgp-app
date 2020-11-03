@@ -69,6 +69,9 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "he": {
+              "localize": ["he"]
             }
           }
         },
@@ -80,6 +83,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ui:build:production"
+            },
+            "he": {
+              "browserTarget": "ui:build:he"
             }
           }
         },

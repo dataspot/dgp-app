@@ -88,5 +88,25 @@
         {"display": "Standard ISO format (YYYY-MM-DD)",    "format": "default"},
         {"display": "DD/MM/YYYY",                          "format": "%d/%m/%Y"},
         {"display": "YYYY-MM-DD HH:MM:SS UTC",             "format": "%Y-%m-%d %H:%M:%S UTC"}
+    ],
+    "dataRecords": [
+        {
+            "name": "tidbit",
+            "display": "Tid-bit",
+            "display_plural": "Tid-bits",
+            "id": "title",
+            "snippet": "title",
+            "edit_component": "special",
+            "fields": [
+                {
+                    "name": "title",
+                    "display": "Title"
+                },
+                {
+                    "name": "elaboration",
+                    "display": "Elaboration"
+                }
+            ]
+        }
     ]
 }

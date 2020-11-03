@@ -1,6 +1,70 @@
 <?xml version="1.0" ?><xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file datatype="plaintext" original="ng2.template" source-language="en" target-language="he">
     <body>
+      <trans-unit datatype="html" id="d9555a3f0224cb36da6d2f3b53152802f36b3984">
+        <source><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Save </source>
+        <target><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>שמירה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="195928855a19a1698cf08fefa5f7a5af286ed552">
+        <source><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Save and Submit for Approval </source>
+        <target><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>שמירה ושליחה לאישור</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">19,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="c96d073d216105bd493d66dda9babc4673e74f5c">
+        <source> Please select a data source </source>
+        <target>נא לבחור מקור מידע</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">20,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="88fb766f026f4190a0b9c5dcdc71f423ee34804c">
+        <source> Data is processing... </source>
+        <target>המידע מעובד כרגע...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="48a4fabba28ffa598619151e3ed3cc1cd5089e7f">
+        <source> Mapping completed successfully, click to submit data for approval </source>
+        <target>המיפוי הסתיים בהצלחה, לחצו לשליחת המשימה לאישור </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="33a0e732543e36fbfc9e72fcf8a26a8340ba5839">
+        <source> Mapping completed successfully, click save to proceed </source>
+        <target>המיפוי הסתיים בהצלחה, לחצו על ״שמירה״ להמשך</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="449ef49929e67b752f423dbf59925ad6a5f767e4">
+        <source> Mapping is still incomplete, you can save and continue editing later </source>
+        <target>המיפוי עדיין לא הסתיים, אפשר לשמור ולהמשיך את העריכה אחר כך</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="acedafdc504ff2e406b27b675ab672f057c03e3f">
+        <source> Mapping completed with errors, you can save and continue editing later </source>
+        <target>המיפוי הסתיים עם שגיאות, אפשר לשמור ולהמשיך את העבודה אחר כך </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
       <trans-unit datatype="html" id="7a9aa7160363f6cebc889b3ec64fc298d95ff680">
         <source>Edit <x equiv-text="{{def.display}}" id="INTERPOLATION"/></source>
         <target>עריכת <x equiv-text="{{def.display}}" id="INTERPOLATION"/></target>
@@ -54,7 +118,7 @@
         <target>כותרת:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">34,40</context>
+          <context context-type="linenumber">32,39</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="43b029978bc6f4f3b0e3a011210a2fba755fa298">
@@ -62,7 +126,7 @@
         <target>טיפוס המידע:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="8f01b293637f2084fccc10e652bcdb985727ada0">
@@ -70,7 +134,7 @@
         <target>מחרוזת</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="33cb05c064f4256bf21675cd0feb3be66004e030">
@@ -78,7 +142,7 @@
         <target>מספר שלם</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="d938d9f8530928e981811cabd72b0c58a8bc8171">
@@ -86,7 +150,7 @@
         <target>מספר כללי</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="72261bb6b3004fec343ac8de8e80952805b12731">
@@ -94,7 +158,7 @@
         <target>כן/לא</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="1feb210f447e10eb214f2e184264d6e05b282959">
@@ -102,7 +166,7 @@
         <target>תאריך</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="232a008b97373df65211e1b61a1e68934c21cd3e">
@@ -110,7 +174,7 @@
         <target>תאריך ושעה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="cb4e9f0e1110b694b441559d36453a941e35af94">
@@ -118,7 +182,7 @@
         <target>חובה:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="0dc79bc85b99317eeebbcf298c2211a9b3aa3e31">
@@ -126,7 +190,7 @@
         <target>שדה מפתח:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="4a22c6843133f0b0d7dc0d28f864f2f90c1de7ad">
@@ -134,47 +198,15 @@
         <target>תיאור:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="c651a5f519187e63192462480dc8db17f2394d41">
-        <source>Taxonomies</source>
-        <target>טקסונומיות</target>
+      <trans-unit datatype="html" id="c4a964a8b6a1e9967b09aecc6c5bccc0588aa0a4">
+        <source>Show in 'Required' section:</source>
+        <target>הצגה כשדה ״חובה״</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">33,43</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="757e1a2455609989a641aa6e4dcce895b4f29157">
-        <source>Choose taxonomy to edit</source>
-        <target>בחירת טקסונומיה לעריכה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">56,59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="4588912b6c9e5d4d471e23293cc5b4f5ed3d025e">
-        <source>Add new based on...</source>
-        <target>הוספת חדשה המבוססת על...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="749e4eab93ebf7f011abe46dc80461a427db8858">
-        <source>Choose column type tp copy</source>
-        <target>בחירת עמודה קיימת להעתקה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="fce6cea9d731df04372f259de11b4993e99efee8">
-        <source>Add a new column type named... </source>
-        <target>הוספת עמודה חדשה בשם...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="f65253954b66e929a8b4d5ecaf61f9129f8cec64">
@@ -207,6 +239,46 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/header/header.component.ts</context>
           <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="c651a5f519187e63192462480dc8db17f2394d41">
+        <source>Taxonomies</source>
+        <target>טקסונומיות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="757e1a2455609989a641aa6e4dcce895b4f29157">
+        <source>Choose taxonomy to edit</source>
+        <target>בחירת טקסונומיה לעריכה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">56,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="4588912b6c9e5d4d471e23293cc5b4f5ed3d025e">
+        <source>Add new based on...</source>
+        <target>הוספת חדשה המבוססת על...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="749e4eab93ebf7f011abe46dc80461a427db8858">
+        <source>Choose column type tp copy</source>
+        <target>בחירת עמודה קיימת להעתקה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fce6cea9d731df04372f259de11b4993e99efee8">
+        <source>Add a new column type named... </source>
+        <target>הוספת עמודה חדשה בשם...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="f92895f3d564c7ba4c773247e509cc100b72de0b">
@@ -385,8 +457,8 @@
           <context context-type="linenumber">32,36</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="7e786dda619572b9c6142d178c0b1315c21a3880">
-        <source>Mandatory Fields</source>
+      <trans-unit datatype="html" id="b8adfcc78d6e162e6f32bf418858999ab78a31cd">
+        <source>Required Fields</source>
         <target>שדות חובה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
@@ -406,7 +478,7 @@
         <target>הצרנת מידע</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">91,97</context>
+          <context context-type="linenumber">91,96</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="80c7d4c304f6f276d2f9eeba1abbef69fe5b37db">
@@ -567,6 +639,30 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
           <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="63fdf6d19350fbbfc24f9835860dc5d8be7a395a">
+        <source>Login to the System</source>
+        <target>כניסה למערכת</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.ts</context>
+          <context context-type="linenumber">24,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="f614ff91c76248acf13349a1286ea5e7a49b7260">
+        <source>You don't have access to this system</source>
+        <target>אין לך הרשאה לגשת למערכת</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="68ed59a91bdcec18a6d09f40bbb841ba6ab75e9d">
+        <source>Please ask an administrator to grant <x equiv-text="{{api.currentUser.profile.email}}" id="INTERPOLATION"/> access</source>
+        <target>יש לבקש ממנהל המערכת להעניק ל-<x equiv-text="{{api.currentUser.profile.email}}" id="INTERPOLATION"/> גישה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.ts</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="2ece6d939db9540f4c191264cca196bd8e8859cc">
@@ -734,7 +830,7 @@
         <target>מצב נוכחי</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
-          <context context-type="linenumber">50,55</context>
+          <context context-type="linenumber">48,56</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="28f86ffd419b869711aa13f5e5ff54be6d70731c">
@@ -742,7 +838,7 @@
         <target>עריכה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="f5ab45f24b27ec1ae726ef98086b97c1762ea4fd">

@@ -2,6 +2,62 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="d9555a3f0224cb36da6d2f3b53152802f36b3984" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Save </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="195928855a19a1698cf08fefa5f7a5af286ed552" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Save and Submit for Approval </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">19,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c96d073d216105bd493d66dda9babc4673e74f5c" datatype="html">
+        <source> Please select a data source </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">20,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="88fb766f026f4190a0b9c5dcdc71f423ee34804c" datatype="html">
+        <source> Data is processing... </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="48a4fabba28ffa598619151e3ed3cc1cd5089e7f" datatype="html">
+        <source> Mapping completed successfully, click to submit data for approval </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="33a0e732543e36fbfc9e72fcf8a26a8340ba5839" datatype="html">
+        <source> Mapping completed successfully, click save to proceed </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="449ef49929e67b752f423dbf59925ad6a5f767e4" datatype="html">
+        <source> Mapping is still incomplete, you can save and continue editing later </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="acedafdc504ff2e406b27b675ab672f057c03e3f" datatype="html">
+        <source> Mapping completed with errors, you can save and continue editing later </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="7a9aa7160363f6cebc889b3ec64fc298d95ff680" datatype="html">
         <source>Edit <x id="INTERPOLATION" equiv-text="{{def.display}}"/></source>
         <context-group purpose="location">
@@ -51,112 +107,84 @@
         <source>Title:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">34,40</context>
+          <context context-type="linenumber">32,39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="43b029978bc6f4f3b0e3a011210a2fba755fa298" datatype="html">
         <source>Data Type:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8f01b293637f2084fccc10e652bcdb985727ada0" datatype="html">
         <source>string</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="33cb05c064f4256bf21675cd0feb3be66004e030" datatype="html">
         <source>integer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d938d9f8530928e981811cabd72b0c58a8bc8171" datatype="html">
         <source>number</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="72261bb6b3004fec343ac8de8e80952805b12731" datatype="html">
         <source>boolean</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1feb210f447e10eb214f2e184264d6e05b282959" datatype="html">
         <source>date</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="232a008b97373df65211e1b61a1e68934c21cd3e" datatype="html">
         <source>datetime</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cb4e9f0e1110b694b441559d36453a941e35af94" datatype="html">
         <source>Required:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0dc79bc85b99317eeebbcf298c2211a9b3aa3e31" datatype="html">
         <source>Primary Key:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4a22c6843133f0b0d7dc0d28f864f2f90c1de7ad" datatype="html">
         <source>Description:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="c651a5f519187e63192462480dc8db17f2394d41" datatype="html">
-        <source>Taxonomies</source>
+      <trans-unit id="c4a964a8b6a1e9967b09aecc6c5bccc0588aa0a4" datatype="html">
+        <source>Show in &apos;Required&apos; section:</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">33,43</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="757e1a2455609989a641aa6e4dcce895b4f29157" datatype="html">
-        <source>Choose taxonomy to edit</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">56,59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4588912b6c9e5d4d471e23293cc5b4f5ed3d025e" datatype="html">
-        <source>Add new based on...</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="749e4eab93ebf7f011abe46dc80461a427db8858" datatype="html">
-        <source>Choose column type tp copy</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="fce6cea9d731df04372f259de11b4993e99efee8" datatype="html">
-        <source>Add a new column type named... </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="f65253954b66e929a8b4d5ecaf61f9129f8cec64" datatype="html">
@@ -185,6 +213,41 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/header/header.component.ts</context>
           <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c651a5f519187e63192462480dc8db17f2394d41" datatype="html">
+        <source>Taxonomies</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="757e1a2455609989a641aa6e4dcce895b4f29157" datatype="html">
+        <source>Choose taxonomy to edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">56,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4588912b6c9e5d4d471e23293cc5b4f5ed3d025e" datatype="html">
+        <source>Add new based on...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="749e4eab93ebf7f011abe46dc80461a427db8858" datatype="html">
+        <source>Choose column type tp copy</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fce6cea9d731df04372f259de11b4993e99efee8" datatype="html">
+        <source>Add a new column type named... </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomies/taxonomies.component.ts</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="f92895f3d564c7ba4c773247e509cc100b72de0b" datatype="html">
@@ -341,8 +404,8 @@
           <context context-type="linenumber">32,36</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7e786dda619572b9c6142d178c0b1315c21a3880" datatype="html">
-        <source>Mandatory Fields</source>
+      <trans-unit id="b8adfcc78d6e162e6f32bf418858999ab78a31cd" datatype="html">
+        <source>Required Fields</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
           <context context-type="linenumber">50,54</context>
@@ -359,7 +422,7 @@
         <source>Data Unpivoting</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">91,97</context>
+          <context context-type="linenumber">91,96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="80c7d4c304f6f276d2f9eeba1abbef69fe5b37db" datatype="html">
@@ -501,6 +564,27 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
           <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="63fdf6d19350fbbfc24f9835860dc5d8be7a395a" datatype="html">
+        <source>Login to the System</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.ts</context>
+          <context context-type="linenumber">24,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f614ff91c76248acf13349a1286ea5e7a49b7260" datatype="html">
+        <source>You don&apos;t have access to this system</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="68ed59a91bdcec18a6d09f40bbb841ba6ab75e9d" datatype="html">
+        <source>Please ask an administrator to grant <x id="INTERPOLATION" equiv-text="{{api.currentUser.profile.email}}"/> access</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.ts</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2ece6d939db9540f4c191264cca196bd8e8859cc" datatype="html">
@@ -647,14 +731,14 @@
         <source>View Status</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
-          <context context-type="linenumber">50,55</context>
+          <context context-type="linenumber">48,56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="28f86ffd419b869711aa13f5e5ff54be6d70731c" datatype="html">
         <source>Edit</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="f5ab45f24b27ec1ae726ef98086b97c1762ea4fd" datatype="html">
