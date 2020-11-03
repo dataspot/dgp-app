@@ -94,6 +94,7 @@ class Controllers():
         return statuses
 
     def __get_logs(self, id):
+        logger = logging.getLogger('airflow.task')
         handler = next((handler for handler in logger.handlers
                         if handler.name == 'task'), None)
         with create_session() as session:
