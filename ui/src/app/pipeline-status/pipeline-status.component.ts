@@ -37,7 +37,7 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
       if (this.item.status.status === 'running' && this.visible) {
         setTimeout(() => { this.refresh(); }, 1000);
       }
-      this.status = (this.item.status && this.item.status.status === 'didnt-run' ? 'Pending for Approval' : this.item.status.status)
+      this.status = (this.item.status && this.item.status.status === 'didnt-run' ? 'Pending for Approval' : this.item.status.status);
     });
   }
 

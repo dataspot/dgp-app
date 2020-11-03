@@ -25,7 +25,7 @@ export class PipelineListItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.status = (this.item.status && this.item.status.status === 'didnt-run' ? 'Pending' : this.item.status.status)
+    this.status = (this.item.status && this.item.status.status === 'didnt-run' ? 'Pending' : this.item.status.status);
   }
 
   canEdit() {

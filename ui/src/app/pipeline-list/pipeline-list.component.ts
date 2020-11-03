@@ -10,7 +10,7 @@ import { RolesService } from '../roles.service';
 })
 export class PipelineListComponent implements OnInit {
 
-  pipelineSections = []; 
+  pipelineSections = [];
 
   constructor(public api: ApiService, public roles: RolesService) {
   }

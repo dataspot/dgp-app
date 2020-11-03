@@ -54,7 +54,7 @@ export class EditPipelineComponent implements OnInit {
   updateValidity() {
     this._valid = !!this.fieldsEditor && this.fieldsEditor.valid;
   }
-  
+
   valid() {
     return this._valid;
   }

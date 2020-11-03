@@ -9,6 +9,5 @@ export const extraMapping = {
 @NgModule({
     declarations: [],
     entryComponents: [],
-    
 })
 export class ExtraModule { }
