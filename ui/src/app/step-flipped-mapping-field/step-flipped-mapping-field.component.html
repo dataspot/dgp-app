@@ -65,7 +65,7 @@
     <div class='sample'>
       <table *ngIf='sample && sample.length'>
         <tr><th colspan='2' i18n>Sample of bad values</th></tr>
-        <tr><th i18n>Row #</th><th>Value</th></tr>
+        <tr><th i18n>Row #</th><th i18n>Value</th></tr>
         <tr *ngFor='let item of sample'>
           <td>{{ item.idx }}</td>
           <td>{{ item.value }}</td>
@@ -75,6 +75,6 @@
   </div>
 </div>
 <ng-container *ngIf='!sample || !sample.length'>
-  <a class='expander' *ngIf='expanded' (click)='expanded=false'>less settings...</a>
-  <a class='expander' *ngIf='!expanded' (click)='expanded=true'>more settings...</a>
+  <a class='expander' *ngIf='expanded' (click)='expanded=false' i18n>less settings...</a>
+  <a class='expander' *ngIf='!expanded' (click)='expanded=true' i18n>more settings...</a>
 </ng-container>

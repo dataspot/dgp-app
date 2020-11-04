@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, first } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 import { ApiService } from '../api.service';
 import { RolesService } from '../roles.service';
 
@@ -39,7 +39,7 @@ export class PipelineListComponent implements OnInit {
   ngOnInit() {
     this.api.pipelines.pipe(
       filter((x: any[]) => (!!x && x.length > 0)),
-      first()
+      take(2)
     ).subscribe((pipelines) => {
       if (pipelines) {
         for (const pipeline of pipelines) {
@@ -48,7 +48,7 @@ export class PipelineListComponent implements OnInit {
         this.pipelineSections = this.processSections(pipelines, 0);
       }
     });
-
+    this.api.queryPipelines();
   }
 
 }

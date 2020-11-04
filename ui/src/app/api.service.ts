@@ -13,7 +13,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class ApiService {
 
-  public pipelines = new Subject<any[]>();
+  public pipelines = new ReplaySubject<any[]>(1);
   public users = new BehaviorSubject<any[]>([]);
   public files = new ReplaySubject<any[]>(1);
   public ownFiles = new ReplaySubject<any[]>(1);

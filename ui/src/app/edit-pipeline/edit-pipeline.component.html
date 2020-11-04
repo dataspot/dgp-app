@@ -1,13 +1,13 @@
 <app-container>
-  <h1 class='theme-primary-fg'>Edit Task</h1>
-  <label>Task Name</label>
+  <h1 class='theme-primary-fg' i18n>Edit Task</h1>
+  <label i18n>Task Name</label>
   <input type='text' [(ngModel)]='item.name'/>
-  <label>Description</label>
+  <label i18n>Description</label>
   <div class='field-description' [innerHtml]='api.currentConfig.taskDescription' *ngIf='api.currentConfig && api.currentConfig.taskDescription'></div>
   <textarea rows='3' [(ngModel)]='item.description'></textarea>
   <ng-container *ngIf='api.currentConfig'>
     <ng-container *ngIf='(api.currentConfig.kinds && api.currentConfig.kinds.length > 1) || !api.currentConfig.kinds_map[item.kind]'>
-      <label>Kind</label>
+      <label i18n>Kind</label>
       <select [(ngModel)]='item.kind'>
         <option [value]='kind.name' *ngFor='let kind of api.currentConfig.kinds'>{{kind.display}}</option>
       </select>
@@ -17,28 +17,28 @@
                                  (updated)='updateValidity()'
       ></app-dynamic-fields-editor>
       <ng-container *ngIf='roles._.pipelinesExecute'>
-        <label>Schedule</label>
+        <label i18n>Schedule</label>
         <select [(ngModel)]='item.schedule'>
           <ng-container *ngFor='let schedule of api.currentConfig.schedules'>
             <option *ngIf='schedule.name === "manual" || roles._.pipelinesExecute' [value]='schedule.name'>{{schedule.display}}</option>
           </ng-container>
         </select>
       </ng-container>
-      <label>Visibility</label>
+      <label i18n>Visibility</label>
       <select type='checkbox' [(ngModel)]='item.private'>
-        <option [value]='true'>Only Visible to Me</option>
-        <option [value]='false'>Publicly Visible</option>
+        <option [value]='true' i18n>Only Visible to Me</option>
+        <option [value]='false' i18n>Publicly Visible</option>
       </select>
       <div class='buttons'>
-        <div class='dgp button' (click)='dgp()' *ngIf='roles._.workbench && api.currentConfig.kinds_map[item.kind].dgp' [class.disabled]='!valid()'>
+        <div class='dgp button' (click)='dgp()' *ngIf='roles._.workbench && api.currentConfig.kinds_map[item.kind].dgp' [class.disabled]='!valid()' i18n>
           <i class="fas fa-cogs" aria-hidden="true"></i>
           Save &amp; go to Workbench
         </div>
-        <div class='save button' (click)='save()' [class.disabled]='!valid()'>
+        <div class='save button' (click)='save()' [class.disabled]='!valid()' i18n>
           <i class="fas fa-save" aria-hidden="true"></i>
           Save Task
         </div>
-        <div *ngIf='roles._.pipelinesDeleteOwn && item.id' class='delete button' (click)='delete()'>
+        <div *ngIf='roles._.pipelinesDeleteOwn && item.id' class='delete button' (click)='delete()' i18n>
           <i class="fas fa-trash" aria-hidden="true"></i>
           Delete Task
         </div>

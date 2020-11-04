@@ -16,6 +16,8 @@ export class ThemeService {
       const primary = theme.primary || '#059';
       const primary_dark = theme.primary_dark || '#003b6b';
       const secondary = theme.secondary || '#fff';
+      const right = locale === 'he' ? 'left' : 'right;'
+      const left = locale === 'he' ? 'right' : 'left;'
       const css = `
           body {
             direction: ${getLocaleDirection(locale)};
@@ -67,13 +69,13 @@ export class ThemeService {
             margin: 12px -8px;
             font-size: 16px;
             font-weight: normal;
-            margin-right: 40px;
+            margin-${right}: 40px;
           }
           h4.workbench-subsubsubtitle {
             color: ${primary};
-            border-left: solid 8px ${primary};
+            border-${left}: solid 8px ${primary};
             padding: 0px 8px;
-            margin-left: -16px;
+            margin-${left}: -16px;
             margin-top: 20px;
             margin-bottom: 8px;
             font-size: 16px;

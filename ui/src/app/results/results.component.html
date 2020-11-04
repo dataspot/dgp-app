@@ -1,5 +1,5 @@
 <div class='results' [class.visible]='hasResults || failureMain'>
-    <h2 class='workbench-subtitle'>Data Sample</h2>
+    <h2 class='workbench-subtitle' i18n>Data Sample</h2>
 
     <div class='failure' *ngIf='failureMain'>{{ failureMain }}</div>
     <ng-container *ngIf='analysisErrors && analysisErrors.length > 0'>
@@ -14,9 +14,9 @@
     </ng-container>
 
     <div class='tab-selectors' [class.visible]='hasResults'>
-        <app-results-tab-selector [table]='TABLES[0]' [active]='step === TABLES[0].slug' (select)='step = TABLES[0].slug' label='Original Data'></app-results-tab-selector>
-        <app-results-tab-selector [table]='TABLES[1]' [active]='step === TABLES[1].slug' (select)='step = TABLES[1].slug' label='Mapped Data'></app-results-tab-selector>
-        <app-results-tab-selector [table]='TABLES[2]' [active]='step === TABLES[2].slug' (select)='step = TABLES[2].slug' label='Transformed Data'></app-results-tab-selector>
+        <app-results-tab-selector [table]='TABLES[0]' [active]='step === TABLES[0].slug' (select)='step = TABLES[0].slug' label='Original Data' i18n-label></app-results-tab-selector>
+        <app-results-tab-selector [table]='TABLES[1]' [active]='step === TABLES[1].slug' (select)='step = TABLES[1].slug' label='Mapped Data' i18n-label></app-results-tab-selector>
+        <app-results-tab-selector [table]='TABLES[2]' [active]='step === TABLES[2].slug' (select)='step = TABLES[2].slug' label='Transformed Data' i18n-label></app-results-tab-selector>
     </div>
 
     <app-result-table

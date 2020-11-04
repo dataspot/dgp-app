@@ -20,7 +20,7 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
   status = '';
 
   constructor(private route: ActivatedRoute, private api: ApiService, public roles: RolesService, public auth: AuthService) {
-    this.auth.getUser().pipe(filter((x) => !!x.profile), first()).subscribe((user) => {
+    this.auth.getUser().pipe(filter((x) => x && !!x.profile), first()).subscribe((user) => {
       this.userId = user.profile.id;
     });
     this.refresh();

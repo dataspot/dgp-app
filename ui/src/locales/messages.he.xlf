@@ -97,20 +97,116 @@
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="8839c39c4d42d36c8a15fe46fa0844c94fe4ac2c">
-        <source><x equiv-text="{{ct.name}}" id="INTERPOLATION"/></source>
-        <target><x equiv-text="{{ct.name}}" id="INTERPOLATION"/></target>
+      <trans-unit datatype="html" id="f65253954b66e929a8b4d5ecaf61f9129f8cec64">
+        <source>Dashboard</source>
+        <target>לוח הבקרה</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.ts</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">27,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="51e74c4b6ccfc5f3c369d35cc81f496a3834616c">
+        <source>Source Data</source>
+        <target>קבצי מקור</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="5dba74deb5622b78f497c8b008a1ec2f9cd252b9">
+        <source>Processing Tasks</source>
+        <target>משימות לעיבוד</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="6ad31729632818476420bb0f698d617436263675">
+        <source>User Management</source>
+        <target>ניהול משתמשים</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="c651a5f519187e63192462480dc8db17f2394d41">
+        <source>Taxonomies</source>
+        <target>טקסונומיות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.ts</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="826b25211922a1b46436589233cb6f1a163d89b7">
         <source>Delete</source>
         <target>מחיקה</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">14,21</context>
+          <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
+          <context context-type="linenumber">28,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="03a5668a6a5c0ee849df66c0e963fe64d53253e4">
+        <source>View Status</source>
+        <target>מצב נוכחי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
+          <context context-type="linenumber">49,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="28f86ffd419b869711aa13f5e5ff54be6d70731c">
+        <source>Edit</source>
+        <target>עריכה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="cff1428d10d59d14e45edec3c735a27b5482db59">
+        <source>Name</source>
+        <target>שם</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="81b97b8ea996ad1e4f9fca8415021850214884b1">
+        <source>Status</source>
+        <target>סטטוס</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="1142d1e241e766713838ec7055c1b912ef9a0d7f">
+        <source>Kind</source>
+        <target>סוג</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="4a4f46a2dcec36bd5c8c371ceee55c2226dec27f">
+        <source>Schedule</source>
+        <target>תדירות ריצה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="030b4423b92167200e39519599f9b863b4f7c62c">
+        <source>Actions</source>
+        <target>פעולות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="8839c39c4d42d36c8a15fe46fa0844c94fe4ac2c">
+        <source><x equiv-text="{{ct.name}}" id="INTERPOLATION"/></source>
+        <target><x equiv-text="{{ct.name}}" id="INTERPOLATION"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.ts</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="8737210008395d7b014e5118d2ed198ae9745215">
@@ -207,46 +303,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
           <context context-type="linenumber">44</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="f65253954b66e929a8b4d5ecaf61f9129f8cec64">
-        <source>Dashboard</source>
-        <target>לוח הבקרה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/header/header.component.ts</context>
-          <context context-type="linenumber">27,32</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="51e74c4b6ccfc5f3c369d35cc81f496a3834616c">
-        <source>Source Data</source>
-        <target>קבצי מקור</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/header/header.component.ts</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="5dba74deb5622b78f497c8b008a1ec2f9cd252b9">
-        <source>Processing Tasks</source>
-        <target>משימות לעיבוד</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/header/header.component.ts</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="6ad31729632818476420bb0f698d617436263675">
-        <source>User Management</source>
-        <target>ניהול משתמשים</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/header/header.component.ts</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="c651a5f519187e63192462480dc8db17f2394d41">
-        <source>Taxonomies</source>
-        <target>טקסונומיות</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/header/header.component.ts</context>
-          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="757e1a2455609989a641aa6e4dcce895b4f29157">
@@ -406,7 +462,7 @@
         <target>ערכים חיוביים: </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">70,78</context>
+          <context context-type="linenumber">69,78</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="c97b43dc990ec7b0d6b04355dc6b1b9b07ff82b1">
@@ -449,6 +505,30 @@
           <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
+      <trans-unit datatype="html" id="5049e204c14c648691ac775a64fb504467aeb549">
+        <source>Value</source>
+        <target>ערך</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="2ad1a24746c0a916b80f966eac7cd2a23d010175">
+        <source>less settings...</source>
+        <target>פחות הגדרות...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="dd7f0598b5aedffaf7a132cb6c312c72ca1f3754">
+        <source>more settings...</source>
+        <target>יותר הגדרות...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
       <trans-unit datatype="html" id="2818a5f73d055e9e4ccdaceefcd7b43669ad7c6f">
         <source>Column Mapping</source>
         <target>מיפוי עמודות</target>
@@ -481,20 +561,44 @@
           <context context-type="linenumber">91,96</context>
         </context-group>
       </trans-unit>
+      <trans-unit datatype="html" id="f6fc79e1b78ce1758ee2f8d09f0a6fa7e0248ee0">
+        <source>Unpivoting into <x equiv-text="&lt;strong&gt;" id="START_TAG_STRONG"/><x equiv-text="{{unpivot_target}}" id="INTERPOLATION"/><x equiv-text="&lt;/strong&gt;" id="CLOSE_TAG_STRONG"/></source>
+        <target>הצרנה לתוך <x equiv-text="&lt;strong&gt;" id="START_TAG_STRONG"/><x equiv-text="{{unpivot_target}}" id="INTERPOLATION"/><x equiv-text="&lt;/strong&gt;" id="CLOSE_TAG_STRONG"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      </trans-unit>
       <trans-unit datatype="html" id="80c7d4c304f6f276d2f9eeba1abbef69fe5b37db">
         <source>Column to unpivot</source>
         <target>עמודה להצרנה</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">106,117</context>
+          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.html</context>
+          <context context-type="linenumber">28,32</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="897a8f838d33573765cbb517099c672731a8dce5">
         <source>Select source field to unpivot...</source>
         <target>בחירת עמודת מקור להצרנה...</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.ts</context>
-          <context context-type="linenumber">126,135</context>
+          <context context-type="sourcefile">src/app/step-flipped-mapping/step-flipped-mapping.component.html</context>
+          <context context-type="linenumber">40,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="a442a58dfcd5f310b32bf8cdb92272adf8824ea4">
+        <source>rows</source>
+        <target>שורות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/results-tab-selector/results-tab-selector.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="82ad3e492e87e79930fda5f5a22ef9ec043d1006">
+        <source>Update Contents</source>
+        <target>עדכון תוכן הקובץ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/file-list-item/file-list-item.component.ts</context>
+          <context context-type="linenumber">34,49</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="46ee09482783d9e8428cb5ebf7d11874cfc339be">
@@ -527,14 +631,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
           <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="82ad3e492e87e79930fda5f5a22ef9ec043d1006">
-        <source>Update Contents</source>
-        <target>עדכון תוכן הקובץ </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/file-list-item/file-list-item.component.ts</context>
-          <context context-type="linenumber">34,49</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="0cb32e637ad6d9357b0358c26db3bd532a038d1c">
@@ -761,44 +857,44 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="cff1428d10d59d14e45edec3c735a27b5482db59">
-        <source>Name</source>
-        <target>שם</target>
+      <trans-unit datatype="html" id="9b56c803ddb707f4bb217bf061fa63809be9902d">
+        <source>Data Sample</source>
+        <target>דגימת מידע</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="sourcefile">src/app/results/results.component.ts</context>
+          <context context-type="linenumber">27,33</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="81b97b8ea996ad1e4f9fca8415021850214884b1">
-        <source>Status</source>
-        <target>סטטוס</target>
+      <trans-unit datatype="html" id="451734b402f5500ecc249116ac24b1906e6463f3">
+        <source>Original Data</source>
+        <target>המידע המקורי</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="sourcefile">src/app/results/results.component.ts</context>
+          <context context-type="linenumber">43,48</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="1142d1e241e766713838ec7055c1b912ef9a0d7f">
-        <source>Kind</source>
-        <target>סוג</target>
+      <trans-unit datatype="html" id="39a0a35aea988a73355e29027f3a0b69a6f3d676">
+        <source>Mapped Data</source>
+        <target>מידע לאחר המיפוי</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="sourcefile">src/app/results/results.component.ts</context>
+          <context context-type="linenumber">60,68</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="4a4f46a2dcec36bd5c8c371ceee55c2226dec27f">
-        <source>Schedule</source>
-        <target>תדירות ריצה</target>
+      <trans-unit datatype="html" id="eb34bd9958bc4e4ca3baf00f1e7b40f9b748bb3e">
+        <source>Transformed Data</source>
+        <target>המידע המעובד </target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="sourcefile">src/app/results/results.component.ts</context>
+          <context context-type="linenumber">78,83</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="030b4423b92167200e39519599f9b863b4f7c62c">
-        <source>Actions</source>
-        <target>פעולות</target>
+      <trans-unit datatype="html" id="9af5dc91b82c4c7b6248c3b9155cccbce94d3671">
+        <source>Data Import Workbench</source>
+        <target>אשף הזנת המידע</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipeline-list-headers/pipeline-list-headers.component.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="sourcefile">src/app/dgp-workbench/dgp-workbench.component.ts</context>
+          <context context-type="linenumber">32,40</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="172e4481c051172cd8483faa4bf5efe3ec7443fe">
@@ -825,28 +921,84 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="03a5668a6a5c0ee849df66c0e963fe64d53253e4">
-        <source>View Status</source>
-        <target>מצב נוכחי</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
-          <context context-type="linenumber">48,56</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="28f86ffd419b869711aa13f5e5ff54be6d70731c">
-        <source>Edit</source>
-        <target>עריכה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipeline-list-item/pipeline-list-item.component.ts</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
-      </trans-unit>
       <trans-unit datatype="html" id="f5ab45f24b27ec1ae726ef98086b97c1762ea4fd">
         <source><x equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> New Processing Task </source>
         <target><x equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>משימת עיבוד חדשה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipeline-list/pipeline-list.component.ts</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="f32a758af13ac488ca066a9fba4eca2f9856fc8b">
+        <source>Edit Task</source>
+        <target>עריכת משימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.ts</context>
+          <context context-type="linenumber">34,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="d1b2b5aacf16f34f286e2ab52f4f45a2d3673132">
+        <source>Task Name</source>
+        <target>שם המשימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.ts</context>
+          <context context-type="linenumber">63,72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="eec715de352a6b114713b30b640d319fa78207a0">
+        <source>Description</source>
+        <target>תיאור</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.ts</context>
+          <context context-type="linenumber">90,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="1ad0ce40a1b15b5a1b2d1abd2dafdd90a84f722e">
+        <source>Visibility</source>
+        <target>נראות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.ts</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="b93fa66edf3e25118f6e5e54e346d69dd21d2924">
+        <source>Only Visible to Me</source>
+        <target>גלוי רק עבורי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.ts</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="d2bbde256384177500ec0af8634076e658532f7c">
+        <source>Publicly Visible</source>
+        <target>כולם יכולים לראות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.ts</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="a96516c8e7ecc1da471bcb31ac0a79663babc94a">
+        <source><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Save Task </source>
+        <target><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>שמירת המשימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.ts</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="9fd1964c2a7d94088873dd5cd595326c94e36c0a">
+        <source><x equiv-text="&lt;i class=&quot;fas fa-cogs&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Save &amp; go to Workbench </source>
+        <target><x equiv-text="&lt;i class=&quot;fas fa-cogs&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>שמירה ומעבר לאשף הזנת המידע</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">48,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="ea163ddd2beff778394f7b32754fa3b283019d40">
+        <source><x equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Delete Task </source>
+        <target><x equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>מחיקת המשימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">48,42</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="a37bd5a9ae5d5525d9712413e69133b0e506e6ca">
@@ -854,7 +1006,7 @@
         <target>קובץ שהועלה:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="098f1f170b87427006da27c281ad1e484e090af6">
@@ -862,7 +1014,7 @@
         <target>קישור ישיר:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="98427de0c30c7a7d6a77c8218888768215d13756">
@@ -870,7 +1022,7 @@
         <target>פורמט:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="29e17d1563727ad13c58125f9b17a7f556e3c382">
@@ -878,7 +1030,7 @@
         <target>אקסל (xls)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="68da5a1b84bcfb0a156828a12c601209f10f507a">
@@ -886,7 +1038,7 @@
         <target>אקסל (xlsx)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="11db3f53da11cc43e48960e6cc537b79c5fd789e">
@@ -894,7 +1046,7 @@
         <target>CSV</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="7ad24bfc056ad2a41aa93fbfd75ec6765060606f">
@@ -902,7 +1054,7 @@
         <target>JSON</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="515c6be8fc828ffc7d1e3c46f42c199f44edcb59">
@@ -910,7 +1062,7 @@
         <target>גליון נתונים של גוגל</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="7a529a8f078d0c197804a7bc878a0273089d7a1d">
@@ -918,7 +1070,7 @@
         <target>טבלת HTML</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="01bf9e8c87c0d16c2df48b777090eb2f5e8dc64b">
@@ -926,7 +1078,7 @@
         <target>גליון:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="f1964e3e93a5aa2c64d4351fc862e41c0820b73d">
@@ -934,7 +1086,7 @@
         <target>קידוד:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="808b5dde42baba14a0c985c4dc8486b8fdfa37cc">
@@ -942,7 +1094,7 @@
         <target>מסלול JSON:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="d5b69b532e66a4fd31fc0fd91511f9c60c122f66">
@@ -950,7 +1102,15 @@
         <target>סלקטור CSS:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="f594a8feb828deb98e47362a10409ced952616ec">
+        <source>Set no selector</source>
+        <target>לא נקבע סלקטור</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="6284a2ae00de262f0b184def208f2965e8e64840">
