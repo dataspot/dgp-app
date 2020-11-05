@@ -214,7 +214,7 @@
         <target>כותרת:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">32,39</context>
+          <context context-type="linenumber">30,35</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="43b029978bc6f4f3b0e3a011210a2fba755fa298">
@@ -593,14 +593,6 @@
           <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="82ad3e492e87e79930fda5f5a22ef9ec043d1006">
-        <source>Update Contents</source>
-        <target>עדכון תוכן הקובץ </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/file-list-item/file-list-item.component.ts</context>
-          <context context-type="linenumber">34,49</context>
-        </context-group>
-      </trans-unit>
       <trans-unit datatype="html" id="46ee09482783d9e8428cb5ebf7d11874cfc339be">
         <source> By default, only empty cells will be considered as empty.<x equiv-text="&lt;br/&gt;     " id="LINE_BREAK"/> If other values need to be ignored as well, add them here in a comma separated list (with no extra whitespace). </source>
         <target>כברירת מחדל, רק תאים ריקים יחשבו כריקים. <x equiv-text="&lt;br/&gt;     " id="LINE_BREAK"/>אם נדרש להתעלם מערכים נוספים, ניתן לציין אותם כאן, מופרדים בפסיקים (וללא רווחים). </target>
@@ -631,6 +623,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-taxonomy/step-taxonomy.component.html</context>
           <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="82ad3e492e87e79930fda5f5a22ef9ec043d1006">
+        <source>Update Contents</source>
+        <target>עדכון תוכן הקובץ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/file-list-item/file-list-item.component.ts</context>
+          <context context-type="linenumber">34,49</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="0cb32e637ad6d9357b0358c26db3bd532a038d1c">
@@ -926,7 +926,7 @@
         <target><x equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>משימת עיבוד חדשה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipeline-list/pipeline-list.component.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="f32a758af13ac488ca066a9fba4eca2f9856fc8b">
@@ -999,6 +999,78 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.html</context>
           <context context-type="linenumber">48,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="e1af5bf943763ecb9bf16b1f0696fa5d759f656e">
+        <source>Task Status</source>
+        <target>מצב המשימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">30,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="146fc55eb81b46a3bd2a0e45e27525e3bef861eb">
+        <source>Current Status :</source>
+        <target>מצב נוכחי:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">53,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="dff56d40e1e393733851acd174c7abd3b3da3669">
+        <source>Last Execution Status :</source>
+        <target>מועד ריצה אחרון:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="11395038e214316d3eabe1c40945e6f23a9e0720">
+        <source>Started:</source>
+        <target>התחילה:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="896ab5de5eb290aca3298bac050f3ceac4f73401">
+        <source>Finished:</source>
+        <target>סיימה:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="040edd8041e100f1eff2f282b545b7992b2928fe">
+        <source>Took:</source>
+        <target>משך:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="8fb0b1fd760321b4065a951bcd9c0facdd30c065">
+        <source><x equiv-text="&lt;i class=&quot;fas fa-pencil-alt&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Edit Task </source>
+        <target><x equiv-text="&lt;i class=&quot;fas fa-pencil-alt&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>עריכת משימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="8236b07b9d84980256438c14072d629ab1e0f1a6">
+        <source><x equiv-text="&lt;i class=&quot;fas fa-redo-alt&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Refresh Status </source>
+        <target><x equiv-text="&lt;i class=&quot;fas fa-redo-alt&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>רענון העמוד</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.html</context>
+          <context context-type="linenumber">38,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="93ccfef7186412061548cf9b465371be87e1f55a">
+        <source><x equiv-text="&lt;i class=&quot;fas fa-play&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/> Trigger Task </source>
+        <target><x equiv-text="&lt;i class=&quot;fas fa-play&quot; aria-hidden=&quot;true&quot;&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;" id="CLOSE_ITALIC_TEXT"/>הרצת המשימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.html</context>
+          <context context-type="linenumber">38,33</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="a37bd5a9ae5d5525d9712413e69133b0e506e6ca">
@@ -1105,9 +1177,9 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="f594a8feb828deb98e47362a10409ced952616ec">
-        <source>Set no selector</source>
-        <target>לא נקבע סלקטור</target>
+      <trans-unit datatype="html" id="be9e2f70bff3710b18682f56c0010f5dbb89668e">
+        <source>Clear selector</source>
+        <target>מחיקת הסלקטור</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
           <context context-type="linenumber">29</context>

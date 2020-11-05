@@ -191,7 +191,7 @@
         <source>Title:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">32,39</context>
+          <context context-type="linenumber">30,35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="43b029978bc6f4f3b0e3a011210a2fba755fa298" datatype="html">
@@ -815,7 +815,7 @@
         <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> New Processing Task </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipeline-list/pipeline-list.component.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="f32a758af13ac488ca066a9fba4eca2f9856fc8b" datatype="html">
@@ -879,6 +879,69 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/edit-pipeline/edit-pipeline.component.html</context>
           <context context-type="linenumber">48,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e1af5bf943763ecb9bf16b1f0696fa5d759f656e" datatype="html">
+        <source>Task Status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">30,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="146fc55eb81b46a3bd2a0e45e27525e3bef861eb" datatype="html">
+        <source>Current Status :</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">53,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dff56d40e1e393733851acd174c7abd3b3da3669" datatype="html">
+        <source>Last Execution Status :</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="11395038e214316d3eabe1c40945e6f23a9e0720" datatype="html">
+        <source>Started:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="896ab5de5eb290aca3298bac050f3ceac4f73401" datatype="html">
+        <source>Finished:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="040edd8041e100f1eff2f282b545b7992b2928fe" datatype="html">
+        <source>Took:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8fb0b1fd760321b4065a951bcd9c0facdd30c065" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&quot;fas fa-pencil-alt&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Edit Task </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8236b07b9d84980256438c14072d629ab1e0f1a6" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&quot;fas fa-redo-alt&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Refresh Status </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.html</context>
+          <context context-type="linenumber">38,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="93ccfef7186412061548cf9b465371be87e1f55a" datatype="html">
+        <source><x id="START_ITALIC_TEXT" equiv-text="&lt;i class=&quot;fas fa-play&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" equiv-text="&lt;/i&gt;"/> Trigger Task </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipeline-status/pipeline-status.component.html</context>
+          <context context-type="linenumber">38,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="a37bd5a9ae5d5525d9712413e69133b0e506e6ca" datatype="html">
@@ -972,8 +1035,8 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="f594a8feb828deb98e47362a10409ced952616ec" datatype="html">
-        <source>Set no selector</source>
+      <trans-unit id="be9e2f70bff3710b18682f56c0010f5dbb89668e" datatype="html">
+        <source>Clear selector</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/step-extract-source/step-extract-source.component.ts</context>
           <context context-type="linenumber">29</context>
