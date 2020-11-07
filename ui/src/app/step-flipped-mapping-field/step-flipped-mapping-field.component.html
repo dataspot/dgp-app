@@ -60,6 +60,10 @@
           <label i18n>Thousands Separator:</label>
           <input [(ngModel)]='mapping.options.groupChar' type='text' (change)='changed()'>
         </div>
+        <div class='formish'>
+          <label i18n>Bare Number:</label>
+          <input [(ngModel)]='mapping.options.bareNumber' type='checkbox' (change)='changed()'>
+        </div>
       </ng-container>
     </div>
     <div class='sample'>
