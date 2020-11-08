@@ -12,7 +12,7 @@
       </ng-container>
       <ng-container *ngIf='field.type === "enum" || field.options'>
         <select [(ngModel)]='item[field.name]' (change)='update()'>
-          <option *ngFor='let option of field.options' [value]='option'>{{ option }}</option>
+          <option *ngFor='let option of field.options' [value]='option.value || option'>{{ option.display || option }}</option>
         </select>
       </ng-container>
       <ng-container *ngIf='field.type !== "section"'>
