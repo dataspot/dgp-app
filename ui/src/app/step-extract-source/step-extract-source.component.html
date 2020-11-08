@@ -12,7 +12,7 @@
 </div>
 <div class='formish'>
   <label i18n>Direct URL:</label>
-  <input type='text' class='url'
+  <input type='text' class='url' class='force-ltr'
     [(ngModel)]='source.path'
     (change)='changed({source: {path: source.path}, loader:{}, structure:{}})'
   />
@@ -48,7 +48,7 @@
 <ng-container *ngIf='source.format==="json"'>
   <div class='formish'>
     <label i18n>JSON Path:</label>
-    <input type='text'
+    <input type='text' class='force-ltr'
       [(ngModel)]='source.property'
       (change)='changed()'
     />
@@ -57,7 +57,7 @@
 <ng-container *ngIf='source.format==="html"'>
   <div class='formish'>
     <label i18n>CSS Selector:</label>
-    <input type='text'
+    <input type='text' class='force-ltr'
       [(ngModel)]='source.selector'
       (change)='changed()'
     />
