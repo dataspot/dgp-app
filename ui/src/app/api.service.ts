@@ -117,6 +117,7 @@ export class ApiService {
         if (configuration.siteTitle) {
           this.title.setTitle(configuration.siteTitle);
         }
+        configuration.features = configuration.features || {};
         this.configuration.next(configuration);
         this.currentConfig = configuration;
       });

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { first } from 'rxjs/operators';
 import { ApiService } from '../api.service';
 import { FIELD_CONSTANT, FIELD_UNPIVOT_TARGET, FIELD_UNPIVOT_COLUMN } from '../step-flipped-mapping/step-flipped-mapping.component';
 @Component({
@@ -17,12 +18,21 @@ export class StepFlippedMappingFieldComponent implements OnInit {
   @Output() update = new EventEmitter<any>();
 
   expanded = false;
+  titleVisible = false;
+  titleEditable = false;
 
   MT_FIELD_CONSTANT = FIELD_CONSTANT;
   MT_FIELD_UNPIVOT_TARGET = FIELD_UNPIVOT_TARGET;
   MT_FIELD_UNPIVOT_COLUMN = FIELD_UNPIVOT_COLUMN;
 
-  constructor(public api: ApiService) { }
+  constructor(public api: ApiService) {
+    api.configuration.pipe(
+      first(),
+    ).subscribe((configuration) => {
+      this.titleVisible = false; //configuration.features.titleVisible !== false;
+      this.titleEditable = configuration.features.titleEditable !== false;
+    });
+  }
 
   ngOnInit() {
     this.mapping = this.mapping || {};
@@ -30,6 +40,16 @@ export class StepFlippedMappingFieldComponent implements OnInit {
     this.mapping.title = this.mapping.title || this.ct.name;
     this.mapping.options = this.mapping.options || {};
     this.updateMappingOptions();
+  }
+
+  canExpand() {
+    return (
+      this.titleVisible ||
+      this.ct.dataType === 'date' ||
+      this.ct.dataType === 'boolean' ||
+      this.ct.dataType === 'number' ||
+      false
+    );
   }
 
   set _mappingType(mt: string) {

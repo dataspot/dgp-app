@@ -1,6 +1,7 @@
 <app-container>
   <h1 class='theme-primary-fg' i18n>Edit Task</h1>
   <label i18n>Task Name</label>
+  <div class='field-description' [innerHtml]='api.currentConfig.taskNameDescription' *ngIf='api.currentConfig && api.currentConfig.taskNameDescription'></div>
   <input type='text' [(ngModel)]='item.name'/>
   <label i18n>Description</label>
   <div class='field-description' [innerHtml]='api.currentConfig.taskDescription' *ngIf='api.currentConfig && api.currentConfig.taskDescription'></div>
@@ -24,11 +25,13 @@
           </ng-container>
         </select>
       </ng-container>
-      <label i18n>Visibility</label>
-      <select type='checkbox' [(ngModel)]='item.private'>
-        <option [value]='true' i18n>Only Visible to Me</option>
-        <option [value]='false' i18n>Publicly Visible</option>
-      </select>
+      <ng-container *ngIf='showVisiblity()'>
+        <label i18n>Visibility</label>
+        <select type='checkbox' [(ngModel)]='item.private'>
+          <option [value]='true' i18n>Only Visible to Me</option>
+          <option [value]='false' i18n>Publicly Visible</option>
+        </select>  
+      </ng-container>
       <div class='buttons'>
         <div class='dgp button' (click)='dgp()' *ngIf='roles._.workbench && api.currentConfig.kinds_map[item.kind].dgp' [class.disabled]='!valid()' i18n>
           <i class="fas fa-cogs" aria-hidden="true"></i>

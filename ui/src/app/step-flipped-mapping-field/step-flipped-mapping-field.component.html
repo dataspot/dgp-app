@@ -22,9 +22,9 @@
 <div *ngIf='expanded || (sample && sample.length)'>
   <div class='options'>
     <div>
-      <div class='formish'>
+      <div class='formish' *ngIf='titleVisible'>
         <label i18n>Title:</label>
-        <input [(ngModel)]='mapping.title' type='text' (change)='changed()'>
+        <input [(ngModel)]='mapping.title' type='text' (change)='changed()' [readonly]='!titleEditable'>
       </div>
       <ng-container *ngIf='ct.dataType === "date"'>
         <ng-container *ngIf='api.currentConfig.dateFormats && api.currentConfig.dateFormats.length > 0'>
@@ -78,7 +78,7 @@
     </div>
   </div>
 </div>
-<ng-container *ngIf='!sample || !sample.length'>
+<ng-container *ngIf='canExpand() && (!sample || !sample.length)'>
   <a class='expander' *ngIf='expanded' (click)='expanded=false' i18n>less settings...</a>
   <a class='expander' *ngIf='!expanded' (click)='expanded=true' i18n>more settings...</a>
 </ng-container>

@@ -18,6 +18,7 @@ export class EditPipelineComponent implements OnInit {
   item: any = {params: {}, schedule: ''};
   isNew = false;
   _valid = false;
+  _showVisibility = true;
   @ViewChild('fieldsEditor', {static: false}) fieldsEditor: DynamicFieldsEditorComponent;
 
   constructor(private route: ActivatedRoute, private router: Router, public api: ApiService,
@@ -29,8 +30,9 @@ export class EditPipelineComponent implements OnInit {
           this.isNew = true;
           return api.configuration.pipe(
             map((configuration) => {
+              const privateValue = this.processForcePrivate(configuration);
               return {
-                private: true,
+                private: privateValue,
                 kind: configuration.kinds[0].name,
                 schedule: 'manual'
               };
@@ -45,6 +47,24 @@ export class EditPipelineComponent implements OnInit {
       this.item.schedule = this.item.schedule || '';
       this.item.kind = this.item.kind || '';
     });
+  }
+
+  processForcePrivate(configuration) {
+    console.log('FP', configuration.features.forcePrivate);
+    if (configuration.features.forcePrivate === false) {
+      this._showVisibility = false;
+      return false;
+    } else if (configuration.features.forcePrivate === true) {
+      this._showVisibility = false;
+      return true;
+    } else {
+      this._showVisibility = true;
+      return true;
+    }
+  }
+
+  showVisiblity() {
+    return this._showVisibility || this.roles._.pipelinesEditAll;
   }
 
   ngOnInit() {

@@ -108,5 +108,12 @@
                 }
             ]
         }
-    ]
+    ],
+    "features": {
+        "forcePrivate": false,
+        "titleEditable": false,
+        "titleVisible": false
+    },
+    "taskNameDescription": "Please provide a name for the processing task",
+    "taskDescription": "Describe the main purpose for the collected data"
 }
