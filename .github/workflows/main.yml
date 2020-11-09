@@ -27,5 +27,5 @@ jobs:
         docker push "${DOCKER_IMAGE_NAME}:${GITHUB_SHA}" &&\
         if [ "${GITHUB_REF}" == "refs/heads/main" ]; then
           docker tag server "${DOCKER_IMAGE_NAME}:latest" &&\
-          docker push "${DOCKER_IMAGE_NAME}:latest" &&\
+          docker push "${DOCKER_IMAGE_NAME}:latest"
         fi
