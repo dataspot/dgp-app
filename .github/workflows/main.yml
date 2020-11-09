@@ -1,0 +1,31 @@
+name: CI
+on:
+  push:
+jobs:
+  build-server:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10'
+      run: |
+        (cd ui && npm install && npm run package)
+    - env:
+        DOCKER_IMAGE_NAME: "akariv/dgp-app"
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin &&\
+        if docker pull "${DOCKER_IMAGE_NAME}:latest"; then
+          CACHE_FROM_ARG="--cache-from ${DOCKER_IMAGE_NAME}:latest"
+        else
+          CACHE_FROM_ARG=""
+        fi &&\
+        docker build $CACHE_FROM_ARG -t server . &&\
+        docker tag server "${DOCKER_IMAGE_NAME}:${GITHUB_SHA}" &&\
+        docker push "${DOCKER_IMAGE_NAME}:${GITHUB_SHA}" &&\
+        if [ "${GITHUB_REF}" == "refs/heads/main" ]; then
+          docker tag server "${DOCKER_IMAGE_NAME}:latest" &&\
+          docker push "${DOCKER_IMAGE_NAME}:latest" &&\
+        fi
