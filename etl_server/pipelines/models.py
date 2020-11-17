@@ -37,7 +37,16 @@ class Models(ModelsBase):
         return self.query()['result']
 
     def all_pipelines(self):
-        return list(map(lambda p: p['value'], self._pipelines()))
+        return list(map(
+            lambda p: dict(
+                **p['value'],
+                __created_at=p['created_at'].isoformat() if p['created_at'] else None,
+                __updated_at=p['updated_at'].isoformat() if p['updated_at'] else None,
+                __owner=p['owner'],
+                __private=p['private']
+            ),
+            self._pipelines()
+        ))
 
     def delete(self, id, user):
         return super().delete(id, delete_allowed=lambda p: user is None or p['owner'] == user)

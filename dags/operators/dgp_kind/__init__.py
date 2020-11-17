@@ -32,10 +32,13 @@ def set_dots(o, k, v):
     o[k[0]] = v
 
 
-def operator(name, params):
+def operator(name, params, pipeline):
     with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8') as config_file:
         params['dgpConfig'].setdefault('publish', {})['allowed'] = True
-        params['dgpConfig'].setdefault('extra', {}).setdefault('metadata', {})['title'] = name
+        metadata = params['dgpConfig'].setdefault('extra', {}).setdefault('metadata', {})
+        metadata['title'] = name
+        metadata['updated_at'] = pipeline['__updated_at']
+        metadata['created_at'] = pipeline['__created_at']
         for k, v in params.items():
             if k.startswith('extra.'):
                 set_dots(params['dgpConfig'], k, v)

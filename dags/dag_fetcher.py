@@ -8,6 +8,8 @@ import datetime
 import logging
 import importlib
 
+from inspect import signature
+
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
@@ -19,11 +21,12 @@ from etl_server.pipelines.cache import Cache
 def wrapper(operator, id):
     _id = id
     _operator = operator
-    def func(name, params):
+    def func(*args):
         result = None
         try:
             print('CALLING OPERATOR')
-            result = _operator(name, params)
+            args = args[:len(list(signature(_operator).parameters))]
+            result = _operator(*args)
             print('OPERATOR DONE, RESULT={}'.format(result))
         finally:
             from etl_server.pipelines.models import Models
@@ -66,7 +69,9 @@ for pipeline in Cache.cached_pipelines():
 
         t1 = PythonOperator(task_id=dag_id,
                             python_callable=wrapper(operator, dag_id),
-                            op_args=[pipeline['name'], pipeline['params']],
+                            op_args=[
+                                pipeline['name'],pipeline['params'], pipeline
+                            ],
                             dag=dag)
         globals()[dag_id] = dag
     except Exception as e:
