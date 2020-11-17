@@ -8,4 +8,7 @@
     <ng-container *ngIf='roles._.datarecordRead' >
         <a class='menu theme-secondary-fg' *ngFor='let datarecord of datarecords' [class.theme-primary-dark-bg]='detected === "records" && datarecordName === datarecord.name' [routerLink]='"/datarecords/" + datarecord.name'>{{datarecord.display_plural}}</a>
     </ng-container>
+    <ng-container *ngFor='let link of extraLinks' >
+        <a class='menu theme-secondary-fg' [href]='link.url'>{{link.display}}</a>
+    </ng-container>
 </div>
