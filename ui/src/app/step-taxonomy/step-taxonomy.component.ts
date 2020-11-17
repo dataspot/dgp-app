@@ -18,9 +18,11 @@ export class StepTaxonomyComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    if (this.taxonomy && this.taxonomy.options && this.taxonomy.options.length === 1 && !this.taxonomy.id) {
-      this.taxonomy.id = this.taxonomy.options[0].id;
-      this.changed();
+    if (this.taxonomy && this.taxonomy.options && this.taxonomy.options.length === 1) {
+      if (!this.taxonomy.id) {
+        this.taxonomy.id = this.taxonomy.options[0].id;
+        this.changed();  
+      }
       setTimeout(() => {
         this.hidden = true;
       }, 0);
