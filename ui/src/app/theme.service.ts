@@ -91,6 +91,13 @@ export class ThemeService {
       style.type = 'text/css';
       style.innerHTML = css;
       document.getElementsByTagName('head')[0].appendChild(style);
+      const scripts = configuration.extraScripts || [];
+      for (const scriptContent of scripts) {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.innerHTML = scriptContent;
+        document.body.appendChild(script);
+      }
     });
   }
 }
