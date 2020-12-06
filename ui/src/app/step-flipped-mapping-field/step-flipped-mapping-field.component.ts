@@ -29,7 +29,7 @@ export class StepFlippedMappingFieldComponent implements OnInit {
     api.configuration.pipe(
       first(),
     ).subscribe((configuration) => {
-      this.titleVisible = false; //configuration.features.titleVisible !== false;
+      this.titleVisible = configuration.features.titleVisible !== false;
       this.titleEditable = configuration.features.titleEditable !== false;
     });
   }

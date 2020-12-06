@@ -16,8 +16,8 @@ export class ThemeService {
       const primary = theme.primary || '#059';
       const primary_dark = theme.primary_dark || '#003b6b';
       const secondary = theme.secondary || '#fff';
-      const right = locale === 'he' ? 'left' : 'right;'
-      const left = locale === 'he' ? 'right' : 'left;'
+      const right = locale === 'he' ? 'left' : 'right;';
+      const left = locale === 'he' ? 'right' : 'left;';
       const css = `
           body {
             direction: ${getLocaleDirection(locale)};
@@ -95,7 +95,12 @@ export class ThemeService {
       for (const scriptContent of scripts) {
         const script = document.createElement('script');
         script.type = 'text/javascript';
-        script.innerHTML = scriptContent;
+        if (scriptContent.indexOf('http') === 0) {
+          script.src = scriptContent;
+          script.async = true;
+        } else {
+          script.innerHTML = scriptContent;
+        }
         document.body.appendChild(script);
       }
     });

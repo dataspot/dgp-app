@@ -21,7 +21,7 @@ export class StepTaxonomyComponent implements OnInit, OnChanges {
     if (this.taxonomy && this.taxonomy.options && this.taxonomy.options.length === 1) {
       if (!this.taxonomy.id) {
         this.taxonomy.id = this.taxonomy.options[0].id;
-        this.changed();  
+        this.changed();
       }
       setTimeout(() => {
         this.hidden = true;
