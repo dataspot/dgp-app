@@ -31,6 +31,13 @@ class Controllers():
                 # Avoid race conditions
                 pass
 
+    @staticmethod
+    def ownerid(obj):
+        return obj.metadata.get('Ownerid') or obj.metadata.get('ownerid')
+
+    @staticmethod
+    def ownername(obj):
+        return obj.metadata.get('Ownername') or obj.metadata.get('ownername')
 
     def list_files(self, user=None):
         filenames = [
@@ -45,8 +52,8 @@ class Controllers():
                 o.key,
                 o.last_modified,
                 o.content_length,
-                o.metadata.get('Ownerid') or o.metadata.get('ownerid') ,
-                o.metadata.get('Ownername') or o.metadata.get('ownername'),
+                self.ownerid(o),
+                self.ownername(o),
             )
             for o in objects
         ]
@@ -78,7 +85,7 @@ class Controllers():
         o = self.bucket.Object(filename)
         allowed = False
         try:
-            if admin or o.metadata.get('Ownerid') == user:
+            if admin or self.ownerid(o) == user:
                 allowed = True
         except ClientError:
             allowed = True
@@ -110,7 +117,7 @@ class Controllers():
     def delete_file(self, filename, user, admin=False):
         o = self.bucket.Object(filename)
         try:
-            if admin or o.metadata.get('Ownerid') == user:
+            if admin or self.ownerid(o) == user:
                 o.delete()
                 return dict(
                     success=True,
