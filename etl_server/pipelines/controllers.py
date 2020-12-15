@@ -164,14 +164,16 @@ class Controllers():
     def configuration(self):
         return dict(result=self.config)
 
-    def start_pipeline(self, id):
+    @staticmethod
+    def start_pipeline(id):
         from airflow.api.common.experimental.trigger_dag import trigger_dag
         from airflow import models
         models.DagModel.get_dagmodel(id).set_is_paused(is_paused=False)
         run = trigger_dag(id)
         return dict(result=run.run_id if run else None) 
 
-    def trigger_event(self, event, pipeline):
+    @staticmethod
+    def trigger_event(event, pipeline):
         from airflow.api.common.experimental.trigger_dag import trigger_dag
         from airflow import models
         dag_id = f'event_handler_{event}_pipeline_dag'
