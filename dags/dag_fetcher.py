@@ -32,10 +32,9 @@ def wrapper(operator, id):
             from etl_server.pipelines.models import Models
             from etl_server.pipelines.controllers import Controllers
             models = Models(os.environ['ETLS_DATABASE_URL'])
-            pipeline = models.query_one(_id)['result']
-            if result and not pipeline['value'].get('result'):
-                Controllers.trigger_event('accepted', pipeline)
-            pipeline = pipeline['value']
+            pipeline = models.query_one(_id)['result']['value']
+            if result and not pipeline.get('result'):
+                Controllers.trigger_event('accepted', _id)
             pipeline['result'] = result
             models.create_or_edit(_id, pipeline, allowed_all=True)
             print('SAVED PIPELINE={}, RESULT={}'.format(_id, result))
