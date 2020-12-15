@@ -8,7 +8,7 @@ from sqlalchemy import (
     Column, String, DateTime, types,
     create_engine, inspect
 )
-from sqlalchemy.orm.session import sessionmaker
+from sqlalchemy.orm.session import sessionmaker, Session
 
 
 # ## Json as string Type
@@ -55,7 +55,7 @@ class ModelsBase():
         """Provide a transactional scope around a series of operations."""
         if self._sql_session is None:
             self._sql_session = sessionmaker(bind=self._sql_engine)
-        session = self._sql_session()
+        session: Session = self._sql_session()
         try:
             yield session
             session.commit()
