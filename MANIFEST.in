@@ -1,5 +1,3 @@
-global-include *.json
-global-include *.yml
 global-include *.txt
 global-include VERSION
 include LICENSE.md
@@ -8,4 +6,7 @@ include pylama.ini
 include pytest.ini
 include README.md
 include tox.ini
+exclude ui/**
+exclude minio-data/**
+exclude taxonomies/**
 include ui/dist/ui/*

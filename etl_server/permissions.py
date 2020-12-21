@@ -80,14 +80,19 @@ class Permissions():
         Admin: AdminRoles,
     }
 
-__verifyer = Verifyer(public_key=credentials.public_key)
+__verifyer = None
+def verifyer():
+    global __verifyer
+    if __verifyer is None:
+        __verifyer = Verifyer(public_key=credentials.public_key)
+    return __verifyer
 
 def check_permission(roles):
     def decorator(func):
         def wrapper(*args, **kw):
             global __verifyer
             token = request.values.get('jwt') or request.headers.get('X-Auth')
-            permissions = __verifyer.extract_permissions(token)
+            permissions = verifyer().extract_permissions(token)
             if not (permissions is False):
                 level = permissions.get('permissions', {}).get('level', 0)
                 user_roles = Permissions.Roles.get(level, [])
