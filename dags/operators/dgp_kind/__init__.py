@@ -13,7 +13,7 @@ from dgp.core import Config, Context
 from dgp.genera import SimpleDGP, LoaderDGP, PostLoaderDGP, TransformDGP, EnricherDGP, PublisherDGP
 from dgp.taxonomies import TaxonomyRegistry
 
-from .fileloader import FileLoaderDGP
+from etl_server.loaders.fileloader import FileLoaderDGP
 
 
 engine = None
