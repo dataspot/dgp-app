@@ -10,7 +10,7 @@ from dgp_server.log import logger
 from dgp.taxonomies.registry import TaxonomyRegistry, Taxonomy
 from dgp.config.log import logger as logger_dgp
 
-from dags.operators.dgp_kind.fileloader import FileLoaderDGP
+from etl_server.loaders.fileloader import FileLoaderDGP
 
 BASE_PATH = os.environ.get('BASE_PATH', '/var/dgp')
 DB_URL = os.environ.get('DATASETS_DATABASE_URL')
