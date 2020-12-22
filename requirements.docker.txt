@@ -1,0 +1,2 @@
+apache-airflow[postgres]<2
+dataflows[speedup]>=0.2.1
