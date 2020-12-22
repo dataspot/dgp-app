@@ -13,7 +13,7 @@ dgp-server>=0.0.88
 dgp>=0.0.88
 geocoder
 pyproj
-dataflows[speedup]>=0.2.1
+dataflows>=0.2.1
 tabulator[html]>=1.48
 tableschema>=1.18
 cattrs<1.1.0

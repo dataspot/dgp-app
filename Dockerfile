@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y gcc libc6-dev l
 
 WORKDIR /app
 ADD requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt && pip install "dataflows[speedup]>=0.2.1"
 
 # TODO: Remove VV
 RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client sudo
