@@ -7,7 +7,7 @@ flask-session
 PyYAML
 python-slugify
 psycopg2-binary
-apache-airflow[postgres]
+apache-airflow[postgres]<2
 requests
 dgp-server>=0.0.88
 dgp>=0.0.88
