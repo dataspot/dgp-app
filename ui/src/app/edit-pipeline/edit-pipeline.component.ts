@@ -76,7 +76,7 @@ export class EditPipelineComponent implements OnInit {
   }
 
   valid() {
-    return this._valid;
+    return this.fields.length == 0 || this._valid;
   }
 
   _save() {
@@ -119,6 +119,10 @@ export class EditPipelineComponent implements OnInit {
             console.log('Failed to DELETE!');
           }
         });
+  }
+
+  get fields() {
+    return (this.api.currentConfig.kinds_map[this.item.kind] || {fields:[]}).fields
   }
 
 }
