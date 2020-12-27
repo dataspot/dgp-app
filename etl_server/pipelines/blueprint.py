@@ -23,9 +23,9 @@ def make_blueprint(db_connection_string=None, configuration={}):  # noqa
         elif role == Permissions.pipelinesListPublic:
             return controllers.query_pipelines(public=True)
 
-    @check_permission([Permissions.login])
-    def configuration_():
-        return controllers.configuration()
+    @check_permission([Permissions.pseudoAdmin, Permissions.login])
+    def configuration_(role=None):
+        return controllers.configuration(admin=role==Permissions.pseudoAdmin)
 
     @check_permission([Permissions.pipelinesEditAll, Permissions.pipelinesEditOwn])
     def edit_pipeline_(role=None, user=None):

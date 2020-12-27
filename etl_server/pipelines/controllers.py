@@ -161,8 +161,16 @@ class Controllers():
         ret['result'] = value
         return ret
 
-    def configuration(self):
-        return dict(result=self.config)
+    def configuration(self, admin=False):
+        kinds = [
+            kind for kind in self.config['kinds']
+            if not kind.get('admin') or admin
+        ]
+        ret = dict(
+            (k, v) for k, v in self.config.items()
+        )
+        ret['kinds'] = kinds
+        return dict(result=ret)
 
     @staticmethod
     def start_pipeline(id):
