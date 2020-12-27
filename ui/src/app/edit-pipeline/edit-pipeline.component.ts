@@ -122,7 +122,7 @@ export class EditPipelineComponent implements OnInit {
   }
 
   get fields() {
-    return (this.api.currentConfig.kinds_map[this.item.kind] || {fields:[]}).fields
+    return ((this.api.currentConfig.kinds_map[this.item.kind] || {}).fields) || []
   }
 
 }
