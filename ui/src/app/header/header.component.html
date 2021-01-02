@@ -5,7 +5,7 @@
     <a class='menu theme-secondary-fg' *ngIf='roles._.pipelinesListPublic' [class.theme-primary-dark-bg]='detected === "pipelines"' routerLink='/pipelines' i18n>Processing Tasks</a>
     <a class='menu theme-secondary-fg' *ngIf='roles._.usersList' [class.theme-primary-dark-bg]='detected === "users"' routerLink='/users' i18n>User Management</a>
     <a class='menu theme-secondary-fg' *ngIf='roles._.taxonomyRead' [class.theme-primary-dark-bg]='detected === "taxonomies"' routerLink='/taxonomies' i18n>Taxonomies</a>
-    <ng-container *ngIf='roles._.datarecordRead' >
+    <ng-container *ngIf='roles._.datarecordReadAll || roles._.datarecordReadOwn || roles._.datarecordReadPublic'>
         <a class='menu theme-secondary-fg' *ngFor='let datarecord of datarecords' [class.theme-primary-dark-bg]='detected === "records" && datarecordName === datarecord.name' [routerLink]='"/datarecords/" + datarecord.name'>{{datarecord.display_plural}}</a>
     </ng-container>
     <ng-container *ngFor='let link of extraLinks' >
