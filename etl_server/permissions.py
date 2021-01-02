@@ -57,26 +57,38 @@ class Permissions():
     taxonomyEdit = 'taxonomyEdit'
     taxonomyDelete = 'taxonomyDelete'
 
-    datarecordRead = 'datarecordRead'
+    datarecordListPublic = 'datarecordListPublic'
+    datarecordListOwn = 'datarecordListOwn'
+    datarecordListAll = 'datarecordListAll'
+    datarecordReadPublic = 'datarecordReadPublic'
+    datarecordReadOwn = 'datarecordReadOwn'
+    datarecordReadAll = 'datarecordReadOwn'
     datarecordNew = 'datarecordNew'
-    datarecordEdit = 'datarecordEdit'
-    datarecordDelete = 'datarecordDelete'
+    datarecordEditOwn = 'datarecordEditOwn'
+    datarecordEditAll = 'datarecordEditAll'
+    datarecordDeleteOwn = 'datarecordDeleteOwn'
+    datarecordDeleteAll = 'datarecordDeleteAll'
     
+    pseudoViewer = 'pseudoViewer'
     pseudoMaintainer = 'pseudoMaintainer'
     pseudoAdmin = 'pseudoAdmin'
 
     # Level Roles
-    ViewerRoles = { login, pipelinesListPublic, pipelinesStatusPublic }
-    DataEditorRoles = { datarecordRead, datarecordEdit, datarecordNew }
+    DataViewerRoles = { datarecordListPublic, datarecordReadPublic }
+    ViewerRoles = DataViewerRoles | { login, pipelinesListPublic, pipelinesStatusPublic,
+                    pseudoViewer }
+    DataEditorRoles = { datarecordListOwn, datarecordReadOwn, datarecordEditOwn, datarecordNew, datarecordDeleteOwn }
     MaintainerRoles = ViewerRoles | DataEditorRoles | \
                         { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
                           filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, taxonomyRead,
                           pseudoMaintainer }
+    DataAdminRoles = { datarecordListAll, datarecordReadAll, datarecordEditAll, datarecordDeleteAll }
     SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn, filesListAll }
-    AdminRoles = SuperMaintainerRoles | { pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
-                                          usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll,
-                                          taxonomyNew, taxonomyEdit, taxonomyDelete, datarecordDelete,
-                                          pseudoAdmin }
+    AdminRoles = SuperMaintainerRoles | DataAdminRoles | { 
+                    pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
+                    usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll,
+                    taxonomyNew, taxonomyEdit, taxonomyDelete,
+                    pseudoAdmin }
 
     # Level Roles Mapping
     Roles = {

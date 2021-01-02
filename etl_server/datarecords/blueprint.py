@@ -15,23 +15,39 @@ def make_blueprint(db_connection_string=None):
     blueprint = Blueprint('datarecords', 'datarecords')
 
     # Controller Proxies
-    @check_permission([Permissions.datarecordRead])
-    def query_datarecords_(kind):
-        return controllers.query(kind)
+    @check_permission([Permissions.datarecordListAll, Permissions.datarecordListOwn, Permissions.datarecordListPublic])
+    def query_datarecords_(kind, role=None, user=None):
+        if role is Permissions.datarecordListAll:
+            return controllers.query(kind, admin=True)
+        if role is Permissions.datarecordListOwn: 
+            return controllers.query(kind, user=user)
+        else:
+            return controllers.query(kind)
 
-    @check_permission([Permissions.datarecordRead])
-    def query_datarecord_(kind, id):
-        return controllers.query_one(kind, id)
+    @check_permission([Permissions.datarecordReadAll, Permissions.datarecordReadOwn, Permissions.datarecordReadPublic])
+    def query_datarecord_(kind, id, role=None, user=None):
+        if role is Permissions.datarecordReadAll:
+            return controllers.query_one(kind, id, admin=True)
+        if role is Permissions.datarecordReadOwn: 
+            return controllers.query_one(kind, id, user=user)
+        else:
+            return controllers.query_one(kind, id)
 
-    @check_permission([Permissions.datarecordEdit, Permissions.datarecordNew])
+    @check_permission([Permissions.datarecordEditAll, Permissions.datarecordEditOwn])
     def edit_datarecord_(kind, role=None, user=None):
         body = request.json
         id = body['id']
-        return controllers.create_or_edit(kind, id, body, user)
+        if role is Permissions.datarecordEditAll:
+            return controllers.create_or_edit(kind, id, body, user, True)
+        else:
+            return controllers.create_or_edit(kind, id, body, user, False)
 
-    @check_permission([Permissions.datarecordDelete])
-    def delete_datarecord_(kind, id):
-        return controllers.delete(kind, id)
+    @check_permission([Permissions.datarecordDeleteAll, Permissions.datarecordDeleteOwn])
+    def delete_datarecord_(kind, id, role=None, user=None):
+        if role is Permissions.datarecordDeleteAll:
+            return controllers.delete(kind, id)
+        else:
+            return controllers.delete(kind, id)
 
     # Register routes
     blueprint.add_url_rule(
