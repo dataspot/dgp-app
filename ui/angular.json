@@ -18,7 +18,7 @@
           "code": "en"
         },
         "locales": {
-          "he": "src/locales/messages.he.xlf"
+          "he": ["src/locales/messages.he.xlf"]
         }
       },
       "architect": {
@@ -72,7 +72,8 @@
             },
             "he": {
               "localize": ["he"],
-              "aot": true
+              "aot": true,
+              "vendorChunk": false
             },
             "wpdx": {
               "fileReplacements": [
@@ -81,7 +82,8 @@
                   "with": "src/environments/environment.wpdx.ts"
                 }
               ],
-              "aot": true
+              "aot": true,
+              "vendorChunk": false
             },
             "datacity-importer": {
               "fileReplacements": [
@@ -104,7 +106,8 @@
                   "with": "src/environments/environment.datacity-ckan.ts"
                 }
               ],
-              "aot": true
+              "aot": true,
+              "vendorChunk": false
             }
           }
         },
@@ -195,6 +198,57 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "etl-server": {
+      "projectType": "library",
+      "root": "projects/etl-server",
+      "sourceRoot": "projects/etl-server/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/etl-server/tsconfig.lib.json",
+            "project": "projects/etl-server/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/etl-server/tsconfig.lib.prod.json"
+            },
+            "he": {
+              "localize": ["he"]
+            }
+          }
+        },
+        "i18n": {
+          "sourceLocale": {
+            "code": "en"
+          },
+          "locales": {
+            "he": "src/locales/messages.he.xlf"
+          }
+        },  
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/etl-server/src/test.ts",
+            "tsConfig": "projects/etl-server/tsconfig.spec.json",
+            "karmaConfig": "projects/etl-server/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/etl-server/tsconfig.lib.json",
+              "projects/etl-server/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

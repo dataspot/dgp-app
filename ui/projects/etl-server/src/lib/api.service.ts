@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Subject, BehaviorSubject, ReplaySubject, of } from 'rxjs';
 import { map, switchMap, last, catchError, filter } from 'rxjs/operators';
 import { AuthService } from 'dgp-oauth2-ng';
 import { Router } from '@angular/router';
 import { RolesService } from './roles.service';
-import { environment } from '../environments/environment';
 import { Title } from '@angular/platform-browser';
+import { ENVIRONMENT } from './config';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class ApiService {
   public currentConfig: any = null;
   private options: any = {};
 
-  API_ENDPOINT = environment.api_endpoint;
+  API_ENDPOINT = '';
 
   private token_ = new ReplaySubject<string>(1);
   private providers_: any = null;
@@ -33,9 +33,11 @@ export class ApiService {
   private currentUser_ = null;
 
   constructor(private http: HttpClient, private auth: AuthService, private router: Router,
-              private roles: RolesService, private title: Title) {
+              private roles: RolesService, private title: Title, 
+              @Inject(ENVIRONMENT) private environment) {
+      this.API_ENDPOINT = this.environment.api_endpoint;
       this.auth.configure({
-        authServerUrl: environment.auth_endpoint,
+        authServerUrl: this.environment.auth_endpoint,
         jwtLocalStorageKey: 'jwt',
         jwtQueryParam: 'jwt',
         profilePagePath: '/p/'

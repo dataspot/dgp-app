@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ComponentFactoryResolver, OnInit, Type, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ComponentFactoryResolver, Inject, OnInit, Type, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, ReplaySubject } from 'rxjs';
 import { first, switchMap } from 'rxjs/operators';
@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
 import { ConfirmerService } from '../confirmer.service';
 import { RolesService } from '../roles.service';
 
-import { extraMapping } from '../extras/extras';
+import { EXTRA_MAPPING } from '../config';
 import { DataRecordEditInnerComponent } from '../data-record-edit-inner/data-record-edit-inner.component';
 import { DataRecordEditAuxDirective } from '../data-record-edit-aux.directive';
 
@@ -26,7 +26,8 @@ export class DataRecordEditComponent implements OnInit {
 
   constructor(public api: ApiService, public roles: RolesService,
              private activatedRoute: ActivatedRoute, private router: Router, private confirmer: ConfirmerService,
-             private componentFactoryResolver: ComponentFactoryResolver) {
+             private componentFactoryResolver: ComponentFactoryResolver,
+             @Inject(EXTRA_MAPPING) private extraMapping) {
     let datarecords = null;
     this.api.configuration.pipe(
       switchMap((configuration) => {
@@ -51,7 +52,7 @@ export class DataRecordEditComponent implements OnInit {
     )
     .subscribe((datarecord) => {
       this.datarecord = datarecord.value;
-      this.editComponent.next(extraMapping[this.def.edit_component] || DataRecordEditInnerComponent);
+      this.editComponent.next(this.extraMapping[this.def.edit_component] || DataRecordEditInnerComponent);
     });
     console.log('constructed DataRecordEditComponent!');
   }

@@ -1,0 +1,44 @@
+{
+  "name": "etl-server",
+  "description": "Frontend App for the DGP ETL Server",
+  "version": "0.0.5",
+  "keywords": [
+    "etl",
+    "data",
+    "pipelines",
+    "angular"
+  ],
+  "maintainers": [
+    {
+      "name": "Adam Kariv",
+      "email": "adam.kariv@gmail.com",
+      "web": "https://github.com/akariv"
+    }
+  ],
+  "bugs": {
+    "web": "https://github.com/dataspot/dgp-app/issues"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/dataspot/dgp-app.git"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "MIT",
+      "url": "https://github.com/dataspot/dgp-app"
+    }
+  ],
+  "homepage": "https://github.com/dataspot/dgp-app",
+  "peerDependencies": {
+    "@angular/common": "^10.1.4",
+    "@angular/core": "^10.1.4",
+    "dgp-oauth2-ng": "^2.1.0",
+    "moment": "^2.29.0",
+    "ng-event-source": "^1.0.14"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

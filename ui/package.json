@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "dgp-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,16 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "i18n": "ng xi18n --ivy --output-path src/locales && tx push --source && tx pull --mode sourceastranslation -l he,en",
-    "package": "ng build --prod --localize"
+    "package": "ng build --prod --localize",
+    "build_lib": "ng build etl-server --prod",
+    "watch_lib": "ng build etl-server --watch",
+    "copy-license": "cp ./LICENSE ./dist/etl-server",
+    "copy-readme": "cp ./README.md ./dist/etl-server",
+    "copy-locales": "cp -r ./src/locales ./dist/etl-server",
+    "copy-files": "npm run copy-license && npm run copy-readme && npm run copy-locales",
+    "npm_pack": "cd dist/etl-server && npm pack",
+    "package_lib": "npm run build_lib && npm run copy-files",
+    "publish_lib": "npm run package_lib && cd dist/etl-server && npm publish"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +32,7 @@
     "@angular/router": "~10.1.4",
     "core-js": "^3.6.5",
     "dgp-oauth2-ng": "^2.1.0",
-    "moment": "^2.29.0",
+    "moment": "^2.29.1",
     "ng-event-source": "^1.0.14",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.1",
@@ -46,6 +55,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "^1.5.4",
+    "ng-packagr": "^10.1.0",
     "protractor": "~7.0.0",
     "ts-node": "~9.0.0",
     "tslint": "~6.1.3",
