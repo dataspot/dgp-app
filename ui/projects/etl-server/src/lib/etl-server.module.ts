@@ -49,6 +49,7 @@ import { TaxonomyItemComponent } from './taxonomies/taxonomy-item/taxonomy-item.
 import { UserListItemComponent } from './users/user-list-item/user-list-item.component';
 import { UsersComponent } from './users/users/users.component';
 import { ENVIRONMENT } from './config';
+import { DataRecordListInnerComponent } from './datarecords/data-record-list-inner/data-record-list-inner.component';
 
 
 @NgModule({
@@ -97,6 +98,7 @@ import { ENVIRONMENT } from './config';
     DataRecordEditAuxDirective,
     DgpWorkbenchButtonsComponent,
     PipelineListSectionComponent,
+    DataRecordListInnerComponent,
   ],
   entryComponents: [
     DataRecordEditInnerComponent

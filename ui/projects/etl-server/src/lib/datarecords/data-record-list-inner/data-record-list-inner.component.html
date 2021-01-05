@@ -1,0 +1,7 @@
+<div *ngIf='roles._.datarecordNew' class='add-new'><a [routerLink]='"/datarecords/" + def.name + "/new"' i18n>
+  <i class="fas fa-plus-circle" aria-hidden="true"></i>
+  New {{def.display}}
+</a></div>
+<ng-container *ngFor='let item of datarecords'>
+  <a class='item' [routerLink]='"/datarecords/" + def.name + "/" + item.value.id'>{{ item.value[def.snippet] }}</a>
+</ng-container>

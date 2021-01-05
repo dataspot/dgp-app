@@ -58,7 +58,6 @@ export class DataRecordEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.inner);
     this.editComponent.subscribe((editComponent) => {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(editComponent);
 
