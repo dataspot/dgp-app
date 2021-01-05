@@ -3,5 +3,7 @@
  */
 
 export * from './lib/config';
+export * from './lib/roles.service';
+export * from './lib/confirmer.service';
 export * from './lib/etl-server.component';
 export * from './lib/etl-server.module';

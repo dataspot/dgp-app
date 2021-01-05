@@ -1,7 +1,7 @@
 {
   "name": "etl-server",
   "description": "Frontend App for the DGP ETL Server",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "keywords": [
     "etl",
     "data",
