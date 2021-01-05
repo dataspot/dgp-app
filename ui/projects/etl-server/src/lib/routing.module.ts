@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PipelineStatusComponent } from './pipeline-status/pipeline-status.component';
-import { EditPipelineComponent } from './edit-pipeline/edit-pipeline.component';
-import { PipelineListComponent } from './pipeline-list/pipeline-list.component';
-import { DgpWorkbenchComponent } from './dgp-workbench/dgp-workbench.component';
-import { LoginComponent } from './login/login.component';
+import { PipelineStatusComponent } from './pipelines/pipeline-status/pipeline-status.component';
+import { EditPipelineComponent } from './pipelines/edit-pipeline/edit-pipeline.component';
+import { PipelineListComponent } from './pipelines/pipeline-list/pipeline-list.component';
+import { DgpWorkbenchComponent } from './workbench/dgp-workbench/dgp-workbench.component';
+import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LogoutComponent } from './logout/logout.component';
-import { UsersComponent } from './users/users.component';
-import { FilesComponent } from './files/files.component';
-import { TaxonomiesComponent } from './taxonomies/taxonomies.component';
-import { DataRecordListComponent } from './data-record-list/data-record-list.component';
-import { DataRecordEditComponent } from './data-record-edit/data-record-edit.component';
+import { LogoutComponent } from './auth/logout/logout.component';
+import { UsersComponent } from './users/users/users.component';
+import { FilesComponent } from './files/files/files.component';
+import { TaxonomiesComponent } from './taxonomies/taxonomies/taxonomies.component';
+import { DataRecordListComponent } from './datarecords/data-record-list/data-record-list.component';
+import { DataRecordEditComponent } from './datarecords/data-record-edit/data-record-edit.component';
 
 const routes: Routes = [
   { path: 'edit/:id', component: EditPipelineComponent,  data: {name: 'pipeline-edit'} },
