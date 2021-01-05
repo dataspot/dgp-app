@@ -17,7 +17,7 @@ export class RolesService {
   }
 
   showPipelines(configuration) {
-    const hasPipelines = configuration.kinds && configuration.kinds.filter(
+    const hasPipelines = configuration && configuration.kinds && configuration.kinds.filter(
       k => !k.admin || this._.pseudoAdmin
     ).length;
     return this._.pipelinesListPublic && hasPipelines;
@@ -28,7 +28,7 @@ export class RolesService {
   }
 
   showTaxonomies(configuration) {
-    const hasTaxonomies = configuration.kinds && configuration.kinds.filter(
+    const hasTaxonomies = configuration && configuration.kinds && configuration.kinds.filter(
       k => k.dgp && (!k.admin || this._.pseudoAdmin)
     ).length;
     return this._.taxonomyRead && hasTaxonomies;
