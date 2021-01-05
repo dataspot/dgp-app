@@ -23,6 +23,10 @@ export class RolesService {
     return this._.pipelinesListPublic && hasPipelines;
   }
 
+  showFiles(configuration) {
+    return this._.filesListOwn && this.showPipelines(configuration);
+  }
+
   showUsers(configuration) {
     return this._.usersList;
   }
