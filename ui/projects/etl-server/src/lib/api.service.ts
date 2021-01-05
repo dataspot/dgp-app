@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
-import { Subject, BehaviorSubject, ReplaySubject, of } from 'rxjs';
-import { map, switchMap, last, catchError, filter } from 'rxjs/operators';
+import { HttpClient, HttpEventType } from '@angular/common/http';
+import { BehaviorSubject, ReplaySubject, of } from 'rxjs';
+import { map, switchMap, catchError, filter } from 'rxjs/operators';
 import { AuthService } from 'dgp-oauth2-ng';
 import { Router } from '@angular/router';
 import { RolesService } from './roles.service';
@@ -349,6 +349,15 @@ export class ApiService {
             return result['result'];
           }
           return {};
+        })
+      );
+  }
+
+  deleteDatarecord(kind, id: any) {
+    return this.http.delete(`${this.API_ENDPOINT}/datarecord/${kind}/${id}`, this.options)
+      .pipe(
+        switchMap(() => {
+          return this.queryDatarecords(kind);
         })
       );
   }

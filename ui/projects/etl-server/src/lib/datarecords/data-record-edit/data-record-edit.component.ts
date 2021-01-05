@@ -85,4 +85,10 @@ export class DataRecordEditComponent implements OnInit {
           }
         });
   }
+
+  delete() {
+    this.api.deleteDatarecord(this.kind, this.datarecord.id).subscribe(() => {
+      this.router.navigate(['/datarecords/', this.kind]);
+    })
+  }
 }
