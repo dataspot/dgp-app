@@ -6,7 +6,7 @@ import { DgpOauth2Module } from 'dgp-oauth2-ng';
 import { EtlServerRoutingModule } from './routing.module';
 import { ConfirmerComponent } from './components/confirmer/confirmer.component';
 import { ContainerComponent } from './layout/container/container.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { DataRecordEditAuxDirective } from './data-record-edit-aux.directive';
 import { DataRecordEditInnerComponent } from './datarecords/data-record-edit-inner/data-record-edit-inner.component';
 import { DataRecordEditComponent } from './datarecords/data-record-edit/data-record-edit.component';
@@ -30,7 +30,7 @@ import { PipelineListHeadersComponent } from './pipelines/pipeline-list-headers/
 import { PipelineListItemComponent } from './pipelines/pipeline-list-item/pipeline-list-item.component';
 import { PipelineListSectionComponent } from './pipelines/pipeline-list-section/pipeline-list-section.component';
 import { PipelineListComponent } from './pipelines/pipeline-list/pipeline-list.component';
-import { PipelineStatusDashboardComponent } from './pipelines/pipeline-status-dashboard/pipeline-status-dashboard.component';
+import { PipelineStatusDashboardComponent } from './dashboard/pipeline-status-dashboard/pipeline-status-dashboard.component';
 import { PipelineStatusComponent } from './pipelines/pipeline-status/pipeline-status.component';
 import { ResultTableComponent } from './workbench/result-table/result-table.component';
 import { ResultTabsComponent } from './workbench/result-tabs/result-tabs.component';
@@ -50,6 +50,8 @@ import { UserListItemComponent } from './users/user-list-item/user-list-item.com
 import { UsersComponent } from './users/users/users.component';
 import { ENVIRONMENT } from './config';
 import { DataRecordListInnerComponent } from './datarecords/data-record-list-inner/data-record-list-inner.component';
+import { DataRecordDashboardComponent } from './datarecords/data-record-dashboard/data-record-dashboard.component';
+import { DataRecordDashboardInnerComponent } from './datarecords/data-record-dashboard-inner/data-record-dashboard-inner.component';
 
 
 @NgModule({
@@ -99,6 +101,8 @@ import { DataRecordListInnerComponent } from './datarecords/data-record-list-inn
     DgpWorkbenchButtonsComponent,
     PipelineListSectionComponent,
     DataRecordListInnerComponent,
+    DataRecordDashboardComponent,
+    DataRecordDashboardInnerComponent,
   ],
   entryComponents: [
     DataRecordEditInnerComponent

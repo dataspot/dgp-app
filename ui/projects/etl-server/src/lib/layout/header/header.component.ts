@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   homepage: string;
   datarecords = [];
   extraLinks = [];
+  configuration: any = {};
 
   constructor(private activatedRoute: ActivatedRoute, public roles: RolesService, private api: ApiService) {
     this.activatedRoute.data.subscribe((data) => {
@@ -29,6 +30,7 @@ export class HeaderComponent implements OnInit {
       this.homepage = configuration.homepage || '/dashboard';
       this.datarecords = configuration.dataRecords || [];
       this.extraLinks = configuration.headerLinks || [];
+      this.configuration = configuration;
     });
   }
 

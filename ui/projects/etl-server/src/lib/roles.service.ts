@@ -15,4 +15,27 @@ export class RolesService {
       this._[role] = true;
     }
   }
+
+  showPipelines(configuration) {
+    const hasPipelines = configuration.kinds && configuration.kinds.filter(
+      k => !k.admin || this._.pseudoAdmin
+    ).length;
+    return this._.pipelinesListPublic && hasPipelines;
+  }
+
+  showUsers(configuration) {
+    return this._.usersList;
+  }
+
+  showTaxonomies(configuration) {
+    const hasTaxonomies = configuration.kinds && configuration.kinds.filter(
+      k => k.dgp && (!k.admin || this._.pseudoAdmin)
+    ).length;
+    return this._.taxonomyRead && hasTaxonomies;
+  }
+
+  showDatarecords(configuration) {
+    return this._.datarecordReadAll || this._.datarecordReadOwn || this._.datarecordReadPublic
+  }
+
 }

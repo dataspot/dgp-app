@@ -5,7 +5,7 @@ import { EditPipelineComponent } from './pipelines/edit-pipeline/edit-pipeline.c
 import { PipelineListComponent } from './pipelines/pipeline-list/pipeline-list.component';
 import { DgpWorkbenchComponent } from './workbench/dgp-workbench/dgp-workbench.component';
 import { LoginComponent } from './auth/login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { UsersComponent } from './users/users/users.component';
 import { FilesComponent } from './files/files/files.component';
