@@ -45,9 +45,9 @@ def make_blueprint(db_connection_string=None):
     @check_permission([Permissions.datarecordDeleteAll, Permissions.datarecordDeleteOwn])
     def delete_datarecord_(kind, id, role=None, user=None):
         if role is Permissions.datarecordDeleteAll:
-            return controllers.delete(kind, id)
+            return controllers.delete(kind, id, admin=True)
         else:
-            return controllers.delete(kind, id)
+            return controllers.delete(kind, id, user=user)
 
     # Register routes
     blueprint.add_url_rule(
