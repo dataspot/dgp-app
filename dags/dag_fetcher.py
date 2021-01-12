@@ -49,9 +49,9 @@ default_args = {
     'is_paused_upon_creation': False
 }
 
+logging.info('Initializing DAGS')
 for pipeline in Cache.cached_pipelines():
     dag_id = pipeline['id']
-    logging.info('Initializing DAG %s', dag_id)
 
     schedule = pipeline['schedule']
     if isinstance(schedule, str):
