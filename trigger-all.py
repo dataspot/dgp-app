@@ -24,4 +24,4 @@ if __name__ == '__main__':
         if kind is None or pipeline_kind == kind:
             ret = etl_pipelines.start_pipeline(pipeline_id)
             print(pipeline_id, ret)
-            time.sleep(10)
+            time.sleep(3)
