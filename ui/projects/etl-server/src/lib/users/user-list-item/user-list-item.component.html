@@ -12,5 +12,5 @@
   </ng-container>
 </div>
 <ng-container>
-  <app-datarecord-dashboard *ngFor='let def of datarecords' [def]='def' [record]='item.datarecords[def.name]' (update)='update()'></app-datarecord-dashboard>
+  <app-datarecord-user *ngFor='let def of datarecords' [def]='def' [record]='item.datarecords[def.name]' (update)='update()'></app-datarecord-user>
 </ng-container>
