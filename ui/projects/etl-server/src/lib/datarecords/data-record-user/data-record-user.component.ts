@@ -43,6 +43,7 @@ export class DataRecordUserComponent implements OnInit, OnDestroy, AfterViewInit
       componentRef.instance.datarecord = this.record;
       componentRef.instance.def = this.def;
       this.sub = componentRef.instance.updated.subscribe(() => {
+        console.log('data-record-user updated');
         this.updated.next();
       });
     });
