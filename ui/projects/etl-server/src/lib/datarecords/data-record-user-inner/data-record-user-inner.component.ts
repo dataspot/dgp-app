@@ -7,7 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class DataRecordUserInnerComponent implements OnInit {
 
-  @Output() update = new EventEmitter<void>();
+  @Output() updated = new EventEmitter<void>();
 
   constructor() { }
 
