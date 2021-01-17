@@ -5,7 +5,7 @@ import { RolesService } from '../../roles.service';
 import { EXTRA_MAPPING } from '../../config';
 import { ReplaySubject, Subscription } from 'rxjs';
 import { DataRecordUserInnerComponent } from '../data-record-user-inner/data-record-user-inner.component';
-import { first } from 'rxjs/operators';
+import { delay, first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-data-record-user',
@@ -33,7 +33,7 @@ export class DataRecordUserComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   ngAfterViewInit() {
-    this.editComponent.pipe(first()).subscribe((editComponent) => {
+    this.editComponent.pipe(first(),delay(0)).subscribe((editComponent) => {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(editComponent);
 
       const viewContainerRef = this.inner.viewContainerRef;
