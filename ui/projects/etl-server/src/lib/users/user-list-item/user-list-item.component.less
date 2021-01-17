@@ -1,32 +1,46 @@
 :host {
     width: 100%;
     display: flex;
-    flex-flow: row;
-    align-items: center;
+    flex-flow: column;
+    align-items: stretch;
     border: 0.5px solid #888;
     margin: 0;
     padding: 1rem;
     margin-top: 20px;
     border-radius: 8px;
+
+    & > * {
+        margin-bottom: 8px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .line {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        
+        .avatar {
+            display: block;
+            height: 3rem;
+            margin: 0 1rem;
+            border-radius: 1.5rem;
+        }
     
-    .avatar {
-        display: block;
-        height: 3rem;
-        margin: 0 1rem;
-        border-radius: 1.5rem;
-    }
-
-    .name, .email {
-        flex: 0 0 30%;
-        font-weight: bold;
-    }
-
-    .role {
-        margin-inline-start: auto;
-        flex: 0 0 auto;
-    }
-
-    .delete {
-        margin-inline-start: 10px;
+        .name, .email {
+            flex: 0 0 30%;
+            font-weight: bold;
+        }
+    
+        .role {
+            margin-inline-start: auto;
+            flex: 0 0 auto;
+        }
+    
+        .delete {
+            margin-inline-start: 10px;
+        }
     }
 }

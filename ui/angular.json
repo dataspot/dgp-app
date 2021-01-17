@@ -85,6 +85,16 @@
               "aot": true,
               "vendorChunk": false
             },
+            "budgetkey-data-input": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.budgetkey-data-input.ts"
+                }
+              ],
+              "aot": true,
+              "vendorChunk": false
+            },
             "datacity-importer": {
               "fileReplacements": [
                 {
@@ -125,6 +135,9 @@
             },
             "wpdx": {
               "browserTarget": "ui:build:wpdx"
+            },
+            "budgetkey-data-input": {
+              "browserTarget": "ui:build:budgetkey-data-input"
             },
             "datacity-importer": {
               "browserTarget": "ui:build:datacity-importer"

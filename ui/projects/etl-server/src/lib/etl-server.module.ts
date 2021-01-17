@@ -52,6 +52,8 @@ import { ENVIRONMENT } from './config';
 import { DataRecordListInnerComponent } from './datarecords/data-record-list-inner/data-record-list-inner.component';
 import { DataRecordDashboardComponent } from './datarecords/data-record-dashboard/data-record-dashboard.component';
 import { DataRecordDashboardInnerComponent } from './datarecords/data-record-dashboard-inner/data-record-dashboard-inner.component';
+import { DataRecordUserComponent } from './datarecords/data-record-user/data-record-user.component';
+import { DataRecordUserInnerComponent } from './datarecords/data-record-user-inner/data-record-user-inner.component';
 
 
 @NgModule({
@@ -103,6 +105,8 @@ import { DataRecordDashboardInnerComponent } from './datarecords/data-record-das
     DataRecordListInnerComponent,
     DataRecordDashboardComponent,
     DataRecordDashboardInnerComponent,
+    DataRecordUserComponent,
+    DataRecordUserInnerComponent,
   ],
   entryComponents: [
     DataRecordEditInnerComponent
