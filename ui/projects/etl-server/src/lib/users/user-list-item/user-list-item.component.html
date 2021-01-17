@@ -11,6 +11,4 @@
     <a class='delete' (click)='delete($event)' i18n>Delete</a>
   </ng-container>
 </div>
-<ng-container>
-  <app-datarecord-user *ngFor='let def of datarecords' [def]='def' [record]='item.datarecords[def.name]' (update)='update()'></app-datarecord-user>
-</ng-container>
+<app-datarecord-user *ngFor='let def of datarecords' [def]='def' [record]='item.datarecords[def.name]' (update)='update()'></app-datarecord-user>

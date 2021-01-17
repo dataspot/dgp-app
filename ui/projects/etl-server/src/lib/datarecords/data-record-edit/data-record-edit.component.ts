@@ -20,7 +20,7 @@ export class DataRecordEditComponent implements OnInit {
   def: any = {};
   datarecord: any = {};
   kind = '';
-  editComponent =  new ReplaySubject<Type<any>>(1);
+  editComponent = new ReplaySubject<Type<any>>(1);
   @ViewChild(DataRecordEditAuxDirective, { static: true }) inner: DataRecordEditAuxDirective;
 
 

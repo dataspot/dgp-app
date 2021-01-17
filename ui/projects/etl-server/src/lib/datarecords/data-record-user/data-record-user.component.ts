@@ -1,22 +1,24 @@
-import { Component, ComponentFactoryResolver, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, Type, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, Type, ViewChild } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { DataRecordEditAuxDirective } from '../../data-record-edit-aux.directive';
 import { RolesService } from '../../roles.service';
 import { EXTRA_MAPPING } from '../../config';
 import { ReplaySubject, Subscription } from 'rxjs';
 import { DataRecordUserInnerComponent } from '../data-record-user-inner/data-record-user-inner.component';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'lib-data-record-user',
   templateUrl: './data-record-user.component.html',
   styleUrls: ['./data-record-user.component.less']
 })
-export class DataRecordUserComponent implements OnInit, OnDestroy{
+export class DataRecordUserComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Input() def: any = {};
   @Input() record: any = {};
   @Output() updated = new EventEmitter<void>();
 
+  editComponent = new ReplaySubject<Type<any>>(1);
   @ViewChild(DataRecordEditAuxDirective, { static: true }) inner: DataRecordEditAuxDirective;
   sub: Subscription = null;
 
@@ -25,17 +27,23 @@ export class DataRecordUserComponent implements OnInit, OnDestroy{
               @Inject(EXTRA_MAPPING) private extraMapping) {}
 
   ngOnInit(): void {
-    const editComponent = this.extraMapping[this.def.edit_component].user || DataRecordUserInnerComponent;
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(editComponent);
+    const component = this.extraMapping[this.def.edit_component].user || DataRecordUserInnerComponent;
+    this.editComponent.next(component);
+  }
 
-    const viewContainerRef = this.inner.viewContainerRef;
-    viewContainerRef.clear();
+  ngAfterViewInit() {
+    this.editComponent.pipe(first()).subscribe((editComponent) => {
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(editComponent);
 
-    const componentRef = viewContainerRef.createComponent<any>(componentFactory);
-    componentRef.instance.datarecord = this.record;
-    componentRef.instance.def = this.def;
-    this.sub = componentRef.instance.updated.subscribe(() => {
-      this.updated.next();
+      const viewContainerRef = this.inner.viewContainerRef;
+      viewContainerRef.clear();
+  
+      const componentRef = viewContainerRef.createComponent<any>(componentFactory);
+      componentRef.instance.datarecord = this.record;
+      componentRef.instance.def = this.def;
+      this.sub = componentRef.instance.updated.subscribe(() => {
+        this.updated.next();
+      });
     });
   }
 
