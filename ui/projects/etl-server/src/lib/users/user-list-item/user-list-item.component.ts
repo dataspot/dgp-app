@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { ConfirmerService } from '../../confirmer.service';
-import { filter, switchMap } from 'rxjs/operators';
+import { filter, first, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-list-item',
@@ -11,13 +11,21 @@ import { filter, switchMap } from 'rxjs/operators';
 export class UserListItemComponent implements OnInit {
 
   @Input() item: any;
+  datarecords = [];
 
   _level = '';
 
-  constructor(private api: ApiService, private confirmer: ConfirmerService) { }
+  constructor(private api: ApiService, private confirmer: ConfirmerService) {
+  }
 
   ngOnInit() {
     this._level = this.item.level + '';
+    this.api.configuration.pipe(first()).subscribe((config) => {
+      this.datarecords = config.dataRecords || [];
+      for (const def of this.datarecords) {
+        this.item.datarecords[def.name] = this.item.datarecords[def.name] || {}; 
+      }
+    });
   }
 
   get level() {
@@ -27,6 +35,10 @@ export class UserListItemComponent implements OnInit {
   set level(value) {
     this._level = value;
     this.item.level = parseInt(value, 10);
+    this.update();
+  }
+
+  update() {
     this.api.updateUser(this.item)
       .subscribe((result) => {
         console.log('UPDATED', result);
