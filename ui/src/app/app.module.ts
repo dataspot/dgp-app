@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 import { EtlServerModule } from 'projects/etl-server/src/public-api';
 import { environment } from 'src/environments/environment';
+import { EXTRA_MAPPING } from 'etl-server';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,10 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     EtlServerModule.forRoot(environment),
   ],
-  providers: [],
+  providers: [{
+    provide: EXTRA_MAPPING,
+    useValue: {}
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

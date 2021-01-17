@@ -8,7 +8,7 @@ import { DataRecordUserInnerComponent } from '../data-record-user-inner/data-rec
 import { first } from 'rxjs/operators';
 
 @Component({
-  selector: 'lib-data-record-user',
+  selector: 'app-data-record-user',
   templateUrl: './data-record-user.component.html',
   styleUrls: ['./data-record-user.component.less']
 })
