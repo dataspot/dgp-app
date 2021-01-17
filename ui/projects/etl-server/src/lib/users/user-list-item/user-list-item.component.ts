@@ -22,6 +22,7 @@ export class UserListItemComponent implements OnInit {
     this._level = this.item.level + '';
     this.api.configuration.pipe(first()).subscribe((config) => {
       this.datarecords = config.dataRecords || [];
+      this.item.datarecords = this.item.datarecords || {};
       for (const def of this.datarecords) {
         this.item.datarecords[def.name] = this.item.datarecords[def.name] || {}; 
       }
