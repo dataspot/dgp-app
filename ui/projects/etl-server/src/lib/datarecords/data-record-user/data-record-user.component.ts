@@ -1,9 +1,9 @@
 import { Component, ComponentFactoryResolver, Inject, OnInit, Type, ViewChild } from '@angular/core';
-import { ApiService } from 'dist/etl-server/lib/api.service';
-import { DataRecordEditAuxDirective } from 'dist/etl-server/lib/data-record-edit-aux.directive';
-import { EXTRA_MAPPING, RolesService } from 'etl-server';
+import { ApiService } from '../../api.service';
+import { DataRecordEditAuxDirective } from '../../data-record-edit-aux.directive';
+import { RolesService } from '../../roles.service';
+import { EXTRA_MAPPING } from '../../config';
 import { ReplaySubject } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { DataRecordUserInnerComponent } from '../data-record-user-inner/data-record-user-inner.component';
 
 @Component({
