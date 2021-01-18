@@ -10,7 +10,7 @@ jobs:
       with:
         node-version: '10'
     - run: |
-        (cd ui && npm install && npm run package)
+        (cd ui && npm install && npm run build_lib && npm run package)
     - env:
         DOCKER_IMAGE_NAME: "akariv/dgp-app"
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
