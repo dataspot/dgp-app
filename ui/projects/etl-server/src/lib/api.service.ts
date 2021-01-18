@@ -20,6 +20,7 @@ export class ApiService {
   public otherFiles = new ReplaySubject<any[]>(1);
   public configuration = new ReplaySubject<any>(1);
   public taxonomies = new ReplaySubject<any>(1);
+  public currentUserProfile = new ReplaySubject<any>(1);
 
   public currentConfig: any = null;
   private options: any = {};
@@ -60,6 +61,7 @@ export class ApiService {
               this.auth.permission('etl-server')
                 .subscribe((permission: any) => {
                   this.authorized_ = permission.permissions && permission.permissions.level;
+                  this.currentUserProfile.next({profile: this.currentUser_, permissions: permission.permissions});
                   if (this.authorized_) {
                     this.token_.next(permission.token);
                     this.roles.setRoles(permission.permissions.roles || []);
