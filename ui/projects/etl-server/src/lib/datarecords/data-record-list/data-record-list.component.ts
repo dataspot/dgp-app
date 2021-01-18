@@ -41,7 +41,8 @@ export class DataRecordListComponent implements OnInit {
     )
     .subscribe((datarecords) => {
       this.datarecords = datarecords;
-      this.listComponent.next(this.extraMapping[this.def.edit_component].list || DataRecordListInnerComponent);
+      const mapping = this.extraMapping[this.def.edit_component] || {};
+      this.listComponent.next(mapping.list || DataRecordListInnerComponent);
     });
   }
 

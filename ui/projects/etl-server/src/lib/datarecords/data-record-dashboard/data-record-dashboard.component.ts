@@ -26,7 +26,8 @@ export class DataRecordDashboardComponent implements OnInit {
     this.api.queryDatarecords(this.def.name)
         .subscribe((datarecords) => {
           this.datarecords = datarecords;
-          this.dashComponent.next(this.extraMapping[this.def.edit_component].dashboard || DataRecordDashboardInnerComponent);
+          const mapping = this.extraMapping[this.def.edit_component] || {}
+          this.dashComponent.next(mapping.dashboard || DataRecordDashboardInnerComponent);
         });
 
     this.dashComponent.subscribe((listComponent) => {

@@ -50,7 +50,8 @@ export class DataRecordEditComponent implements OnInit {
     )
     .subscribe((datarecord) => {
       this.datarecord = datarecord.value;
-      this.editComponent.next(this.extraMapping[this.def.edit_component].detail || DataRecordEditInnerComponent);
+      const mapping = this.extraMapping[this.def.edit_component] || {};
+      this.editComponent.next(mapping.detail || DataRecordEditInnerComponent);
     });
     console.log('constructed DataRecordEditComponent!');
   }

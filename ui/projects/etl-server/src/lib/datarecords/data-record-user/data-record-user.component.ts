@@ -27,8 +27,8 @@ export class DataRecordUserComponent implements OnInit, OnDestroy, AfterViewInit
               @Inject(EXTRA_MAPPING) private extraMapping) {}
 
   ngOnInit(): void {
-    const mapping = this.extraMapping[this.def.edit_component]
-    const component = (mapping && mapping.user) || DataRecordUserInnerComponent;
+    const mapping = this.extraMapping[this.def.edit_component] || {};
+    const component = mapping.user || DataRecordUserInnerComponent;
     this.editComponent.next(component);
   }
 
