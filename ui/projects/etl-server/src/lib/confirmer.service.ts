@@ -10,6 +10,7 @@ export class ConfirmerService {
   public ACTION_DELETE_USER = 0;
   public ACTION_DELETE_TASK = 1;
   public ACTION_DELETE_FILE = 2;
+  public ACTION_DELETE_DATARECORD = 3;
 
   action: number = null;
   what: string = null;

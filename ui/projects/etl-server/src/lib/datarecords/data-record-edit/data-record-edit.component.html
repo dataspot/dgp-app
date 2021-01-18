@@ -1,14 +1,4 @@
 <app-container>
   <h1 class='theme-primary-fg' i18n>Edit {{def.display}}</h1>
   <ng-template appDataRecordEditAux></ng-template>
-  <div class='buttons'>
-    <div *ngIf='roles._.datarecordEditOwn || roles._.datarecordEditAll'  class='save button' (click)='save()' i18n>
-      <i class="fas fa-save" aria-hidden="true"></i>
-      Save {{def.display}}
-    </div>
-    <div *ngIf='(roles._.datarecordDeleteOwn ||  roles._.datarecordDeleteAll) && datarecord.id' class='delete button' (click)='delete()' i18n>
-      <i class="fas fa-trash" aria-hidden="true"></i>
-      Delete {{def.display}}
-    </div>
-  </div>
 </app-container>

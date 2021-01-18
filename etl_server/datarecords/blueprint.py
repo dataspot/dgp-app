@@ -1,4 +1,4 @@
-from flask import Blueprint, request, g
+from flask import Blueprint, request, g, abort
 
 from .controllers import Controllers
 
@@ -36,6 +36,8 @@ def make_blueprint(db_connection_string=None):
     @check_permission([Permissions.datarecordEditAll, Permissions.datarecordEditOwn])
     def edit_datarecord_(kind, role=None, user=None):
         body = request.json
+        if 'id' not in body:
+            abort(400)
         id = body['id']
         if role is Permissions.datarecordEditAll:
             return controllers.create_or_edit(kind, id, body, user, True)

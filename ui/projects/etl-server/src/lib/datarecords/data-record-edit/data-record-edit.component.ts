@@ -1,9 +1,8 @@
 import { Component, ComponentFactoryResolver, Inject, OnInit, Type, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { of, ReplaySubject } from 'rxjs';
 import { first, switchMap } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
-import { ConfirmerService } from '../../confirmer.service';
 import { RolesService } from '../../roles.service';
 
 import { EXTRA_MAPPING } from '../../config';
@@ -19,13 +18,12 @@ export class DataRecordEditComponent implements OnInit {
 
   def: any = {};
   datarecord: any = {};
-  kind = '';
   editComponent = new ReplaySubject<Type<any>>(1);
   @ViewChild(DataRecordEditAuxDirective, { static: true }) inner: DataRecordEditAuxDirective;
 
 
   constructor(public api: ApiService, public roles: RolesService,
-             private activatedRoute: ActivatedRoute, private router: Router,
+             private activatedRoute: ActivatedRoute,
              private componentFactoryResolver: ComponentFactoryResolver,
              @Inject(EXTRA_MAPPING) private extraMapping) {
     let datarecords = null;
@@ -35,15 +33,15 @@ export class DataRecordEditComponent implements OnInit {
         return this.activatedRoute.params;
       }),
       switchMap((params) => {
-        this.kind = params.name;
+        const kind = params.name;
         const id = params.id;
         for (const def of datarecords) {
-          if (def.name === this.kind) {
+          if (def.name === kind) {
             this.def = def;
             if (id === 'new') {
               return of({value: {}});
             } else {
-              return this.api.queryDatarecord(this.kind, id);
+              return this.api.queryDatarecord(kind, id);
             }
           }
         }
@@ -70,25 +68,4 @@ export class DataRecordEditComponent implements OnInit {
     });
   }
 
-  _save() {
-    this.datarecord.id = this.datarecord.id || this.datarecord[this.def.id];
-    return this.api.saveDatarecord(this.kind, this.datarecord);
-  }
-
-  save() {
-    this._save()
-        .subscribe((result) => {
-          if (result.id) {
-            this.router.navigate(['/datarecords/', this.kind]);
-          } else {
-            console.log('Failed to SAVE Datarecord!', this.kind);
-          }
-        });
-  }
-
-  delete() {
-    this.api.deleteDatarecord(this.kind, this.datarecord.id).subscribe(() => {
-      this.router.navigate(['/datarecords/', this.kind]);
-    })
-  }
 }
