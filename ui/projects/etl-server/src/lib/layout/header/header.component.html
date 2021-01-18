@@ -6,7 +6,11 @@
     <a class='menu theme-secondary-fg' *ngIf='roles.showUsers(configuration)' [class.theme-primary-dark-bg]='detected === "users"' routerLink='/users' i18n>User Management</a>
     <a class='menu theme-secondary-fg' *ngIf='roles.showTaxonomies(configuration)' [class.theme-primary-dark-bg]='detected === "taxonomies"' routerLink='/taxonomies' i18n>Taxonomies</a>
     <ng-container *ngIf='roles.showDatarecords(configuration)'>
-        <a class='menu theme-secondary-fg' *ngFor='let datarecord of datarecords' [class.theme-primary-dark-bg]='detected === "records" && datarecordName === datarecord.name' [routerLink]='"/datarecords/" + datarecord.name'>{{datarecord.display_plural}}</a>
+        <ng-container *ngFor='let datarecord of datarecords'>
+            <a *ngIf='!datarecord.admin || roles._.pseudoAdmin' 
+               class='menu theme-secondary-fg' [class.theme-primary-dark-bg]='detected === "records" && datarecordName === datarecord.name'
+               [routerLink]='"/datarecords/" + datarecord.name'>{{datarecord.display_plural}}</a>
+        </ng-container>
     </ng-container>
     <ng-container *ngFor='let link of extraLinks' >
         <a class='menu theme-secondary-fg' [href]='link.url'>{{link.display}}</a>
