@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RolesService } from '../../roles.service';
+import { snippetize } from '../../utilities';
 
 @Component({
   selector: 'lib-data-record-list-inner',
@@ -16,4 +17,7 @@ export class DataRecordListInnerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  snippetize(def, record) {
+    return snippetize(def, record);
+  }
 }

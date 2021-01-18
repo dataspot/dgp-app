@@ -3,6 +3,7 @@
  */
 
 export * from './lib/config';
+export * from './lib/utilities';
 export * from './lib/roles.service';
 export * from './lib/confirmer.service';
 export * from './lib/api.service';

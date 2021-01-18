@@ -3,5 +3,5 @@
   New {{def.display}}
 </a></div>
 <ng-container *ngFor='let item of datarecords'>
-  <a class='item' [routerLink]='"/datarecords/" + def.name + "/" + item.value.id'>{{ item.value[def.snippet] }}</a>
+  <a class='item' [routerLink]='"/datarecords/" + def.name + "/" + item.value.id'>{{ snippetize(def, item.value) }}</a>
 </ng-container>

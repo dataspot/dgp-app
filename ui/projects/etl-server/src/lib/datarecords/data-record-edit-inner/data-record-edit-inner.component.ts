@@ -4,6 +4,7 @@ import { ApiService } from '../../api.service';
 import { RolesService } from '../../roles.service';
 import { ConfirmerService } from '../../confirmer.service';
 import { filter, switchMap } from 'rxjs/operators';
+import { snippetize } from '../../utilities';
 
 @Component({
   selector: 'app-data-record-edit-inner',
@@ -39,7 +40,7 @@ export class DataRecordEditInnerComponent implements OnInit {
   }
 
   delete(e) {
-    this.confirmer.confirm(this.confirmer.ACTION_DELETE_DATARECORD, this.datarecord[this.def.snippet])
+    this.confirmer.confirm(this.confirmer.ACTION_DELETE_DATARECORD, snippetize(this.def, this.datarecord))
       .pipe(
         filter((x) => x),
         switchMap(() => this.api.deleteDatarecord(this.kind, this.datarecord.id))
