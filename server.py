@@ -21,6 +21,7 @@ from server_extra import extra_server_init
 
 # Configuration
 configuration = json.load(open('dags/configuration.json'))
+default_locale = configuration.get('defaultLocale', 'en')
 
 # Create application
 app = Flask(__name__, static_folder='./ui/dist/ui/', static_url_path='/')
@@ -122,7 +123,7 @@ extra_server_init(app)
 @app.route('/<locale>/dgp/<path:subpath>')
 @app.route('/<locale>/status/<path:subpath>')
 @app.route('/<locale>/edit/<path:subpath>')
-def main(subpath=None, locale='en'):
+def main(subpath=None, locale=default_locale):
     locale = locale[:2]
     return send_file(f'ui/dist/ui/{locale}/index.html')
 
