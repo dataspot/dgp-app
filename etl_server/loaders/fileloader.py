@@ -42,7 +42,8 @@ class FileLoaderAnalyzer(BaseAnalyzer):
             return
         logger.warning('FileLoaderAnalyzer filename=%s', filename)
         obj = bucket().Object(filename)
-        out_filename = os.path.join(cache_dir(), '{}-{}'.format(obj.last_modified.isoformat(), filename))
+        last_modified = obj.last_modified.strftime('%Y%m%d%H%M%S')
+        out_filename = os.path.join(cache_dir(), '{}-{}'.format(last_modified, filename))
         if not os.path.exists(out_filename):
             logger.warning('FileLoaderAnalyzer downloading')
             obj.download_file(Filename=out_filename)
