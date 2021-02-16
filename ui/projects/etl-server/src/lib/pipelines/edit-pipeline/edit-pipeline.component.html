@@ -35,7 +35,7 @@
       <div class='buttons'>
         <div class='dgp button' (click)='dgp()' *ngIf='roles._.workbench && api.currentConfig.kinds_map[item.kind].dgp' [class.disabled]='!valid()' i18n>
           <i class="fas fa-cogs" aria-hidden="true"></i>
-          Save &amp; go to Workbench
+          Save &amp; Go to Workbench
         </div>
         <div class='save button' (click)='save()' [class.disabled]='!valid()' i18n>
           <i class="fas fa-save" aria-hidden="true"></i>
