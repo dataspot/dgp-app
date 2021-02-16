@@ -20,6 +20,7 @@ export class StepFlippedMappingFieldComponent implements OnInit {
   expanded = false;
   titleVisible = false;
   titleEditable = false;
+  dataUnpivoting = false;
 
   MT_FIELD_CONSTANT = FIELD_CONSTANT;
   MT_FIELD_UNPIVOT_TARGET = FIELD_UNPIVOT_TARGET;
@@ -31,6 +32,7 @@ export class StepFlippedMappingFieldComponent implements OnInit {
     ).subscribe((configuration) => {
       this.titleVisible = configuration.features.titleVisible !== false;
       this.titleEditable = configuration.features.titleEditable !== false;
+      this.dataUnpivoting = configuration.features.dataUnpivoting !== false;
     });
   }
 

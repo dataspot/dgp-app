@@ -6,7 +6,7 @@
     <option *ngIf='!ct.mandatory' selected value='' i18n>No value for this field</option>
     <option [value]='MT_FIELD_CONSTANT' i18n>Constant...</option>
     <option [selected]='ct.mandatory' disabled value=''>---</option>
-    <optgroup label='Un-pivoting'>
+    <optgroup label='Un-pivoting' *ngIf='dataUnpivoting'>
       <option [value]='MT_FIELD_UNPIVOT_TARGET' i18n>Un-pivoting value</option>
       <option [value]='MT_FIELD_UNPIVOT_COLUMN' i18n>Un-pivoting additional column</option>
     </optgroup>
