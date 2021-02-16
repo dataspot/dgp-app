@@ -1,6 +1,6 @@
 <h2 class='workbench-subtitle'>Source of Data</h2>
 <div class='formish'>
-  <label i18n>Uploaded Source File:</label>
+  <label i18n>Source File:</label>
   <select [(ngModel)]='loader.filename' (change)='changed({loader: {filename: loader.filename}, source:{}, structure: {}})'>
     <optgroup label='My Files'>
       <option *ngFor='let file of (api.ownFiles | async)' [value]='file.filename'>{{file.filename}}</option>
