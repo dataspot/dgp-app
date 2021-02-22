@@ -80,10 +80,10 @@ class Permissions():
     DataEditorRoles = { datarecordListOwn, datarecordReadOwn, datarecordEditOwn, datarecordNew, datarecordDeleteOwn, datarecordListAll, datarecordReadAll }
     MaintainerRoles = ViewerRoles | DataEditorRoles | \
                         { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
-                          filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, taxonomyRead,
+                          filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, 
                           pseudoMaintainer }
     DataAdminRoles = { datarecordEditAll, datarecordDeleteAll }
-    SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn, filesListAll }
+    SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn, filesListAll, taxonomyRead }
     AdminRoles = SuperMaintainerRoles | DataAdminRoles | { 
                     pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
                     usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll,
