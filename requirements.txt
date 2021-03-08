@@ -8,7 +8,7 @@ PyYAML
 python-slugify
 psycopg2-binary
 requests
-dgp-server>=0.0.88
+dgp-server>=0.0.89
 dgp>=0.0.90
 geocoder
 pyproj
