@@ -211,8 +211,8 @@
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="9fd1964c2a7d94088873dd5cd595326c94e36c0a">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-cogs&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;           " id="CLOSE_ITALIC_TEXT"/> Save &amp; go to Workbench </source>
+      <trans-unit datatype="html" id="06dafb1064c3bb38a483b57273cd24abee858d7f">
+        <source><x equiv-text="&lt;i class=&quot;fas fa-cogs&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;           " id="CLOSE_ITALIC_TEXT"/> Save &amp; Go to Workbench </source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
           <context context-type="linenumber">37,39</context>
@@ -547,6 +547,13 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
+      <trans-unit datatype="html" id="55e70f398e60f1e95551ebc06ba201b841550dde">
+        <source>No value for this field</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
       <trans-unit datatype="html" id="baf795ef9d0540112f528598d33956629b5c657b">
         <source>Un-pivoting value</source>
         <context-group purpose="location">
@@ -559,13 +566,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
           <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="55e70f398e60f1e95551ebc06ba201b841550dde">
-        <source>No value for this field</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="9a25c97a693d37178735b61649cc35fb6a628b78">
@@ -968,8 +968,8 @@
           <context context-type="linenumber">16,17</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="a37bd5a9ae5d5525d9712413e69133b0e506e6ca">
-        <source>Uploaded Source File:</source>
+      <trans-unit datatype="html" id="5a2be7f149208f0efb55554bb5b88ef0f388c397">
+        <source>Source File:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
           <context context-type="linenumber">3</context>
