@@ -52,7 +52,7 @@ class FileLoaderAnalyzer(BaseAnalyzer):
     def run(self):
         if self.cached_out_filename:
             current_url = self.config.get(CONFIG_URL)
-            logger.warning('FileLoaderAnalyzer current_url=%s', current_url)
+            logger.warning('FileLoaderAnalyzer current_url=%s, cached_out_filename=%s', current_url, self.cached_out_filename)
             if current_url != self.cached_out_filename:
                 self.config.set(CONFIG_URL, self.cached_out_filename)
                 self.context.reset_stream()
