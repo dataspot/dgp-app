@@ -51,7 +51,7 @@ def operator(name, params, pipeline):
         taxonomy_registry = TaxonomyRegistry('taxonomies/index.yaml')
         context = Context(config, taxonomy_registry)
 
-        logging.getLogger().setLevel(logging.DEBUG)
+        logging.getLogger().setLevel(logging.INFO)
 
         steps = [
             FileLoaderDGP,
