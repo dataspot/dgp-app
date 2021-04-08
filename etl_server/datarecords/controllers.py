@@ -9,7 +9,7 @@ class Controllers():
         self.models = Models(connection_string=connection_string)
 
     def _key(self, kind, id):
-        return '{}::{}'.format(kind, id)
+        return '{}::{}'.format(kind, id)[:128]
 
     def create_or_edit(self, kind, id, value, user, admin):
         id = slugify(id)
