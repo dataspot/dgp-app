@@ -51,7 +51,7 @@ class Controllers():
         # Calculate id if necessary
         if not id:
             title = body['name']
-            title = title + ' ' + hex(int(time.time()))[2:]
+            title = title[:80] + ' ' + hex(int(time.time()))[2:]
             id = slugify.slugify(title, separator='-', lowercase=True)
         body['id'] = id
 
