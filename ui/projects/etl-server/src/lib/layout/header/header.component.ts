@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RolesService } from '../../roles.service';
 import { ApiService } from '../../api.service';
 import { first } from 'rxjs/operators';
+import { EXTRA_MAPPING } from '../../config';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,7 @@ export class HeaderComponent implements OnInit {
   extraLinks = [];
   configuration: any = {};
 
-  constructor(private activatedRoute: ActivatedRoute, public roles: RolesService, private api: ApiService) {
+  constructor(private activatedRoute: ActivatedRoute, public roles: RolesService, private api: ApiService, @Inject(EXTRA_MAPPING) private extraMapping) {
     this.activatedRoute.data.subscribe((data) => {
       this.detected = data.name;
     });
@@ -37,4 +38,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  showDatarecord(datarecord) {
+    const mapping = this.extraMapping[datarecord.edit_component] || {};
+    return mapping.list !== false && (!datarecord.admin || this.roles._.pseudoAdmin);
+  }
 }

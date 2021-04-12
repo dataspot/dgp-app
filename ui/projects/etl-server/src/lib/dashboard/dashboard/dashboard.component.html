@@ -6,6 +6,6 @@
   </div>
   <app-pipeline-status-dashboard *ngIf='roles.showPipelines(configuration)'></app-pipeline-status-dashboard>
   <ng-container *ngIf='roles.showDatarecords(configuration)'>
-    <app-datarecord-dashboard *ngFor='let def of datarecords' [def]='def'></app-datarecord-dashboard>
+    <app-data-record-dashboard *ngFor='let def of datarecords' [def]='def'></app-data-record-dashboard>
   </ng-container>
 </app-container>

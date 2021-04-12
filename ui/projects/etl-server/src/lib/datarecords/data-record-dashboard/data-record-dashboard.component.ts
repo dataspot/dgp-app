@@ -6,7 +6,7 @@ import { DataRecordEditAuxDirective } from '../../data-record-edit-aux.directive
 import { DataRecordDashboardInnerComponent } from '../data-record-dashboard-inner/data-record-dashboard-inner.component';
 
 @Component({
-  selector: 'lib-data-record-dashboard',
+  selector: 'app-data-record-dashboard',
   templateUrl: './data-record-dashboard.component.html',
   styleUrls: ['./data-record-dashboard.component.less']
 })
