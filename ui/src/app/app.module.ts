@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { EtlServerModule } from 'projects/etl-server/src/public-api';
+import { EtlServerModule, EXTRA_MAPPING } from 'projects/etl-server/src/public-api';
 import { environment } from 'src/environments/environment';
-import { EXTRA_MAPPING } from 'etl-server';
 
 @NgModule({
   declarations: [
