@@ -17,7 +17,9 @@ import { EXTRA_MAPPING } from 'etl-server';
   ],
   providers: [{
     provide: EXTRA_MAPPING,
-    useValue: {}
+    useValue: {
+      nil: []
+    }
   }],
   bootstrap: [AppComponent]
 })
