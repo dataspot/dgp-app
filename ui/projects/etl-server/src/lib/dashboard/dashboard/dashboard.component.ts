@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
 
   profile = null;
   configuration: any;
+  datarecords = [];
 
   constructor(public auth: AuthService, private api: ApiService, public roles: RolesService) {
     this.auth.getUser().subscribe((user) => {
@@ -23,6 +24,7 @@ export class DashboardComponent implements OnInit {
     this.api.configuration.pipe(first()).subscribe(
       (configuration) => {
         this.configuration = configuration;
+        this.datarecords = configuration.dataRecords || [];
       }
     )
   }
