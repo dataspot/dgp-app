@@ -23,29 +23,29 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2ca2042d17e454fc99132b5ed91da9da599e0cfa" datatype="html">
-        <source> delete the user </source>
+      <trans-unit id="c38ee97a7403dd14fbd31038d04806f525a260d5" datatype="html">
+        <source>delete the user</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6f48d2b3a8b9572df0f4fdc6eea6fe1c1173d119" datatype="html">
-        <source> delete the task </source>
+      <trans-unit id="b8e06762f8f6491bba96ed33445c4dc4bcb7b6c1" datatype="html">
+        <source>delete the task</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="76752bbc2393a06e613fcac2332bfeab6221e4f4" datatype="html">
-        <source> delete the file </source>
+      <trans-unit id="9ad9c146d2386aeffa86a55ec88e5bb3ed7b8ea5" datatype="html">
+        <source>delete the file</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5d1d35e28a68304e20e7df57995bffdb79e5e2e7" datatype="html">
-        <source> delete the record </source>
+      <trans-unit id="cea35ebc7aa2b48bd7432313c927c447d730e495" datatype="html">
+        <source>delete the record</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
           <context context-type="linenumber">10</context>
@@ -740,6 +740,27 @@
           <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="2ece6d939db9540f4c191264cca196bd8e8859cc" datatype="html">
+        <source>for</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-mapping-field/step-mapping-field.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ffd03b989d36c89402032cfb7956cff65fcd7cd3" datatype="html">
+        <source>Change to compound mapping</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-mapping-field/step-mapping-field.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ad7cadff2aeefaf76e24446dfb9f8a0c2d9b3fcd" datatype="html">
+        <source>Change to simple mapping</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-mapping-field/step-mapping-field.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="c4208146d3ed5ec0a999ca95e4256429be88392c" datatype="html">
         <source>Extract</source>
         <context-group purpose="location">
@@ -773,27 +794,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-tabs/step-tabs.component.html</context>
           <context context-type="linenumber">47</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2ece6d939db9540f4c191264cca196bd8e8859cc" datatype="html">
-        <source>for</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-mapping-field/step-mapping-field.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="ffd03b989d36c89402032cfb7956cff65fcd7cd3" datatype="html">
-        <source>Change to compound mapping</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-mapping-field/step-mapping-field.component.html</context>
-          <context context-type="linenumber">90</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="ad7cadff2aeefaf76e24446dfb9f8a0c2d9b3fcd" datatype="html">
-        <source>Change to simple mapping</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-mapping-field/step-mapping-field.component.html</context>
-          <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="46ee09482783d9e8428cb5ebf7d11874cfc339be" datatype="html">

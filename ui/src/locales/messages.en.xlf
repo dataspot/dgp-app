@@ -22,29 +22,29 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="2ca2042d17e454fc99132b5ed91da9da599e0cfa">
-        <source> delete the user </source>
+      <trans-unit datatype="html" id="c38ee97a7403dd14fbd31038d04806f525a260d5">
+        <source>delete the user</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="6f48d2b3a8b9572df0f4fdc6eea6fe1c1173d119">
-        <source> delete the task </source>
+      <trans-unit datatype="html" id="b8e06762f8f6491bba96ed33445c4dc4bcb7b6c1">
+        <source>delete the task</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="76752bbc2393a06e613fcac2332bfeab6221e4f4">
-        <source> delete the file </source>
+      <trans-unit datatype="html" id="9ad9c146d2386aeffa86a55ec88e5bb3ed7b8ea5">
+        <source>delete the file</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="5d1d35e28a68304e20e7df57995bffdb79e5e2e7">
-        <source> delete the record </source>
+      <trans-unit datatype="html" id="cea35ebc7aa2b48bd7432313c927c447d730e495">
+        <source>delete the record</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
           <context context-type="linenumber">10</context>

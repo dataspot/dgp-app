@@ -3,12 +3,12 @@
   <div class='modal-wrapper'>
     <div class='modal theme-primary-border'>
       <div class='message theme-primary-fg'>
-        <span i18n>Would you really like to</span>
-        <span i18n *ngIf='srv.action === srv.ACTION_DELETE_USER'>&nbsp;delete the user&nbsp;</span>
-        <span i18n *ngIf='srv.action === srv.ACTION_DELETE_TASK'>&nbsp;delete the task&nbsp;</span>
-        <span i18n *ngIf='srv.action === srv.ACTION_DELETE_FILE'>&nbsp;delete the file&nbsp;</span>
-        <span i18n *ngIf='srv.action === srv.ACTION_DELETE_DATARECORD'>&nbsp;delete the record&nbsp;</span>
-        <span>"{{srv.what}}"</span>?
+        <span i18n>Would you really like to</span>&nbsp;
+        <span i18n *ngIf='srv.action === srv.ACTION_DELETE_USER'>delete the user</span>
+        <span i18n *ngIf='srv.action === srv.ACTION_DELETE_TASK'>delete the task</span>
+        <span i18n *ngIf='srv.action === srv.ACTION_DELETE_FILE'>delete the file</span>
+        <span i18n *ngIf='srv.action === srv.ACTION_DELETE_DATARECORD'>delete the record</span>
+        &nbsp;<span>"{{srv.what}}"</span>?
         <div class='modal-buttons'>
           <a class='modal-button theme-secondary-bg theme-primary-fg' (click)='srv.choose(false)' i18n>Cancel</a>
           <a class='modal-button theme-primary-bg theme-secondary-fg' (click)='srv.choose(true)' i18n>Confirm</a>
