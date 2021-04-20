@@ -1,6 +1,6 @@
 import { Component, ComponentFactoryResolver, Inject, OnInit, Type, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ReplaySubject } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { from, ReplaySubject } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
 import { EXTRA_MAPPING } from '../../config';
@@ -21,7 +21,7 @@ export class DataRecordListComponent implements OnInit {
   @ViewChild(DataRecordEditAuxDirective, { static: true }) inner: DataRecordEditAuxDirective;
 
   constructor(public api: ApiService, public roles: RolesService, private activatedRoute: ActivatedRoute,
-              private componentFactoryResolver: ComponentFactoryResolver,
+              private componentFactoryResolver: ComponentFactoryResolver, private router: Router
               @Inject(EXTRA_MAPPING) private extraMapping) {
     let defs = null;
     this.api.configuration.pipe(
@@ -33,6 +33,11 @@ export class DataRecordListComponent implements OnInit {
         const detectedName = params.name;
         for (const def of defs) {
           if (def.name === detectedName) {
+            const mapping = this.extraMapping[def.edit_component] || {};
+            if (mapping.list === false || (def.admin && !this.roles._.pseudoAdmin)) {
+              this.router.navigate(['/']);
+              return from([]);
+            }
             this.def = def;
             return this.api.queryDatarecords(detectedName);
           }

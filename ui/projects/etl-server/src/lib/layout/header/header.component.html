@@ -7,7 +7,7 @@
     <a class='menu theme-secondary-fg' *ngIf='roles.showTaxonomies(configuration)' [class.theme-primary-dark-bg]='detected === "taxonomies"' routerLink='/taxonomies' i18n>Taxonomies</a>
     <ng-container *ngIf='roles.showDatarecords(configuration)'>
         <ng-container *ngFor='let datarecord of datarecords'>
-            <a *ngIf='showDatarecord(datarecord)' 
+            <a *ngIf='showDatarecord(datarecord)'
                class='menu theme-secondary-fg' [class.theme-primary-dark-bg]='detected === "records" && datarecordName === datarecord.name'
                [routerLink]='"/datarecords/" + datarecord.name'>{{datarecord.display_plural}}</a>
         </ng-container>
