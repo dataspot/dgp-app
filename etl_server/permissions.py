@@ -77,12 +77,12 @@ class Permissions():
     DataViewerRoles = { datarecordListPublic, datarecordReadPublic }
     ViewerRoles = DataViewerRoles | { login, pipelinesListPublic, pipelinesStatusPublic,
                     pseudoViewer }
-    DataEditorRoles = { datarecordListOwn, datarecordReadOwn, datarecordEditOwn, datarecordNew, datarecordDeleteOwn, datarecordListAll, datarecordReadAll }
+    DataEditorRoles = { datarecordListOwn, datarecordReadOwn, datarecordEditOwn, datarecordNew, datarecordDeleteOwn, datarecordListAll, datarecordReadAll, datarecordEditAll }
     MaintainerRoles = ViewerRoles | DataEditorRoles | \
                         { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
                           filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, 
                           pseudoMaintainer }
-    DataAdminRoles = { datarecordEditAll, datarecordDeleteAll }
+    DataAdminRoles = { datarecordDeleteAll }
     SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn, filesListAll, taxonomyRead }
     AdminRoles = SuperMaintainerRoles | DataAdminRoles | { 
                     pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,

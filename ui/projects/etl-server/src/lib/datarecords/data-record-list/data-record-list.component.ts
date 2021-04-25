@@ -21,7 +21,7 @@ export class DataRecordListComponent implements OnInit {
   @ViewChild(DataRecordEditAuxDirective, { static: true }) inner: DataRecordEditAuxDirective;
 
   constructor(public api: ApiService, public roles: RolesService, private activatedRoute: ActivatedRoute,
-              private componentFactoryResolver: ComponentFactoryResolver, private router: Router
+              private componentFactoryResolver: ComponentFactoryResolver, private router: Router,
               @Inject(EXTRA_MAPPING) private extraMapping) {
     let defs = null;
     this.api.configuration.pipe(
