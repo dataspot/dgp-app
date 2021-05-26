@@ -12,6 +12,7 @@ import dgp_oauth2.credentials as credentials
 
 class Permissions():
     # Levels
+    Anonymous = 0
     Viewer = 1
     Maintainer = 2
     Admin = 3
@@ -69,13 +70,15 @@ class Permissions():
     datarecordDeleteOwn = 'datarecordDeleteOwn'
     datarecordDeleteAll = 'datarecordDeleteAll'
     
+    pseudoAnonymous = 'pseudoAnonymous'
     pseudoViewer = 'pseudoViewer'
     pseudoMaintainer = 'pseudoMaintainer'
     pseudoAdmin = 'pseudoAdmin'
 
     # Level Roles
-    DataViewerRoles = { datarecordListPublic, datarecordReadPublic }
-    ViewerRoles = DataViewerRoles | { login, pipelinesListPublic, pipelinesStatusPublic,
+    DataViewerRoles = { datarecordListPublic, datarecordReadPublic, pseudoAnonymous }
+    AnonymousRoles = DataViewerRoles
+    ViewerRoles =  AnonymousRoles | { login, pipelinesListPublic, pipelinesStatusPublic,
                     pseudoViewer }
     DataEditorRoles = { datarecordListOwn, datarecordReadOwn, datarecordEditOwn, datarecordNew, datarecordDeleteOwn, datarecordListAll, datarecordReadAll, datarecordEditAll }
     MaintainerRoles = ViewerRoles | DataEditorRoles | \
@@ -92,6 +95,7 @@ class Permissions():
 
     # Level Roles Mapping
     Roles = {
+        Anonymous: AnonymousRoles,
         Viewer: ViewerRoles,
         Maintainer: MaintainerRoles,
         Admin: AdminRoles,
@@ -109,19 +113,21 @@ def check_permission(roles):
         def wrapper(*args, **kw):
             global __verifyer
             token = request.values.get('jwt') or request.headers.get('X-Auth')
-            permissions = verifyer().extract_permissions(token)
-            if not (permissions is False):
-                level = permissions.get('permissions', {}).get('level', 0)
-                user_roles = Permissions.Roles.get(level, [])
-                for role in roles:
-                    if role in user_roles:
-                        g.permissions = permissions
-                        fargs = inspect.getargspec(func).args
-                        if 'role' in fargs:
-                            kw['role'] = role
-                        if 'user' in fargs:
-                            kw['user'] = permissions['userid']
-                        return func(*args, **kw)
+            level = 0
+            if token:
+                permissions = verifyer().extract_permissions(token)
+                if not (permissions is False):
+                    level = permissions.get('permissions', {}).get('level', 0)            
+            user_roles = Permissions.Roles.get(level, [])
+            for role in roles:
+                if role in user_roles:
+                    g.permissions = permissions
+                    fargs = inspect.getargspec(func).args
+                    if 'role' in fargs:
+                        kw['role'] = role
+                    if 'user' in fargs:
+                        kw['user'] = permissions['userid']
+                    return func(*args, **kw)
             abort(403)
         return wrapper
     return decorator
