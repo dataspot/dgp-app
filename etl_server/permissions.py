@@ -113,7 +113,7 @@ def check_permission(roles):
         def wrapper(*args, **kw):
             global __verifyer
             token = request.values.get('jwt') or request.headers.get('X-Auth')
-            permissions = dict(permissions=dict(level=0, userid=None))
+            permissions = dict(userid=None, permissions=dict(level=0))
             if token:
                 permissions = verifyer().extract_permissions(token)
             if not (permissions is False):
