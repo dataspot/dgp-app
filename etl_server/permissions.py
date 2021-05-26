@@ -76,11 +76,11 @@ class Permissions():
     pseudoAdmin = 'pseudoAdmin'
 
     # Level Roles
-    DataViewerRoles = { datarecordListPublic, datarecordReadPublic, pseudoAnonymous }
-    AnonymousRoles = DataViewerRoles
+    DataViewerRoles = { datarecordListPublic, datarecordReadPublic, datarecordReadAll, datarecordListAll }
+    AnonymousRoles = DataViewerRoles | { pseudoAnonymous }
     ViewerRoles =  AnonymousRoles | { login, pipelinesListPublic, pipelinesStatusPublic,
                     pseudoViewer }
-    DataEditorRoles = { datarecordListOwn, datarecordReadOwn, datarecordEditOwn, datarecordNew, datarecordDeleteOwn, datarecordListAll, datarecordReadAll, datarecordEditAll }
+    DataEditorRoles = { datarecordListOwn, datarecordReadOwn, datarecordEditOwn, datarecordNew, datarecordDeleteOwn, datarecordEditAll, }
     MaintainerRoles = ViewerRoles | DataEditorRoles | \
                         { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
                           filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, 
