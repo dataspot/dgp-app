@@ -113,21 +113,21 @@ def check_permission(roles):
         def wrapper(*args, **kw):
             global __verifyer
             token = request.values.get('jwt') or request.headers.get('X-Auth')
-            level = 0
+            permissions = dict(permissions=dict(level=0))
             if token:
                 permissions = verifyer().extract_permissions(token)
-                if not (permissions is False):
-                    level = permissions.get('permissions', {}).get('level', 0)            
-            user_roles = Permissions.Roles.get(level, [])
-            for role in roles:
-                if role in user_roles:
-                    g.permissions = permissions
-                    fargs = inspect.getargspec(func).args
-                    if 'role' in fargs:
-                        kw['role'] = role
-                    if 'user' in fargs:
-                        kw['user'] = permissions['userid']
-                    return func(*args, **kw)
+            if not (permissions is False):
+                level = permissions.get('permissions', {}).get('level', 0)            
+                user_roles = Permissions.Roles.get(level, [])
+                for role in roles:
+                    if role in user_roles:
+                        g.permissions = permissions
+                        fargs = inspect.getargspec(func).args
+                        if 'role' in fargs:
+                            kw['role'] = role
+                        if 'user' in fargs:
+                            kw['user'] = permissions['userid']
+                        return func(*args, **kw)
             abort(403)
         return wrapper
     return decorator
