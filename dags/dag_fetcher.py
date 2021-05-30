@@ -45,8 +45,9 @@ def wrapper(operator, id):
 default_args = {
     'owner': 'Airflow',
     'depends_on_past': False,
-    'start_date': dates.days_ago(1),
-    'is_paused_upon_creation': False
+    'start_date': dates.round_time(datetime.date.today(), datetime.timedelta(weeks=52), start_date=datetime.date(2020,1,1)),
+    'is_paused_upon_creation': False,
+    'catchup': False
 }
 
 logging.info('Initializing DAGS')
