@@ -13,6 +13,7 @@ from inspect import signature
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
+from airflow.operators.latest_only_operator import LatestOnlyOperator
 from airflow.utils import dates
 from airflow.utils.dates import cron_presets
 
@@ -47,7 +48,6 @@ default_args = {
     'depends_on_past': False,
     'start_date': dates.round_time(datetime.datetime.now(), datetime.timedelta(weeks=52), start_date=datetime.datetime(2020,1,1)),
     'is_paused_upon_creation': False,
-    'catchup': False
 }
 
 logging.info('Initializing DAGS')
@@ -66,17 +66,19 @@ for pipeline in Cache.cached_pipelines():
         schedule = None
 
     try:
-        dag = DAG(dag_id, default_args=default_args, schedule_interval=schedule)
+        dag = DAG(dag_id, default_args=default_args, schedule_interval=schedule, catchup=False)
 
         kind = pipeline['kind']
         operator = importlib.import_module('.' + kind, package='operators').operator
 
+        t0 = LatestOnlyOperator(task_id=dag_id + '__latest_only', dag=dag)
         t1 = PythonOperator(task_id=dag_id,
                             python_callable=wrapper(operator, dag_id),
                             op_args=[
                                 pipeline['name'],pipeline['params'], pipeline
                             ],
                             dag=dag)
+        t0 >> t1
         globals()[dag_id] = dag
     except Exception as e:
         logging.error(f'Failed to create a DAG with id {dag_id}, schedule {schedule} because {e}')
