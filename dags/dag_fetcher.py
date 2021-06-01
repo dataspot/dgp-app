@@ -87,7 +87,13 @@ for pipeline in Cache.cached_pipelines():
 task_id = '_clean_scheduler_logs' 
 dag_id = task_id + '_dag'
 schedule = '0 * * * *'
-clean_scheduler_logs_dag = DAG(dag_id, default_args=default_args,
+args = {
+    'owner': 'Airflow',
+    'depends_on_past': False,
+    'start_date': datetime.datetime.now(),
+    'is_paused_upon_creation': False,
+}
+clean_scheduler_logs_dag = DAG(dag_id, default_args=args,
                                 schedule_interval=schedule)
 clean_scheduler_logs = BashOperator(task_id=task_id,
                                     bash_command='cd /app/airflow/logs/scheduler/ && rm -rf * && echo cleaned',
