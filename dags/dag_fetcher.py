@@ -3,6 +3,7 @@ Code that goes along with the Airflow tutorial located at:
 https://github.com/apache/airflow/blob/master/airflow/example_dags/tutorial.py
 """
 import sys
+import re
 import os
 import datetime 
 import logging
@@ -14,10 +15,13 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.latest_only_operator import LatestOnlyOperator
+from airflow.sensors.external_task_sensor import ExternalTaskSensor
 from airflow.utils import dates
 from airflow.utils.dates import cron_presets
 
 from etl_server.pipelines.cache import Cache
+
+depends_on = re.compile(r'^.*depends on:\s*([-a-z0-9]+)\s*$', re.IGNORECASE | re.MULTILINE | re.DOTALL)
 
 def wrapper(operator, id):
     _id = id
@@ -50,6 +54,7 @@ default_args = {
     'is_paused_upon_creation': False,
 }
 
+logging.getLogger('airflow').setLevel(logging.WARNING)
 logging.info('Initializing DAGS')
 for pipeline in Cache.cached_pipelines():
     dag_id = pipeline['id']
@@ -69,16 +74,26 @@ for pipeline in Cache.cached_pipelines():
         dag = DAG(dag_id, default_args=default_args, schedule_interval=schedule, catchup=False)
 
         kind = pipeline['kind']
+        description = pipeline.get('description')
         operator = importlib.import_module('.' + kind, package='operators').operator
 
-        t0 = LatestOnlyOperator(task_id=dag_id + '__latest_only', dag=dag)
-        t1 = PythonOperator(task_id=dag_id,
+        main_task = PythonOperator(task_id=dag_id,
                             python_callable=wrapper(operator, dag_id),
                             op_args=[
                                 pipeline['name'],pipeline['params'], pipeline
                             ],
                             dag=dag)
-        t0 >> t1
+        if description and (match := depends_on.match(description)):
+            parent_dag_id = match.group(1)
+            t0 = ExternalTaskSensor(task_id=dag_id + '__trigger',
+                                    external_dag_id=parent_dag_id,
+                                    external_task_id=parent_dag_id,
+                                    mode='reschedule',
+                                    dag=dag)
+            t0 >> main_task
+        elif schedule is not None:
+            t0 = LatestOnlyOperator(task_id=dag_id + '__latest_only', dag=dag)
+            t0 >> main_task
         globals()[dag_id] = dag
     except Exception as e:
         logging.error(f'Failed to create a DAG with id {dag_id}, schedule {schedule} because {e}')
