@@ -21,7 +21,9 @@ import { ThemeService } from './theme.service';
 export class EtlServerComponent implements OnInit {
 
   constructor(private theme: ThemeService, private activatedRoute: ActivatedRoute) {
-    activatedRoute. url.subscribe((x) => console.log('XXX', x));
+    activatedRoute. url.subscribe((x) => {
+      return;
+    });
   }
 
   ngOnInit(): void {
