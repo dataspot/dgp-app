@@ -8,6 +8,7 @@
         <span i18n *ngIf='srv.action === srv.ACTION_DELETE_TASK'>delete the task</span>
         <span i18n *ngIf='srv.action === srv.ACTION_DELETE_FILE'>delete the file</span>
         <span i18n *ngIf='srv.action === srv.ACTION_DELETE_DATARECORD'>delete the record</span>
+        <span *ngIf='srv.action === srv.ACTION_CUSTOM'>{{srv.actionText}}</span>
         &nbsp;<span>"{{srv.what}}"</span>?
         <div class='modal-buttons'>
           <a class='modal-button theme-secondary-bg theme-primary-fg' (click)='srv.choose(false)' i18n>Cancel</a>
