@@ -56,7 +56,6 @@ default_args = {
 
 logging.getLogger('airflow').setLevel(logging.WARNING)
 logging.getLogger('airflow.task').setLevel(logging.DEBUG)
-logging.info('Initializing DAGS')
 for pipeline in Cache.cached_pipelines():
     dag_id = pipeline['id']
 
