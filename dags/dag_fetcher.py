@@ -50,7 +50,7 @@ def wrapper(operator, id):
 default_args = {
     'owner': 'Airflow',
     'depends_on_past': False,
-    'start_date': dates.round_time(datetime.datetime.now(), datetime.timedelta(weeks=52), start_date=datetime.datetime(2020,1,1)),
+    'start_date': dates.round_time(datetime.datetime.now() - datetime.timedelta(weeks=26), datetime.timedelta(weeks=52), start_date=datetime.datetime(2020,1,1)),
     'is_paused_upon_creation': False,
 }
 
