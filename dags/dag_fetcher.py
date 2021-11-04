@@ -21,6 +21,15 @@ from airflow.utils.dates import cron_presets
 
 from etl_server.pipelines.cache import Cache
 
+LOG_DATEFMT = "%Y-%m-%d %H:%M:%S"
+LOG_FORMAT = '%(asctime)s:%(levelname)-8s:%(name)s:%(message)s'
+
+logging.basicConfig(
+    format=LOG_FORMAT,
+    level=logging.DEBUG,
+    datefmt=LOG_DATEFMT,
+)
+
 depends_on = re.compile(r'^.*depends on:\s*([-a-z0-9]+)\s*$', re.IGNORECASE | re.MULTILINE | re.DOTALL)
 
 def wrapper(operator, id):
@@ -56,6 +65,7 @@ default_args = {
 
 logging.getLogger('airflow').setLevel(logging.WARNING)
 logging.getLogger('airflow.task').setLevel(logging.DEBUG)
+
 for pipeline in Cache.cached_pipelines():
     dag_id = pipeline['id']
 
