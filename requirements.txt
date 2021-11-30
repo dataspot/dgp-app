@@ -16,3 +16,4 @@ dataflows>=0.2.1
 tabulator[html]>=1.48
 tableschema>=1.18
 cattrs<1.1.0
+wtforms<3
