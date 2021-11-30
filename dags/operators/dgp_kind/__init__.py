@@ -37,6 +37,7 @@ def operator(name, params, pipeline):
         params['dgpConfig'].setdefault('publish', {})['allowed'] = True
         metadata = params['dgpConfig'].setdefault('extra', {}).setdefault('metadata', {})
         metadata['title'] = name
+        metadata['description'] = pipeline['description']
         metadata['dag_id'] = pipeline['id']
         metadata['updated_at'] = pipeline['__updated_at']
         metadata['created_at'] = pipeline['__created_at']

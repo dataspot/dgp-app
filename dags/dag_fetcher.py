@@ -1,13 +1,18 @@
-"""
-Code that goes along with the Airflow tutorial located at:
-https://github.com/apache/airflow/blob/master/airflow/example_dags/tutorial.py
-"""
 import sys
 import re
 import os
 import datetime 
 import logging
 import importlib
+
+LOG_DATEFMT = "%Y-%m-%d %H:%M:%S"
+LOG_FORMAT = '%(asctime)s:%(levelname)-8s:%(name)s:%(message)s'
+
+logging.basicConfig(
+    format=LOG_FORMAT,
+    level=logging.DEBUG,
+    datefmt=LOG_DATEFMT,
+)
 
 from inspect import signature
 
@@ -20,15 +25,6 @@ from airflow.utils import dates
 from airflow.utils.dates import cron_presets
 
 from etl_server.pipelines.cache import Cache
-
-LOG_DATEFMT = "%Y-%m-%d %H:%M:%S"
-LOG_FORMAT = '%(asctime)s:%(levelname)-8s:%(name)s:%(message)s'
-
-logging.basicConfig(
-    format=LOG_FORMAT,
-    level=logging.DEBUG,
-    datefmt=LOG_DATEFMT,
-)
 
 depends_on = re.compile(r'^.*depends on:\s*([-a-z0-9]+)\s*$', re.IGNORECASE | re.MULTILINE | re.DOTALL)
 
