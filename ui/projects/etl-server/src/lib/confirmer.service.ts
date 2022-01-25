@@ -11,7 +11,8 @@ export class ConfirmerService {
   public ACTION_DELETE_TASK = 1;
   public ACTION_DELETE_FILE = 2;
   public ACTION_DELETE_DATARECORD = 3;
-  public ACTION_CUSTOM = 4;
+  public ACTION_EXECUTE_ALL = 4;
+  public ACTION_CUSTOM = 5;
 
   action: number = null;
   actionText: string = null;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, take } from 'rxjs/operators';
+import { filter, switchMap, take } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
+import { ConfirmerService } from '../../confirmer.service';
 import { RolesService } from '../../roles.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class PipelineListComponent implements OnInit {
 
   pipelineSections = [];
 
-  constructor(public api: ApiService, public roles: RolesService) {
+  constructor(public api: ApiService, public roles: RolesService,
+              private confirmer: ConfirmerService) {
   }
 
   processSections(pipelines, level) {
@@ -49,6 +51,15 @@ export class PipelineListComponent implements OnInit {
       }
     });
     this.api.queryPipelines();
+  }
+
+  executeSuccessful() {
+    this.confirmer.confirm(this.confirmer.ACTION_EXECUTE_ALL, null).pipe(
+      filter((x) => x),
+      switchMap(() => this.api.triggerPipelines('dgp_kind', true)),
+    ).subscribe((result) => {
+      console.log('EXECUTE SUCCESSFUL RESULT', result);
+    });
   }
 
 }

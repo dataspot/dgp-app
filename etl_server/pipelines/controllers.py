@@ -181,6 +181,16 @@ class Controllers():
         return dict(result=run.run_id if run else None) 
 
     @staticmethod
+    def start_pipelines(kind, all_pipelines):
+        count = 0
+        for pipeline in Controllers.query_pipelines()['result']:
+            if pipeline['kind'] == kind:
+                if all_pipelines or pipeline['status']['status'] == 'success':
+                    Controllers.start_pipeline(pipeline['id'])
+                    count += 1
+        return dict(success=True, started=count)
+
+    @staticmethod
     def trigger_event(event, pipeline):
         from airflow.api.common.experimental.trigger_dag import trigger_dag
         from airflow import models

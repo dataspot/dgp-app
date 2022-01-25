@@ -57,6 +57,12 @@ def make_blueprint(db_connection_string=None, configuration={}):  # noqa
     def start_pipeline_(id):
         return controllers.start_pipeline(id)
 
+    @check_permission([Permissions.pipelinesExecute])
+    def start_pipelines_():
+        kind = request.args.get('kind')
+        all_pipelines = request.args.get('all') == 'true'
+        return controllers.start_pipelines(kind, all_pipelines)
+
     # Register routes
     blueprint.add_url_rule(
         'pipelines', 'query_pipelines', query_pipelines_, methods=['GET'])
@@ -66,6 +72,8 @@ def make_blueprint(db_connection_string=None, configuration={}):  # noqa
         'pipeline/<id>', 'query_pipeline', query_pipeline_, methods=['GET'])
     blueprint.add_url_rule(
         'pipeline/start/<id>', 'start_pipeline', start_pipeline_, methods=['POST'])
+    blueprint.add_url_rule(
+        'pipelines/start', 'start_pipelines', start_pipelines_, methods=['POST'])
     blueprint.add_url_rule(
         'pipeline/<id>', 'delete_pipeline', delete_pipeline_, methods=['DELETE'])
     blueprint.add_url_rule(

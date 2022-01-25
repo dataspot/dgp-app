@@ -246,6 +246,21 @@ export class ApiService {
       );
   }
 
+  triggerPipelines(kind: string | null, successfulOnly: boolean) {
+    const params = {};
+    if (kind) { params['kind'] = kind; }
+    if (!successfulOnly) { params['all'] = 'true'; }
+    return this.http.post(`${this.API_ENDPOINT}/pipelines/start`, {},  Object.assign({params}, this.options))
+      .pipe(
+        map((result: any) => {
+          if (result.success) {
+            this.queryPipelines();
+          }
+          return result.success;
+        })
+      );
+  }
+
   queryFiles(subscribe = true) {
     const o = this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/files`, this.options)),

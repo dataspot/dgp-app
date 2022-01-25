@@ -1,8 +1,14 @@
 <app-container>
   <h1 class='theme-primary-fg' i18n>Processing Tasks</h1>
-  <div *ngIf='roles._.pipelinesNew' class='add-new'><a routerLink='/edit/new' i18n>
-    <i class="fas fa-plus-circle" aria-hidden="true"></i>
-    New Processing Task
-  </a></div>
+  <div class='controls'>
+    <div *ngIf='roles._.pipelinesNew'><a routerLink='/edit/new' i18n>
+      <i class="fas fa-plus-circle" aria-hidden="true"></i>
+      New Processing Task
+    </a></div>
+    <div *ngIf='roles._.pipelinesExecute' (click)='executeSuccessful()' i18n>
+      <i class="fas fa-check-double" aria-hidden="true"></i>
+      Execute all Successful Tasks
+    </div>  
+  </div>
   <app-pipeline-list-section [root]='true' [sections]='pipelineSections'></app-pipeline-list-section> 
 </app-container>
