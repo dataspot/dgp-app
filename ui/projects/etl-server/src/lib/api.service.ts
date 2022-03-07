@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { BehaviorSubject, ReplaySubject, of } from 'rxjs';
-import { map, switchMap, catchError, filter } from 'rxjs/operators';
+import { map, switchMap, catchError, filter, delay } from 'rxjs/operators';
 import { AuthService } from 'dgp-oauth2-ng';
 import { Router } from '@angular/router';
 import { RolesService } from './roles.service';
@@ -252,6 +252,7 @@ export class ApiService {
     if (!successfulOnly) { params['all'] = 'true'; }
     return this.http.post(`${this.API_ENDPOINT}/pipelines/start`, {},  Object.assign({params}, this.options))
       .pipe(
+        delay(1000),
         map((result: any) => {
           if (result.success) {
             this.queryPipelines();
