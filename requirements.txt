@@ -17,3 +17,4 @@ tabulator[html]>=1.48
 tableschema>=1.18
 cattrs<1.1.0
 wtforms<3
+markupsafe==2.0.1
