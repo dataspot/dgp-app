@@ -32,7 +32,7 @@
     "@angular/router": "~10.1.4",
     "core-js": "^3.6.5",
     "dgp-oauth2-ng": "^2.1.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "ng-event-source": "^1.0.14",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.1",
