@@ -2,9 +2,7 @@ import os
 
 from sqlalchemy.ext.declarative import declarative_base
 
-from sqlalchemy import Column, String
-
-from dgp_oauth2.models import get_users
+from dgp_oauth2.models import Models as AuthModels
 
 from ..db_utils import Common, ModelsBase
 
@@ -22,12 +20,14 @@ class Models(ModelsBase):
 
     def __init__(self, connection_string=None):
         super().__init__(Base, User, connection_string)
+        self.authModels = AuthModels(os.environ.get('DATABASE_URL'))
+
 
     def query_one(self, key):
         return super().query_one(key, case_sensitive=False)
 
     def all_users(self):
-        auth_users = get_users()
+        auth_users = self.authModels.get_users()
         auth_users = dict(
             (x['id'], x) for x in auth_users
         )

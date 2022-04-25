@@ -1,11 +1,12 @@
+import os
 import calendar
 from urllib.parse import unquote_plus
 import boto3
 from botocore.exceptions import ClientError
-import json
 import tempfile
 import shutil
-from dgp_oauth2.models import get_user
+
+from dgp_oauth2.models import Models as AuthModels
 
 class Controllers():
 
@@ -30,6 +31,7 @@ class Controllers():
             except:
                 # Avoid race conditions
                 pass
+        self.authModels = AuthModels(os.environ.get('DATABASE_URL'))
 
     @staticmethod
     def ownerid(obj):
@@ -80,7 +82,7 @@ class Controllers():
         )
 
     def upload_file(self, file_obj, filename, user, admin=False):
-        profile = get_user(user)
+        profile = self.authModels.get_user(user)
         username = profile.get('name')
         o = self.bucket.Object(filename)
         allowed = False

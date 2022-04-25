@@ -1,5 +1,4 @@
 import os
-from dgp_oauth2.models import get_user
 from .users.models import Models
 from .permissions import Permissions
 

@@ -1,10 +1,4 @@
-import os
-
 from sqlalchemy.ext.declarative import declarative_base
-
-from sqlalchemy import Column, String
-
-from dgp_oauth2.models import get_users
 
 from ..db_utils import Common, ModelsBase
 

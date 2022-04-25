@@ -1,12 +1,12 @@
 import os
 
-from dgp_oauth2.models import get_users, setup_engine
+from dgp_oauth2.models import Models as AuthModels
 from etl_server.users.models import Models
 from etl_server.permissions import Permissions
 
 if __name__ == '__main__':
-    setup_engine(os.environ.get('DATABASE_URL'))
-    auth_users = list(get_users())
+    authModels = AuthModels(os.environ.get('DATABASE_URL'))
+    auth_users = list(authModels.get_users())
     for i, user in enumerate(auth_users):
         print(i, user['email'])
     i = input('Choose user: ')

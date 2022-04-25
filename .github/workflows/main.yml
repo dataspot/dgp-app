@@ -29,3 +29,21 @@ jobs:
           docker tag server "${DOCKER_IMAGE_NAME}:latest" &&\
           docker push "${DOCKER_IMAGE_NAME}:latest"
         fi
+    - env:
+        DOCKER_IMAGE_NAME: "akariv/dgp-app-db"
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin &&\
+        if docker pull "${DOCKER_IMAGE_NAME}:latest"; then
+          CACHE_FROM_ARG="--cache-from ${DOCKER_IMAGE_NAME}:latest"
+        else
+          CACHE_FROM_ARG=""
+        fi &&\
+        docker build $CACHE_FROM_ARG -t db db &&\
+        docker tag server "${DOCKER_IMAGE_NAME}:${GITHUB_SHA}" &&\
+        docker push "${DOCKER_IMAGE_NAME}:${GITHUB_SHA}" &&\
+        if [ "${GITHUB_REF}" == "refs/heads/master" ]; then
+          docker tag db "${DOCKER_IMAGE_NAME}:latest" &&\
+          docker push "${DOCKER_IMAGE_NAME}:latest"
+        fi
