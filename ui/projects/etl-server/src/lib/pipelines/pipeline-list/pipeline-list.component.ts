@@ -11,6 +11,8 @@ import { RolesService } from '../../roles.service';
 })
 export class PipelineListComponent implements OnInit {
 
+  selectedOption: string = '';
+
   pipelineSections = [];
 
   constructor(public api: ApiService, public roles: RolesService,
@@ -47,6 +49,7 @@ export class PipelineListComponent implements OnInit {
         for (const pipeline of pipelines) {
           pipeline.display = pipeline.name;
         }
+    
         this.pipelineSections = this.processSections(pipelines, 0);
       }
     });
@@ -60,6 +63,17 @@ export class PipelineListComponent implements OnInit {
     ).subscribe((result) => {
       console.log('EXECUTE SUCCESSFUL RESULT', result);
     });
+  }
+
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedOption = event.target.value;
+    if (this.selectedOption === 'created-date-up'){
+      this.pipelineSections.sort((a, b) => a.creation_date > b.creation_date ? 1 : -1);
+    } else {
+      this.pipelineSections.sort((a, b) => a.creation_date < b.creation_date ? 1 : -1);
+    }
+    
   }
 
 }
