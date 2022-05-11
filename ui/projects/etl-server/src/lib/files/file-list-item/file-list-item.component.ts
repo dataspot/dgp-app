@@ -64,6 +64,19 @@ export class FileListItemComponent implements OnInit {
         });
   }
 
+  download(){
+
+    this.confirmer.confirm(this.confirmer.ACTION_DELETE_FILE, this.item.filename)
+      .pipe(
+        filter((x) => x),
+        switchMap(() => this.api.downloadFile(this.item.filename))
+      ).subscribe((result) => {
+          console.log('deleted', result);
+          this.api.queryFiles();
+        });
+    
+  }
+
   requestUpdate() {
     this.update.emit();
   }

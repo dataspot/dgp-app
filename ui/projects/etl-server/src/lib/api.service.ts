@@ -335,6 +335,18 @@ export class ApiService {
             );
   }
 
+  downloadFile(filename) {
+    return this.http.get(`${this.API_ENDPOINT}/files`, this.options)
+    .pipe(
+      map((result) => {
+        if (result['success']) {
+          return result['result'];
+        }
+        return [];
+      })
+    );
+  }
+
   queryDatarecords(kind) {
     return this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/datarecords/${kind}`, this.options)),
