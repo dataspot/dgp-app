@@ -1,10 +1,10 @@
 <app-container>
   <h1 class='theme-primary-fg' i18n>Processing Tasks</h1>
   <div class='controls'>
-    <div *ngIf='roles._.pipelinesNew'>
+    <div>
       <mat-form-field appearance="fill">
         <mat-label>Sort</mat-label>
-        <select (change) = 'selectChangeHandler($event)'>
+        <select (change) = 'sortByChanged($event)'>
           <option value = ''></option>
           <option value='created-date-up'>Creation Date</option>
         </select>

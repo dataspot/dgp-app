@@ -11,7 +11,7 @@ import { RolesService } from '../../roles.service';
 })
 export class PipelineListComponent implements OnInit {
 
-  selectedOption: string = '';
+  sortByField: string = '';
 
   pipelineSections = [];
 
@@ -65,13 +65,37 @@ export class PipelineListComponent implements OnInit {
     });
   }
 
-  selectChangeHandler (event: any) {
+  sortByChanged (event: any) {
     //update the ui
-    this.selectedOption = event.target.value;
-    if (this.selectedOption === 'created-date-up'){
-      this.pipelineSections.sort((a, b) => a.creation_date > b.creation_date ? 1 : -1);
+    this.sortByField = event.target.value;
+    if (this.sortByField === 'created-date-up'){
+      this.api.pipelines.pipe(
+        filter((x: any[]) => (!!x && x.length > 0)),
+        take(2)
+      ).subscribe((pipelines) =>{
+        if (pipelines) {
+          pipelines.sort((a, b) => a.creation_date > b.creation_date ? 1 : -1);
+          for (const pipeline of pipelines) {
+            pipeline.display = pipeline.name;
+          }
+      
+          this.pipelineSections = this.processSections(pipelines, 0);
+        }
+      });
     } else {
-      this.pipelineSections.sort((a, b) => a.creation_date < b.creation_date ? 1 : -1);
+      this.api.pipelines.pipe(
+        filter((x: any[]) => (!!x && x.length > 0)),
+        take(2)
+      ).subscribe((pipelines) =>{
+        if (pipelines) {
+          pipelines.sort((a, b) => a.creation_date < b.creation_date ? 1 : -1);
+          for (const pipeline of pipelines) {
+            pipeline.display = pipeline.name;
+          }
+      
+          this.pipelineSections = this.processSections(pipelines, 0);
+        }
+      });
     }
     
   }
