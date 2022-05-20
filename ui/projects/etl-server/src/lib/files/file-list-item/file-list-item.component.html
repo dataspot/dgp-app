@@ -5,5 +5,5 @@
     <div class='owner'>{{item.owner_name}}</div>
     <a *ngIf='updateable()' class='update' (click)='requestUpdate()' i18n>Update Contents</a>
     <a *ngIf='deletable()' class='delete' (click)='delete()' i18n>Delete</a>
-    <a class='download' (click)='download()' i18n>Download</a>
+    <a (click)='download()' i18n>Download</a>
 </div>

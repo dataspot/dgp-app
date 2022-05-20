@@ -64,6 +64,7 @@ export class ApiService {
                   this.currentUserProfile.next({profile: this.currentUser_, permissions: permission.permissions});
                   if (this.authorized_) {
                     this.token_.next(permission.token);
+                    console.log(permission.permissions.roles);
                     this.roles.setRoles(permission.permissions.roles || []);
                   } else {
                     this.router.navigate(['/']);
@@ -335,17 +336,6 @@ export class ApiService {
             );
   }
 
-  downloadFile(filename) {
-    return this.http.get(`${this.API_ENDPOINT}/files`, this.options)
-    .pipe(
-      map((result) => {
-        if (result['success']) {
-          return result['result'];
-        }
-        return [];
-      })
-    );
-  }
 
   queryDatarecords(kind) {
     return this.configuration.pipe(

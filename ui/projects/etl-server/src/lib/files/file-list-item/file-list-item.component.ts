@@ -53,6 +53,7 @@ export class FileListItemComponent implements OnInit {
     return this.roles._.filesDeleteAll || (this.roles._.filesDeleteOwn && this.item.owner_id === this.userId);
   }
 
+  
   delete() {
     this.confirmer.confirm(this.confirmer.ACTION_DELETE_FILE, this.item.filename)
       .pipe(
@@ -66,14 +67,12 @@ export class FileListItemComponent implements OnInit {
 
   download(){
 
-    this.confirmer.confirm(this.confirmer.ACTION_DELETE_FILE, this.item.filename)
-      .pipe(
-        filter((x) => x),
-        switchMap(() => this.api.downloadFile(this.item.filename))
-      ).subscribe((result) => {
-          console.log('deleted', result);
-          this.api.queryFiles();
-        });
+    this.api.token.subscribe((token) =>{
+      const url = this.api.API_ENDPOINT + '/file/?filename=' + this.item.filename 
+      + '&token=' + token;
+      window.open(url);
+     
+    });
     
   }
 
