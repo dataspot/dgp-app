@@ -46,8 +46,6 @@ export class EditPipelineComponent implements OnInit {
       this.item.params = this.item.params || {};
       this.item.schedule = this.item.schedule || '';
       this.item.kind = this.item.kind || '';
-      const d = new Date();
-      this.item.creation_date = d.getTime();
     });
   }
 

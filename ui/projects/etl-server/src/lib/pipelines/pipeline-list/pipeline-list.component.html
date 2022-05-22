@@ -1,15 +1,6 @@
 <app-container>
   <h1 class='theme-primary-fg' i18n>Processing Tasks</h1>
   <div class='controls'>
-    <div *ngIf='roles._.pipelinesNew'>
-      <mat-form-field appearance="fill">
-        <mat-label>Sort</mat-label>
-        <select (change) = 'selectChangeHandler($event)'>
-          <option value = ''></option>
-          <option value='created-date-up'>Creation Date</option>
-        </select>
-      </mat-form-field>
-    </div>
     <div *ngIf='roles._.pipelinesNew'><a routerLink='/edit/new' i18n>
       <i class="fas fa-plus-circle" aria-hidden="true"></i>
       New Processing Task

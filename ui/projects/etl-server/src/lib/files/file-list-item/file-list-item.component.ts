@@ -76,7 +76,7 @@ export class FileListItemComponent implements OnInit {
       const jwt = encodeURIComponent(token);
       
       const url = this.api.API_ENDPOINT + '/file?filename=' + filename
-      + '&jwt=' + jwt;
+                  + '&jwt=' + jwt;
       window.open(url);
      
     });

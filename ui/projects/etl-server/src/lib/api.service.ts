@@ -64,7 +64,6 @@ export class ApiService {
                   this.currentUserProfile.next({profile: this.currentUser_, permissions: permission.permissions});
                   if (this.authorized_) {
                     this.token_.next(permission.token);
-                    console.log(permission.permissions.roles);
                     this.roles.setRoles(permission.permissions.roles || []);
                   } else {
                     this.router.navigate(['/']);
