@@ -11,6 +11,7 @@ import { RolesService } from '../../roles.service';
 })
 export class PipelineListComponent implements OnInit {
 
+
   pipelineSections = [];
 
   constructor(public api: ApiService, public roles: RolesService,
@@ -47,6 +48,7 @@ export class PipelineListComponent implements OnInit {
         for (const pipeline of pipelines) {
           pipeline.display = pipeline.name;
         }
+    
         this.pipelineSections = this.processSections(pipelines, 0);
       }
     });
