@@ -11,7 +11,7 @@ import { RolesService } from '../../roles.service';
 })
 export class PipelineListComponent implements OnInit {
 
-  sortByField: string = '';
+  _selected = '';
 
   pipelineSections = [];
 
@@ -55,30 +55,48 @@ export class PipelineListComponent implements OnInit {
     });
     this.api.queryPipelines();
   }
-
-  executeSuccessful() {
-    this.confirmer.confirm(this.confirmer.ACTION_EXECUTE_ALL, null).pipe(
-      filter((x) => x),
-      switchMap(() => this.api.triggerPipelines('dgp_kind', true)),
-    ).subscribe((result) => {
-      console.log('EXECUTE SUCCESSFUL RESULT', result);
-    });
+  get selected() {
+    return this._selected;
   }
 
-  sortByChanged (event: any) {
-    //update the ui
-    this.sortByField = event.target.value;
-    if (this.sortByField === 'created-date-up'){
+  set selected(value) {
+    this._selected = value;
+    if (this._selected === 'created-at'){
       this.api.pipelines.pipe(
         filter((x: any[]) => (!!x && x.length > 0)),
         take(2)
       ).subscribe((pipelines) =>{
         if (pipelines) {
-          pipelines.sort((a, b) => a.creation_date > b.creation_date ? 1 : -1);
+          pipelines.sort((a, b) => a.created_at > b.created_at ? 1 : -1);
           for (const pipeline of pipelines) {
             pipeline.display = pipeline.name;
           }
-      
+          this.pipelineSections = this.processSections(pipelines, 0);
+        }
+      });
+    } else if (this._selected === 'updated-at'){
+      this.api.pipelines.pipe(
+        filter((x: any[]) => (!!x && x.length > 0)),
+        take(2)
+      ).subscribe((pipelines) =>{
+        if (pipelines) {
+          pipelines.sort((a, b) => a.updated_at > b.updated_at ? 1 : -1);
+          for (const pipeline of pipelines) {
+            pipeline.display = pipeline.name;
+          }
+          this.pipelineSections = this.processSections(pipelines, 0);
+        }
+      });
+    } else if (this._selected === 'name'){
+      this.api.pipelines.pipe(
+        filter((x: any[]) => (!!x && x.length > 0)),
+        take(2)
+      ).subscribe((pipelines) =>{
+        if (pipelines) {
+          pipelines.sort((a, b) => a.name > b.name ? 1 : -1);
+          for (const pipeline of pipelines) {
+            pipeline.display = pipeline.name;
+          }
           this.pipelineSections = this.processSections(pipelines, 0);
         }
       });
@@ -88,16 +106,23 @@ export class PipelineListComponent implements OnInit {
         take(2)
       ).subscribe((pipelines) =>{
         if (pipelines) {
-          pipelines.sort((a, b) => a.creation_date < b.creation_date ? 1 : -1);
+          pipelines.sort((a, b) => a.created_at < b.created_at ? 1 : -1);
           for (const pipeline of pipelines) {
             pipeline.display = pipeline.name;
           }
-      
           this.pipelineSections = this.processSections(pipelines, 0);
         }
       });
     }
-    
+  }
+
+  executeSuccessful() {
+    this.confirmer.confirm(this.confirmer.ACTION_EXECUTE_ALL, null).pipe(
+      filter((x) => x),
+      switchMap(() => this.api.triggerPipelines('dgp_kind', true)),
+    ).subscribe((result) => {
+      console.log('EXECUTE SUCCESSFUL RESULT', result);
+    });
   }
 
 }

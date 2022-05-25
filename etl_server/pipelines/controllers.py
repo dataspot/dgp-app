@@ -5,7 +5,6 @@ import os
 import json
 
 import slugify
-from flask import current_app
 
 from .models import Models
 from .cache import Cache
@@ -143,7 +142,6 @@ class Controllers():
             res['value']['status'] = status
         query_results['result'] = list(map(lambda x: dict(x.get('value'), owner=x.get('owner'), private=x.get('private'), 
                                     created_at=(x['created_at']).isoformat(), updated_at=(x.get('updated_at')).isoformat()), results))
-        current_app.logger.info(query_results)
         return query_results
 
     def query_pipeline(self, id, user=None, public=None):

@@ -4,9 +4,11 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Sort</mat-label>
-        <select (change) = 'sortByChanged($event)'>
+        <select [(ngModel)]='selected'>
           <option value = ''></option>
-          <option value='created-date-up'>Creation Date</option>
+          <option value='created-at'>Creation Date</option>
+          <option value='updated-at'>Updated Date</option>
+          <option value='name'>Name</option>
         </select>
       </mat-form-field>
     </div>
