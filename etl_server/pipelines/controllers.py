@@ -5,6 +5,7 @@ import os
 import json
 
 import slugify
+from flask import current_app
 
 from .models import Models
 from .cache import Cache
@@ -127,6 +128,7 @@ class Controllers():
             return '', ''
 
     def query_pipelines(self, user=None, public=None):
+        # assert(False)
         query_results = self.models.query()
         results = query_results.get('result', [])
         if user:
@@ -139,8 +141,9 @@ class Controllers():
             status = dict(status='didnt-run')
             status = statuses.get(res['key'], status)
             res['value']['status'] = status
-        query_results['result'] = list(map(lambda x: dict(x.get('value'), owner=x.get('owner'), private=x.get('private')), results))
-
+        query_results['result'] = list(map(lambda x: dict(x.get('value'), owner=x.get('owner'), private=x.get('private'), 
+                                    created_at=(x['created_at']).isoformat(), updated_at=(x.get('updated_at')).isoformat()), results))
+        current_app.logger.info(query_results)
         return query_results
 
     def query_pipeline(self, id, user=None, public=None):
