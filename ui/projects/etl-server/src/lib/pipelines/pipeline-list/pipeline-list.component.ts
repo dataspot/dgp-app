@@ -61,39 +61,13 @@ export class PipelineListComponent implements OnInit {
 
   set selected(value) {
     this._selected = value;
-    if (this._selected === 'created-at'){
+    if (this._selected !== '') {
       this.api.pipelines.pipe(
         filter((x: any[]) => (!!x && x.length > 0)),
         take(2)
       ).subscribe((pipelines) =>{
         if (pipelines) {
-          pipelines.sort((a, b) => a.created_at > b.created_at ? 1 : -1);
-          for (const pipeline of pipelines) {
-            pipeline.display = pipeline.name;
-          }
-          this.pipelineSections = this.processSections(pipelines, 0);
-        }
-      });
-    } else if (this._selected === 'updated-at'){
-      this.api.pipelines.pipe(
-        filter((x: any[]) => (!!x && x.length > 0)),
-        take(2)
-      ).subscribe((pipelines) =>{
-        if (pipelines) {
-          pipelines.sort((a, b) => a.updated_at > b.updated_at ? 1 : -1);
-          for (const pipeline of pipelines) {
-            pipeline.display = pipeline.name;
-          }
-          this.pipelineSections = this.processSections(pipelines, 0);
-        }
-      });
-    } else if (this._selected === 'name'){
-      this.api.pipelines.pipe(
-        filter((x: any[]) => (!!x && x.length > 0)),
-        take(2)
-      ).subscribe((pipelines) =>{
-        if (pipelines) {
-          pipelines.sort((a, b) => a.name > b.name ? 1 : -1);
+          pipelines.sort((a, b) => a[this._selected] > b[this._selected] ? 1 : -1);
           for (const pipeline of pipelines) {
             pipeline.display = pipeline.name;
           }
