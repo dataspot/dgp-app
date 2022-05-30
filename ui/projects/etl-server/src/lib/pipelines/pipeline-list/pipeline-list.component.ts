@@ -11,7 +11,7 @@ import { RolesService } from '../../roles.service';
 })
 export class PipelineListComponent implements OnInit {
 
-  _selected = '';
+  sortByField = '';
 
   pipelineSections = [];
 
@@ -55,38 +55,16 @@ export class PipelineListComponent implements OnInit {
     });
     this.api.queryPipelines();
   }
-  get selected() {
-    return this._selected;
+  get sortBySelected() {
+    return this.sortByField;
   }
 
-  set selected(value) {
-    this._selected = value;
-    if (this._selected !== '') {
-      this.api.pipelines.pipe(
-        filter((x: any[]) => (!!x && x.length > 0)),
-        take(2)
-      ).subscribe((pipelines) =>{
-        if (pipelines) {
-          pipelines.sort((a, b) => a[this._selected] > b[this._selected] ? 1 : -1);
-          for (const pipeline of pipelines) {
-            pipeline.display = pipeline.name;
-          }
-          this.pipelineSections = this.processSections(pipelines, 0);
-        }
-      });
+  set sortBySelected(value) {
+    this.sortByField = value;
+    if (this.sortByField !== 'last_created') {
+      this.pipelineSections.sort((a,b) => a.item[this.sortByField] > b.item[this.sortByField] ? 1 : -1);
     } else {
-      this.api.pipelines.pipe(
-        filter((x: any[]) => (!!x && x.length > 0)),
-        take(2)
-      ).subscribe((pipelines) =>{
-        if (pipelines) {
-          pipelines.sort((a, b) => a.created_at < b.created_at ? 1 : -1);
-          for (const pipeline of pipelines) {
-            pipeline.display = pipeline.name;
-          }
-          this.pipelineSections = this.processSections(pipelines, 0);
-        }
-      });
+      this.pipelineSections.sort((a,b) => a.item['created_at'] < b.item['created_at'] ? 1 : -1);
     }
   }
 

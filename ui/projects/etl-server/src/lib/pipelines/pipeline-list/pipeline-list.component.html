@@ -4,8 +4,8 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Sort</mat-label>
-        <select [(ngModel)]='selected'>
-          <option value = ''></option>
+        <select [(ngModel)]='sortBySelected'>
+          <option value = 'last_created'></option>
           <option value='created_at'>Creation Date</option>
           <option value='updated_at'>Updated Date</option>
           <option value='name'>Name</option>

@@ -127,7 +127,6 @@ class Controllers():
             return '', ''
 
     def query_pipelines(self, user=None, public=None):
-        # assert(False)
         query_results = self.models.query()
         results = query_results.get('result', [])
         if user:
