@@ -140,8 +140,8 @@ class Controllers():
             status = statuses.get(res['key'], status)
             res['value']['status'] = status
         query_results['result'] = list(map(lambda x: dict(x.get('value'), owner=x.get('owner'), private=x.get('private'), 
-                                    created_at=((x.get('created_at')).isoformat() if x.get('created_at') != None else x.get('created_at')), 
-                                    updated_at=((x.get('updated_at')).isoformat() if x.get('updated_at') != None else x.get('updated_at'))), results))
+                                    created_at=((x.get('created_at')).isoformat() if x.get('created_at') is not None else None), 
+                                    updated_at=((x.get('updated_at')).isoformat() if x.get('updated_at') is not None else None)), results))
         return query_results
 
     def query_pipeline(self, id, user=None, public=None):

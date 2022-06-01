@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { relativeTimeThreshold } from 'moment';
+import { pipe } from 'rxjs';
 import { filter, switchMap, take } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
 import { ConfirmerService } from '../../confirmer.service';
@@ -11,8 +13,9 @@ import { RolesService } from '../../roles.service';
 })
 export class PipelineListComponent implements OnInit {
 
-  sortByField = '';
+  sortByField = 'created_at';
 
+  pipelines = [];
   pipelineSections = [];
 
   constructor(public api: ApiService, public roles: RolesService,
@@ -50,7 +53,9 @@ export class PipelineListComponent implements OnInit {
           pipeline.display = pipeline.name;
         }
     
-        this.pipelineSections = this.processSections(pipelines, 0);
+        this.pipelines = pipelines;
+        this.pipelines.sort((a,b) => a[this.sortByField] > b[this.sortByField] ? 1 : -1);
+        this.pipelineSections = this.processSections(this.pipelines, 0);
       }
     });
     this.api.queryPipelines();
@@ -61,11 +66,8 @@ export class PipelineListComponent implements OnInit {
 
   set sortBySelected(value) {
     this.sortByField = value;
-    if (this.sortByField !== 'last_created') {
-      this.pipelineSections.sort((a,b) => a.item[this.sortByField] > b.item[this.sortByField] ? 1 : -1);
-    } else {
-      this.pipelineSections.sort((a,b) => a.item['created_at'] < b.item['created_at'] ? 1 : -1);
-    }
+    this.pipelines.sort((a,b) => a[this.sortByField] > b[this.sortByField] ? 1 : -1);
+    this.pipelineSections = this.processSections(this.pipelines, 0);
   }
 
   executeSuccessful() {
