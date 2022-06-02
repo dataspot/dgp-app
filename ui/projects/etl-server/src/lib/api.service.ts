@@ -335,6 +335,7 @@ export class ApiService {
             );
   }
 
+
   queryDatarecords(kind) {
     return this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/datarecords/${kind}`, this.options)),
