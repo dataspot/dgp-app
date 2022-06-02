@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { relativeTimeThreshold } from 'moment';
-import { pipe } from 'rxjs';
 import { filter, switchMap, take } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
 import { ConfirmerService } from '../../confirmer.service';
