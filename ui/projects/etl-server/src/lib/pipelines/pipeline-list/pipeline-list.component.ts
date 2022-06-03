@@ -64,7 +64,7 @@ export class PipelineListComponent implements OnInit {
 
   set sortBySelected(value) {
     this.sortByField = value;
-    this.pipelines.sort((a,b) => a[this.sortByField] > b[this.sortByField] ? 1 : -1);
+    this.pipelines.sort((a,b) => this.sortByField === 'updated_at' ? (a[this.sortByField] < b[this.sortByField] ? 1 : -1) : (a[this.sortByField] > b[this.sortByField] ? 1 : -1));
     this.pipelineSections = this.processSections(this.pipelines, 0);
   }
 
