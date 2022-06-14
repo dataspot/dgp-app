@@ -6,11 +6,26 @@
         gap: 16px;
         align-self: flex-end;
 
+        &.start {
+            margin: 16px;
+            margin-bottom: 0;
+            align-self: start;
+        }
+
         div {
             cursor: pointer;
             a {
                 text-decoration: none;
             }
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            gap: 4px;
+        }
+        select {
+            background-color: white;
+            border: 1px solid #888;
+            border-radius: 4px;
         }
     }
 }

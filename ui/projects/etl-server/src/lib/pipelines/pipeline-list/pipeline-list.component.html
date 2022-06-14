@@ -1,16 +1,6 @@
 <app-container>
   <h1 class='theme-primary-fg' i18n>Processing Tasks</h1>
   <div class='controls'>
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Sort</mat-label>
-        <select [(ngModel)]='sortBySelected'>
-          <option value='created_at'>Creation Date</option>
-          <option value='updated_at'>Updated Date</option>
-          <option value='name'>Name</option>
-        </select>
-      </mat-form-field>
-    </div>
     <div *ngIf='roles._.pipelinesNew'><a routerLink='/edit/new' i18n>
       <i class="fas fa-plus-circle" aria-hidden="true"></i>
       New Processing Task
@@ -19,6 +9,17 @@
       <i class="fas fa-check-double" aria-hidden="true"></i>
       Execute all Successful Tasks
     </div>  
+  </div>
+  <div class='controls start'>
+    <div>
+      <i class="fas fa-sort" aria-hidden="true"></i>
+      Sorting Order:
+      <select [(ngModel)]='sortBySelected'>
+        <option value='created_at' i18n>Creation Date</option>
+        <option value='updated_at' i18n>Updated Date</option>
+        <option value='name' i18n>Name</option>
+      </select>
+    </div>
   </div>
   <app-pipeline-list-section [root]='true' [sections]='pipelineSections'></app-pipeline-list-section> 
 </app-container>
