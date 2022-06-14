@@ -11,7 +11,9 @@ import { RolesService } from '../../roles.service';
 })
 export class PipelineListComponent implements OnInit {
 
+  sortByField = 'created_at';
 
+  pipelines = [];
   pipelineSections = [];
 
   constructor(public api: ApiService, public roles: RolesService,
@@ -49,10 +51,21 @@ export class PipelineListComponent implements OnInit {
           pipeline.display = pipeline.name;
         }
     
-        this.pipelineSections = this.processSections(pipelines, 0);
+        this.pipelines = pipelines;
+        this.pipelines.sort((a,b) => a[this.sortByField] > b[this.sortByField] ? 1 : -1);
+        this.pipelineSections = this.processSections(this.pipelines, 0);
       }
     });
     this.api.queryPipelines();
+  }
+  get sortBySelected() {
+    return this.sortByField;
+  }
+
+  set sortBySelected(value) {
+    this.sortByField = value;
+    this.pipelines.sort((a,b) => this.sortByField === 'updated_at' ? (a[this.sortByField] < b[this.sortByField] ? 1 : -1) : (a[this.sortByField] > b[this.sortByField] ? 1 : -1));
+    this.pipelineSections = this.processSections(this.pipelines, 0);
   }
 
   executeSuccessful() {

@@ -1,6 +1,16 @@
 <app-container>
   <h1 class='theme-primary-fg' i18n>Processing Tasks</h1>
   <div class='controls'>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Sort</mat-label>
+        <select [(ngModel)]='sortBySelected'>
+          <option value='created_at'>Creation Date</option>
+          <option value='updated_at'>Updated Date</option>
+          <option value='name'>Name</option>
+        </select>
+      </mat-form-field>
+    </div>
     <div *ngIf='roles._.pipelinesNew'><a routerLink='/edit/new' i18n>
       <i class="fas fa-plus-circle" aria-hidden="true"></i>
       New Processing Task
