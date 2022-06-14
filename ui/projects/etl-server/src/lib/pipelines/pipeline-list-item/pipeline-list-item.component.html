@@ -3,8 +3,16 @@
     <span [class]='item.status.status'>{{status}}</span>
 </div>
 <div class='kind'>{{((api.configuration | async).kinds_map[item.kind] || {display:item.kind}).display }}</div>
+<div class='date'>{{item.created_at.slice(0,10)}}</div>
+<div class='date'>{{item.updated_at.slice(0,10)}}</div>
 <div class='schedule'>{{((api.configuration | async).schedules_map[item.schedule] || {display:item.schedules}).display }}</div>
-<div class='delete'><a *ngIf='canDelete()' (click)='delete($event)' i18n>Delete</a></div>
-<div class='view-status'><a *ngIf='roles._.pipelinesStatusPublic' [routerLink]='"/status/" + item.id' i18n>View Status</a></div>
-<div class='edit'><a *ngIf='canEdit()' [routerLink]='"/edit/" + item.id' i18n>Edit</a></div>
+<div class='delete'><a *ngIf='canDelete()' (click)='delete($event)' i18n>
+    <i class='fas fa-trash' aria-hidden="true" title='Delete' title-i18n></i>
+</a></div>
+<div class='view-status'><a *ngIf='roles._.pipelinesStatusPublic' [routerLink]='"/status/" + item.id' i18n>
+    <i class='fas fa-heartbeat' aria-hidden="true" title='View Status' title-i18n></i>
+</a></div>
+<div class='edit'><a *ngIf='canEdit()' [routerLink]='"/edit/" + item.id' i18n>
+    <i class='fas fa-pencil-alt' aria-hidden="true" title='Edit' title-i18n></i>
+</a></div>
 <div class='view'><a *ngIf='item.result && item.result.view_url' [href]='item.result.view_url' target='_blank'><i class="far fa-eye"></i></a></div>
