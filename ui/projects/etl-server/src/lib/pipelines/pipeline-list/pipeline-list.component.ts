@@ -23,6 +23,15 @@ export class PipelineListComponent implements OnInit {
   processSections(pipelines, level) {
     const sections = {};
     const ret = [];
+    if (level === 0) {
+      pipelines.forEach((pipeline) => {
+        if (pipeline.originalDisplay) {
+          pipeline.display = pipeline.originalDisplay;
+        } else {
+          pipeline.originalDisplay = pipeline.display;
+        }
+      });
+    }
     for (const pipeline of pipelines) {
       const parts = pipeline.display.split('//');
       if (parts.length === 1) {
