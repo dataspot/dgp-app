@@ -22,10 +22,3 @@ class Models(ModelsBase):
 
     def __init__(self, connection_string=None):
         super().__init__(Base, DataRecord, connection_string)
-
-    def create_or_edit(self, key, value, user):
-        return super().create_or_edit(
-            key, value,
-            create_kw=dict(created_by=user, updated_by=user),
-            update_kw=dict(updated_by=user),
-        )
