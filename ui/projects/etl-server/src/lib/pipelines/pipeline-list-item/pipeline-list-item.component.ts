@@ -51,4 +51,7 @@ export class PipelineListItemComponent implements OnInit {
     return false;
   }
 
+  date(field) {
+    return this.item[field] ? this.item[field].slice(0, 10) : '-';
+  }
 }
