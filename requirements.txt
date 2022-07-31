@@ -9,7 +9,7 @@ python-slugify
 psycopg2-binary
 requests
 dgp-server>=0.0.91
-dgp>=0.0.95
+dgp>=0.0.96
 geocoder
 pyproj
 dataflows>=0.3.15
