@@ -44,6 +44,9 @@ def operator(name, params, pipeline):
         for k, v in params.items():
             if k.startswith('extra.'):
                 set_dots(params['dgpConfig'], k, v)
+        if params['dgpConfig']['extra']['metadata'].get('disabled') is True:
+            logging.info('DISABLED PIPELINE, NOT RUNNING')
+            return
         logging.info('\nCONFIGURATION:\n--------------\n%s', 
                      json.dumps(params['dgpConfig'], sort_keys=True, ensure_ascii=False, indent=2))
         yaml.dump(params['dgpConfig'], config_file)
