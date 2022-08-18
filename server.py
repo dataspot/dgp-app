@@ -2,6 +2,7 @@ import os
 import logging
 import json
 import requests
+import datetime
 
 from flask import Flask, redirect, send_file, Response, stream_with_context, request, abort
 from flask_cors import CORS
@@ -35,6 +36,18 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = '/tmp/sessions'
 app.config['SECRET_KEY'] = '-'
 session.init_app(app)
+
+
+# Encode datetimes properly
+class CustomJSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, datetime.date):
+            return obj.isoformat()
+        return json.JSONEncoder.default(self, obj)
+
+
+app.json_encoder = CustomJSONEncoder
+
 
 # Routes
 def proxy(base_url, prefix):
