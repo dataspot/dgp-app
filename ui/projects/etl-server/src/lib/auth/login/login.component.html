@@ -1,7 +1,16 @@
 <img src='assets/logo.png'/>
-<a class='login theme-primary-bg' [href]='login_href()' *ngIf='!api.authenticated' i18n>Login to the System</a>
-<h2 class='theme-primary-fg' *ngIf='api.authenticated && !api.authorized'>
-    <span i18n>You don't have access to this system</span><br/>
-    <span i18n>Please ask an administrator to grant {{api.currentUser.profile.email}} access</span><br/>
-    <a href='/logout' i18n>Logout</a>
-</h2>
+<ng-container *ngIf='api.finishedFlow'>
+    <h2 class='theme-primary-fg' *ngIf='api.authError'>
+        <span i18n>There was an error authenticating you to the system.</span><br/>
+        <span i18n>Please reload the page or try again later.</span><br/>
+    </h2>
+    <a class='login theme-primary-bg' [href]='login_href()' *ngIf='!api.authenticated && !api.authError' i18n>Login to the System</a>
+    <h2 class='theme-primary-fg' *ngIf='api.authenticated && !api.authorized'>
+        <span i18n>You don't have access to this system</span><br/>
+        <span i18n>Please ask an administrator to grant {{api.currentUser.profile.email}} access</span><br/>
+        <a href='/logout' i18n>Logout</a>
+    </h2>
+</ng-container>
+<ng-container *ngIf='!api.finishedFlow'>
+    <h2 class='theme-primary-fg'><img src='assets/loader.svg'/></h2>
+</ng-container>

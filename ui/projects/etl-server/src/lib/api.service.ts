@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
-import { BehaviorSubject, ReplaySubject, of } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, of, from } from 'rxjs';
 import { map, switchMap, catchError, filter, delay } from 'rxjs/operators';
 import { AuthService } from 'dgp-oauth2-ng';
 import { Router } from '@angular/router';
@@ -31,6 +31,8 @@ export class ApiService {
   private providers_: any = null;
   private authenticated_ = false;
   private authorized_ = false;
+  private authError_ = false;
+  private finishedFlow_ = false;
   private currentUser_ = null;
 
   constructor(private http: HttpClient, private auth: AuthService, private router: Router,
@@ -43,12 +45,18 @@ export class ApiService {
         jwtQueryParam: 'jwt',
         profilePagePath: '/p/'
       });
-      this.auth.check(window.location.href)
-        .subscribe((authInfo) => {
+      this.auth.check(window.location.href).pipe(
+        catchError((err, obs) => {
+          this.authError_ = true;
+          this.finishedFlow_ = true;
+          return from([]);
+        }),
+      ).subscribe((authInfo) => {
           if (authInfo) {
             this.providers_ = authInfo.providers;
             this.authenticated_ = authInfo.authenticated;
             if (!this.authenticated_) {
+              this.finishedFlow_ = true;
               this.router.navigate(['/'], {queryParams: {next: window.location.pathname}});
             } else {
               this.currentUser_ = authInfo;
@@ -61,6 +69,7 @@ export class ApiService {
               this.auth.permission('etl-server')
                 .subscribe((permission: any) => {
                   this.authorized_ = permission.permissions && permission.permissions.level;
+                  this.finishedFlow_ = true;
                   this.currentUserProfile.next({profile: this.currentUser_, permissions: permission.permissions});
                   if (this.authorized_) {
                     this.token_.next(permission.token);
@@ -101,6 +110,14 @@ export class ApiService {
 
   get httpOptions(): any {
     return this.options;
+  }
+
+  get finishedFlow() {
+    return this.finishedFlow_;
+  }
+
+  get authError() {
+    return this.authError_;
   }
 
   createMap(obj, field, target) {
