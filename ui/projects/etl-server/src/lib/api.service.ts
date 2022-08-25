@@ -48,6 +48,7 @@ export class ApiService {
       this.auth.check(window.location.href).pipe(
         catchError((err, obs) => {
           this.authError_ = true;
+          console.log('AUTH ERROR', err);
           this.finishedFlow_ = true;
           return from([]);
         }),
@@ -56,6 +57,7 @@ export class ApiService {
             this.providers_ = authInfo.providers;
             this.authenticated_ = authInfo.authenticated;
             if (!this.authenticated_) {
+              console.log('NO AUTH');
               this.finishedFlow_ = true;
               this.router.navigate(['/'], {queryParams: {next: window.location.pathname}});
             } else {
@@ -71,6 +73,7 @@ export class ApiService {
                   this.authorized_ = permission.permissions && permission.permissions.level;
                   this.currentUserProfile.next({profile: this.currentUser_, permissions: permission.permissions});
                   if (this.authorized_) {
+                    console.log('AUTHORIZED', permission.permissions);
                     this.finishedFlow_ = true;
                     this.token_.next(permission.token);
                     this.roles.setRoles(permission.permissions.roles || []);
