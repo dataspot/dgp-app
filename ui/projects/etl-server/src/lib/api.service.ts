@@ -69,9 +69,9 @@ export class ApiService {
               this.auth.permission('etl-server')
                 .subscribe((permission: any) => {
                   this.authorized_ = permission.permissions && permission.permissions.level;
-                  this.finishedFlow_ = true;
                   this.currentUserProfile.next({profile: this.currentUser_, permissions: permission.permissions});
                   if (this.authorized_) {
+                    this.finishedFlow_ = true;
                     this.token_.next(permission.token);
                     this.roles.setRoles(permission.permissions.roles || []);
                   } else {
