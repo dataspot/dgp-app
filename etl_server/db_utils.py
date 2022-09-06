@@ -14,7 +14,12 @@ from sqlalchemy.orm.session import sessionmaker, Session
 ENGINES = dict()
 
 def get_engine(connection_string):
-    return ENGINES.setdefault(connection_string, create_engine(connection_string))
+    return ENGINES.setdefault(
+        connection_string,
+        create_engine(
+            connection_string, pool_size=2, max_overflow=5
+        )
+    )
 
 # ## Json as string Type
 class JsonType(types.TypeDecorator):
