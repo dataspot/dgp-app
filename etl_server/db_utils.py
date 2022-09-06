@@ -13,6 +13,9 @@ from sqlalchemy.orm.session import sessionmaker, Session
 
 ENGINES = dict()
 
+def get_engine(connection_string):
+    return ENGINES.setdefault(connection_string, create_engine(connection_string))
+
 # ## Json as string Type
 class JsonType(types.TypeDecorator):
     impl = types.Unicode
@@ -43,7 +46,7 @@ class ModelsBase():
         connection_string = connection_string or os.environ.get('DATABASE_URL')
         assert connection_string is not None,\
             "No database defined, please set your DATABASE_URL env-var"
-        self._sql_engine = ENGINES.setdefault(connection_string, create_engine(connection_string))
+        self._sql_engine = get_engine(connection_string)
         self._sql_session = None
         self._cls = cls
         base.metadata.create_all(self._sql_engine)

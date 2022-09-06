@@ -16,6 +16,7 @@ from etl_server.files.blueprint import make_blueprint as files_blueprint
 from etl_server.taxonomies.blueprint import make_blueprint as taxonomies_blueprint
 from etl_server.datarecords.blueprint import make_blueprint as datarecords_blueprint
 from etl_server.permissions import check_permission, Permissions
+from etl_server.db_utils import get_engine
 from dgp_oauth2 import make_blueprint as auth_blueprint
 
 from server_extra import extra_server_init
@@ -108,8 +109,9 @@ app.register_blueprint(
     ),
     url_prefix='/api/'
 )
+auth_connection_string = os.environ.get('AUTH_DATABASE_URL') or os.environ.get('DATABASE_URL')
 app.register_blueprint(
-    auth_blueprint(os.environ.get('EXTERNAL_ADDRESS')),
+    auth_blueprint(os.environ.get('EXTERNAL_ADDRESS'), engine=get_engine(auth_connection_string)),
     url_prefix='/auth/'
 )
 
