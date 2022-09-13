@@ -83,7 +83,8 @@
                   "with": "projects/ui/src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "localize": ["en", "he"]
             },
             "wpdx": {
               "fileReplacements": [
@@ -147,6 +148,18 @@
               "projects/ui/src/styles.less"
             ],
             "scripts": []
+          }
+        }
+      },
+      "i18n": {
+        "sourceLocale": {
+          "code": "en",
+          "baseHref": "/en/"
+        },
+        "locales": {
+          "he": {
+            "translation": "projects/ui/src/locales/messages.he.xlf",
+            "baseHref": "/he/"
           }
         }
       }

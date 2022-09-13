@@ -1,7 +1,59 @@
-<?xml version="1.0" ?><xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file datatype="plaintext" original="ng2.template" source-language="en" target-language="he">
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="he">
     <body>
-      <trans-unit datatype="html" id="f92895f3d564c7ba4c773247e509cc100b72de0b">
+      <trans-unit id="8018229838186818165" datatype="html">
+        <source>There was an error authenticating you to the system.</source>
+        <target>היתה שגיאה באימות הזהות שלך במערכת.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/auth/login/login.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5755872489213013335" datatype="html">
+        <source>Please reload the page or try again later.</source>
+        <target>אנא רעננו את העמוד ונסו שוב מאוחר יותר.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/auth/login/login.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4441935953754100861" datatype="html">
+        <source>Login to the System</source>
+        <target>כניסה למערכת</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/auth/login/login.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2085557860153581814" datatype="html">
+        <source>You don't have access to this system</source>
+        <target>אין לך הרשאה לגשת למערכת</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/auth/login/login.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="449889879327088343" datatype="html">
+        <source>Please ask an administrator to grant <x id="INTERPOLATION" equiv-text="{{api.currentUser.profile.email}}"/> access</source>
+        <target>יש לבקש ממנהל המערכת להעניק ל-<x id="INTERPOLATION" equiv-text="{{api.currentUser.profile.email}}"/> גישה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/auth/login/login.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3797778920049399855" datatype="html">
+        <source>Logout</source>
+        <target>התנתקות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/auth/login/login.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/dashboard/dashboard/dashboard.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4350606298919548926" datatype="html">
         <source>Would you really like to</source>
         <target>האם באמת תרצו</target>
         <context-group purpose="location">
@@ -9,23 +61,7 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="d7b35c384aecd25a516200d6921836374613dfe7">
-        <source>Cancel</source>
-        <target>ביטול</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
-          <context context-type="linenumber">13</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="68e710782ccb5398b3acb8844caf0b199da2c3da">
-        <source>Confirm</source>
-        <target>אישור</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="c38ee97a7403dd14fbd31038d04806f525a260d5">
+      <trans-unit id="3526497305935365833" datatype="html">
         <source>delete the user</source>
         <target>למחוק את המשתמש</target>
         <context-group purpose="location">
@@ -33,7 +69,7 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="b8e06762f8f6491bba96ed33445c4dc4bcb7b6c1">
+      <trans-unit id="1303260283978493896" datatype="html">
         <source>delete the task</source>
         <target>למחוק את המשימה</target>
         <context-group purpose="location">
@@ -41,7 +77,7 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="9ad9c146d2386aeffa86a55ec88e5bb3ed7b8ea5">
+      <trans-unit id="1506327206940202891" datatype="html">
         <source>delete the file</source>
         <target>למחוק את הקובץ</target>
         <context-group purpose="location">
@@ -49,7 +85,7 @@
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="cea35ebc7aa2b48bd7432313c927c447d730e495">
+      <trans-unit id="6778191506690277759" datatype="html">
         <source>delete the record</source>
         <target>למחוק את הרשומה</target>
         <context-group purpose="location">
@@ -57,391 +93,39 @@
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="b33555ba1a716596ffc0c63797516daf3841bfcc">
-        <source>Welcome, <x equiv-text="{{profile.name}}" id="INTERPOLATION"/>!</source>
-        <target>שלום, <x equiv-text="{{profile.name}}" id="INTERPOLATION"/>!</target>
+      <trans-unit id="1834150735555222686" datatype="html">
+        <source>re-execute all successful tasks</source>
+        <target>הרצה מחדש של כל המשימות שהצליחו</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/dashboard/dashboard/dashboard.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="bb694b49d408265c91c62799c2b3a7e3151c824d">
-        <source>Logout</source>
-        <target>התנתקות</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/dashboard/dashboard/dashboard.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="456039a348199f1569bfa2737fec14d2da77b566">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/> Save <x equiv-text="{def.display}} " id="INTERPOLATION"/> </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/> שמירת <x equiv-text="{def.display}} " id="INTERPOLATION"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/datarecords/data-record-edit-inner/data-record-edit-inner.component.html</context>
-          <context context-type="linenumber">6,8</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="fbd41584a74dd74018a4522f5eb96bdd6c929133">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/> Delete <x equiv-text="{def.display}} " id="INTERPOLATION"/> </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/> מחיקת <x equiv-text="{def.display}} " id="INTERPOLATION"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/datarecords/data-record-edit-inner/data-record-edit-inner.component.html</context>
-          <context context-type="linenumber">10,12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="7a9aa7160363f6cebc889b3ec64fc298d95ff680">
-        <source>Edit <x equiv-text="{{def.display}}" id="INTERPOLATION"/></source>
-        <target>עריכת <x equiv-text="{{def.display}}" id="INTERPOLATION"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/datarecords/data-record-edit/data-record-edit.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="d9555a3f0224cb36da6d2f3b53152802f36b3984">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;         " id="CLOSE_ITALIC_TEXT"/> Save </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;         " id="CLOSE_ITALIC_TEXT"/>שמירה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
-          <context context-type="linenumber">3,5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="195928855a19a1698cf08fefa5f7a5af286ed552">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;         " id="CLOSE_ITALIC_TEXT"/> Save and Submit for Approval </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;         " id="CLOSE_ITALIC_TEXT"/>שמירה והגשה ואישור</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
-          <context context-type="linenumber">7,9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="c96d073d216105bd493d66dda9babc4673e74f5c">
-        <source> Please select a data source </source>
-        <target>נא לבחור מקור מידע</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
-          <context context-type="linenumber">11,12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="88fb766f026f4190a0b9c5dcdc71f423ee34804c">
-        <source> Data is processing... </source>
-        <target>המידע מעובד כרגע...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
-          <context context-type="linenumber">14,15</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="48a4fabba28ffa598619151e3ed3cc1cd5089e7f">
-        <source> Mapping completed successfully, click to submit data for approval </source>
-        <target>המיפוי הסתיים בהצלחה, לחצו לשליחת המשימה לאישור </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
-          <context context-type="linenumber">17,18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="33a0e732543e36fbfc9e72fcf8a26a8340ba5839">
-        <source> Mapping completed successfully, click save to proceed </source>
-        <target>המיפוי הסתיים בהצלחה, לחצו על ״שמירה״ להמשך</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
-          <context context-type="linenumber">20,21</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="449ef49929e67b752f423dbf59925ad6a5f767e4">
-        <source> Mapping is still incomplete, you can save and continue editing later </source>
-        <target>המיפוי עדיין לא הסתיים, אפשר לשמור ולהמשיך את העריכה אחר כך</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
-          <context context-type="linenumber">23,24</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="acedafdc504ff2e406b27b675ab672f057c03e3f">
-        <source> Mapping completed with errors, you can save and continue editing later </source>
-        <target>המיפוי הסתיים עם שגיאות, אפשר לשמור ולהמשיך את העבודה אחר כך </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
-          <context context-type="linenumber">26,27</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="9af5dc91b82c4c7b6248c3b9155cccbce94d3671">
-        <source>Data Import Workbench</source>
-        <target>אשף הזנת המידע</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench/dgp-workbench.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="f32a758af13ac488ca066a9fba4eca2f9856fc8b">
-        <source>Edit Task</source>
-        <target>עריכת משימה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="d1b2b5aacf16f34f286e2ab52f4f45a2d3673132">
-        <source>Task Name</source>
-        <target>שם המשימה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="eec715de352a6b114713b30b640d319fa78207a0">
-        <source>Description</source>
-        <target>תיאור</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="1142d1e241e766713838ec7055c1b912ef9a0d7f">
-        <source>Kind</source>
-        <target>סוג</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="a96516c8e7ecc1da471bcb31ac0a79663babc94a">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;           " id="CLOSE_ITALIC_TEXT"/> Save Task </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;           " id="CLOSE_ITALIC_TEXT"/>שמירת המשימה</target>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Cancel</source>
+        <target>ביטול</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">41,43</context>
+          <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="4a4f46a2dcec36bd5c8c371ceee55c2226dec27f">
-        <source>Schedule</source>
-        <target>תדירות ריצה</target>
+      <trans-unit id="9178182467454450952" datatype="html">
+        <source>Confirm</source>
+        <target>אישור</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="sourcefile">projects/etl-server/src/lib/components/confirmer/confirmer.component.html</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="1ad0ce40a1b15b5a1b2d1abd2dafdd90a84f722e">
-        <source>Visibility</source>
-        <target>נראות</target>
+      <trans-unit id="2418435682405773380" datatype="html">
+        <source>Welcome, <x id="INTERPOLATION" equiv-text="{{profile.name}}"/>!</source>
+        <target>שלום, <x id="INTERPOLATION" equiv-text="{{profile.name}}"/>!</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="b93fa66edf3e25118f6e5e54e346d69dd21d2924">
-        <source>Only Visible to Me</source>
-        <target>גלוי רק עבורי</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">31</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="d2bbde256384177500ec0af8634076e658532f7c">
-        <source>Publicly Visible</source>
-        <target>כולם יכולים לראות</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="06dafb1064c3bb38a483b57273cd24abee858d7f">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-cogs&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;           " id="CLOSE_ITALIC_TEXT"/> Save &amp; Go to Workbench </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-cogs&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;           " id="CLOSE_ITALIC_TEXT"/>שמירה ומעבר לאשף הזנת המידע</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">37,39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="ea163ddd2beff778394f7b32754fa3b283019d40">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;           " id="CLOSE_ITALIC_TEXT"/> Delete Task </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;           " id="CLOSE_ITALIC_TEXT"/>מחיקת המשימה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
-          <context context-type="linenumber">45,47</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="82ad3e492e87e79930fda5f5a22ef9ec043d1006">
-        <source>Update Contents</source>
-        <target>עדכון תוכן הקובץ </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-list-item/file-list-item.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="826b25211922a1b46436589233cb6f1a163d89b7">
-        <source>Delete</source>
-        <target>מחיקה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-list-item/file-list-item.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="0cb32e637ad6d9357b0358c26db3bd532a038d1c">
-        <source>Select File...</source>
-        <target>בחירת קובץ...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-uploader/file-uploader.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="684c86f5c95b29c67288eb7b0c982809ed1746db">
-        <source>File upload successful</source>
-        <target>העלאת קובץ הצליחה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-uploader/file-uploader.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="d9dd77d9dc27dc17b4651bad3b8179f1710e7c8d">
-        <source>Failed to upload file</source>
-        <target>שגיאה בהעלאת הקובץ</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-uploader/file-uploader.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="51e74c4b6ccfc5f3c369d35cc81f496a3834616c">
-        <source>Source Data</source>
-        <target>קבצי מקור</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="94b45bdf76458c57291180a3241a2e4dbed59ce8">
-        <source><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='alpha'&quot; [class.fa-square]=&quot;sort!=='alpha'&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;       " id="CLOSE_ITALIC_TEXT"/> Sort Alphabetically </source>
-        <target><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='alpha'&quot; [class.fa-square]=&quot;sort!=='alpha'&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;       " id="CLOSE_ITALIC_TEXT"/>מיון אלפביתי</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
-          <context context-type="linenumber">11,13</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="4681343d7298aed522ac848835c6b4dbe8dc91c5">
-        <source><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='date'&quot; [class.fa-square]=&quot;sort!=='date'&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;       " id="CLOSE_ITALIC_TEXT"/> Sort by Update Date </source>
-        <target><x equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='date'&quot; [class.fa-square]=&quot;sort!=='date'&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;       " id="CLOSE_ITALIC_TEXT"/>מיון לפי מועד עדכון אחרון</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
-          <context context-type="linenumber">15,17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="8068affd400d2ed2e9f4ca7ee6b2f67afaec46af">
-        <source><x equiv-text="&lt;i class='far' [class.fa-check-square]='justMine' [class.fa-square]='!justMine'&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;       " id="CLOSE_ITALIC_TEXT"/> Show only My Files </source>
-        <target><x equiv-text="&lt;i class='far' [class.fa-check-square]='justMine' [class.fa-square]='!justMine'&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;       " id="CLOSE_ITALIC_TEXT"/>הצגת רק הקבצים שלי</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
-          <context context-type="linenumber">19,21</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="fba1fd60f3d301bb3d99e585d32eeed68db0a7e3">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/> Upload Data File</source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/>העלאת קובץ מקור</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
-          <context context-type="linenumber">4,5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="f65253954b66e929a8b4d5ecaf61f9129f8cec64">
-        <source>Dashboard</source>
-        <target>לוח הבקרה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/layout/header/header.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="5dba74deb5622b78f497c8b008a1ec2f9cd252b9">
-        <source>Processing Tasks</source>
-        <target>משימות לעיבוד</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/layout/header/header.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="6ad31729632818476420bb0f698d617436263675">
-        <source>User Management</source>
-        <target>ניהול משתמשים</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/layout/header/header.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="c651a5f519187e63192462480dc8db17f2394d41">
-        <source>Taxonomies</source>
-        <target>טקסונומיות</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/layout/header/header.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="63fdf6d19350fbbfc24f9835860dc5d8be7a395a">
-        <source>Login to the System</source>
-        <target>כניסה למערכת</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/auth/login/login.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="f614ff91c76248acf13349a1286ea5e7a49b7260">
-        <source>You don't have access to this system</source>
-        <target>אין לך הרשאה לגשת למערכת</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/auth/login/login.component.html</context>
+          <context context-type="sourcefile">projects/etl-server/src/lib/dashboard/dashboard/dashboard.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="68ed59a91bdcec18a6d09f40bbb841ba6ab75e9d">
-        <source>Please ask an administrator to grant <x equiv-text="{{api.currentUser.profile.email}}" id="INTERPOLATION"/> access</source>
-        <target>יש לבקש ממנהל המערכת להעניק ל-<x equiv-text="{{api.currentUser.profile.email}}" id="INTERPOLATION"/> גישה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/auth/login/login.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="cff1428d10d59d14e45edec3c735a27b5482db59">
-        <source>Name</source>
-        <target>שם</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="81b97b8ea996ad1e4f9fca8415021850214884b1">
-        <source>Status</source>
-        <target>סטטוס</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="030b4423b92167200e39519599f9b863b4f7c62c">
-        <source>Actions</source>
-        <target>פעולות</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="03a5668a6a5c0ee849df66c0e963fe64d53253e4">
-        <source>View Status</source>
-        <target>מצב נוכחי</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-item/pipeline-list-item.component.html</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="28f86ffd419b869711aa13f5e5ff54be6d70731c">
-        <source>Edit</source>
-        <target>עריכה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-item/pipeline-list-item.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="f5ab45f24b27ec1ae726ef98086b97c1762ea4fd">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/> New Processing Task </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/>משימת עיבוד חדשה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list/pipeline-list.component.html</context>
-          <context context-type="linenumber">4,6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="172e4481c051172cd8483faa4bf5efe3ec7443fe">
+      <trans-unit id="8039100101677937846" datatype="html">
         <source>Total Tasks</source>
         <target>סה״כ משימות </target>
         <context-group purpose="location">
@@ -449,7 +133,7 @@
           <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="0b830f91d2ffb261e8c4a50bde56025d623e41b9">
+      <trans-unit id="1617237556407973497" datatype="html">
         <source>Successful Tasks</source>
         <target>משימות מוצלחות</target>
         <context-group purpose="location">
@@ -457,7 +141,7 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="5b1435a5e747660acec691e63771b56d5fc1f92c">
+      <trans-unit id="6769416054008909611" datatype="html">
         <source>Failed Tasks</source>
         <target>משימות תקולות</target>
         <context-group purpose="location">
@@ -465,7 +149,369 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="e1af5bf943763ecb9bf16b1f0696fa5d759f656e">
+      <trans-unit id="511650065258068376" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Save <x id="INTERPOLATION" equiv-text="{{def.display}}"/> </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>שמירה<x id="INTERPOLATION" equiv-text="{{def.display}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/datarecords/data-record-edit-inner/data-record-edit-inner.component.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1838985098769909279" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Delete <x id="INTERPOLATION" equiv-text="{{def.display}}"/> </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>מחיקה<x id="INTERPOLATION" equiv-text="{{def.display}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/datarecords/data-record-edit-inner/data-record-edit-inner.component.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3862497674553063473" datatype="html">
+        <source>Edit <x id="INTERPOLATION" equiv-text="{{def.display}}"/></source>
+        <target>עריכת <x id="INTERPOLATION" equiv-text="{{def.display}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/datarecords/data-record-edit/data-record-edit.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7202967877694913519" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> New <x id="INTERPOLATION" equiv-text="{{def.display}}"/>
+</source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>הוספת <x id="INTERPOLATION" equiv-text="{{def.display}}"/>
+</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/datarecords/data-record-list-inner/data-record-list-inner.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2250439794776119473" datatype="html">
+        <source>Update Contents</source>
+        <target>עדכון תוכן הקובץ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-list-item/file-list-item.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7022070615528435141" datatype="html">
+        <source>Delete</source>
+        <target>מחיקה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-list-item/file-list-item.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/users/user-list-item/user-list-item.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3099741642167775297" datatype="html">
+        <source>Download</source>
+        <target>הורדה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-list-item/file-list-item.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1766434760077060350" datatype="html">
+        <source>Select File...</source>
+        <target>בחירת קובץ...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-uploader/file-uploader.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5307840393032670105" datatype="html">
+        <source>File upload successful</source>
+        <target>העלאת קובץ הצליחה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-uploader/file-uploader.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8292049402920480075" datatype="html">
+        <source>Failed to upload file</source>
+        <target>שגיאה בהעלאת הקובץ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/file-uploader/file-uploader.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="224973670174608722" datatype="html">
+        <source>Source Data</source>
+        <target>קבצי מקור</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/layout/header/header.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7786168448834297270" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Upload Data File</source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>העלאת קובץ מקור</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7911409798011637673" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='alpha'&quot; [class.fa-square]=&quot;sort!=='alpha'&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Sort Alphabetically </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='alpha'&quot; [class.fa-square]=&quot;sort!=='alpha'&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>מיון אלפביתי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9053742614487608113" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='date'&quot; [class.fa-square]=&quot;sort!=='date'&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Sort by Update Date </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class='far' [class.fa-check-square]=&quot;sort==='date'&quot; [class.fa-square]=&quot;sort!=='date'&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>מיון לפי מועד עדכון אחרון</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4654828306849972486" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class='far' [class.fa-check-square]='justMine' [class.fa-square]='!justMine'&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Show only My Files </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class='far' [class.fa-check-square]='justMine' [class.fa-square]='!justMine'&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>הצגת רק הקבצים שלי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/files/files/files.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6570363013146073520" datatype="html">
+        <source>Dashboard</source>
+        <target>לוח הבקרה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/layout/header/header.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="67437103674323140" datatype="html">
+        <source>Processing Tasks</source>
+        <target>משימות לעיבוד</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/layout/header/header.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list/pipeline-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2550377588620126747" datatype="html">
+        <source>User Management</source>
+        <target>ניהול משתמשים</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/layout/header/header.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3269454263251484050" datatype="html">
+        <source>Taxonomies</source>
+        <target>טקסונומיות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/layout/header/header.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomies/taxonomies.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="922482600342048186" datatype="html">
+        <source>Edit Task</source>
+        <target>עריכת משימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5832080105961841419" datatype="html">
+        <source>Task Name</source>
+        <target>שם המשימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
+        <target>תיאור</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6599752784987327249" datatype="html">
+        <source>Kind</source>
+        <target>סוג</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5433782699501161466" datatype="html">
+        <source>Schedule</source>
+        <target>תדירות ריצה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8271357500216966879" datatype="html">
+        <source>Visibility</source>
+        <target>נראות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="574713647002195094" datatype="html">
+        <source>Only Visible to Me</source>
+        <target>גלוי רק עבורי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5387106119312480153" datatype="html">
+        <source>Publicly Visible</source>
+        <target>כולם יכולים לראות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5559457187473843390" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-cogs&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Save &amp; Go to Workbench </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-cogs&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>שמירה ומעבר לאשף הזנת המידע</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6002469443767467539" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Save Task </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>שמירת המשימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1828032584650146312" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Delete Task </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>מחיקת המשימה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/edit-pipeline/edit-pipeline.component.html</context>
+          <context context-type="linenumber">45,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <target>שם</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list/pipeline-list.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5611592591303869712" datatype="html">
+        <source>Status</source>
+        <target>סטטוס</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4207916966377787111" datatype="html">
+        <source>Created</source>
+        <target>יצירה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7239750919884229270" datatype="html">
+        <source>Updated</source>
+        <target>עדכון</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3193976279273491157" datatype="html">
+        <source>Actions</source>
+        <target>פעולות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-headers/pipeline-list-headers.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5886050965042785601" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="s fa-trash' aria-hidden=&quot;true&quot; title='Delete' title-i18n&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/a&gt;&lt;/div&gt; &lt;div c"/></source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="s fa-trash' aria-hidden=&quot;true&quot; title='Delete' title-i18n&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/a&gt;&lt;/div&gt; &lt;div c"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-item/pipeline-list-item.component.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-item/pipeline-list-item.component.html</context>
+          <context context-type="linenumber">13,15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list-item/pipeline-list-item.component.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4174314753467395827" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> New Processing Task </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>משימת עיבוד חדשה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list/pipeline-list.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7732041675260260834" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-check-double&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Execute all Successful Tasks </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-check-double&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>הרצת כל המשימות שהצליחו</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list/pipeline-list.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6004681856910260407" datatype="html">
+        <source>Creation Date</source>
+        <target>זמן יצירה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list/pipeline-list.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8047377907322802891" datatype="html">
+        <source>Updated Date</source>
+        <target>זמן עדכון</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-list/pipeline-list.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6512937020634896438" datatype="html">
         <source>Task Status</source>
         <target>מצב המשימה</target>
         <context-group purpose="location">
@@ -473,7 +519,7 @@
           <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="146fc55eb81b46a3bd2a0e45e27525e3bef861eb">
+      <trans-unit id="3224166355436674619" datatype="html">
         <source>Current Status :</source>
         <target>מצב נוכחי:</target>
         <context-group purpose="location">
@@ -481,15 +527,7 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="dff56d40e1e393733851acd174c7abd3b3da3669">
-        <source>Last Execution Status :</source>
-        <target>מועד ריצה אחרון:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-status/pipeline-status.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="11395038e214316d3eabe1c40945e6f23a9e0720">
+      <trans-unit id="5165268758705767723" datatype="html">
         <source>Started:</source>
         <target>התחילה:</target>
         <context-group purpose="location">
@@ -497,7 +535,7 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="896ab5de5eb290aca3298bac050f3ceac4f73401">
+      <trans-unit id="1996063246077980706" datatype="html">
         <source>Finished:</source>
         <target>סיימה:</target>
         <context-group purpose="location">
@@ -505,7 +543,7 @@
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="040edd8041e100f1eff2f282b545b7992b2928fe">
+      <trans-unit id="209530173633284241" datatype="html">
         <source>Took:</source>
         <target>משך:</target>
         <context-group purpose="location">
@@ -513,455 +551,91 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="8fb0b1fd760321b4065a951bcd9c0facdd30c065">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-pencil-alt&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/> Edit Task </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-pencil-alt&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/>עריכת משימה</target>
+      <trans-unit id="5350683099864162401" datatype="html">
+        <source>Last Execution Status :</source>
+        <target>תוצאת הרצה אחרונה:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-status/pipeline-status.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5412865782042792123" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-pencil-alt&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Edit Task </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-pencil-alt&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>עריכת משימה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-status/pipeline-status.component.html</context>
           <context context-type="linenumber">25,27</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="8236b07b9d84980256438c14072d629ab1e0f1a6">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-redo-alt&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/> Refresh Status </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-redo-alt&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/>רענון העמוד</target>
+      <trans-unit id="3735031539256192115" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-redo-alt&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Refresh Status </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-redo-alt&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>רענון העמוד</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-status/pipeline-status.component.html</context>
           <context context-type="linenumber">29,31</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="93ccfef7186412061548cf9b465371be87e1f55a">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-play&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/> Trigger Task </source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-play&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;     " id="CLOSE_ITALIC_TEXT"/>הרצת המשימה</target>
+      <trans-unit id="3579003407321880400" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-play&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Trigger Task </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-play&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>הרצת המשימה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/pipelines/pipeline-status/pipeline-status.component.html</context>
           <context context-type="linenumber">33,35</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="a442a58dfcd5f310b32bf8cdb92272adf8824ea4">
-        <source>rows</source>
-        <target>שורות</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results-tab-selector/results-tab-selector.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="9b56c803ddb707f4bb217bf061fa63809be9902d">
-        <source>Data Sample</source>
-        <target>דגימת מידע</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results/results.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="451734b402f5500ecc249116ac24b1906e6463f3">
-        <source>Original Data</source>
-        <target>המידע המקורי</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results/results.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="39a0a35aea988a73355e29027f3a0b69a6f3d676">
-        <source>Mapped Data</source>
-        <target>מידע לאחר המיפוי</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results/results.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="eb34bd9958bc4e4ca3baf00f1e7b40f9b748bb3e">
-        <source>Transformed Data</source>
-        <target>המידע המעובד </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results/results.component.html</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="7abc91025875e601b4ee1458d88cf856764e187a">
-        <source>Data Structure</source>
-        <target>מבנה הקובץ</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-structure/step-extract-structure.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="1fe16f6b66998fd156531bd0a203762e861ce832">
-        <source> If the file headers are not located on the first row and column, set the following values to skip some rows or columns. </source>
-        <target>אם הכותרות של הטבלה לא ממוקמות בעמודה והשורה הראשונות, ניתן לקבוע את המיקום על ידיד שינוי הערכים הבאים.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-structure/step-extract-structure.component.html</context>
-          <context context-type="linenumber">4,5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="d7ce0fda195934654ae1026766dccac9e4381b48">
-        <source>Skip Rows:</source>
-        <target>דילוג על שורות:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-structure/step-extract-structure.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="1c97b457d516dd885dd3cb09fdfb720c6cc381b4">
-        <source>Skip Columns:</source>
-        <target>דילוג על עמודות:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-structure/step-extract-structure.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="5d4a1df867f0ef2a75cbd5ecc9c0b1a574f9c127">
-        <source>Take value from...</source>
-        <target>לקחת את הערך מ... </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="adfe42148333a5c62c3b8f2bd2790d4b62dd760a">
-        <source>Constant...</source>
-        <target>קבוע...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="55e70f398e60f1e95551ebc06ba201b841550dde">
-        <source>No value for this field</source>
-        <target>אין ערך לשדה זה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="baf795ef9d0540112f528598d33956629b5c657b">
-        <source>Un-pivoting value</source>
-        <target>ערך הצרנה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="61941d58c8549987a955206fb0f2a4fd6ae29e1f">
-        <source>Un-pivoting additional column</source>
-        <target>עמודה נוספת בהצרנה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="9a25c97a693d37178735b61649cc35fb6a628b78">
-        <source>Constant Value:</source>
-        <target>ערך קבוע:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="8737210008395d7b014e5118d2ed198ae9745215">
-        <source>Title:</source>
-        <target>כותרת:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="7e82e8487b6c70d4df3632614a14fe77cb7e473d">
-        <source>Custom Format:</source>
-        <target>מבנה מותאם אישית:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="b9d215f587bdc2f1ab49b8edd7a8372083b5e207">
-        <source>More information on custom formats can be found <x equiv-text="&lt;a href='https://strftime.org/' target='_blank'&gt;" id="START_LINK"/>here<x equiv-text="&lt;/a&gt;" id="CLOSE_LINK"/>.</source>
-        <target>מידע נוסף על מבנים מותאמים אישית ניתן למצוא <x equiv-text="&lt;a href='https://strftime.org/' target='_blank'&gt;" id="START_LINK"/>כאן<x equiv-text="&lt;/a&gt;" id="CLOSE_LINK"/>.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">42</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="a1fbacc23936c55d9531e1713b021180d6695f97">
-        <source>Date Format:</source>
-        <target>מבנה תאריך:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="b858777a22a72fc872be8c9aaaafa81b87002b8d">
-        <source>True Values:</source>
-        <target>ערכים חיוביים: </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">46</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="c97b43dc990ec7b0d6b04355dc6b1b9b07ff82b1">
-        <source>False Values:</source>
-        <target>ערכים שליליים:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">50</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="042dcee6e711ee72c2ec9b721568420cf3c5552c">
-        <source>Decimal Separator:</source>
-        <target>מפריד עשרוני:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="76dec0a013d61ed57e54e283c360b69858a26b08">
-        <source>Thousands Separator:</source>
-        <target>מפריד אלפים:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">60</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="88eef217210f4b394762e5f43f16bd2c3b9a51b0">
-        <source>Bare Number:</source>
-        <target>מספר ללא תוספות:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">64</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="27afaba7470ea5034e3a885c6762c017737f89fc">
-        <source>Sample of bad values</source>
-        <target>דוגמאות לערכים לא חוקיים:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">71</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="46b00e79b4a77b4ad9864e67166a6891fc445d6d">
-        <source>Row #</source>
-        <target># שורה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">72</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="5049e204c14c648691ac775a64fb504467aeb549">
-        <source>Value</source>
-        <target>ערך</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">72</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="2ad1a24746c0a916b80f966eac7cd2a23d010175">
-        <source>less settings...</source>
-        <target>פחות הגדרות...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">82</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="dd7f0598b5aedffaf7a132cb6c312c72ca1f3754">
-        <source>more settings...</source>
-        <target>יותר הגדרות...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
-          <context context-type="linenumber">83</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="2818a5f73d055e9e4ccdaceefcd7b43669ad7c6f">
-        <source>Column Mapping</source>
-        <target>מיפוי עמודות</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="b8adfcc78d6e162e6f32bf418858999ab78a31cd">
-        <source>Required Fields</source>
-        <target>שדות חובה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="d2d24ab76f356c1ffcd35098947a48955608c1cc">
-        <source>Optional Fields</source>
-        <target>שדות רשות </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="cc685565301b979e6255233f598041d9fe8dc5f6">
-        <source>Data Unpivoting</source>
-        <target>הצרנת מידע</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="f6fc79e1b78ce1758ee2f8d09f0a6fa7e0248ee0">
-        <source>Unpivoting into <x equiv-text="&lt;strong&gt;{{unpivot_target}}" id="START_TAG_STRONG"/><x equiv-text="{{unpivot_target}}&lt;/strong&gt;" id="INTERPOLATION"/><x equiv-text="&lt;/strong&gt;" id="CLOSE_TAG_STRONG"/></source>
-        <target>הצרנה לתוך <x equiv-text="&lt;strong&gt;{{unpivot_target}}" id="START_TAG_STRONG"/><x equiv-text="{{unpivot_target}}&lt;/strong&gt;" id="INTERPOLATION"/><x equiv-text="&lt;/strong&gt;" id="CLOSE_TAG_STRONG"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="80c7d4c304f6f276d2f9eeba1abbef69fe5b37db">
-        <source>Column to unpivot</source>
-        <target>עמודה להצרנה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="897a8f838d33573765cbb517099c672731a8dce5">
-        <source>Select source field to unpivot...</source>
-        <target>בחירת עמודת מקור להצרנה...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="2ece6d939db9540f4c191264cca196bd8e8859cc">
-        <source>for</source>
-        <target>עבור</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-mapping-field/step-mapping-field.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="ffd03b989d36c89402032cfb7956cff65fcd7cd3">
-        <source>Change to compound mapping</source>
-        <target>שינוי למיפוי מורכב</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-mapping-field/step-mapping-field.component.html</context>
-          <context context-type="linenumber">90</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="ad7cadff2aeefaf76e24446dfb9f8a0c2d9b3fcd">
-        <source>Change to simple mapping</source>
-        <target>שינוי למיפוי פשוט</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-mapping-field/step-mapping-field.component.html</context>
-          <context context-type="linenumber">91</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="c4208146d3ed5ec0a999ca95e4256429be88392c">
-        <source>Extract</source>
-        <target>טעינה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-tabs/step-tabs.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="d2a2915d79ff31439a174fc3a147004542291e29">
-        <source>Map</source>
-        <target>מיפוי</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-tabs/step-tabs.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="1512221f846dffbb68785d8525209e0cfebd5806">
-        <source>Transform</source>
-        <target>עיבוד</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-tabs/step-tabs.component.html</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="9eb2b5da122b069c0ca256afd1d1885a7a195d2b">
-        <source>Finalize</source>
-        <target>סיום</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-tabs/step-tabs.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="4bffc4df2c5d0b1d74d00c588b2bf9b388c27de6">
-        <source>&lt;&lt;&lt; Back</source>
-        <target>&lt;&lt;&lt; חזרה</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-tabs/step-tabs.component.html</context>
-          <context context-type="linenumber">47</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="46ee09482783d9e8428cb5ebf7d11874cfc339be">
-        <source> By default, only empty cells will be considered as empty.<x equiv-text="&lt;br/&gt;     " id="LINE_BREAK"/> If other values need to be ignored as well, add them here in a comma separated list (with no extra whitespace). </source>
-        <target>כברירת מחדל, רק תאים ריקים יחשבו כריקים. <x equiv-text="&lt;br/&gt;     " id="LINE_BREAK"/>אם נדרש להתעלם מערכים נוספים, ניתן לציין אותם כאן, מופרדים בפסיקים (וללא רווחים). </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-taxonomy/step-taxonomy.component.html</context>
-          <context context-type="linenumber">18,20</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="977c06fae53f5a6ad9aaff2d9eefd77eea303eb6">
-        <source>Empty Values:</source>
-        <target>ערכים ריקים:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-taxonomy/step-taxonomy.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="c1d007ee89267defe5140c1cc54c1853afe37043">
-        <source> The detected data taxonomy for this dataset - </source>
-        <target>הטקסונומיה שזוהתה עבור מאגר זה - </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-taxonomy/step-taxonomy.component.html</context>
-          <context context-type="linenumber">5,6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="5d760eb1478bec279b2e53e5bcb6daa7053ada2b">
-        <source>Taxonomy:</source>
-        <target>טקסונומיה:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-taxonomy/step-taxonomy.component.html</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="757e1a2455609989a641aa6e4dcce895b4f29157">
+      <trans-unit id="3274264698656473921" datatype="html">
         <source>Choose taxonomy to edit</source>
         <target>בחירת טקסונומיה לעריכה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomies/taxonomies.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">4,5</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="4588912b6c9e5d4d471e23293cc5b4f5ed3d025e">
+      <trans-unit id="5385303644224556924" datatype="html">
         <source>Add new based on...</source>
         <target>הוספת חדשה המבוססת על...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomies/taxonomies.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">16,17</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="749e4eab93ebf7f011abe46dc80461a427db8858">
+      <trans-unit id="8287319373525468994" datatype="html">
         <source>Choose column type tp copy</source>
         <target>בחירת עמודה קיימת להעתקה</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomies/taxonomies.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">18,19</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="fce6cea9d731df04372f259de11b4993e99efee8">
+      <trans-unit id="5406891183415474028" datatype="html">
         <source>Add a new column type named... </source>
         <target>הוספת עמודה חדשה בשם...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomies/taxonomies.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="8839c39c4d42d36c8a15fe46fa0844c94fe4ac2c">
-        <source><x equiv-text="{{ct.name}}" id="INTERPOLATION"/></source>
-        <target><x equiv-text="{{ct.name}}" id="INTERPOLATION"/></target>
+      <trans-unit id="187187500641108332" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ct.name}}"/></source>
+        <target><x id="INTERPOLATION" equiv-text="{{ct.name}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomy-item/taxonomy-item.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="43b029978bc6f4f3b0e3a011210a2fba755fa298">
+      <trans-unit id="2517309683610083249" datatype="html">
+        <source>Title:</source>
+        <target>כותרת:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2212803367488424657" datatype="html">
         <source>Data Type:</source>
         <target>טיפוס המידע:</target>
         <context-group purpose="location">
@@ -969,7 +643,7 @@
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="8f01b293637f2084fccc10e652bcdb985727ada0">
+      <trans-unit id="7934246489485181574" datatype="html">
         <source>string</source>
         <target>מחרוזת</target>
         <context-group purpose="location">
@@ -977,7 +651,7 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="33cb05c064f4256bf21675cd0feb3be66004e030">
+      <trans-unit id="6523434470423461719" datatype="html">
         <source>integer</source>
         <target>מספר שלם</target>
         <context-group purpose="location">
@@ -985,7 +659,7 @@
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="d938d9f8530928e981811cabd72b0c58a8bc8171">
+      <trans-unit id="8505625387835214066" datatype="html">
         <source>number</source>
         <target>מספר כללי</target>
         <context-group purpose="location">
@@ -993,7 +667,7 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="72261bb6b3004fec343ac8de8e80952805b12731">
+      <trans-unit id="237771280609785417" datatype="html">
         <source>boolean</source>
         <target>כן/לא</target>
         <context-group purpose="location">
@@ -1001,7 +675,7 @@
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="1feb210f447e10eb214f2e184264d6e05b282959">
+      <trans-unit id="3938396793871184620" datatype="html">
         <source>date</source>
         <target>תאריך</target>
         <context-group purpose="location">
@@ -1009,7 +683,7 @@
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="232a008b97373df65211e1b61a1e68934c21cd3e">
+      <trans-unit id="340453791299397140" datatype="html">
         <source>datetime</source>
         <target>תאריך ושעה</target>
         <context-group purpose="location">
@@ -1017,7 +691,7 @@
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="cb4e9f0e1110b694b441559d36453a941e35af94">
+      <trans-unit id="4981729030739812160" datatype="html">
         <source>Required:</source>
         <target>חובה:</target>
         <context-group purpose="location">
@@ -1025,23 +699,7 @@
           <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="0dc79bc85b99317eeebbcf298c2211a9b3aa3e31">
-        <source>Primary Key:</source>
-        <target>שדה מפתח:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="4a22c6843133f0b0d7dc0d28f864f2f90c1de7ad">
-        <source>Description:</source>
-        <target>תיאור:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomy-item/taxonomy-item.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="c4a964a8b6a1e9967b09aecc6c5bccc0588aa0a4">
+      <trans-unit id="2013683087316502530" datatype="html">
         <source>Show in 'Required' section:</source>
         <target>הצגה כשדה ״חובה״</target>
         <context-group purpose="location">
@@ -1049,7 +707,23 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="37c9057fa62251476388f330cf72adcadac74200">
+      <trans-unit id="5795783322011546350" datatype="html">
+        <source>Primary Key:</source>
+        <target>שדה מפתח:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6996799422725544865" datatype="html">
+        <source>Description:</source>
+        <target>תיאור:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/taxonomies/taxonomy-item/taxonomy-item.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6239936537351977310" datatype="html">
         <source>Viewer</source>
         <target>צפיה בלבד</target>
         <context-group purpose="location">
@@ -1057,7 +731,7 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="b367ace0dc9e06c3dd8b98e0b2bfe400eb073f83">
+      <trans-unit id="9174892036419112237" datatype="html">
         <source>Maintainer</source>
         <target>עריכה</target>
         <context-group purpose="location">
@@ -1065,7 +739,7 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="ca2283fc765b9f44b69f0175d685dc2443da6011">
+      <trans-unit id="2149300564474427551" datatype="html">
         <source>Administrator</source>
         <target>ניהול</target>
         <context-group purpose="location">
@@ -1073,150 +747,508 @@
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="4d13a9cd5ed3dcee0eab22cb25198d43886942be">
+      <trans-unit id="4555457172864212828" datatype="html">
         <source>Users</source>
         <target>משתמשים</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/users/users/users.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3966961321292914626" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Save </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>שמירה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4668709018113021303" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Save and Submit for Approval </source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>שמירה ושליחה לאישור</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9107148749136659020" datatype="html">
+        <source> Please select a data source </source>
+        <target>נא לבחור מקור מידע</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8122401523806544448" datatype="html">
+        <source> Data is processing... </source>
+        <target>המידע מעובד כרגע...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">13,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8970495642002461284" datatype="html">
+        <source> Mapping completed successfully, click to submit data for approval </source>
+        <target>המיפוי הסתיים בהצלחה, לחצו לשליחת המשימה לאישור </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8309828329143069417" datatype="html">
+        <source> Mapping completed successfully, click save to proceed </source>
+        <target>המיפוי הסתיים בהצלחה, לחצו על ״שמירה״ להמשך</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8855254189369389907" datatype="html">
+        <source> Mapping is still incomplete, you can save and continue editing later </source>
+        <target>המיפוי עדיין לא הסתיים, אפשר לשמור ולהמשיך את העריכה אחר כך</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">22,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1273560876342071432" datatype="html">
+        <source> Mapping completed with errors, you can save and continue editing later </source>
+        <target>המיפוי הסתיים עם שגיאות, אפשר לשמור ולהמשיך את העבודה אחר כך </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench-buttons/dgp-workbench-buttons.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8045749369931738129" datatype="html">
+        <source>Data Import Workbench</source>
+        <target>אשף הזנת המידע</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/dgp-workbench/dgp-workbench.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="4eca794aea50c999a67189f3302cdadef4c225e1">
-        <source><x equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;   " id="CLOSE_ITALIC_TEXT"/> New <x equiv-text="{def.display}} " id="INTERPOLATION"/>
-</source>
-        <target><x equiv-text="&lt;i class=&quot;fas fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" id="START_ITALIC_TEXT"/><x equiv-text="&lt;/i&gt;   " id="CLOSE_ITALIC_TEXT"/>הוספת <x equiv-text="{def.display}} " id="INTERPOLATION"/>
-</target>
+      <trans-unit id="8385660955611557548" datatype="html">
+        <source>rows</source>
+        <target>שורות</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/datarecords/data-record-list-inner/data-record-list-inner.component.html</context>
-          <context context-type="linenumber">2,4</context>
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results-tab-selector/results-tab-selector.component.html</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="6284a2ae00de262f0b184def208f2965e8e64840">
-        <source> Original </source>
-        <target>מקור</target>
+      <trans-unit id="4312890952809439062" datatype="html">
+        <source>Data Sample</source>
+        <target>דגימת מידע</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/result-tabs/result-tabs.component.ts</context>
-          <context context-type="linenumber">10,11</context>
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results/results.component.html</context>
+          <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="1c5e52cea48a40f25c08d1d3328dc44634ec6400">
-        <source> Transformed </source>
-        <target>מעובד</target>
+      <trans-unit id="6888514736464630140" datatype="html">
+        <source>Original Data</source>
+        <target>המידע המקורי</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/result-tabs/result-tabs.component.ts</context>
-          <context context-type="linenumber">16,17</context>
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results/results.component.html</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="5a2be7f149208f0efb55554bb5b88ef0f388c397">
+      <trans-unit id="1187943176133632057" datatype="html">
+        <source>Mapped Data</source>
+        <target>מידע לאחר המיפוי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results/results.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5616617662634322880" datatype="html">
+        <source>Transformed Data</source>
+        <target>המידע המעובד </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/results/results.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8943407398791448941" datatype="html">
         <source>Source File:</source>
         <target>קובץ שהועלה:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">3,4</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="098f1f170b87427006da27c281ad1e484e090af6">
+      <trans-unit id="5049385511478990471" datatype="html">
         <source>Direct URL:</source>
         <target>קישור ישיר:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">14,15</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="98427de0c30c7a7d6a77c8218888768215d13756">
+      <trans-unit id="1534253075269092462" datatype="html">
         <source>Format:</source>
         <target>פורמט:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">21,22</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="29e17d1563727ad13c58125f9b17a7f556e3c382">
+      <trans-unit id="4744991150020665204" datatype="html">
         <source>Excel (xls)</source>
         <target>אקסל (xls)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="68da5a1b84bcfb0a156828a12c601209f10f507a">
+      <trans-unit id="3983167461649150778" datatype="html">
         <source>Excel (xlsx)</source>
         <target>אקסל (xlsx)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">24,25</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="11db3f53da11cc43e48960e6cc537b79c5fd789e">
+      <trans-unit id="7926143511350598250" datatype="html">
         <source>CSV</source>
         <target>CSV</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">25,26</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="7ad24bfc056ad2a41aa93fbfd75ec6765060606f">
+      <trans-unit id="2742664813202759813" datatype="html">
         <source>JSON</source>
         <target>JSON</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">26,27</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="515c6be8fc828ffc7d1e3c46f42c199f44edcb59">
+      <trans-unit id="3855927416200159324" datatype="html">
         <source>Google Spreadsheet</source>
         <target>גליון נתונים של גוגל</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">27,28</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="7a529a8f078d0c197804a7bc878a0273089d7a1d">
+      <trans-unit id="3434907760152191929" datatype="html">
         <source>HTML Table</source>
         <target>טבלת HTML</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="01bf9e8c87c0d16c2df48b777090eb2f5e8dc64b">
+      <trans-unit id="2754279115357939066" datatype="html">
         <source>Sheet:</source>
         <target>גליון:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="f1964e3e93a5aa2c64d4351fc862e41c0820b73d">
+      <trans-unit id="4714217614810930814" datatype="html">
         <source>Encoding:</source>
         <target>קידוד:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">41,42</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="808b5dde42baba14a0c985c4dc8486b8fdfa37cc">
+      <trans-unit id="8830028065123603737" datatype="html">
         <source>JSON Path:</source>
         <target>מסלול JSON:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">50,51</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="d5b69b532e66a4fd31fc0fd91511f9c60c122f66">
+      <trans-unit id="1155373994144192731" datatype="html">
         <source>CSS Selector:</source>
         <target>סלקטור CSS:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">59,60</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="be9e2f70bff3710b18682f56c0010f5dbb89668e">
+      <trans-unit id="6354404962594362776" datatype="html">
         <source>Clear selector</source>
         <target>מחיקת הסלקטור</target>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-source/step-extract-source.component.html</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6316432950228376805" datatype="html">
+        <source>Data Structure</source>
+        <target>מבנה הקובץ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-structure/step-extract-structure.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6016166647884500560" datatype="html">
+        <source> If the file headers are not located on the first row and column, set the following values to skip some rows or columns. </source>
+        <target>אם הכותרות של הטבלה לא ממוקמות בעמודה והשורה הראשונות, ניתן לקבוע את המיקום על ידיד שינוי הערכים הבאים.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-structure/step-extract-structure.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1929208328619197242" datatype="html">
+        <source>Skip Rows:</source>
+        <target>דילוג על שורות:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-structure/step-extract-structure.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="979157647535602913" datatype="html">
+        <source>Skip Columns:</source>
+        <target>דילוג על עמודות:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-extract-structure/step-extract-structure.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3669600421220402862" datatype="html">
+        <source>Take value from...</source>
+        <target>לקחת את הערך מ... </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4740435420410741525" datatype="html">
+        <source>No value for this field</source>
+        <target>אין ערך לשדה זה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6364125916596849748" datatype="html">
+        <source>Constant...</source>
+        <target>קבוע...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6207673783916546746" datatype="html">
+        <source>Un-pivoting value</source>
+        <target>ערך הצרנה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7556015763784451950" datatype="html">
+        <source>Un-pivoting additional column</source>
+        <target>עמודה נוספת בהצרנה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2618780236180346091" datatype="html">
+        <source>Constant Value:</source>
+        <target>ערך קבוע:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="170869620839882439" datatype="html">
+        <source>Date Format:</source>
+        <target>מבנה תאריך:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7815406034464867219" datatype="html">
+        <source>Custom Format:</source>
+        <target>מבנה מותאם אישית:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1401479704208756482" datatype="html">
+        <source>More information on custom formats can be found <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href='https://strftime.org/' target='_blank'&gt;"/>here<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>מידע נוסף על מבנים מותאמים אישית ניתן למצוא <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href='https://strftime.org/' target='_blank'&gt;"/>כאן<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2764889850839662000" datatype="html">
+        <source>True Values:</source>
+        <target>ערכים חיוביים: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9094603691575444742" datatype="html">
+        <source>False Values:</source>
+        <target>ערכים שליליים:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9176979323755389021" datatype="html">
+        <source>Decimal Separator:</source>
+        <target>מפריד עשרוני:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1999878861789105982" datatype="html">
+        <source>Thousands Separator:</source>
+        <target>מפריד אלפים:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5030045795481745040" datatype="html">
+        <source>Bare Number:</source>
+        <target>מספר ללא תוספות:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
           <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6171006536190489733" datatype="html">
+        <source>Sample of bad values</source>
+        <target>דוגמאות לערכים לא חוקיים:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6764768718535115216" datatype="html">
+        <source>Row #</source>
+        <target># שורה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6555318547274416232" datatype="html">
+        <source>Value</source>
+        <target>ערך</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6096233005397836587" datatype="html">
+        <source>less settings...</source>
+        <target>פחות הגדרות...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="875263704365995698" datatype="html">
+        <source>more settings...</source>
+        <target>יותר הגדרות...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping-field/step-flipped-mapping-field.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4146960594543468016" datatype="html">
+        <source>Column Mapping</source>
+        <target>מיפוי עמודות</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1747436446216992571" datatype="html">
+        <source>Required Fields</source>
+        <target>שדות חובה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9091938960020004085" datatype="html">
+        <source>Optional Fields</source>
+        <target>שדות רשות </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6852448589630918307" datatype="html">
+        <source>Data Unpivoting</source>
+        <target>הצרנת מידע</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2389604375772186432" datatype="html">
+        <source>Unpivoting into <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{unpivot_target}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target>הצרנת מידע לתוך <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{unpivot_target}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9149306286857400719" datatype="html">
+        <source>Column to unpivot</source>
+        <target>עמודה להצרנה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7159426706396202473" datatype="html">
+        <source>Select source field to unpivot...</source>
+        <target>בחירת עמודת מקור להצרנה...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-flipped-mapping/step-flipped-mapping.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="988207546146121641" datatype="html">
+        <source> The detected data taxonomy for this dataset - </source>
+        <target>הטקסונומיה שזוהתה עבור מאגר זה - </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-taxonomy/step-taxonomy.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3380546568435134108" datatype="html">
+        <source>Taxonomy:</source>
+        <target>טקסונומיה:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-taxonomy/step-taxonomy.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5832614284634916012" datatype="html">
+        <source> By default, only empty cells will be considered as empty.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/> If other values need to be ignored as well, add them here in a comma separated list (with no extra whitespace). </source>
+        <target>כברירת מחדל, רק תאים ריקים יחשבו כריקים. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>אם נדרש להתעלם מערכים נוספים, ניתן לציין אותם כאן, מופרדים בפסיקים (וללא רווחים). </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-taxonomy/step-taxonomy.component.html</context>
+          <context context-type="linenumber">17,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3365165949739469219" datatype="html">
+        <source>Empty Values:</source>
+        <target>ערכים ריקים:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/etl-server/src/lib/workbench/step-taxonomy/step-taxonomy.component.html</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
     </body>

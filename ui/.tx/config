@@ -1,10 +1,10 @@
 [main]
 host = https://www.transifex.com
 
-[datacity.messages-xlf]
-file_filter = src/locales/messages.<lang>.xlf
+[o:the-public-knowledge-workshop:p:datacity:r:messages-xlf]
+file_filter  = projects/ui/src/locales/messages.<lang>.xlf
+source_file  = projects/ui/src/locales/messages.xlf
+source_lang  = eng
+type         = XLIFF
 minimum_perc = 0
-source_file = src/locales/messages.xlf
-source_lang = eng
-type = XLIFF
 
