@@ -13,8 +13,8 @@ export class ResultTableComponent implements OnInit, OnDestroy {
   @Input() kind: number;
   @Input() kindName: string;
 
-  rows = [];
-  headers = [];
+  rows: any[] = [];
+  headers: any[] = [];
   subs: Subscription[] = [];
 
   constructor(private store: StoreService) {

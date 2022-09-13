@@ -11,9 +11,9 @@ import { RolesService } from '../../roles.service';
 })
 export class DashboardComponent implements OnInit {
 
-  profile = null;
+  profile: any = null;
   configuration: any;
-  datarecords = [];
+  datarecords: any[] = [];
 
   constructor(public auth: AuthService, private api: ApiService, public roles: RolesService) {
     this.auth.getUser().subscribe((user) => {

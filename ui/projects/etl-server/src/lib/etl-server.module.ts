@@ -33,7 +33,6 @@ import { PipelineListComponent } from './pipelines/pipeline-list/pipeline-list.c
 import { PipelineStatusDashboardComponent } from './dashboard/pipeline-status-dashboard/pipeline-status-dashboard.component';
 import { PipelineStatusComponent } from './pipelines/pipeline-status/pipeline-status.component';
 import { ResultTableComponent } from './workbench/result-table/result-table.component';
-import { ResultTabsComponent } from './workbench/result-tabs/result-tabs.component';
 import { ResultsTabSelectorComponent } from './workbench/results-tab-selector/results-tab-selector.component';
 import { ResultsComponent } from './workbench/results/results.component';
 import { StepEnrichComponent } from './workbench/step-enrich/step-enrich.component';
@@ -41,8 +40,6 @@ import { StepExtractSourceComponent } from './workbench/step-extract-source/step
 import { StepExtractStructureComponent } from './workbench/step-extract-structure/step-extract-structure.component';
 import { StepFlippedMappingFieldComponent } from './workbench/step-flipped-mapping-field/step-flipped-mapping-field.component';
 import { StepFlippedMappingComponent } from './workbench/step-flipped-mapping/step-flipped-mapping.component';
-import { StepMappingFieldComponent } from './workbench/step-mapping-field/step-mapping-field.component';
-import { StepTabsComponent } from './workbench/step-tabs/step-tabs.component';
 import { StepTaxonomyComponent } from './workbench/step-taxonomy/step-taxonomy.component';
 import { TaxonomiesComponent } from './taxonomies/taxonomies/taxonomies.component';
 import { TaxonomyItemComponent } from './taxonomies/taxonomy-item/taxonomy-item.component';
@@ -69,12 +66,9 @@ import { DataRecordUserInnerComponent } from './datarecords/data-record-user-inn
     DgpWorkbenchComponent,
     StepEnrichComponent,
     ResultsComponent,
-    ResultTabsComponent,
     ResultTableComponent,
-    StepTabsComponent,
     StepExtractSourceComponent,
     StepExtractStructureComponent,
-    StepMappingFieldComponent,
     ExtendableKeyvalueListComponent,
     FailureMarqueeComponent,
     ExtraConfigQuestionComponent,

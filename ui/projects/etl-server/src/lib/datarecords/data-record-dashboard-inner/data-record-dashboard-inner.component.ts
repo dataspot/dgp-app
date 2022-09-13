@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DataRecordDashboardInnerComponent implements OnInit {
 
-  @Input() def;
-  @Input() datarecords;
+  @Input() def: any;
+  @Input() datarecords: any[];
 
   constructor() { }
 

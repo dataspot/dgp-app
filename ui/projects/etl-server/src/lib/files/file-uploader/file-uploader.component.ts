@@ -9,7 +9,7 @@ import { ApiService } from '../../api.service';
 export class FileUploaderComponent implements OnInit {
 
   @ViewChild('file', { static: true }) file: ElementRef;
-  @Input() filename: string;
+  @Input() filename: string | null;
   @Output() close = new EventEmitter<void>();
 
   _progress = 0;
@@ -17,7 +17,7 @@ export class FileUploaderComponent implements OnInit {
   _success = false;
   _selected = false;
 
-  selectedFile: File = null;
+  selectedFile: File | null = null;
 
   constructor(private api: ApiService) { }
 
@@ -34,29 +34,31 @@ export class FileUploaderComponent implements OnInit {
     console.log(files);
     if (files.length > 0) {
       this.selectedFile = files.item(0);
-      this._selected = true;
-      this.active = true;
-      this.api.uploadFile(
-        this.selectedFile, this.filename || this.selectedFile.name,
-        (progress) => { this.progress = progress; },
-        (success) => { this.success = success; }
-      );
+      if (this.selectedFile) {
+        this._selected = true;
+        this.active = true;
+        this.api.uploadFile(
+          this.selectedFile, this.filename || this.selectedFile.name,
+          (progress: any) => { this.progress = progress; },
+          (success: any) => { this.success = success; }
+        );
+      }
     }
   }
 
-  set progress(progress) {
+  set progress(progress: number) {
     if (this._selected && this._active) {
       this._progress = progress;
     }
   }
 
-  set active(active) {
+  set active(active: boolean) {
     if (this._selected) {
       this._active = active;
     }
   }
 
-  set success(success) {
+  set success(success: boolean) {
     if (this._active) {
       this._success = success;
       if (success) {

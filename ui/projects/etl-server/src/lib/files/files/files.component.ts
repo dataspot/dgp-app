@@ -11,12 +11,12 @@ import { Subscription } from 'rxjs';
 })
 export class FilesComponent implements OnInit {
   uploaderVisible = false;
-  forceFilename: string;
+  forceFilename: string | null = null;
   justMine = false;
   sort = 'alpha';
   files = [];
-  showFiles = [];
-  sub: Subscription = null;
+  showFiles: any[] = [];
+  sub: Subscription | null = null;
 
   constructor(public api: ApiService, public roles: RolesService) {
     this.api.queryFiles();
@@ -31,7 +31,7 @@ export class FilesComponent implements OnInit {
     this.uploaderVisible = true;
   }
 
-  update(filename) {
+  update(filename: string) {
     this.forceFilename = filename;
     this.uploaderVisible = true;
   }

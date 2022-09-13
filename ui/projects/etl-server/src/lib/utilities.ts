@@ -1,4 +1,4 @@
-export function snippetize(def, record) {
+export function snippetize(def: any, record: any) {
     let snippet: string[] = def.snippet || ['name'];
     if (!Array.isArray(snippet)) {
         snippet = [snippet];

@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PipelineListSectionComponent implements OnInit {
 
   @Input() root = false;
-  @Input() sections = [];
+  @Input() sections: any[] = [];
 
   constructor() { }
 

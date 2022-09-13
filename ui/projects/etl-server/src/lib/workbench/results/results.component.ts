@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { StoreService } from '../../store.service';
-
+import { TableType } from './types';
 
 @Component({
   selector: 'app-results',
@@ -13,12 +13,12 @@ export class ResultsComponent implements OnInit {
 
   step = 'extract';
   hasResults = false;
-  failure = null;
-  failureMain = null;
-  analysisErrors = [];
-  errors = [];
+  failure: string | null = null;
+  failureMain: string | null = null;
+  analysisErrors: any[] = [];
+  errors: any[] = [];
 
-  TABLES = [
+  TABLES: TableType[] = [
     {slug: 'extract', rowCount: 0, progress: false, errors: null, valid: null},
     {slug: 'map', rowCount: 0, progress: false, errors: null, valid: null},
     {slug: 'enrich', rowCount: 0, progress: false, errors: null, valid: null},

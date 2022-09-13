@@ -8,8 +8,8 @@ import { ApiService } from '../../api.service';
 })
 export class StepExtractSourceComponent implements OnInit {
 
-  @Input() source;
-  @Input() loader;
+  @Input() source: any;
+  @Input() loader: any;
   @Output() update = new EventEmitter<string>();
 
   constructor(public api: ApiService) {

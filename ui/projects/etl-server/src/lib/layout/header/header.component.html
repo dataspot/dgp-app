@@ -8,7 +8,8 @@
     <ng-container *ngIf='roles.showDatarecords(configuration)'>
         <ng-container *ngFor='let datarecord of datarecords'>
             <a *ngIf='showDatarecord(datarecord)'
-               class='menu theme-secondary-fg' [class.theme-primary-dark-bg]='detected === "records" && datarecordName === datarecord.name'
+               class='menu theme-secondary-fg'
+               [class.theme-primary-dark-bg]='detected === "records" && detectedName === datarecord.name'
                [routerLink]='"/datarecords/" + datarecord.name'>{{datarecord.display_plural}}</a>
         </ng-container>
     </ng-container>

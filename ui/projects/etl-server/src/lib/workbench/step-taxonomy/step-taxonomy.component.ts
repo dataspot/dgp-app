@@ -36,8 +36,9 @@ export class StepTaxonomyComponent implements OnInit, OnChanges {
 
   get missingValues() {
     if (this.taxonomy && this.taxonomy.missingValues && Array.isArray(this.taxonomy.missingValues)) {
-      return this.taxonomy.missingValues.filter((i) => i !== '').join(',');
+      return this.taxonomy.missingValues.filter((i: string) => i !== '').join(',');
     }
+    return '';
   }
 
   changed() {

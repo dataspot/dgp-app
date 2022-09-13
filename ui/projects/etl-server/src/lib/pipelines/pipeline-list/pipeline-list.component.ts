@@ -13,16 +13,16 @@ export class PipelineListComponent implements OnInit {
 
   sortByField = 'created_at';
 
-  pipelines = [];
-  pipelineSections = [];
+  pipelines: any[] = [];
+  pipelineSections: any[] = [];
 
   constructor(public api: ApiService, public roles: RolesService,
               private confirmer: ConfirmerService) {
   }
 
-  processSections(pipelines, level) {
-    const sections = {};
-    const ret = [];
+  processSections(pipelines: any[], level: number) {
+    const sections: any = {};
+    const ret: any[] = [];
     if (level === 0) {
       pipelines.forEach((pipeline) => {
         if (pipeline.originalDisplay) {

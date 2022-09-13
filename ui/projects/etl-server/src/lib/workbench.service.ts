@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StoreService } from './store.service';
-import { Observable, of, Subject, BehaviorSubject, from  } from 'rxjs';
-import { switchMap, exhaustMap, map, filter, debounceTime } from 'rxjs/operators';
+import { Observable, of, Subject, BehaviorSubject, from, observable  } from 'rxjs';
+import { switchMap, exhaustMap, map, filter, debounceTime, finalize } from 'rxjs/operators';
 import { EventSourcePolyfill } from 'ng-event-source';
 import { ApiService } from './api.service';
 
@@ -11,7 +11,7 @@ import { ApiService } from './api.service';
 })
 export class WorkbenchService {
 
-  private executionId = null;
+  private executionId: string | null = null;
   private SERVER: string;
 
   public configurations = new BehaviorSubject<any[]>([]);
@@ -32,17 +32,21 @@ export class WorkbenchService {
             switchMap((config: any) => this.storeConfig(config)),
             switchMap((response: any) => {
               this.executionId = response.uid;
-              console.log('FETCHING EVENTS');
-              this.store.addRow({
-                kind: -1,
-              });
-              return this.fetchEvents(this.executionId);
+              if (this.executionId) {
+                console.log('FETCHING EVENTS');
+                this.store.addRow({
+                  kind: -1,
+                });
+                return this.fetchEvents(this.executionId);  
+              } else {
+                return from([]);
+              }
             })
          );
     const that = this;
     const eventObserver = {
       config: null,
-      next(event) {
+      next(event: any) {
         // console.log('EVENT', event);
         if (event.complete) {
         } else if (event.t) {
@@ -110,22 +114,18 @@ export class WorkbenchService {
   fetchEvents(executionId: string) {
     this.store.setErrors([]);
     this.store.getFailure().next(null);
-    const observable = Observable.create(observer => {
+    const observer = new Subject<any>();
 
-      let eventSource;
-      // this.error.emit(null);
-      try {
-        eventSource = new EventSourcePolyfill(this.SERVER + '/events/' + this.executionId, {
-          heartbeatTimeout: 300000,
-          errorOnTimeout: false,
-          connectionTimeout: 300000,
-          headers: this.api.httpOptions.headers,
-        });
-      } catch (e) {
-        // this.error.emit(e.message);
-        observer.error(e);
-      }
-      eventSource.onmessage = x => {
+    let eventSource: EventSourcePolyfill;
+    // this.error.emit(null);
+    try {
+      eventSource = new EventSourcePolyfill(this.SERVER + '/events/' + this.executionId, {
+        heartbeatTimeout: 300000,
+        errorOnTimeout: false,
+        connectionTimeout: 300000,
+        headers: this.api.httpOptions.headers,
+      });
+      eventSource.onmessage = (x: any) => {
         if (x.data !== 'close') {
           try {
             const parsed: any = JSON.parse(x.data);
@@ -140,20 +140,26 @@ export class WorkbenchService {
           eventSource.close();
         }
       };
-      eventSource.onerror = x => {
+  
+      eventSource.onerror = (x: any) => {
         console.log('ERROR', x);
         // this.error.emit(x.message);
         // observer.error(x);
         observer.next({complete: true});
         observer.complete();
+        eventSource.close();
       };
-
-      return () => {
-        if (eventSource) {
+  
+      return observer.pipe(
+        finalize(() => {
           eventSource.close();
-        }
-      };
-    });
-    return observable;
+        })
+      );
+    } catch (e) {
+      // this.error.emit(e.message);
+      observer.error(e);
+      observer.complete();
+    }
+    return from([]);
   }
 }

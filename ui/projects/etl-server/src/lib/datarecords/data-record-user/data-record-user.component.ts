@@ -20,11 +20,11 @@ export class DataRecordUserComponent implements OnInit, OnDestroy, AfterViewInit
 
   editComponent = new ReplaySubject<Type<any>>(1);
   @ViewChild(DataRecordEditAuxDirective, { static: true }) inner: DataRecordEditAuxDirective;
-  sub: Subscription = null;
+  sub: Subscription | null = null;
 
   constructor(public api: ApiService, public roles: RolesService,
-              private componentFactoryResolver: ComponentFactoryResolver,
-              @Inject(EXTRA_MAPPING) private extraMapping) {}
+              // private componentFactoryResolver: ComponentFactoryResolver,
+              @Inject(EXTRA_MAPPING) private extraMapping: any) {}
 
   ngOnInit(): void {
     const mapping = this.extraMapping[this.def.edit_component] || {};
@@ -34,12 +34,12 @@ export class DataRecordUserComponent implements OnInit, OnDestroy, AfterViewInit
 
   ngAfterViewInit() {
     this.editComponent.pipe(first(),delay(0)).subscribe((editComponent) => {
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(editComponent);
+      // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(editComponent);
 
       const viewContainerRef = this.inner.viewContainerRef;
       viewContainerRef.clear();
   
-      const componentRef = viewContainerRef.createComponent<any>(componentFactory);
+      const componentRef = viewContainerRef.createComponent(editComponent);
       componentRef.instance.datarecord = this.record;
       componentRef.instance.def = this.def;
       this.sub = componentRef.instance.updated.subscribe(() => {

@@ -79,3 +79,6 @@ creds.sh
 
 minio-data/
 dist/
+
+
+ui.bak/

@@ -11,7 +11,7 @@ import { filter, first, switchMap } from 'rxjs/operators';
 export class UserListItemComponent implements OnInit {
 
   @Input() item: any;
-  datarecords = [];
+  datarecords: any[] = [];
 
   _level = '';
 
@@ -46,7 +46,7 @@ export class UserListItemComponent implements OnInit {
       });
   }
 
-  delete(e) {
+  delete(e: Event) {
     this.confirmer.confirm(this.confirmer.ACTION_DELETE_USER, this.item.email)
       .pipe(
         filter((x) => x),

@@ -25,7 +25,7 @@ export class EditPipelineComponent implements OnInit {
               public store: StoreService, public roles: RolesService, private confirmer: ConfirmerService) {
     this.route.paramMap.pipe(
       switchMap((params) => {
-        const id = params.get('id');
+        const id: string = params.get('id') || '__non_existent__';
         if (id === 'new') {
           this.isNew = true;
           return api.configuration.pipe(
@@ -49,7 +49,7 @@ export class EditPipelineComponent implements OnInit {
     });
   }
 
-  processForcePrivate(configuration) {
+  processForcePrivate(configuration: any) {
     console.log('FP', configuration.features.forcePrivate);
     if (configuration.features.forcePrivate === false) {
       this._showVisibility = false;

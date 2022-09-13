@@ -33,11 +33,11 @@ export class ApiService {
   private authorized_ = false;
   private authError_ = false;
   private finishedFlow_ = false;
-  private currentUser_ = null;
+  private currentUser_: any = null;
 
   constructor(private http: HttpClient, private auth: AuthService, private router: Router,
               private roles: RolesService, private title: Title, 
-              @Inject(ENVIRONMENT) private environment) {
+              @Inject(ENVIRONMENT) private environment: any) {
       this.API_ENDPOINT = this.environment.api_endpoint;
       this.auth.configure({
         authServerUrl: this.environment.auth_endpoint,
@@ -123,8 +123,8 @@ export class ApiService {
     return this.authError_;
   }
 
-  createMap(obj, field, target) {
-    const ret = {};
+  createMap(obj: any, field: string, target: string) {
+    const ret: any = {};
     for (const item of obj[field]) {
       ret[item.name] = item;
     }
@@ -134,7 +134,7 @@ export class ApiService {
   getConfiguration() {
     this.token_.pipe(
       switchMap((token) => this.http.get(`${this.API_ENDPOINT}/configuration?jwt=${token}`, this.options))
-    ).subscribe((result) => {
+    ).subscribe((result: any) => {
         const configuration = result['result'];
         this.createMap(configuration, 'kinds', 'kinds_map');
         this.createMap(configuration, 'schedules', 'schedules_map');
@@ -175,11 +175,11 @@ export class ApiService {
     });
   }
 
-  updateTaxonomy(user) {
+  updateTaxonomy(user: any) {
     return this.http.post(`${this.API_ENDPOINT}/taxonomy`, user, this.options);
   }
 
-  deleteUser(userId) {
+  deleteUser(userId: string) {
     return this.http.delete(`${this.API_ENDPOINT}/user/${userId}`, this.options)
             .pipe(
               map((result) => {
@@ -189,7 +189,7 @@ export class ApiService {
             );
   }
 
-  updateUser(user) {
+  updateUser(user: any) {
     return this.http.post(`${this.API_ENDPOINT}/user`, user, this.options)
             .pipe(
               map((result) => {
@@ -267,7 +267,7 @@ export class ApiService {
   }
 
   triggerPipelines(kind: string | null, successfulOnly: boolean) {
-    const params = {};
+    const params: any = {};
     if (kind) { params['kind'] = kind; }
     if (!successfulOnly) { params['all'] = 'true'; }
     return this.http.post(`${this.API_ENDPOINT}/pipelines/start`, {},  Object.assign({params}, this.options))
@@ -293,8 +293,8 @@ export class ApiService {
       }),
       map((files) => {
         this.files.next(files);
-        this.ownFiles.next(files.filter((x) => x.owner_id === this.currentUser_.profile.id));
-        this.otherFiles.next(files.filter((x) => x.owner_id !== this.currentUser_.profile.id));
+        this.ownFiles.next(files.filter((x: any) => x.owner_id === this.currentUser_?.profile?.id));
+        this.otherFiles.next(files.filter((x: any) => x.owner_id !== this.currentUser_?.profile?.id));
         return files;
       })
     );
@@ -308,7 +308,7 @@ export class ApiService {
 
   uploadFile(
     file: File, filename: string,
-    progress, success
+    progress: (p: number) => void, success: (v: boolean) => void
   ) {
     this.configuration.pipe(
       switchMap(() => {
@@ -341,7 +341,7 @@ export class ApiService {
     });
   }
 
-  deleteFile(filename) {
+  deleteFile(filename: string) {
     return this.http.delete(`${this.API_ENDPOINT}/file`, Object.assign({
               params: {
                 filename: filename
@@ -356,7 +356,7 @@ export class ApiService {
   }
 
 
-  queryDatarecords(kind) {
+  queryDatarecords(kind: string) {
     return this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/datarecords/${kind}`, this.options)),
       map((result: any) => {
@@ -368,7 +368,7 @@ export class ApiService {
     );
   }
 
-  queryDatarecord(kind, id) {
+  queryDatarecord(kind: string, id: string) {
     return this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/datarecord/${kind}/${id}`, this.options)),
       map((result: any) => {
@@ -380,7 +380,7 @@ export class ApiService {
     );
   }
 
-  saveDatarecord(kind, datarecord) {
+  saveDatarecord(kind: string, datarecord: string) {
     return this.http.post(`${this.API_ENDPOINT}/datarecord/${kind}`, datarecord, this.options)
       .pipe(
         map((result: any) => {
@@ -392,7 +392,7 @@ export class ApiService {
       );
   }
 
-  deleteDatarecord(kind, id: any) {
+  deleteDatarecord(kind: string, id: string) {
     return this.http.delete(`${this.API_ENDPOINT}/datarecord/${kind}/${id}`, this.options)
       .pipe(
         switchMap(() => {

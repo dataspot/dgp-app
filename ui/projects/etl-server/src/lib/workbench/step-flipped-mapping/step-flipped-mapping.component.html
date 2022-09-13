@@ -34,7 +34,7 @@
       </ng-container>  
       <tr>
         <td>
-          <select (change)='add_unpivot_field($event.target.value)'>
+          <select (change)='add_unpivot_field($event)'>
             <option i18n disabled selected>Select source field to unpivot...</option>
             <ng-container  *ngFor='let field_name of config.structure.headers'>
               <option [value]='field_name'>{{field_name}}</option>

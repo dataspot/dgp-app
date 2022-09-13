@@ -17,7 +17,7 @@ export class DataRecordListInnerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  snippetize(def, record) {
+  snippetize(def: any, record: any) {
     return snippetize(def, record);
   }
 }

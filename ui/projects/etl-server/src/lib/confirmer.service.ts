@@ -14,18 +14,18 @@ export class ConfirmerService {
   public ACTION_EXECUTE_ALL = 4;
   public ACTION_CUSTOM = 5;
 
-  action: number = null;
-  actionText: string = null;
-  what: string = null;
+  action: number | null = null;
+  actionText: string | null = null;
+  what: string | null = null;
   active = false;
 
   result = new Subject<boolean>();
 
   constructor() { }
 
-  confirm(action, what, actionText?) {
+  confirm(action: number, what: string | null, actionText: string | null = null) {
     this.action = action;
-    this.actionText = actionText;
+    this.actionText = actionText || null;
     this.what = what;
     this.active = true;
     return this.result.pipe(
@@ -40,7 +40,7 @@ export class ConfirmerService {
     );
   }
 
-  choose(result) {
+  choose(result: boolean) {
     this.result.next(result);
   }
 }

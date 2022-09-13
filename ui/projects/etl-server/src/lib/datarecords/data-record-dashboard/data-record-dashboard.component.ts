@@ -12,14 +12,14 @@ import { DataRecordDashboardInnerComponent } from '../data-record-dashboard-inne
 })
 export class DataRecordDashboardComponent implements OnInit {
 
-  @Input() def;
+  @Input() def: any;
   datarecords = [];
   dashComponent =  new ReplaySubject<Type<any>>(1);
   @ViewChild(DataRecordEditAuxDirective, { static: true }) inner: DataRecordEditAuxDirective;
 
   constructor(private api: ApiService, 
               private componentFactoryResolver: ComponentFactoryResolver,
-              @Inject(EXTRA_MAPPING) private extraMapping) {
+              @Inject(EXTRA_MAPPING) private extraMapping: any) {
   }
 
   ngOnInit(): void {

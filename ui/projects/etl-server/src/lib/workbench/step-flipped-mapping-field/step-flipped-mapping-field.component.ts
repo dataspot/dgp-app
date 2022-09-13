@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
-import { FIELD_CONSTANT, FIELD_UNPIVOT_TARGET, FIELD_UNPIVOT_COLUMN } from '../step-flipped-mapping/step-flipped-mapping.component';
+import { FIELD_CONSTANT, FIELD_UNPIVOT_TARGET, FIELD_UNPIVOT_COLUMN } from '../step-flipped-mapping/constants';
 @Component({
   selector: 'app-step-flipped-mapping-field',
   templateUrl: './step-flipped-mapping-field.component.html',
@@ -84,15 +84,15 @@ export class StepFlippedMappingFieldComponent implements OnInit {
     }
   }
 
-  set trueValues(values: string) {
-    this.mapping.options.trueValues = values.split(',');
+  set trueValues(values: string | null) {
+    this.mapping.options.trueValues = values ? values.split(',') : null;
   }
 
-  set falseValues(values: string) {
-    this.mapping.options.falseValues = values.split(',');
+  set falseValues(values: string | null) {
+    this.mapping.options.falseValues = values ? values.split(',') : null;
   }
 
-  get trueValues() {
+  get trueValues(): string | null {
     if (this.mapping.options.trueValues && Array.isArray(this.mapping.options.trueValues)) {
       return this.mapping.options.trueValues.join(',');
     }

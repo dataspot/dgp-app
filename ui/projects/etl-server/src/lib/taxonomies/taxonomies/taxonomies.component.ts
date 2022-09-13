@@ -11,7 +11,7 @@ export class TaxonomiesComponent implements OnInit {
 
   _selected = '';
   selectedTaxonomy: any = null;
-  taxonomies = [];
+  taxonomies: any[] = [];
   JSON = JSON;
 
   constructor(public api: ApiService) {
@@ -40,19 +40,23 @@ export class TaxonomiesComponent implements OnInit {
   }
 
   changed() {
-    this.selectedTaxonomy.column_types = this.selectedTaxonomy.column_types.filter((x) => !!x.name);
+    this.selectedTaxonomy.column_types = this.selectedTaxonomy.column_types.filter((x: any) => !!x.name);
     this.api.updateTaxonomy(this.selectedTaxonomy)
         .subscribe((result) => {
           console.log('saved');
         });
   }
 
-  addNew(event) {
+  nameFromEvent(event: Event) {
+    return (event.target as HTMLInputElement).value;
+  }
+
+  addNew(event: string) {
     const ct = JSON.parse(event);
     this.selectedTaxonomy.column_types.push(ct);
   }
 
-  createNew(name) {
+  createNew(name: string) {
     return JSON.stringify({name: name, title: name, dataType: 'string'});
   }
 }

@@ -43,13 +43,13 @@ input {
 })
 export class ExtendableKeyvalueListComponent implements OnInit {
 
-  @Input() data;
-  @Input() dataList;
+  @Input() data: any;
+  @Input() dataList: any[];
   @Input() taxonomy: any;
   @Output() update = new EventEmitter<any>();
   @Output() updateList = new EventEmitter<any>();
 
-  values = [];
+  values: any[] = [];
 
   constructor() { }
 
@@ -66,7 +66,7 @@ export class ExtendableKeyvalueListComponent implements OnInit {
     this.updateList.emit(this.values.slice(0, -1));
 
     const x = [];
-    const ret = {};
+    const ret: any = {};
     for (const v of this.values) {
       if (v[0]) {
         x.push(v);

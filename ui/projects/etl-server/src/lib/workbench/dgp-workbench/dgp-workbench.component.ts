@@ -13,9 +13,9 @@ import { RolesService } from '../../roles.service';
 })
 export class DgpWorkbenchComponent implements OnInit, OnDestroy {
 
-  id = null;
-  config = null;
-  params = null;
+  id: string | null = null;
+  config: any = null;
+  params: any = null;
   stage = 0;
 
   STAGE_SPECIFY_SOURCE = 0;
@@ -81,7 +81,7 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateUrl(config) {
+  updateUrl(config: any) {
     this.store.setConfig(config ? Object.assign({}, this.store.BASE_CONFIG, config) : this.config);
   }
 
@@ -111,7 +111,7 @@ export class DgpWorkbenchComponent implements OnInit, OnDestroy {
     });
   }
 
-  finalize(submit) {
+  finalize(submit: boolean) {
     submit = !!submit;
     this.config.__submit = submit;
     this.store.setConfig(this.config);

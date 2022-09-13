@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../store.service';
-import { first, filter } from 'rxjs/operators';
-
-export const FIELD_CONSTANT = '  const  ';
-export const FIELD_UNPIVOT_TARGET = '  upt  ';
-export const FIELD_UNPIVOT_COLUMN = '  upc  ';
+import { filter } from 'rxjs/operators';
+import { FIELD_CONSTANT, FIELD_UNPIVOT_TARGET, FIELD_UNPIVOT_COLUMN } from './constants';
 
 @Component({
   selector: 'app-step-flipped-mapping',
@@ -14,14 +11,14 @@ export const FIELD_UNPIVOT_COLUMN = '  upc  ';
 export class StepFlippedMappingComponent implements OnInit {
 
   config: any = null;
-  taxonomy_id: string = null;
-  mandatory_cts = [];
-  optional_cts = [];
-  mapping = {};
-  badSample = {};
-  unpivot_target = null;
-  unpivot_columns = [];
-  unpivot_fields = [];
+  taxonomy_id: string | null = null;
+  mandatory_cts: any[] = [];
+  optional_cts: any[] = [];
+  mapping: any = {};
+  badSample: any = {};
+  unpivot_target: any = null;
+  unpivot_columns: any[] = [];
+  unpivot_fields: any[] = [];
 
   SAMPLE_SIZE = 5;
   FIELD_UNPIVOT_DUMMY = '  updummy  ';
@@ -51,7 +48,7 @@ export class StepFlippedMappingComponent implements OnInit {
               const list = this.badSample[field];
               if (list.length < this.SAMPLE_SIZE) {
                 const value = this.store.strize(row.data[field]);
-                if (list.map((x) => x.value).indexOf(value) < 0) {
+                if (list.map((x: any) => x.value).indexOf(value) < 0) {
                   const idx = row.index;
                   list.push({idx, value});
                 }
@@ -63,7 +60,7 @@ export class StepFlippedMappingComponent implements OnInit {
     });
   }
 
-  processConfig(config) {
+  processConfig(config: any) {
     this.mandatory_cts = [];
     this.optional_cts = [];
     this.unpivot_target = null;
@@ -71,7 +68,7 @@ export class StepFlippedMappingComponent implements OnInit {
     this.unpivot_fields = [];
 
     // Mapping of mapping.name -> ct.title
-    const mNameToCtTitle = {};
+    const mNameToCtTitle: any = {};
     for (const mapping of config.model.mapping) {
       if (!mapping.columnType) {
         continue;
@@ -87,7 +84,7 @@ export class StepFlippedMappingComponent implements OnInit {
     for (const mapping of config.model.mapping) {
       if (mapping.normalizeTarget) {
         this.unpivot_target = mNameToCtTitle[mapping.normalizeTarget] || mapping.normalizeTarget;
-        const _normalize = {};
+        const _normalize: any = {};
         for (const column of Object.keys(mapping.normalize)) {
           const _column = mNameToCtTitle[column] || column;
           if (this.unpivot_columns.indexOf(_column) < 0) {
@@ -141,7 +138,7 @@ export class StepFlippedMappingComponent implements OnInit {
     }
   }
 
-  updateMapping(entry) {
+  updateMapping(entry: any) {
     this.mapping[entry.ct.name] = entry;
     this.recreateMappings();
   }
@@ -199,7 +196,8 @@ export class StepFlippedMappingComponent implements OnInit {
     this.store.setConfig(this.config);
   }
 
-  add_unpivot_field(name) {
+  add_unpivot_field(event: Event) {
+    const name = (event.target as HTMLInputElement).value;
     console.log('add_unpivot_field', name);
     this.unpivot_fields = this.unpivot_fields.filter((x) => x.field_name !== name);
     this.unpivot_fields.push({
@@ -209,7 +207,7 @@ export class StepFlippedMappingComponent implements OnInit {
     this.recreateMappings();
   }
 
-  delete_unpivot_field(name) {
+  delete_unpivot_field(name: string) {
     this.unpivot_fields = this.unpivot_fields.filter((x) => x.field_name !== name);
     this.recreateMappings();
   }

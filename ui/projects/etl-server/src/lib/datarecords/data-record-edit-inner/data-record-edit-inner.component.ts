@@ -39,7 +39,7 @@ export class DataRecordEditInnerComponent implements OnInit {
         });
   }
 
-  delete(e) {
+  delete(e: Event) {
     this.confirmer.confirm(this.confirmer.ACTION_DELETE_DATARECORD, snippetize(this.def, this.datarecord))
       .pipe(
         filter((x) => x),

@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class StepExtractStructureComponent implements OnInit {
 
-  @Input() structure;
+  @Input() structure: any;
   @Output() change = new EventEmitter<any>();
 
   constructor() { }

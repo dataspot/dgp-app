@@ -1,7 +1,7 @@
 {
   "name": "etl-server",
   "description": "Frontend App for the DGP ETL Server",
-  "version": "0.0.39",
+  "version": "0.1.0",
   "keywords": [
     "etl",
     "data",
@@ -32,13 +32,13 @@
   ],
   "homepage": "https://github.com/dataspot/dgp-app",
   "peerDependencies": {
-    "@angular/common": "^10.1.4",
-    "@angular/core": "^10.1.4",
+    "@angular/common": "^14.0.0",
+    "@angular/core": "^14.0.0",
     "dgp-oauth2-ng": "^2.1.0",
     "moment": "^2.29.0",
     "ng-event-source": "^1.0.14"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   }
 }

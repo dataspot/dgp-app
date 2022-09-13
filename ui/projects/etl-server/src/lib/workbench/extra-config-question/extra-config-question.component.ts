@@ -9,7 +9,7 @@ import { StoreService } from '../../store.service';
 export class ExtraConfigQuestionComponent implements OnInit {
 
   @Input() question: any;
-  config = null;
+  config: any = null;
   _value = null;
 
   constructor(private store: StoreService ) { }
@@ -26,10 +26,10 @@ export class ExtraConfigQuestionComponent implements OnInit {
 
   extract() {
     const key: string = this.question.key;
-    const parts = key.split('.');
+    const parts: string[] = key.split('.');
     let value = this.config;
     while (value && parts.length > 0) {
-      const part = parts.shift();
+      const part = parts.shift() as string;
       value = value[part];
     }
     this._value = value;
@@ -40,7 +40,7 @@ export class ExtraConfigQuestionComponent implements OnInit {
     const parts = key.split('.');
     let value = this.config;
     while (parts.length > 1) {
-      const part = parts.shift();
+      const part = parts.shift() as string;
       if (!value[part]) {
         value[part] = {};
       }

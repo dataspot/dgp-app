@@ -22,14 +22,14 @@ export class DataRecordListComponent implements OnInit {
 
   constructor(public api: ApiService, public roles: RolesService, private activatedRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver, private router: Router,
-              @Inject(EXTRA_MAPPING) private extraMapping) {
-    let defs = null;
+              @Inject(EXTRA_MAPPING) private extraMapping: any) {
+    let defs: any[] = [];
     this.api.configuration.pipe(
       switchMap((configuration) => {
         defs = configuration.dataRecords || [];
         return this.activatedRoute.params;
       }),
-      switchMap((params) => {
+      switchMap((params: any) => {
         const detectedName = params.name;
         for (const def of defs) {
           if (def.name === detectedName) {
@@ -42,6 +42,7 @@ export class DataRecordListComponent implements OnInit {
             return this.api.queryDatarecords(detectedName);
           }
         }
+        return from([]);
       })
     )
     .subscribe((datarecords) => {

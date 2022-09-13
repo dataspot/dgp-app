@@ -11,7 +11,7 @@ export class DynamicFieldsEditorComponent implements OnInit, AfterViewInit {
   @Input() fields: any[];
   @Output() updated = new EventEmitter<void>();
   valid = false;
-  expanded = {};
+  expanded: any = {};
 
   constructor() { }
 
@@ -30,7 +30,7 @@ export class DynamicFieldsEditorComponent implements OnInit, AfterViewInit {
     }, 0);
   }
 
-  _validate(fields: any[], item) {
+  _validate(fields: any[], item: any) {
     let ret = true;
     for (const field of fields) {
       field.__valid = true;

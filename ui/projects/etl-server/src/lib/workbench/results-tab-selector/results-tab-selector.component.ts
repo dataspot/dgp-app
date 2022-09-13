@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 
+import { TableType } from '../results/types';
+
 @Component({
   selector: 'app-results-tab-selector',
   templateUrl: './results-tab-selector.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angu
 })
 export class ResultsTabSelectorComponent implements OnInit {
 
-  @Input() table;
+  @Input() table: TableType;
   @Input() label: string;
   @Input() active: boolean;
   @Output() select = new EventEmitter<void>();

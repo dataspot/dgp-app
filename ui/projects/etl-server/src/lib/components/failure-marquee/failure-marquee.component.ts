@@ -8,7 +8,7 @@ import { StoreService } from '../../store.service';
 })
 export class FailureMarqueeComponent implements OnInit {
 
-  error: string = null;
+  error: string | null = null;
 
   constructor(private store: StoreService) { }
 

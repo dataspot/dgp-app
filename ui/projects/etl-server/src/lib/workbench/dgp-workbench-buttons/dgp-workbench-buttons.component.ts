@@ -8,7 +8,7 @@ import { RolesService } from '../../roles.service';
 })
 export class DgpWorkbenchButtonsComponent implements OnInit {
 
-  @Input() status;
+  @Input() status: string;
   @Output() finalize = new EventEmitter<boolean>();
 
   constructor(private roles: RolesService) { }

@@ -15,15 +15,18 @@ export class HeaderComponent implements OnInit {
   detected = '';
   detectedName = '';
   homepage: string;
-  datarecords = [];
-  extraLinks = [];
+  datarecords: any[] = [];
+  extraLinks: any[] = [];
   configuration: any = {};
 
-  constructor(private activatedRoute: ActivatedRoute, public roles: RolesService, private api: ApiService, @Inject(EXTRA_MAPPING) private extraMapping) {
-    this.activatedRoute.data.subscribe((data) => {
+  constructor(
+    private activatedRoute: ActivatedRoute, public roles: RolesService, private api: ApiService,
+    @Inject(EXTRA_MAPPING) private extraMapping: any
+  ) {
+    this.activatedRoute.data.subscribe((data: any) => {
       this.detected = data.name;
     });
-    this.activatedRoute.params.subscribe((params) => {
+    this.activatedRoute.params.subscribe((params: any) => {
       this.detectedName = params.name;
     });
 
@@ -38,7 +41,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  showDatarecord(datarecord) {
+  showDatarecord(datarecord: any) {
     const mapping = this.extraMapping[datarecord.edit_component] || {};
     return mapping.list !== false && (!datarecord.admin || this.roles._.pseudoAdmin);
   }

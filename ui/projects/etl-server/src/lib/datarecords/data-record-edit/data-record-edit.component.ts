@@ -1,6 +1,6 @@
 import { Component, ComponentFactoryResolver, Inject, OnInit, Type, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { of, ReplaySubject } from 'rxjs';
+import { from, of, ReplaySubject } from 'rxjs';
 import { first, switchMap } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
 import { RolesService } from '../../roles.service';
@@ -25,14 +25,14 @@ export class DataRecordEditComponent implements OnInit {
   constructor(public api: ApiService, public roles: RolesService,
              private activatedRoute: ActivatedRoute,
              private componentFactoryResolver: ComponentFactoryResolver,
-             @Inject(EXTRA_MAPPING) private extraMapping) {
-    let datarecords = null;
+             @Inject(EXTRA_MAPPING) private extraMapping: any) {
+    let datarecords: any[] = [];
     this.api.configuration.pipe(
       switchMap((configuration) => {
         datarecords = configuration.dataRecords || [];
         return this.activatedRoute.params;
       }),
-      switchMap((params) => {
+      switchMap((params: any) => {
         const kind = params.name;
         const id = params.id;
         for (const def of datarecords) {
@@ -45,6 +45,7 @@ export class DataRecordEditComponent implements OnInit {
             }
           }
         }
+        return from([]);
       }),
       first()
     )

@@ -15,7 +15,7 @@ export class PipelineListItemComponent implements OnInit {
   @Input() item: any;
 
   status = '';
-  userId: string = null;
+  userId: string | null = null;
 
   constructor(public api: ApiService, public roles: RolesService,
               public auth: AuthService, private confirmer: ConfirmerService) {
@@ -36,7 +36,7 @@ export class PipelineListItemComponent implements OnInit {
     return (this.item.owner === this.userId && this.roles._.pipelinesDeleteOwn) || this.roles._.pipelinesDeleteAll;
   }
 
-  delete(e) {
+  delete(e: Event) {
     console.log('DELETING', this.item);
     this.confirmer.confirm(this.confirmer.ACTION_DELETE_TASK, this.item.name)
       .pipe(
@@ -51,7 +51,7 @@ export class PipelineListItemComponent implements OnInit {
     return false;
   }
 
-  date(field) {
+  date(field: string) {
     return this.item[field] ? this.item[field].slice(0, 10) : '-';
   }
 }

@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { ApiService } from './api.service';
 
 
-function compare(obj1, obj2, prefix) {
+function compare(obj1: any, obj2: any, prefix: string | null) {
   if (!obj1 || !obj2) {
     return false;
   }
@@ -62,8 +62,8 @@ export class StoreService {
   private _rows = new Subject<any>();
   private _rowcount = new Subject<any>();
   private _errors = new BehaviorSubject<any>([]);
-  private _failure = new Subject<string>();
-  private pipeline = null;
+  private _failure = new Subject<string | null>();
+  private pipeline: any = null;
 
   constructor(private api: ApiService) {
     this._config.subscribe((config) => {
@@ -81,7 +81,7 @@ export class StoreService {
     return this.pipeline && this.pipeline.id;
   }
 
-  setPipelineId(pipelineId) {
+  setPipelineId(pipelineId: string | null) {
     this.pipeline = null;
     if (pipelineId) {
       return this.api.queryPipeline(pipelineId)
@@ -116,7 +116,7 @@ export class StoreService {
     return this._errors;
   }
 
-  getFailure(): Subject<string> {
+  getFailure(): Subject<string | null> {
     return this._failure;
   }
 
@@ -135,7 +135,7 @@ export class StoreService {
     this.setConfig(this.BASE_CONFIG);
   }
 
-  str(conf) {
+  str(conf: any) {
     const revision = conf.__revision || null;
     const source = conf.source || null;
     const loader = conf.loader || null;
@@ -183,7 +183,7 @@ export class StoreService {
     this._rowcount.next(count);
   }
 
-  strize(v) {
+  strize(v: any) {
     if (v !== null && v !== undefined) {
       if (v.hasOwnProperty('type{decimal}')) {
         return `<span class='number'>${parseFloat(v['type{decimal}']).toFixed(2)}</span>`;

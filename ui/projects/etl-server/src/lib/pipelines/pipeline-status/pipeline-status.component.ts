@@ -30,7 +30,8 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
   refresh() {
     this.route.paramMap.pipe(
       switchMap((params) => {
-        return this.api.queryPipeline(params.get('id'));
+        const id = params.get('id') || '__non_existent__';
+        return this.api.queryPipeline(id);
       })
     ).subscribe((pipeline) => {
       this.item = pipeline;

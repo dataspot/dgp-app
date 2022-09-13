@@ -14,7 +14,7 @@
     <div class='add-new'>
       <div class='formish'>
         <label class='theme-primary-fg' i18n>Add new based on...</label>
-        <select (change)='addNew($event.target.value)'>
+        <select (change)='addNew(nameFromEvent($event))'>
           <option disabled i18n>Choose column type tp copy</option>
           <ng-container *ngFor='let taxonomy of (api.taxonomies | async)'>
             <optgroup [label]='taxonomy.title'>
@@ -26,7 +26,7 @@
         </select>
         <strong>&nbsp;-&nbsp;OR&nbsp;-&nbsp;</strong>
         <label class='theme-primary-fg' i18n>Add a new column type named... </label>
-        <input type='text' (change)='addNew(createNew($event.target.value))'/>
+        <input type='text' (change)='addNew(createNew(nameFromEvent($event)))'/>
       </div> 
     </div>
   </ng-container>
