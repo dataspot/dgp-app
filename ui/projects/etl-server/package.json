@@ -1,7 +1,7 @@
 {
   "name": "etl-server",
   "description": "Frontend App for the DGP ETL Server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "etl",
     "data",
@@ -34,7 +34,7 @@
   "peerDependencies": {
     "@angular/common": "14",
     "@angular/core": "14",
-    "dgp-oauth2-ng": "^2.1.0",
+    "dgp-oauth2-ng": "3",
     "moment": "^2.29.0",
     "ng-event-source": "^1.0.14"
   },
