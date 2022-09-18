@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RolesService } from '../../roles.service';
 
 @Component({
-  selector: 'app-dgp-workbench-buttons',
+  selector: 'etl-dgp-workbench-buttons',
   templateUrl: './dgp-workbench-buttons.component.html',
   styleUrls: ['./dgp-workbench-buttons.component.less']
 })

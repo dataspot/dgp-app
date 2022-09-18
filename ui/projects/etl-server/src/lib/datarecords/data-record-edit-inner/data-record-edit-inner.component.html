@@ -1,5 +1,5 @@
 <ng-container *ngIf='def.fields'>
-  <app-dynamic-fields-editor [item]='datarecord' [fields]='def.fields'></app-dynamic-fields-editor>
+  <etl-dynamic-fields-editor [item]='datarecord' [fields]='def.fields'></etl-dynamic-fields-editor>
 </ng-container>
 <div class='buttons'>
   <div *ngIf='roles._.datarecordEditOwn || roles._.datarecordEditAll'  class='save button' (click)='save()' i18n>

@@ -5,7 +5,7 @@ import { ThemeService } from './theme.service';
 @Component({
   selector: 'lib-etl-server',
   template: `
-    <app-confirmer></app-confirmer>
+    <etl-confirmer></etl-confirmer>
     <router-outlet></router-outlet>
   `,
   styles: [`

@@ -9,7 +9,7 @@ import { RolesService } from '../../roles.service';
 import { DataRecordListInnerComponent } from '../data-record-list-inner/data-record-list-inner.component';
 
 @Component({
-  selector: 'app-data-record-list',
+  selector: 'etl-data-record-list',
   templateUrl: './data-record-list.component.html',
   styleUrls: ['./data-record-list.component.less']
 })

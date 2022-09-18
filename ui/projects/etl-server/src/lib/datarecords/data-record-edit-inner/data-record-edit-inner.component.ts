@@ -7,7 +7,7 @@ import { filter, switchMap } from 'rxjs/operators';
 import { snippetize } from '../../utilities';
 
 @Component({
-  selector: 'app-data-record-edit-inner',
+  selector: 'etl-data-record-edit-inner',
   templateUrl: './data-record-edit-inner.component.html',
   styleUrls: ['./data-record-edit-inner.component.less']
 })

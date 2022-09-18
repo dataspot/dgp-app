@@ -7,7 +7,7 @@ import { RolesService } from '../../roles.service';
 import { AuthService } from 'dgp-oauth2-ng';
 
 @Component({
-  selector: 'app-pipeline-status',
+  selector: 'etl-pipeline-status',
   templateUrl: './pipeline-status.component.html',
   styleUrls: ['./pipeline-status.component.less']
 })

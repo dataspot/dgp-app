@@ -14,15 +14,15 @@
     </ng-container>
 
     <div class='tab-selectors' [class.visible]='hasResults'>
-        <app-results-tab-selector [table]='TABLES[0]' [active]='step === TABLES[0].slug' (select)='step = TABLES[0].slug' label='Original Data' i18n-label></app-results-tab-selector>
-        <app-results-tab-selector [table]='TABLES[1]' [active]='step === TABLES[1].slug' (select)='step = TABLES[1].slug' label='Mapped Data' i18n-label></app-results-tab-selector>
-        <app-results-tab-selector [table]='TABLES[2]' [active]='step === TABLES[2].slug' (select)='step = TABLES[2].slug' label='Transformed Data' i18n-label></app-results-tab-selector>
+        <etl-results-tab-selector [table]='TABLES[0]' [active]='step === TABLES[0].slug' (select)='step = TABLES[0].slug' label='Original Data' i18n-label></etl-results-tab-selector>
+        <etl-results-tab-selector [table]='TABLES[1]' [active]='step === TABLES[1].slug' (select)='step = TABLES[1].slug' label='Mapped Data' i18n-label></etl-results-tab-selector>
+        <etl-results-tab-selector [table]='TABLES[2]' [active]='step === TABLES[2].slug' (select)='step = TABLES[2].slug' label='Transformed Data' i18n-label></etl-results-tab-selector>
     </div>
 
-    <app-result-table
+    <etl-result-table
         *ngFor='let table of TABLES; let i = index'
         [kind]='i' [hidden]='step!==table.slug'
         [kindName]='table.slug'
         [class.visible]='hasResults && step === table.slug'
-    ></app-result-table>
+    ></etl-result-table>
 </div>

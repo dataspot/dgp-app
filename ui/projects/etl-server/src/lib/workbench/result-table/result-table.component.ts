@@ -4,7 +4,7 @@ import { StoreService } from '../../store.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-result-table',
+  selector: 'etl-result-table',
   templateUrl: 'result-table.component.html',
   styleUrls: ['result-table.component.less']
 })

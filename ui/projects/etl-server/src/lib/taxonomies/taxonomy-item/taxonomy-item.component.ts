@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-taxonomy-item',
+  selector: 'etl-taxonomy-item',
   templateUrl: './taxonomy-item.component.html',
   styleUrls: ['./taxonomy-item.component.less']
 })

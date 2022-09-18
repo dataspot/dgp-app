@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input }
 import { ApiService } from '../../api.service';
 
 @Component({
-  selector: 'app-file-uploader',
+  selector: 'etl-file-uploader',
   templateUrl: './file-uploader.component.html',
   styleUrls: ['./file-uploader.component.less']
 })

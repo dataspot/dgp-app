@@ -4,7 +4,7 @@ import { ConfirmerService } from '../../confirmer.service';
 import { filter, first, switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-user-list-item',
+  selector: 'etl-user-list-item',
   templateUrl: './user-list-item.component.html',
   styleUrls: ['./user-list-item.component.less']
 })

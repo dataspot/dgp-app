@@ -5,7 +5,7 @@ import { ConfirmerService } from '../../confirmer.service';
 import { RolesService } from '../../roles.service';
 
 @Component({
-  selector: 'app-pipeline-list',
+  selector: 'etl-pipeline-list',
   templateUrl: './pipeline-list.component.html',
   styleUrls: ['./pipeline-list.component.less']
 })

@@ -3,7 +3,7 @@ import { StoreService } from '../../store.service';
 import { TableType } from './types';
 
 @Component({
-  selector: 'app-results',
+  selector: 'etl-results',
   templateUrl: 'results.component.html',
   styleUrls: ['results.component.less'],
 })

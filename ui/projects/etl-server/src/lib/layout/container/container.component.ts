@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../../theme.service';
 
 @Component({
-  selector: 'app-container',
+  selector: 'etl-container',
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.less']
 })

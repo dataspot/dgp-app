@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-pipeline-list-section',
+  selector: 'etl-pipeline-list-section',
   templateUrl: './pipeline-list-section.component.html',
   styleUrls: ['./pipeline-list-section.component.less']
 })

@@ -1,11 +1,11 @@
-<app-container>
+<etl-container>
   <div class='intro' *ngIf='profile'>
     <img [src]='profile.avatar_url'/>
     <h1 class='theme-primary-fg' i18n>Welcome, {{profile.name}}!</h1>
     <a class='logout' routerLink='/logout' i18n>Logout</a>
   </div>
-  <app-pipeline-status-dashboard *ngIf='roles.showPipelines(configuration)'></app-pipeline-status-dashboard>
+  <etl-pipeline-status-dashboard *ngIf='roles.showPipelines(configuration)'></etl-pipeline-status-dashboard>
   <ng-container *ngIf='roles.showDatarecords(configuration)'>
-    <app-data-record-dashboard *ngFor='let def of datarecords' [def]='def'></app-data-record-dashboard>
+    <etl-data-record-dashboard *ngFor='let def of datarecords' [def]='def'></etl-data-record-dashboard>
   </ng-container>
-</app-container>
+</etl-container>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-pipeline-list-headers',
+  selector: 'etl-pipeline-list-headers',
   templateUrl: './pipeline-list-headers.component.html',
   styleUrls: ['./pipeline-list-headers.component.less']
 })

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'etl-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less']
 })

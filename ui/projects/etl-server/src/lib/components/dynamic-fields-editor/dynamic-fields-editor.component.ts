@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dynamic-fields-editor',
+  selector: 'etl-dynamic-fields-editor',
   templateUrl: './dynamic-fields-editor.component.html',
   styleUrls: ['./dynamic-fields-editor.component.less']
 })

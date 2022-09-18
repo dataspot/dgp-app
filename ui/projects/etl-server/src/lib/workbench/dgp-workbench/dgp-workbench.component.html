@@ -1,27 +1,27 @@
-<app-container>
+<etl-container>
     <h1 class='theme-primary-fg' i18n>Data Import Workbench</h1>
 
-    <app-dgp-workbench-buttons (finalize)='finalize($event)' [status]='status'></app-dgp-workbench-buttons> 
+    <etl-dgp-workbench-buttons (finalize)='finalize($event)' [status]='status'></etl-dgp-workbench-buttons> 
 
-    <app-step-extract-source [source]='config.source'
+    <etl-step-extract-source [source]='config.source'
                              [loader]='config.loader'
                              *ngIf='stage >= STAGE_SPECIFY_SOURCE'
                              (update)='updateUrl($event)'>
-    </app-step-extract-source>
-    <app-step-extract-structure [structure]='config.structure'
+    </etl-step-extract-source>
+    <etl-step-extract-structure [structure]='config.structure'
                                 *ngIf='stage >= STAGE_SOURCE_PARAMETERS'
                                 (change)='store.setConfig(config)'>
-    </app-step-extract-structure>
-    <app-step-taxonomy [taxonomy]='config.taxonomy'
+    </etl-step-extract-structure>
+    <etl-step-taxonomy [taxonomy]='config.taxonomy'
                         *ngIf='stage >= STAGE_SELECT_TAXONOMY'
                         (change)='store.setConfig(config)'>
-    </app-step-taxonomy>
-    <app-step-flipped-mapping *ngIf='stage >= STAGE_MAPPING'>
-    </app-step-flipped-mapping>
-    <app-step-enrich [params]='params' *ngIf='stage >= STAGE_METADATA'>
-    </app-step-enrich>
+    </etl-step-taxonomy>
+    <etl-step-flipped-mapping *ngIf='stage >= STAGE_MAPPING'>
+    </etl-step-flipped-mapping>
+    <etl-step-enrich [params]='params' *ngIf='stage >= STAGE_METADATA'>
+    </etl-step-enrich>
 
-    <app-dgp-workbench-buttons (finalize)='finalize($event)' [status]='status' *ngIf='complete !== null'></app-dgp-workbench-buttons> 
+    <etl-dgp-workbench-buttons (finalize)='finalize($event)' [status]='status' *ngIf='complete !== null'></etl-dgp-workbench-buttons> 
 
-    <app-results *ngIf='config.source.path || config.loader.filename'></app-results>
-</app-container>
+    <etl-results *ngIf='config.source.path || config.loader.filename'></etl-results>
+</etl-container>

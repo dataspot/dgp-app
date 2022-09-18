@@ -9,7 +9,7 @@ import { ConfirmerService } from '../../confirmer.service';
 import { DynamicFieldsEditorComponent } from '../../components/dynamic-fields-editor/dynamic-fields-editor.component';
 
 @Component({
-  selector: 'app-edit-pipeline',
+  selector: 'etl-edit-pipeline',
   templateUrl: './edit-pipeline.component.html',
   styleUrls: ['./edit-pipeline.component.less']
 })

@@ -1,4 +1,4 @@
-<app-container>
+<etl-container>
   <h1 class='theme-primary-fg' i18n>Processing Tasks</h1>
   <div class='controls'>
     <div *ngIf='roles._.pipelinesNew'><a routerLink='/edit/new' i18n>
@@ -21,5 +21,5 @@
       </select>
     </div>
   </div>
-  <app-pipeline-list-section [root]='true' [sections]='pipelineSections'></app-pipeline-list-section> 
-</app-container>
+  <etl-pipeline-list-section [root]='true' [sections]='pipelineSections'></etl-pipeline-list-section> 
+</etl-container>

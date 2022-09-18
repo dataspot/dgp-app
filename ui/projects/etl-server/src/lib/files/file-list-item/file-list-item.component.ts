@@ -6,7 +6,7 @@ import { ConfirmerService } from '../../confirmer.service';
 import { switchMap, filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-file-list-item',
+  selector: 'etl-file-list-item',
   templateUrl: './file-list-item.component.html',
   styleUrls: ['./file-list-item.component.less']
 })

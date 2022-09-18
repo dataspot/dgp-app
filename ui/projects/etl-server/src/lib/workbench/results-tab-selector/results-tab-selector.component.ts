@@ -3,7 +3,7 @@ import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angu
 import { TableType } from '../results/types';
 
 @Component({
-  selector: 'app-results-tab-selector',
+  selector: 'etl-results-tab-selector',
   templateUrl: './results-tab-selector.component.html',
   styleUrls: ['./results-tab-selector.component.less']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-extra-config-questions',
+  selector: 'etl-extra-config-questions',
   templateUrl: './extra-config-questions.component.html',
   styleUrls: ['./extra-config-questions.component.less']
 })

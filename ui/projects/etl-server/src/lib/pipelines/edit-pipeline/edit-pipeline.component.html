@@ -1,4 +1,4 @@
-<app-container>
+<etl-container>
   <h1 class='theme-primary-fg' i18n>Edit Task</h1>
   <label i18n>Task Name</label>
   <div class='field-description' [innerHtml]='api.currentConfig.taskNameDescription' *ngIf='api.currentConfig && api.currentConfig.taskNameDescription'></div>
@@ -14,9 +14,9 @@
       </select>
     </ng-container>
     <ng-container *ngIf='api.currentConfig.kinds_map[item.kind]'>
-      <app-dynamic-fields-editor [item]='item.params' [fields]='fields' #fieldsEditor
+      <etl-dynamic-fields-editor [item]='item.params' [fields]='fields' #fieldsEditor
                                  (updated)='updateValidity()'
-      ></app-dynamic-fields-editor>
+      ></etl-dynamic-fields-editor>
       <ng-container *ngIf='roles._.pipelinesExecute'>
         <label i18n>Schedule</label>
         <select [(ngModel)]='item.schedule'>
@@ -48,4 +48,4 @@
       </div>
     </ng-container>
   </ng-container>
-</app-container>
+</etl-container>

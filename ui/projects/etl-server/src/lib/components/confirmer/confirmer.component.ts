@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmerService } from '../../confirmer.service';
 
 @Component({
-  selector: 'app-confirmer',
+  selector: 'etl-confirmer',
   templateUrl: './confirmer.component.html',
   styleUrls: ['./confirmer.component.less']
 })

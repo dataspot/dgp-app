@@ -6,7 +6,7 @@ import { first, filter, switchMap } from 'rxjs/operators';
 import { ConfirmerService } from '../../confirmer.service';
 
 @Component({
-  selector: 'app-pipeline-list-item',
+  selector: 'etl-pipeline-list-item',
   templateUrl: './pipeline-list-item.component.html',
   styleUrls: ['./pipeline-list-item.component.less']
 })

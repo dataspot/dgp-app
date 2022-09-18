@@ -6,7 +6,7 @@ import { first } from 'rxjs/operators';
 import { EXTRA_MAPPING } from '../../config';
 
 @Component({
-  selector: 'app-header',
+  selector: 'etl-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.less']
 })

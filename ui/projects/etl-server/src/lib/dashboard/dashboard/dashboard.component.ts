@@ -5,7 +5,7 @@ import { ApiService } from '../../api.service';
 import { RolesService } from '../../roles.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'etl-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.less']
 })

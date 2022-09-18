@@ -1,5 +1,5 @@
 <ng-container *ngIf='root'>
-    <app-pipeline-list-headers></app-pipeline-list-headers>
+    <etl-pipeline-list-headers></etl-pipeline-list-headers>
 </ng-container>
 
 <ng-container *ngFor='let item of sections'>
@@ -17,7 +17,7 @@
                 <span [innerHtml]='item.display'></span>
             </span>
         </h2>
-        <app-pipeline-list-section *ngIf='item.open' [sections]='item.items'></app-pipeline-list-section>
+        <etl-pipeline-list-section *ngIf='item.open' [sections]='item.items'></etl-pipeline-list-section>
     </ng-container>
-    <app-pipeline-list-item *ngIf='item.type === "pipeline"' [item]='item.item'></app-pipeline-list-item>
+    <etl-pipeline-list-item *ngIf='item.type === "pipeline"' [item]='item.item'></etl-pipeline-list-item>
 </ng-container>

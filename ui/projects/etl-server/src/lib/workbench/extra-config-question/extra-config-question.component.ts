@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { StoreService } from '../../store.service';
 
 @Component({
-  selector: 'app-extra-config-question',
+  selector: 'etl-extra-config-question',
   templateUrl: './extra-config-question.component.html',
   styleUrls: ['./extra-config-question.component.less']
 })

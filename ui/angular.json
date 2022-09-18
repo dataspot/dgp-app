@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/etl-server",
       "sourceRoot": "projects/etl-server/src",
-      "prefix": "lib",
+      "prefix": "etl",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

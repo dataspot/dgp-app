@@ -3,7 +3,7 @@ import { AuthService } from 'dgp-oauth2-ng';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-logout',
+  selector: 'etl-logout',
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.less']
 })

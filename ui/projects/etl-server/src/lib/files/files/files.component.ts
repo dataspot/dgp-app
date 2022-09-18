@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-files',
+  selector: 'etl-files',
   templateUrl: './files.component.html',
   styleUrls: ['./files.component.less']
 })

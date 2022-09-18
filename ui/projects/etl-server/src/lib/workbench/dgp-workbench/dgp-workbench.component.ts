@@ -7,7 +7,7 @@ import { ApiService } from '../../api.service';
 import { RolesService } from '../../roles.service';
 
 @Component({
-  selector: 'app-dgp-workbench',
+  selector: 'etl-dgp-workbench',
   templateUrl: 'dgp-workbench.component.html',
   styleUrls: ['dgp-workbench.component.less']
 })

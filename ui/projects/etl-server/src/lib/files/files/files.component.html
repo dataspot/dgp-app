@@ -1,10 +1,10 @@
-<app-container>
+<etl-container>
   <h1 class='theme-primary-fg' i18n>Source Data</h1>
   <div *ngIf='roles._.filesUpload' class='add-new'><a (click)='upload()' i18n>
     <i class="fas fa-plus-circle" aria-hidden="true"></i>
     Upload Data File</a>
   </div>
-  <app-file-uploader *ngIf='uploaderVisible' (close)='uploaderVisible=false' [filename]='forceFilename'></app-file-uploader>
+  <etl-file-uploader *ngIf='uploaderVisible' (close)='uploaderVisible=false' [filename]='forceFilename'></etl-file-uploader>
 
   <div class='controls'>
     <a i18n (click)='sort = "alpha"; processFiles()'>
@@ -21,6 +21,6 @@
     </a>
   </div>
   <ng-container *ngFor='let item of showFiles'>
-    <app-file-list-item [item]='item' (update)='update(item.filename)'></app-file-list-item>
+    <etl-file-list-item [item]='item' (update)='update(item.filename)'></etl-file-list-item>
   </ng-container>
-</app-container>
+</etl-container>

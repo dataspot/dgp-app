@@ -12,6 +12,6 @@
   </ng-container>
 </div>
 <ng-container *ngFor='let def of datarecords'>
-  <app-data-record-user [def]='def' [record]='item.datarecords[def.name]' (updated)='update()'></app-data-record-user>
+  <etl-data-record-user [def]='def' [record]='item.datarecords[def.name]' (updated)='update()'></etl-data-record-user>
 </ng-container>
 

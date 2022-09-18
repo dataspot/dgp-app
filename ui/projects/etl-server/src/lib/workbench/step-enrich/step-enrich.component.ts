@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-step-enrich',
+  selector: 'etl-step-enrich',
   templateUrl: 'step-enrich.component.html',
   styleUrls: ['step-enrich.component.less']
 })

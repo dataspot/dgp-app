@@ -3,7 +3,7 @@ import { ApiService } from '../../api.service';
 import { first } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-taxonomies',
+  selector: 'etl-taxonomies',
   templateUrl: './taxonomies.component.html',
   styleUrls: ['./taxonomies.component.less']
 })

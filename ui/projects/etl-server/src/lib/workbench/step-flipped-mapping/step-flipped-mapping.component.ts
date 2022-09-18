@@ -4,7 +4,7 @@ import { filter } from 'rxjs/operators';
 import { FIELD_CONSTANT, FIELD_UNPIVOT_TARGET, FIELD_UNPIVOT_COLUMN } from './constants';
 
 @Component({
-  selector: 'app-step-flipped-mapping',
+  selector: 'etl-step-flipped-mapping',
   templateUrl: './step-flipped-mapping.component.html',
   styleUrls: ['./step-flipped-mapping.component.less']
 })

@@ -3,7 +3,7 @@ import { first } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
 import { FIELD_CONSTANT, FIELD_UNPIVOT_TARGET, FIELD_UNPIVOT_COLUMN } from '../step-flipped-mapping/constants';
 @Component({
-  selector: 'app-step-flipped-mapping-field',
+  selector: 'etl-step-flipped-mapping-field',
   templateUrl: './step-flipped-mapping-field.component.html',
   styleUrls: ['./step-flipped-mapping-field.component.less']
 })

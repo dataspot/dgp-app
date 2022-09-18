@@ -1,4 +1,4 @@
-<app-container>
+<etl-container>
   <h1 class='theme-primary-fg' i18n>Taxonomies</h1>
   <div class='formish'>
     <label class='theme-primary-fg' i18n>Choose taxonomy to edit</label>
@@ -10,7 +10,7 @@
     </select>
   </div>
   <ng-container *ngIf='selectedTaxonomy'>
-    <app-taxonomy-item *ngFor='let ct of selectedTaxonomy.column_types' [ct]='ct' (changed)='changed()'></app-taxonomy-item>
+    <etl-taxonomy-item *ngFor='let ct of selectedTaxonomy.column_types' [ct]='ct' (changed)='changed()'></etl-taxonomy-item>
     <div class='add-new'>
       <div class='formish'>
         <label class='theme-primary-fg' i18n>Add new based on...</label>
@@ -30,4 +30,4 @@
       </div> 
     </div>
   </ng-container>
-</app-container>
+</etl-container>

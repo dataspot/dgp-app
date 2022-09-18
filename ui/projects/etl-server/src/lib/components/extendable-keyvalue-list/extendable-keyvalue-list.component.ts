@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-extendable-keyvalue-list',
+  selector: 'etl-extendable-keyvalue-list',
   template: `
     <div>
       <span class='item' *ngFor='let value of values'>

@@ -10,7 +10,7 @@ import { DataRecordEditInnerComponent } from '../data-record-edit-inner/data-rec
 import { DataRecordEditAuxDirective } from '../../data-record-edit-aux.directive';
 
 @Component({
-  selector: 'app-data-record-edit',
+  selector: 'etl-data-record-edit',
   templateUrl: './data-record-edit.component.html',
   styleUrls: ['./data-record-edit.component.less']
 })

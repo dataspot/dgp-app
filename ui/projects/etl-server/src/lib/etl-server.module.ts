@@ -113,7 +113,8 @@ import { DataRecordUserInnerComponent } from './datarecords/data-record-user-inn
     DgpOauth2Module
   ],
   exports: [
-    EtlServerComponent
+    EtlServerComponent,
+    FileUploaderComponent,
   ],
   providers: [],
   bootstrap: [EtlServerComponent]

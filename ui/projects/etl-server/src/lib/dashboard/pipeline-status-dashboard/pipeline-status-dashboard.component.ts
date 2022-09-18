@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 
 @Component({
-  selector: 'app-pipeline-status-dashboard',
+  selector: 'etl-pipeline-status-dashboard',
   templateUrl: './pipeline-status-dashboard.component.html',
   styleUrls: ['./pipeline-status-dashboard.component.less']
 })

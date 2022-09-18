@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angu
 import { StoreService } from '../../store.service';
 
 @Component({
-  selector: 'app-step-taxonomy',
+  selector: 'etl-step-taxonomy',
   templateUrl: './step-taxonomy.component.html',
   styleUrls: ['./step-taxonomy.component.less']
 })

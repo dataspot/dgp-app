@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../../api.service';
 
 @Component({
-  selector: 'app-step-extract-source',
+  selector: 'etl-step-extract-source',
   templateUrl: 'step-extract-source.component.html',
   styles: []
 })

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 
 @Component({
-  selector: 'app-users',
+  selector: 'etl-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.less']
 })
