@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
+import { delay } from 'rxjs';
 import { ApiService } from '../../api.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class FileUploaderComponent implements OnInit {
 
   @ViewChild('file', { static: true }) file: ElementRef;
   @Input() filename: string | null;
-  @Output() close = new EventEmitter<void>();
+  @Output() close = new EventEmitter<string>();
 
   _progress = 0;
   _active = false;
@@ -62,13 +63,25 @@ export class FileUploaderComponent implements OnInit {
     if (this._active) {
       this._success = success;
       if (success) {
-        this.api.queryFiles();
+        let filename = this.selectedFile?.name;
+        this.api.queryFiles(false).pipe(
+          delay(2000)
+        ).subscribe((files) => {
+          let found = false;
+          for (const file of files) {
+            if (file.filename === filename) {
+              this.close.emit(filename);
+              found = true;
+            }
+          }
+          if (!found) {
+            this.success = false;
+            console.log(`file not found - ${filename} is not in ${files.map((f: any) => f.filename).join(', ')}`);
+          }
+        });
       }
       this._active = false;
       this._progress = 100;
-      setTimeout(() => {
-        this.close.emit();
-      }, 2000);
     }
   }
 

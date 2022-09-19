@@ -51,6 +51,7 @@ import { DataRecordDashboardComponent } from './datarecords/data-record-dashboar
 import { DataRecordDashboardInnerComponent } from './datarecords/data-record-dashboard-inner/data-record-dashboard-inner.component';
 import { DataRecordUserComponent } from './datarecords/data-record-user/data-record-user.component';
 import { DataRecordUserInnerComponent } from './datarecords/data-record-user-inner/data-record-user-inner.component';
+import { StoreService } from './store.service';
 
 
 @NgModule({

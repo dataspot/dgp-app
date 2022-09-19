@@ -10,7 +10,7 @@ export class StepExtractSourceComponent implements OnInit {
 
   @Input() source: any;
   @Input() loader: any;
-  @Output() update = new EventEmitter<string>();
+  @Output() update = new EventEmitter<any>();
 
   constructor(public api: ApiService) {
   }
