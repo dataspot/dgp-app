@@ -71,7 +71,10 @@ class Server(DgpServer):
         return [FileLoaderDGP]
 
     async def refresh_taxonomies(self, app):
-        await self.column_type_refresher.internal_refresh(app)
+        try:
+            await self.column_type_refresher.internal_refresh(app)
+        except Exception as e:
+            logger.exception('Failed to refresh taxonomies', e)
         
 
 
