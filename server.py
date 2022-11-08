@@ -33,6 +33,7 @@ CORS(app, supports_credentials=True)
 
 # Session
 session = Session()
+app.config.from_prefixed_env()
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = '/tmp/sessions'
 app.config['SECRET_KEY'] = '-'
