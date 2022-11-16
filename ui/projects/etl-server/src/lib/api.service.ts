@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { BehaviorSubject, ReplaySubject, of, from } from 'rxjs';
-import { map, switchMap, catchError, filter, delay } from 'rxjs/operators';
+import { map, switchMap, catchError, filter, delay, retry } from 'rxjs/operators';
 import { AuthService } from 'dgp-oauth2-ng';
 import { Router } from '@angular/router';
 import { RolesService } from './roles.service';
@@ -202,6 +202,7 @@ export class ApiService {
   queryPipelines() {
     this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/pipelines`, this.options)),
+      retry({count: 3, delay: 1000}),
       map((result: any) => {
         if (result.success) {
           return result['result'];
@@ -220,6 +221,7 @@ export class ApiService {
   queryPipeline(id: string) {
     return this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/pipeline/${id}`, this.options)),
+      retry({count: 3, delay: 1000}),
       map((result: any) => {
         if (result.success) {
           return result['result'];
@@ -285,6 +287,7 @@ export class ApiService {
   queryFiles(subscribe = true) {
     const o = this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/files`, this.options)),
+      retry({count: 3, delay: 1000}),
       map((result: any) => {
         if (result.success) {
           return result.result;
@@ -359,6 +362,7 @@ export class ApiService {
   queryDatarecords(kind: string) {
     return this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/datarecords/${kind}`, this.options)),
+      retry({count: 3, delay: 1000}),
       map((result: any) => {
         if (result.success) {
           return result['result'];
@@ -371,6 +375,7 @@ export class ApiService {
   queryDatarecord(kind: string, id: string) {
     return this.configuration.pipe(
       switchMap(() => this.http.get(`${this.API_ENDPOINT}/datarecord/${kind}/${id}`, this.options)),
+      retry({count: 3, delay: 1000}),
       map((result: any) => {
         if (result.success) {
           return result['result'];
@@ -383,6 +388,7 @@ export class ApiService {
   saveDatarecord(kind: string, datarecord: string) {
     return this.http.post(`${this.API_ENDPOINT}/datarecord/${kind}`, datarecord, this.options)
       .pipe(
+        retry({count: 1, delay: 3000}),
         map((result: any) => {
           if (result.success) {
             return result['result'];
