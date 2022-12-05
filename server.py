@@ -116,42 +116,43 @@ app.register_blueprint(
     url_prefix='/auth/'
 )
 
+if not configuration.get('features', {}).get('disableWebUi', False):
+    @app.route('/')
+    @app.route('/logout')
+    @app.route('/pipelines')
+    @app.route('/dashboard')
+    @app.route('/users')
+    @app.route('/files')
+    @app.route('/taxonomies')
+    @app.route('/datarecords/<path:subpath>')
+    @app.route('/dgp/<path:subpath>')
+    @app.route('/status/<path:subpath>')
+    @app.route('/edit/<path:subpath>')
+    @app.route('/<locale>/logout')
+    @app.route('/<locale>/pipelines')
+    @app.route('/<locale>/dashboard')
+    @app.route('/<locale>/users')
+    @app.route('/<locale>/files')
+    @app.route('/<locale>/taxonomies')
+    @app.route('/<locale>/datarecords/<path:subpath>')
+    @app.route('/<locale>/dgp/<path:subpath>')
+    @app.route('/<locale>/status/<path:subpath>')
+    @app.route('/<locale>/edit/<path:subpath>')
+    def main(subpath=None, locale=default_locale):
+        locale = locale[:2]
+        return send_file(f'ui/dist/ui/{locale}/index.html')
+
+    @app.route('/he')
+    @app.route('/he/')
+    def main_he():
+        return send_file(f'ui/dist/ui/he/index.html')
+
+    @app.route('/en')
+    @app.route('/en/')
+    def main_en():
+        return send_file(f'ui/dist/ui/en/index.html')
+
 extra_server_init(app) 
-
-@app.route('/')
-@app.route('/logout')
-@app.route('/pipelines')
-@app.route('/dashboard')
-@app.route('/users')
-@app.route('/files')
-@app.route('/taxonomies')
-@app.route('/datarecords/<path:subpath>')
-@app.route('/dgp/<path:subpath>')
-@app.route('/status/<path:subpath>')
-@app.route('/edit/<path:subpath>')
-@app.route('/<locale>/logout')
-@app.route('/<locale>/pipelines')
-@app.route('/<locale>/dashboard')
-@app.route('/<locale>/users')
-@app.route('/<locale>/files')
-@app.route('/<locale>/taxonomies')
-@app.route('/<locale>/datarecords/<path:subpath>')
-@app.route('/<locale>/dgp/<path:subpath>')
-@app.route('/<locale>/status/<path:subpath>')
-@app.route('/<locale>/edit/<path:subpath>')
-def main(subpath=None, locale=default_locale):
-    locale = locale[:2]
-    return send_file(f'ui/dist/ui/{locale}/index.html')
-
-@app.route('/he')
-@app.route('/he/')
-def main_he():
-    return send_file(f'ui/dist/ui/he/index.html')
-
-@app.route('/en')
-@app.route('/en/')
-def main_en():
-    return send_file(f'ui/dist/ui/en/index.html')
 
 if __name__=='__main__':
     app.run()
