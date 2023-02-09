@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 RUN apt-get update && apt-get install --no-install-recommends -y gcc libc6-dev linux-libc-dev libpq-dev libleveldb1d && \
     adduser --disabled-password --home /app etl && update-ca-certificates && \
-    pip install --upgrade gunicorn numpy 'pandas<1.0.0' dgp-server pyproj && \
+    pip install --upgrade gunicorn numpy pandas dgp-server pyproj && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
