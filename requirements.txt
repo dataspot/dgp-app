@@ -12,7 +12,6 @@ dgp-server>=0.0.95
 dgp>=0.0.98
 geocoder
 pyproj
-dataflows>=0.3.18
 tabulator[html]>=1.48
 tableschema>=1.18
 wtforms<3
