@@ -6,6 +6,7 @@ from dgp.core import BaseDataGenusProcessor, BaseAnalyzer
 from dgp.config.consts import CONFIG_URL
 from dgp_server.log import logger
 
+CONFIG_SOURCE_FILENAME = 'loader.filename'
 
 _bucket = None
 def bucket():
@@ -32,12 +33,35 @@ def cache_dir():
 os.makedirs(cache_dir(), exist_ok=True)
 
 
+class BaseFilePreprocessor(BaseDataGenusProcessor):
+
+    def test_url(self, url):
+        pass
+
+    def process_url(self, url, cache_dir):
+        pass
+
+    def run(self):
+        url = self.config.get(self.CONFIG_URL)
+        if url:
+            self.obj_name = self.test_url(url)
+            if self.obj_name:
+                obj = bucket().Object(self.obj_name)
+                try:
+                    obj.load()
+                except Exception:
+                    temp_filename = self.process_url(url, cache_dir)
+                    obj.upload_file(temp_filename)
+                self.config.set(CONFIG_SOURCE_FILENAME, self.obj_name)
+
+    def test(self):
+        return True
+
+    
 class FileLoaderAnalyzer(BaseAnalyzer):
 
-    CONFIG_SOURCE_FILENAME = 'loader.filename'
-
     def download_out_filename(self):
-        filename = self.config.get(self.CONFIG_SOURCE_FILENAME)
+        filename = self.config.get(CONFIG_SOURCE_FILENAME)
         if not filename:
             return
         logger.warning('FileLoaderAnalyzer filename=%s', filename)
