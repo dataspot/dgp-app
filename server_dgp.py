@@ -7,6 +7,7 @@ from aiohttp import web
 from dgp_server.blueprint import DgpServer
 from dgp_server.configurations import ConfigHeaderMappings, ConfigColumnTypes
 from dgp_server.log import logger
+from dgp.genera import PreLoaderDGP
 from dgp.taxonomies.registry import TaxonomyRegistry, Taxonomy
 from dgp.config.log import logger as logger_dgp
 
@@ -68,7 +69,7 @@ class Server(DgpServer):
         self.on_startup.append(self.refresh_taxonomies)
 
     def preload_dgps(self, config, context):
-        return [FileLoaderDGP]
+        return [PreLoaderDGP, FileLoaderDGP]
 
     async def refresh_taxonomies(self, app):
         try:

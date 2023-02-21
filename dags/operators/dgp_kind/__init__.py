@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from dataflows import Flow, printer
 
 from dgp.core import Config, Context
-from dgp.genera import SimpleDGP, LoaderDGP, PostLoaderDGP, TransformDGP, EnricherDGP, PublisherDGP
+from dgp.genera import SimpleDGP, LoaderDGP, PostLoaderDGP, PreLoaderDGP, TransformDGP, EnricherDGP, PublisherDGP
 from dgp.taxonomies import TaxonomyRegistry
 
 from etl_server.loaders.fileloader import FileLoaderDGP
@@ -58,6 +58,7 @@ def operator(name, params, pipeline):
         logging.getLogger().setLevel(logging.INFO)
 
         steps = [
+            PreLoaderDGP,
             FileLoaderDGP,
             LoaderDGP,
             PostLoaderDGP,
