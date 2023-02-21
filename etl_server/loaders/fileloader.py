@@ -42,7 +42,7 @@ class BaseFilePreprocessor(BaseAnalyzer):
         pass
 
     def run(self):
-        url = self.config.get(self.CONFIG_URL)
+        url = self.config.get(CONFIG_URL)
         if url:
             self.obj_name = self.test_url(url)
             if self.obj_name:
