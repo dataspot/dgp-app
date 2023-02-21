@@ -2,7 +2,7 @@ import os
 import tempfile
 import boto3
 
-from dgp.core import BaseDataGenusProcessor, BaseAnalyzer
+from dgp.core import BaseAnalyzer
 from dgp.config.consts import CONFIG_URL
 from dgp_server.log import logger
 
@@ -33,7 +33,7 @@ def cache_dir():
 os.makedirs(cache_dir(), exist_ok=True)
 
 
-class BaseFilePreprocessor(BaseDataGenusProcessor):
+class BaseFilePreprocessor(BaseAnalyzer):
 
     def test_url(self, url):
         pass
