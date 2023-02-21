@@ -2,7 +2,7 @@ import os
 import tempfile
 import boto3
 
-from dgp.core import BaseAnalyzer
+from dgp.core import BaseAnalyzer, BaseDataGenusProcessor
 from dgp.config.consts import CONFIG_URL
 from dgp_server.log import logger
 
