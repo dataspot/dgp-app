@@ -50,7 +50,7 @@ class BaseFilePreprocessor(BaseAnalyzer):
                 try:
                     obj.load()
                 except Exception:
-                    temp_filename = self.process_url(url, cache_dir)
+                    temp_filename = self.process_url(url, cache_dir())
                     obj.upload_file(temp_filename)
                 self.config.set(CONFIG_SOURCE_FILENAME, self.obj_name)
 
