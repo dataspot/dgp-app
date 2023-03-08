@@ -9,7 +9,7 @@ python-slugify
 psycopg2-binary
 requests
 dgp-server>=0.0.95
-dgp>=0.1.0
+dgp>=0.1.1
 geocoder
 pyproj
 tabulator[html]>=1.48
