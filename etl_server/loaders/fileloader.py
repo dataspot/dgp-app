@@ -57,6 +57,33 @@ class BaseFilePreprocessor(BaseAnalyzer):
     def test(self):
         return True
 
+class BaseFileFallbackPreprocessor(BaseAnalyzer):
+
+    def test_url(self, url):
+        pass
+
+    def process_url(self, url, cache_dir):
+        pass
+
+    def run(self):
+        url = self.config.get(CONFIG_URL)
+        if url:
+            self.obj_name = self.test_url(url)
+            if self.obj_name:
+                obj = bucket().Object(self.obj_name)
+                try:
+                    temp_filename = self.process_url(url, cache_dir())
+                    obj.upload_file(temp_filename)
+                    self.config.set(CONFIG_SOURCE_FILENAME, self.obj_name)
+                except Exception:
+                    try:
+                        obj.load()
+                        self.config.set(CONFIG_SOURCE_FILENAME, self.obj_name)
+                    except Exception:
+                        raise
+
+    def test(self):
+        return True
     
 class FileLoaderAnalyzer(BaseAnalyzer):
 
