@@ -10,6 +10,7 @@ psycopg2-binary
 requests
 dgp-server>=0.0.95
 dgp>=0.1.3
+dataflows>=0.3.21
 geocoder
 pyproj
 tabulator[html]>=1.48
