@@ -3,7 +3,7 @@ import tempfile
 import boto3
 
 from dgp.core import BaseAnalyzer, BaseDataGenusProcessor
-from dgp.config.consts import CONFIG_URL
+from dgp.config.consts import CONFIG_URL, CONFIG_PUBLISH_ALLOWED
 from dgp_server.log import logger
 
 CONFIG_SOURCE_FILENAME = 'loader.filename'
@@ -67,6 +67,7 @@ class BaseFileFallbackPreprocessor(BaseAnalyzer):
 
     def run(self):
         url = self.config.get(CONFIG_URL)
+        publishing = self.config.get(CONFIG_PUBLISH_ALLOWED)
         if url:
             self.obj_name = self.test_url(url)
             if self.obj_name:
@@ -74,11 +75,13 @@ class BaseFileFallbackPreprocessor(BaseAnalyzer):
                 try:
                     temp_filename = self.process_url(url, cache_dir())
                     obj.upload_file(temp_filename)
-                    self.config.set(CONFIG_SOURCE_FILENAME, self.obj_name)
+                    if publishing:
+                        self.config.set(CONFIG_SOURCE_FILENAME, self.obj_name)
                 except Exception:
                     try:
                         obj.load()
-                        self.config.set(CONFIG_SOURCE_FILENAME, self.obj_name)
+                        if publishing:
+                            self.config.set(CONFIG_SOURCE_FILENAME, self.obj_name)
                     except Exception:
                         raise
 
