@@ -16,6 +16,8 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
+        echo "DOCKER_PASSWORD" | docker login -u ${DOCKER_USERNAME} --password-stdin
+        echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin && echo 'SUCCESS'
         echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin &&\
         if docker pull "${DOCKER_IMAGE_NAME}:latest"; then
           CACHE_FROM_ARG="--cache-from ${DOCKER_IMAGE_NAME}:latest"
