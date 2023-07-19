@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 RUN apt-get update && apt-get install --no-install-recommends -y gcc libc6-dev linux-libc-dev libpq-dev libleveldb1d && \
     adduser --disabled-password --home /app etl && update-ca-certificates && \
@@ -22,7 +22,7 @@ ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
 ENV AIRFLOW__CORE__DAGS_FOLDER=/app/dags
 ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
 ENV AIRFLOW__SCHEDULER__CATCHUP_BY_DEFAULT=False
-ENV AIRFLOW__CORE__LOGGING_LEVEL=WARN
+ENV AIRFLOW__LOGGING__LOGGING_LEVEL=WARN
 
 RUN mkdir /var/dgp && chown -R etl:etl /var/ && chown -R etl:etl .
 

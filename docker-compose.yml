@@ -12,13 +12,13 @@ services:
       - /var/lib/postgresql/data
 
   minio:
-    image: minio/minio:edge
+    image: minio/minio:latest
     command:
       - server
       - /data
     environment:
-      MINIO_ACCESS_KEY: access_key
-      MINIO_SECRET_KEY: secret_key
+      MINIO_ROOT_USER: access_key
+      MINIO_ROOT_PASSWORD: secret_key
       MINIO_REGION_NAME: us-east-1
     expose:
       - 9000
@@ -41,45 +41,48 @@ services:
       S3_ENDPOINT_URL: http://minio:9000
       DATABASE_URL: postgresql://postgres:postgres@db/auth
       DATASETS_DATABASE_URL: postgresql://postgres:postgres@db/datasets
-      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql://postgres:postgres@db/airflow
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql://postgres:postgres@db/airflow
+      # AIRFLOW__CORE__FERNET_KEY: Xea0TWijCpat5di3GeecetnoElS1USDAyx7TkGZCv7k=   # https://airflow.apache.org/docs/apache-airflow/stable/security/secrets/fernet.html
       EXTERNAL_ADDRESS: http://localhost:5000
+      # GOOGLE_KEY: "152613677750-n8502krt2dufjp9m0quida78e68ans01.apps.googleusercontent.com"
+      # GOOGLE_SECRET: "iITUzoiGrweI0-N9p9VGEy39"
       PUBLIC_KEY: |
         -----BEGIN PUBLIC KEY-----
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzSrV/SxRNKufc6f0GQIu
-        YMASgBCOiJW5fvCnGtVMIrWvBQoCFAp9QwRHrbQrQJiPg6YqqnTvGhWssL5LMMvR
-        8jXXOpFUKzYaSgYaQt1LNMCwtqMB0FGSDjBrbmEmnDSo6g0Naxhi+SJX3BMcce1W
-        TgKRybv3N3F+gJ9d8wPkyx9xhd3H4200lHk4T5XK5+LyAPSnP7FNUYTdJRRxKFWg
-        ZFuII+Ex6mtUKU9LZsg9xeAC6033dmSYe5yWfdrFehmQvPBUVH4HLtL1fXTNyXuz
-        ZwtO1v61Qc1u/j7gMsrHXW+4csjS3lDwiiPIg6q1hTA7QJdB1M+rja2MG+owL0U9
-        owIDAQAB
-        -----END PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6DMg4MgZDQqA6TdJchwN
+        bgrGrMQYonrN9Ldl0MNyL7VdmciDEbBE2SQG8bviXCNrMrmaazfac36s4Gxmalbm
+        KiJXyGXuUaoVEhBCQzz3Ib3UwuSfVw3/GSQ07cJSMHENebvSOwnljWU8Nd6YsXyU
+        9frLsNUlVWNWpJa+LfvGGL3HryF6mSBP0UamnS+q2FAMVQ2ThQvrXmOggli11rz9
+        1sqZK8brv5eUfr5p2K2UbbGtQ3LfujZ0OOsEB+Ck/5vZ0+RtKl1XsPRIBMO1zoH/
+        NvvBDVqlgts8thjxOpV7xnfM782B17S0fqXV+Y6rYYlXKcZ+jttNACRb8BXfTi/B
+        pwIDAQAB
+        -----END PUBLIC KEY-----        
       PRIVATE_KEY: |
         -----BEGIN RSA PRIVATE KEY-----
-        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
+        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
         -----END RSA PRIVATE KEY-----
     expose:
       - 5000

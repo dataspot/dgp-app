@@ -13,7 +13,7 @@ from airflow.models import TaskInstance, DagBag, DagRun, DagModel
 from airflow.utils.db import create_session
 from airflow import settings
 
-dagbag = DagBag(settings.DAGS_FOLDER, store_serialized_dags=settings.STORE_SERIALIZED_DAGS)
+dagbag = DagBag(settings.DAGS_FOLDER, read_dags_from_db=True)
 
 
 TABLE_RE = re.compile('<table>.+</table>', re.MULTILINE | re.DOTALL)
@@ -101,7 +101,7 @@ class Controllers():
             ti = session.query(TaskInstance)\
                     .filter(TaskInstance.dag_id == id,
                             TaskInstance.task_id == id)\
-                    .order_by(TaskInstance.execution_date.desc())\
+                    .order_by(TaskInstance.run_id.desc())\
                     .first()
         if ti is not None:
             dag = dagbag.get_dag(id)
@@ -111,9 +111,10 @@ class Controllers():
             else:
                 logs = ''
             if isinstance(logs, list):
+                logs = logs[0][0][1].split('\n')
                 pre, post = logs[:50], logs[50:]
-                post = post[-500:]
-                logs = ''.join(pre + ['...'] + post)
+                post = post[-5000:]
+                logs = '\n'.join(pre + ['...'] + post)
             if not logs:
                 return '', ''
             table = TABLE_RE.findall(logs)
@@ -179,7 +180,7 @@ class Controllers():
 
     @staticmethod
     def start_pipeline(id):
-        from airflow.api.common.experimental.trigger_dag import trigger_dag
+        from airflow.api.common.trigger_dag import trigger_dag
         from airflow import models
         models.DagModel.get_dagmodel(id).set_is_paused(is_paused=False)
         run = trigger_dag(id)
@@ -196,7 +197,7 @@ class Controllers():
 
     @staticmethod
     def trigger_event(event, pipeline):
-        from airflow.api.common.experimental.trigger_dag import trigger_dag
+        from airflow.api.common.trigger_dag import trigger_dag
         from airflow import models
         dag_id = f'event_handler_{event}_pipeline_dag'
         models.DagModel.get_dagmodel(dag_id).set_is_paused(is_paused=False)

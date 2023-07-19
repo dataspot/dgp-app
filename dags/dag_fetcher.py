@@ -17,10 +17,10 @@ logging.basicConfig(
 from inspect import signature
 
 from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
-from airflow.operators.bash_operator import BashOperator
-from airflow.operators.latest_only_operator import LatestOnlyOperator
-from airflow.sensors.external_task_sensor import ExternalTaskSensor
+from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
+from airflow.operators.latest_only import LatestOnlyOperator
+from airflow.sensors.external_task import ExternalTaskSensor
 from airflow.utils import dates
 from airflow.utils.dates import cron_presets
 
@@ -77,7 +77,7 @@ for pipeline in Cache.cached_pipelines():
         schedule = None
 
     try:
-        dag = DAG(dag_id, default_args=default_args, schedule_interval=schedule, catchup=False)
+        dag = DAG(dag_id, default_args=default_args, schedule=schedule, catchup=False)
 
         kind = pipeline['kind']
         description = pipeline.get('description')
@@ -128,7 +128,7 @@ for event in ('delete', 'failed', 'new', 'submitted', 'accepted'):
     handler = importlib.import_module(f'events.{event}_pipeline').handler
     task_id = f'event_handler_{event}_pipeline'
     dag_id = task_id + '_dag'
-    dag = DAG(dag_id, default_args=default_args, schedule_interval=None)
+    dag = DAG(dag_id, default_args=default_args, schedule=None)
     task = PythonOperator(task_id=task_id, python_callable=event_proxy,
-                          op_args=[handler], dag=dag, provide_context=True)
+                          op_args=[handler], dag=dag)
     globals()[dag_id] = dag
