@@ -13,7 +13,7 @@ from airflow.models import TaskInstance, DagBag, DagRun, DagModel
 from airflow.utils.db import create_session
 from airflow import settings
 
-dagbag = DagBag(settings.DAGS_FOLDER, store_serialized_dags=settings.STORE_SERIALIZED_DAGS)
+dagbag = DagBag(settings.DAGS_FOLDER)
 
 
 TABLE_RE = re.compile('<table>.+</table>', re.MULTILINE | re.DOTALL)
@@ -179,7 +179,7 @@ class Controllers():
 
     @staticmethod
     def start_pipeline(id):
-        from airflow.api.common.experimental.trigger_dag import trigger_dag
+        from airflow.api.common.trigger_dag import trigger_dag
         from airflow import models
         models.DagModel.get_dagmodel(id).set_is_paused(is_paused=False)
         run = trigger_dag(id)
@@ -196,7 +196,7 @@ class Controllers():
 
     @staticmethod
     def trigger_event(event, pipeline):
-        from airflow.api.common.experimental.trigger_dag import trigger_dag
+        from airflow.api.common.trigger_dag import trigger_dag
         from airflow import models
         dag_id = f'event_handler_{event}_pipeline_dag'
         models.DagModel.get_dagmodel(dag_id).set_is_paused(is_paused=False)
