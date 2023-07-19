@@ -1,5 +1,5 @@
 aiopg
-dgp-oauth2>=1.1.1
+dgp-oauth2>=1.1.2
 sqlalchemy
 flask-cors
 flask-jsonpify
