@@ -111,7 +111,10 @@ class Controllers():
             else:
                 logs = ''
             if isinstance(logs, list):
-                logs = logs[0][0][1].split('\n')
+                try:
+                    logs = logs[0][0][1].split('\n')
+                except:
+                    logs = []
                 pre, post = logs[:50], logs[50:]
                 post = post[-5000:]
                 logs = '\n'.join(pre + ['...'] + post)
