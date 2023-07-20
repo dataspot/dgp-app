@@ -11,6 +11,7 @@ from .cache import Cache
 
 from airflow.models import TaskInstance, DagBag, DagRun, DagModel
 from airflow.utils.db import create_session
+from airflow.utils.log.file_task_handler import FileTaskHandler
 from airflow import settings
 
 dagbag = DagBag(settings.DAGS_FOLDER, read_dags_from_db=True)
@@ -95,7 +96,7 @@ class Controllers():
 
     def __get_logs(self, id):
         logger = logging.getLogger('airflow.task')
-        handler = next((handler for handler in logger.handlers
+        handler: FileTaskHandler = next((handler for handler in logger.handlers
                         if handler.name == 'task'), None)
         with create_session() as session:
             ti = session.query(TaskInstance)\
