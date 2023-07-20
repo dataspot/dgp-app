@@ -3,7 +3,7 @@ set -e
 
 cd /app
 airflow db upgrade
-airflow db init || (echo "RESETTING DB" && airflow db reset -v -y)
+airflow db init # || (echo "RESETTING DB" && airflow db reset -v -y)
 airflow scheduler &
 airflow webserver -w 1 &
 
