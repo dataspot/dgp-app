@@ -103,7 +103,7 @@ class Controllers():
                     .filter(TaskInstance.dag_id == id,
                             TaskInstance.task_id == id).all()
             tis = [
-                (ti.execution_date, ti)
+                (ti.execution_date, ti, ti.triggerer_job)
                 for ti in tis
             ]
             tis.sort(key=lambda x: x[0])
