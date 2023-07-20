@@ -3,7 +3,7 @@ set -e
 
 cd /app
 airflow db upgrade
-airflow db init || (echo "RESETTING DB" && airflow rotate-fernet-key)
+airflow db init || (echo "RESETTING DB" && sleep 86400 && airflow rotate-fernet-key)
 airflow scheduler &
 airflow webserver -w 1 &
 
