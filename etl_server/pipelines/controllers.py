@@ -99,11 +99,18 @@ class Controllers():
         handler: FileTaskHandler = next((handler for handler in logger.handlers
                         if handler.name == 'task'), None)
         with create_session() as session:
-            ti = session.query(TaskInstance)\
+            tis = session.query(TaskInstance)\
                     .filter(TaskInstance.dag_id == id,
-                            TaskInstance.task_id == id)\
-                    .order_by(TaskInstance.run_id.desc())\
-                    .first()
+                            TaskInstance.task_id == id).all()
+            tis = [
+                (ti.execution_date, ti)
+                for ti in tis
+            ]
+            tis.sort(key=lambda x: x[0])
+            if len(tis) > 0:
+                ti = tis[-1][1]
+            else:
+                ti = None
             if ti is not None:
                 dag = dagbag.get_dag(id)
                 if dag:
