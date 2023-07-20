@@ -103,32 +103,32 @@ class Controllers():
                             TaskInstance.task_id == id)\
                     .order_by(TaskInstance.run_id.desc())\
                     .first()
-        if ti is not None:
-            dag = dagbag.get_dag(id)
-            if dag:
-                ti.task = dag.get_task(ti.task_id)
-                logs, _ = handler.read(ti, None, metadata={})
+            if ti is not None:
+                dag = dagbag.get_dag(id)
+                if dag:
+                    ti.task = dag.get_task(ti.task_id)
+                    logs, _ = handler.read(ti, None, metadata={})
+                else:
+                    logs = ''
+                if isinstance(logs, list):
+                    try:
+                        logs = logs[0][0][1].split('\n')
+                    except:
+                        logs = []
+                    pre, post = logs[:50], logs[50:]
+                    post = post[-5000:]
+                    logs = '\n'.join(pre + ['...'] + post)
+                if not logs:
+                    return '', ''
+                table = TABLE_RE.findall(logs)
+                if len(table) > 0:
+                    table = table[-1]
+                    logs = TABLE_RE.sub('', logs)
+                else:
+                    table = ''
+                return logs, table
             else:
-                logs = ''
-            if isinstance(logs, list):
-                try:
-                    logs = logs[0][0][1].split('\n')
-                except:
-                    logs = []
-                pre, post = logs[:50], logs[50:]
-                post = post[-5000:]
-                logs = '\n'.join(pre + ['...'] + post)
-            if not logs:
                 return '', ''
-            table = TABLE_RE.findall(logs)
-            if len(table) > 0:
-                table = table[-1]
-                logs = TABLE_RE.sub('', logs)
-            else:
-                table = ''
-            return logs, table
-        else:
-            return '', ''
 
     def query_pipelines(self, user=None, public=None):
         query_results = self.models.query()
