@@ -106,8 +106,7 @@ for pipeline in Cache.cached_pipelines():
         logging.error(f'Failed to create a DAG with id {dag_id}, schedule {schedule} because {e}')
 
 
-log_folder = conf.get('logging', 'BASE_LOG_FOLDER')
-scheduler_log_folder = os.path.join(log_folder, 'scheduler')
+scheduler_log_folder = conf.get_mandatory_value("scheduler", "CHILD_PROCESS_LOG_DIRECTORY")
 task_id = '_clean_scheduler_logs' 
 dag_id = task_id + '_dag'
 schedule = '0 * * * *'
