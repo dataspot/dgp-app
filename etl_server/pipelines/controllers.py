@@ -3,6 +3,7 @@ import time
 import re
 import os
 import json
+from typing import List
 
 import slugify
 
@@ -102,22 +103,34 @@ class Controllers():
             tis = session.query(TaskInstance)\
                     .filter(TaskInstance.dag_id == id,
                             TaskInstance.task_id == id).all()
-            tis = [
+            tis: List[TaskInstance] = [
                 (ti.execution_date, ti, ti.triggerer_job)
                 for ti in tis
             ]
             tis.sort(key=lambda x: x[0])
+            tis = [x[1] for x in tis]
+            ti = None
             if len(tis) > 0:
-                ti = tis[-1][1]
-            else:
-                ti = None
+                running_tis = [x for x in tis if x.state == 'running']
+                if len(running_tis) > 0:
+                    ti = running_tis[0]
+                else:
+                    queued_tis = [x for x in tis if x.state is None]
+                    if len(queued_tis) > 0:
+                        ti = tis[0]
+                    else:
+                        finished_tis = [x for x in tis if x.state in ('success', 'failed')]
+                        if len(finished_tis) > 0:
+                            ti = finished_tis[-1]
+
             if ti is not None:
                 dag = dagbag.get_dag(id)
                 if dag:
                     ti.task = dag.get_task(ti.task_id)
                     logs, _ = handler.read(ti, None, metadata={})
                 else:
-                    logs = ''
+                    logs = []
+                prefix = [f'*** STATE: {ti.state} EXECUTION DATE: {ti.execution_date} RUN ID: {ti.run_id} ***']
                 if isinstance(logs, list):
                     try:
                         logs = logs[0][0][1].split('\n')
@@ -125,7 +138,7 @@ class Controllers():
                         logs = []
                     pre, post = logs[:50], logs[50:]
                     post = post[-5000:]
-                    logs = '\n'.join(pre + ['...'] + post)
+                    logs = '\n'.join(prefix + pre + ['...'] + post)
                 if not logs:
                     return '', ''
                 table = TABLE_RE.findall(logs)
