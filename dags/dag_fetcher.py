@@ -17,6 +17,7 @@ logging.basicConfig(
 from inspect import signature
 
 from airflow import DAG
+from airflow.configuration import conf
 from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
 from airflow.operators.latest_only import LatestOnlyOperator
@@ -105,6 +106,8 @@ for pipeline in Cache.cached_pipelines():
         logging.error(f'Failed to create a DAG with id {dag_id}, schedule {schedule} because {e}')
 
 
+log_folder = conf.get('logging', 'BASE_LOG_FOLDER')
+scheduler_log_folder = os.path.join(log_folder, 'scheduler')
 task_id = '_clean_scheduler_logs' 
 dag_id = task_id + '_dag'
 schedule = '0 * * * *'
@@ -117,7 +120,7 @@ args = {
 clean_scheduler_logs_dag = DAG(dag_id, default_args=args,
                                 schedule_interval=schedule)
 clean_scheduler_logs = BashOperator(task_id=task_id,
-                                    bash_command='cd /app/airflow/logs/scheduler/ && rm -rf * && echo cleaned',
+                                    bash_command=f'cd {scheduler_log_folder} && rm -rf * && echo cleaned',
                                     dag=clean_scheduler_logs_dag)
 
 def event_proxy(handler, **kwargs):
