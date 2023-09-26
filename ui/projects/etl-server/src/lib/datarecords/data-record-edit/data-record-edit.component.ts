@@ -5,9 +5,9 @@ import { first, switchMap } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
 import { RolesService } from '../../roles.service';
 
-import { EXTRA_MAPPING } from '../../config';
 import { DataRecordEditInnerComponent } from '../data-record-edit-inner/data-record-edit-inner.component';
 import { DataRecordEditAuxDirective } from '../../data-record-edit-aux.directive';
+import { ConfigService } from '../../config.service';
 
 @Component({
   selector: 'etl-data-record-edit',
@@ -25,7 +25,7 @@ export class DataRecordEditComponent implements OnInit {
   constructor(public api: ApiService, public roles: RolesService,
              private activatedRoute: ActivatedRoute,
              private componentFactoryResolver: ComponentFactoryResolver,
-             @Inject(EXTRA_MAPPING) private extraMapping: any) {
+             private config: ConfigService) {
     let datarecords: any[] = [];
     this.api.configuration.pipe(
       switchMap((configuration) => {
@@ -51,7 +51,7 @@ export class DataRecordEditComponent implements OnInit {
     )
     .subscribe((datarecord) => {
       this.datarecord = datarecord.value;
-      const mapping = this.extraMapping[this.def.edit_component] || {};
+      const mapping = this.config.EXTRA_MAPPING[this.def.edit_component] || {};
       this.editComponent.next(mapping.detail || DataRecordEditInnerComponent);
     });
     console.log('constructed DataRecordEditComponent!');

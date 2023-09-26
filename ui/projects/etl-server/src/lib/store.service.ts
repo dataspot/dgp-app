@@ -52,9 +52,7 @@ function compare(obj1: any, obj2: any, prefix: string | null) {
 
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class StoreService {
 
   private _config = new BehaviorSubject<any>(Object.assign({}, this.BASE_CONFIG));

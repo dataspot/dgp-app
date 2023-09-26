@@ -6,11 +6,9 @@ import { AuthService } from 'dgp-oauth2-ng';
 import { Router } from '@angular/router';
 import { RolesService } from './roles.service';
 import { Title } from '@angular/platform-browser';
-import { ENVIRONMENT } from './config';
+import { ConfigService } from './config.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ApiService {
 
   public pipelines = new ReplaySubject<any[]>(1);
@@ -36,11 +34,11 @@ export class ApiService {
   private currentUser_: any = null;
 
   constructor(private http: HttpClient, private auth: AuthService, private router: Router,
-              private roles: RolesService, private title: Title, 
-              @Inject(ENVIRONMENT) private environment: any) {
-      this.API_ENDPOINT = this.environment.api_endpoint;
+              private roles: RolesService, private title: Title, private config: ConfigService) {
+      console.log('ENVIRONMENT2', this.config.ENVIRONMENT);
+      this.API_ENDPOINT = this.config.ENVIRONMENT.api_endpoint;
       this.auth.configure({
-        authServerUrl: this.environment.auth_endpoint,
+        authServerUrl: this.config.ENVIRONMENT.auth_endpoint,
         jwtLocalStorageKey: 'jwt',
         jwtQueryParam: 'jwt',
         profilePagePath: '/p/'

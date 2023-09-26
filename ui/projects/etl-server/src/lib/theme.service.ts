@@ -3,9 +3,7 @@ import { getLocaleDirection } from '@angular/common';
 import { ApiService } from './api.service';
 import { first } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ThemeService {
 
   constructor(private api: ApiService, @Inject(LOCALE_ID) public locale: string) {

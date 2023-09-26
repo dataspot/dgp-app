@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RolesService } from '../../roles.service';
 import { ApiService } from '../../api.service';
 import { first } from 'rxjs/operators';
-import { EXTRA_MAPPING } from '../../config';
+import { ConfigService } from '../../config.service';
 
 @Component({
   selector: 'etl-header',
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute, public roles: RolesService, private api: ApiService,
-    @Inject(EXTRA_MAPPING) private extraMapping: any
+    private config: ConfigService,
   ) {
     this.activatedRoute.data.subscribe((data: any) => {
       this.detected = data.name;
@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showDatarecord(datarecord: any) {
-    const mapping = this.extraMapping[datarecord.edit_component] || {};
+    const mapping = this.config.EXTRA_MAPPING[datarecord.edit_component] || {};
     return mapping.list !== false && (!datarecord.admin || this.roles._.pseudoAdmin);
   }
 }

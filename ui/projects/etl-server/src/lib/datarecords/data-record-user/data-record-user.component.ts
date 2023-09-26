@@ -2,10 +2,10 @@ import { AfterViewInit, Component, ComponentFactoryResolver, EventEmitter, Injec
 import { ApiService } from '../../api.service';
 import { DataRecordEditAuxDirective } from '../../data-record-edit-aux.directive';
 import { RolesService } from '../../roles.service';
-import { EXTRA_MAPPING } from '../../config';
 import { ReplaySubject, Subscription } from 'rxjs';
 import { DataRecordUserInnerComponent } from '../data-record-user-inner/data-record-user-inner.component';
 import { delay, first } from 'rxjs/operators';
+import { ConfigService } from '../../config.service';
 
 @Component({
   selector: 'etl-data-record-user',
@@ -22,12 +22,10 @@ export class DataRecordUserComponent implements OnInit, OnDestroy, AfterViewInit
   @ViewChild(DataRecordEditAuxDirective, { static: true }) inner: DataRecordEditAuxDirective;
   sub: Subscription | null = null;
 
-  constructor(public api: ApiService, public roles: RolesService,
-              // private componentFactoryResolver: ComponentFactoryResolver,
-              @Inject(EXTRA_MAPPING) private extraMapping: any) {}
+  constructor(public api: ApiService, public roles: RolesService, private config: ConfigService) {}
 
   ngOnInit(): void {
-    const mapping = this.extraMapping[this.def.edit_component] || {};
+    const mapping = this.config.EXTRA_MAPPING[this.def.edit_component] || {};
     const component = mapping.user || DataRecordUserInnerComponent;
     this.editComponent.next(component);
   }

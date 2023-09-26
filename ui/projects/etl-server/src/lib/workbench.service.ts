@@ -6,9 +6,7 @@ import { switchMap, exhaustMap, map, filter, debounceTime, finalize } from 'rxjs
 import { EventSourcePolyfill } from 'ng-event-source';
 import { ApiService } from './api.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class WorkbenchService {
 
   private executionId: string | null = null;

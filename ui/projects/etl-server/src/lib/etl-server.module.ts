@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +15,6 @@ import { DgpWorkbenchButtonsComponent } from './workbench/dgp-workbench-buttons/
 import { DgpWorkbenchComponent } from './workbench/dgp-workbench/dgp-workbench.component';
 import { DynamicFieldsEditorComponent } from './components/dynamic-fields-editor/dynamic-fields-editor.component';
 import { EditPipelineComponent } from './pipelines/edit-pipeline/edit-pipeline.component';
-// import { EtlServerComponent } from './etl-server.component';
 import { ExtendableKeyvalueListComponent } from './components/extendable-keyvalue-list/extendable-keyvalue-list.component';
 import { ExtraConfigQuestionComponent } from './workbench/extra-config-question/extra-config-question.component';
 import { ExtraConfigQuestionsComponent } from './workbench/extra-config-questions/extra-config-questions.component';
@@ -44,13 +44,18 @@ import { TaxonomiesComponent } from './taxonomies/taxonomies/taxonomies.componen
 import { TaxonomyItemComponent } from './taxonomies/taxonomy-item/taxonomy-item.component';
 import { UserListItemComponent } from './users/user-list-item/user-list-item.component';
 import { UsersComponent } from './users/users/users.component';
-import { ENVIRONMENT } from './config';
+import { ConfigService } from './config.service';
 import { DataRecordListInnerComponent } from './datarecords/data-record-list-inner/data-record-list-inner.component';
 import { DataRecordDashboardComponent } from './datarecords/data-record-dashboard/data-record-dashboard.component';
 import { DataRecordDashboardInnerComponent } from './datarecords/data-record-dashboard-inner/data-record-dashboard-inner.component';
 import { DataRecordUserComponent } from './datarecords/data-record-user/data-record-user.component';
 import { DataRecordUserInnerComponent } from './datarecords/data-record-user-inner/data-record-user-inner.component';
-import { CommonModule } from '@angular/common';
+import { ApiService } from './api.service';
+import { ConfirmerService } from './confirmer.service';
+import { StoreService } from './store.service';
+import { RolesService } from './roles.service';
+import { ThemeService } from './theme.service';
+import { WorkbenchService } from './workbench.service';
 
 
 @NgModule({
@@ -102,30 +107,26 @@ import { CommonModule } from '@angular/common';
     DataRecordUserComponent,
     DataRecordUserInnerComponent,
   ],
-  entryComponents: [
-    DataRecordEditInnerComponent
-  ],
   imports: [
     CommonModule,
     EtlServerRoutingModule,
     HttpClientModule,
     FormsModule,
-    DgpOauth2Module
+    DgpOauth2Module,
   ],
   exports: [
     // EtlServerComponent,
     FileUploaderComponent,
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    ConfirmerService,
+    RolesService,
+    StoreService,
+    ThemeService,
+    WorkbenchService,
+  ],
   // bootstrap: [EtlServerComponent]
 })
 export class EtlServerModule {
-  static forRoot(env?: any): ModuleWithProviders<EtlServerModule> {
-    return {
-        ngModule: EtlServerModule,
-        providers: [
-            { provide: ENVIRONMENT, useValue: env }
-        ]
-    };
-  }
 }

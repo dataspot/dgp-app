@@ -3,10 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { from, ReplaySubject } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { ApiService } from '../../api.service';
-import { EXTRA_MAPPING } from '../../config';
 import { DataRecordEditAuxDirective } from '../../data-record-edit-aux.directive';
 import { RolesService } from '../../roles.service';
 import { DataRecordListInnerComponent } from '../data-record-list-inner/data-record-list-inner.component';
+import { ConfigService } from '../../config.service';
 
 @Component({
   selector: 'etl-data-record-list',
@@ -22,7 +22,7 @@ export class DataRecordListComponent implements OnInit {
 
   constructor(public api: ApiService, public roles: RolesService, private activatedRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver, private router: Router,
-              @Inject(EXTRA_MAPPING) private extraMapping: any) {
+              private config: ConfigService) {
     let defs: any[] = [];
     this.api.configuration.pipe(
       switchMap((configuration) => {
@@ -33,7 +33,7 @@ export class DataRecordListComponent implements OnInit {
         const detectedName = params.name;
         for (const def of defs) {
           if (def.name === detectedName) {
-            const mapping = this.extraMapping[def.edit_component] || {};
+            const mapping = this.config.EXTRA_MAPPING[def.edit_component] || {};
             if (mapping.list === false || (def.admin && !this.roles._.pseudoAdmin)) {
               this.router.navigate(['/']);
               return from([]);
@@ -47,7 +47,7 @@ export class DataRecordListComponent implements OnInit {
     )
     .subscribe((datarecords) => {
       this.datarecords = datarecords;
-      const mapping = this.extraMapping[this.def.edit_component] || {};
+      const mapping = this.config.EXTRA_MAPPING[this.def.edit_component] || {};
       this.listComponent.next(mapping.list || DataRecordListInnerComponent);
     });
   }

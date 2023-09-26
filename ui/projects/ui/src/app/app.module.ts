@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { EtlServerModule, EXTRA_MAPPING } from 'projects/etl-server/src/public-api';
-import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
+import { EtlServerModule } from 'etl-server';
 
 @NgModule({
   declarations: [
@@ -14,14 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    EtlServerModule.forRoot(environment),
+    EtlServerModule
   ],
-  providers: [{
-    provide: EXTRA_MAPPING,
-    useValue: {
-      nil: []
-    }
-  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

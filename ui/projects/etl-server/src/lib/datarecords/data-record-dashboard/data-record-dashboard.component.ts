@@ -1,9 +1,9 @@
 import { Component, ComponentFactoryResolver, Inject, Input, OnInit, Type, ViewChild } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { ApiService } from '../../api.service';
-import { EXTRA_MAPPING } from '../../config';
 import { DataRecordEditAuxDirective } from '../../data-record-edit-aux.directive';
 import { DataRecordDashboardInnerComponent } from '../data-record-dashboard-inner/data-record-dashboard-inner.component';
+import { ConfigService } from '../../config.service';
 
 @Component({
   selector: 'etl-data-record-dashboard',
@@ -19,14 +19,14 @@ export class DataRecordDashboardComponent implements OnInit {
 
   constructor(private api: ApiService, 
               private componentFactoryResolver: ComponentFactoryResolver,
-              @Inject(EXTRA_MAPPING) private extraMapping: any) {
+              private config: ConfigService) {
   }
 
   ngOnInit(): void {
     this.api.queryDatarecords(this.def.name)
         .subscribe((datarecords) => {
           this.datarecords = datarecords;
-          const mapping = this.extraMapping[this.def.edit_component] || {}
+          const mapping = this.config.EXTRA_MAPPING[this.def.edit_component] || {}
           this.dashComponent.next(mapping.dashboard || DataRecordDashboardInnerComponent);
         });
 
