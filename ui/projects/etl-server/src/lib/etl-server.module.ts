@@ -1,7 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { DgpOauth2Module } from 'dgp-oauth2-ng';
 import { EtlServerRoutingModule } from './routing.module';
 import { ConfirmerComponent } from './components/confirmer/confirmer.component';
@@ -15,7 +14,7 @@ import { DgpWorkbenchButtonsComponent } from './workbench/dgp-workbench-buttons/
 import { DgpWorkbenchComponent } from './workbench/dgp-workbench/dgp-workbench.component';
 import { DynamicFieldsEditorComponent } from './components/dynamic-fields-editor/dynamic-fields-editor.component';
 import { EditPipelineComponent } from './pipelines/edit-pipeline/edit-pipeline.component';
-import { EtlServerComponent } from './etl-server.component';
+// import { EtlServerComponent } from './etl-server.component';
 import { ExtendableKeyvalueListComponent } from './components/extendable-keyvalue-list/extendable-keyvalue-list.component';
 import { ExtraConfigQuestionComponent } from './workbench/extra-config-question/extra-config-question.component';
 import { ExtraConfigQuestionsComponent } from './workbench/extra-config-questions/extra-config-questions.component';
@@ -51,12 +50,12 @@ import { DataRecordDashboardComponent } from './datarecords/data-record-dashboar
 import { DataRecordDashboardInnerComponent } from './datarecords/data-record-dashboard-inner/data-record-dashboard-inner.component';
 import { DataRecordUserComponent } from './datarecords/data-record-user/data-record-user.component';
 import { DataRecordUserInnerComponent } from './datarecords/data-record-user-inner/data-record-user-inner.component';
-import { StoreService } from './store.service';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
-    EtlServerComponent,
+    // EtlServerComponent,
     PipelineStatusComponent,
     EditPipelineComponent,
     PipelineListComponent,
@@ -107,18 +106,18 @@ import { StoreService } from './store.service';
     DataRecordEditInnerComponent
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
     EtlServerRoutingModule,
     HttpClientModule,
     FormsModule,
     DgpOauth2Module
   ],
   exports: [
-    EtlServerComponent,
+    // EtlServerComponent,
     FileUploaderComponent,
   ],
   providers: [],
-  bootstrap: [EtlServerComponent]
+  // bootstrap: [EtlServerComponent]
 })
 export class EtlServerModule {
   static forRoot(env?: any): ModuleWithProviders<EtlServerModule> {

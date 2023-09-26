@@ -9,8 +9,8 @@ export * from './lib/confirmer.service';
 export * from './lib/api.service';
 export * from './lib/store.service';
 export * from './lib/workbench.service';
-export * from './lib/etl-server.component';
+export * from './lib/files/file-uploader/file-uploader.component';
+// export * from './lib/etl-server.component';
 export * from './lib/etl-server.module';
 
-export * from './lib/files/file-uploader/file-uploader.component';
 

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EtlServerComponent } from 'projects/etl-server/src/public-api';
+import { EtlServerModule } from 'etl-server';
 
 const routes: Routes = [
-  { path: '', component: EtlServerComponent}
+  { path: '**', loadChildren: () => EtlServerModule}
 ];
 
 @NgModule({

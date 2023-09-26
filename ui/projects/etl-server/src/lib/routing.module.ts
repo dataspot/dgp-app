@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent, data: {name: 'login'} }
 ];
 
-export const routerModule = RouterModule.forRoot(routes)
+export const routerModule = RouterModule.forChild(routes)
 
 @NgModule({
   imports: [routerModule],

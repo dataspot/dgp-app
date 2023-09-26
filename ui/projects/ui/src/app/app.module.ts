@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 import { EtlServerModule, EXTRA_MAPPING } from 'projects/etl-server/src/public-api';
 import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     EtlServerModule.forRoot(environment),
   ],
   providers: [{
