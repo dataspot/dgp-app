@@ -4,7 +4,7 @@ import { EtlServerModule } from 'etl-server';
 import { environment } from '../environments/environment';
 
 const routes: Routes = [
-  { path: '**', loadChildren: () => EtlServerModule },
+  { path: '', loadChildren: () => EtlServerModule },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
