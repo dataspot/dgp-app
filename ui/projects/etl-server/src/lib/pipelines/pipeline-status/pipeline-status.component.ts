@@ -16,7 +16,7 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
   item: any = {status: {}};
   visible = false;
   userId = null;
-  _moment: any;
+  _moment = moment;
   status = '';
 
   constructor(private route: ActivatedRoute, private api: ApiService, public roles: RolesService, public auth: AuthService) {
@@ -24,7 +24,6 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
       this.userId = user.profile.id;
     });
     this.refresh();
-    this._moment = moment;
   }
 
   refresh() {
