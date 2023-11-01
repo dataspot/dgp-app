@@ -6,15 +6,15 @@
     <div [class]='"status " + item.status.status'>{{status}}</div>
     <div class='started' *ngIf='item.status.start_date'>
       <label i18n>Started:</label>
-      <span [title]='item.status.start_date'>{{ _moment(item.status.start_date).fromNow() }}</span>
+      <span [title]='item.status.start_date'>{{ _t(item.status.start_date).fromNow() }}</span>
     </div>
     <div class='finished' *ngIf='item.status.end_date'>
       <label i18n>Finished:</label>
-      <span [title]='item.status.end_date'>{{ _moment(item.status.end_date).fromNow() }}</span>
+      <span [title]='item.status.end_date'>{{ _t(item.status.end_date).fromNow() }}</span>
     </div>
     <div class='duration' *ngIf='item.status.end_date'>
       <label i18n>Took:</label>
-      <span>{{ _moment(item.status.end_date).from(item.status.start_date, true) }}</span>
+      <span>{{ _t(item.status.end_date).from(item.status.start_date, true) }}</span>
     </div>
   </div>
   <h3 i18n>Last Execution Status :</h3>

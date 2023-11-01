@@ -35,7 +35,7 @@
     "@angular/common": "16",
     "@angular/core": "16",
     "dgp-oauth2-ng": "3",
-    "moment": "^2.29.0",
+    "dayjs": "^1.11.10",
     "ng-event-source": "^1.0.14"
   },
   "dependencies": {

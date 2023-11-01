@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { switchMap, first, filter } from 'rxjs/operators';
-import * as moment from 'moment';
 import { RolesService } from '../../roles.service';
 import { AuthService } from 'dgp-oauth2-ng';
+import dayjs from 'dayjs';
 
 @Component({
   selector: 'etl-pipeline-status',
@@ -16,7 +16,7 @@ export class PipelineStatusComponent implements OnInit, OnDestroy {
   item: any = {status: {}};
   visible = false;
   userId = null;
-  _moment = moment;
+  _t = dayjs;
   status = '';
 
   constructor(private route: ActivatedRoute, private api: ApiService, public roles: RolesService, public auth: AuthService) {
