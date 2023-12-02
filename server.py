@@ -7,6 +7,7 @@ import datetime
 from flask import Flask, redirect, send_file, Response, stream_with_context, request, abort
 from flask_cors import CORS
 from flask_session import Session
+from flask_caching import Cache
 
 os.environ['ALLOWED_SERVICES'] = 'etl-server:etl_server'
 
@@ -38,6 +39,18 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = '/tmp/sessions'
 app.config['SECRET_KEY'] = '-'
 session.init_app(app)
+
+config = {
+    "CACHE_TYPE": "FileSystemCache",  # Flask-Caching related configs
+    "CACHE_DEFAULT_TIMEOUT": 600,
+    "CACHE_DIR": "/tmp/cache",
+    "CACHE_THRESHOLD": 1000,
+    "CACHE_OPTIONS": {
+        "mode": 0o700
+    },
+}
+cache = Cache(config=config)
+cache.init_app(app)
 
 
 # Encode datetimes properly
@@ -112,7 +125,7 @@ app.register_blueprint(
 )
 auth_connection_string = os.environ.get('AUTH_DATABASE_URL') or os.environ.get('DATABASE_URL')
 app.register_blueprint(
-    auth_blueprint(os.environ.get('EXTERNAL_ADDRESS'), engine=get_engine(auth_connection_string)),
+    auth_blueprint(os.environ.get('EXTERNAL_ADDRESS'), engine=get_engine(auth_connection_string), cache=cache),
     url_prefix='/auth/'
 )
 

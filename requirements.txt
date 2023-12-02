@@ -4,6 +4,7 @@ sqlalchemy
 flask-cors
 flask-jsonpify
 flask-session
+Flask-caching
 PyYAML
 python-slugify
 psycopg2-binary
