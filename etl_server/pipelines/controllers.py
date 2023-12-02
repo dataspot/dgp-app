@@ -124,16 +124,16 @@ class Controllers():
                             ti = finished_tis[-1]
 
             if ti is not None:
-                dag = dagbag.get_dag(id)
-                if dag:
-                    ti.task = dag.get_task(ti.task_id)
-                    logs, _ = handler.read(ti, None, metadata={})
-                else:
-                    logs = []
+                # dag = dagbag.get_dag(id)
+                # if dag:
+                #     ti.task = dag.get_task(ti.task_id)
+                logs, _ = handler.read(ti, None, metadata={})
+                # else:
+                #     logs = []
                 prefix = [f'*** STATE: {ti.state} EXECUTION DATE: {ti.execution_date} RUN ID: {ti.run_id} ***']
                 if isinstance(logs, list):
                     try:
-                        logs = logs[0][0][1].split('\n')
+                        logs = logs[-1][0][1].split('\n')
                     except:
                         logs = []
                     pre, post = logs[:50], logs[50:]
