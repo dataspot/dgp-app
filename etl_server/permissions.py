@@ -122,7 +122,7 @@ def check_permission(roles):
                 for role in roles:
                     if role in user_roles:
                         g.permissions = permissions
-                        fargs = inspect.getargspec(func).args
+                        fargs = inspect.getfullargspec(func).args
                         if 'role' in fargs:
                             kw['role'] = role
                         if 'user' in fargs:
