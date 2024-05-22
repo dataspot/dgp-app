@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.12-slim
 
 RUN apt-get update && apt-get install --no-install-recommends -y gcc libc6-dev linux-libc-dev libpq-dev libleveldb1d procps less && \
     adduser --disabled-password --home /app etl && update-ca-certificates && \
