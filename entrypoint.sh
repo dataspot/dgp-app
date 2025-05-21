@@ -3,7 +3,7 @@ set -e
 
 cd /app
 # airflow db upgrade
-airflow db init
+airflow db migrate || true
 airflow scheduler &
 airflow webserver -w 1 &
 
