@@ -17,7 +17,7 @@ class Controllers():
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
             region_name=aws_region,
-            config=Config(signature_version='s3v4')
+            config=Config(signature_version='s3v4', s3={'addressing_style': 'path'})
         )
         self.s3client = boto3.client('s3', **kw)
         self.s3 = boto3.resource('s3', **kw)
