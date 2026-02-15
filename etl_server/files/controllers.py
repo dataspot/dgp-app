@@ -2,6 +2,7 @@ import os
 import calendar
 from urllib.parse import unquote_plus
 import boto3
+from botocore.config import Config
 from botocore.exceptions import ClientError
 import tempfile
 import shutil
@@ -15,7 +16,8 @@ class Controllers():
             endpoint_url=endpoint_url,
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
-            region_name=aws_region
+            region_name=aws_region,
+            config=Config(signature_version='s3v4')
         )
         self.s3client = boto3.client('s3', **kw)
         self.s3 = boto3.resource('s3', **kw)
