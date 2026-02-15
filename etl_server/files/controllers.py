@@ -12,12 +12,20 @@ from dgp_oauth2.models import Models as AuthModels
 class Controllers():
 
     def __init__(self, bucket_name, endpoint_url, aws_access_key_id, aws_secret_access_key, aws_region):
+        # GCP Cloud Storage compatibility: disable boto3 1.36.0+ checksum validation
+        # See: https://www.beginswithdata.com/2025/05/14/aws-s3-tools-with-gcs/
+        os.environ['AWS_REQUEST_CHECKSUM_CALCULATION'] = 'when_required'
+        os.environ['AWS_RESPONSE_CHECKSUM_VALIDATION'] = 'when_required'
+
         kw = dict(
             endpoint_url=endpoint_url,
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
             region_name=aws_region,
-            config=Config(signature_version='s3v4', s3={'addressing_style': 'path'})
+            config=Config(
+                signature_version='s3v4',
+                s3={'addressing_style': 'path'}
+            )
         )
         self.s3client = boto3.client('s3', **kw)
         self.s3 = boto3.resource('s3', **kw)
