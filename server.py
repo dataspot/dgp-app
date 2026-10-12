@@ -16,6 +16,7 @@ from etl_server.users.blueprint import make_blueprint as users_blueprint
 from etl_server.files.blueprint import make_blueprint as files_blueprint
 from etl_server.taxonomies.blueprint import make_blueprint as taxonomies_blueprint
 from etl_server.datarecords.blueprint import make_blueprint as datarecords_blueprint
+from etl_server.api_keys.blueprint import make_blueprint as api_keys_blueprint
 from etl_server.permissions import check_permission, Permissions
 from etl_server.db_utils import get_engine
 from dgp_oauth2 import make_blueprint as auth_blueprint
@@ -111,6 +112,10 @@ app.register_blueprint(
 )
 app.register_blueprint(
     datarecords_blueprint(db_connection_string=os.environ.get('ETLS_DATABASE_URL')),
+    url_prefix='/api/'
+)
+app.register_blueprint(
+    api_keys_blueprint(db_connection_string=os.environ.get('ETLS_DATABASE_URL')),
     url_prefix='/api/'
 )
 app.register_blueprint(

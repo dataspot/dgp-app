@@ -69,7 +69,10 @@ class Permissions():
     datarecordEditAll = 'datarecordEditAll'
     datarecordDeleteOwn = 'datarecordDeleteOwn'
     datarecordDeleteAll = 'datarecordDeleteAll'
-    
+
+    apiKeysOwn = 'apiKeysOwn'
+    apiKeysAll = 'apiKeysAll'
+
     pseudoAnonymous = 'pseudoAnonymous'
     pseudoViewer = 'pseudoViewer'
     pseudoMaintainer = 'pseudoMaintainer'
@@ -83,14 +86,14 @@ class Permissions():
     DataEditorRoles = { datarecordListOwn, datarecordReadOwn, datarecordEditOwn, datarecordNew, datarecordDeleteOwn, datarecordEditAll, }
     MaintainerRoles = ViewerRoles | DataEditorRoles | \
                         { pipelinesListOwn, pipelinesStatusOwn, pipelinesNew, pipelinesEditOwn, workbench,
-                          filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn, 
-                          pseudoMaintainer }
+                          filesListOwn, filesUpload, filesDownload, filesUpdateOwn, filesDeleteOwn,
+                          apiKeysOwn, pseudoMaintainer }
     DataAdminRoles = { datarecordDeleteAll }
     SuperMaintainerRoles = MaintainerRoles | { pipelinesDeleteOwn, filesListAll, taxonomyRead }
     AdminRoles = SuperMaintainerRoles | DataAdminRoles | { 
                     pipelinesListAll, pipelinesStatusAll, pipelinesEditAll, pipelinesExecute, pipelinesDeleteAll,
                     usersList, usersNew, usersEdit, usersDelete, filesUpdateAll, filesDeleteAll,
-                    taxonomyNew, taxonomyEdit, taxonomyDelete,
+                    taxonomyNew, taxonomyEdit, taxonomyDelete, apiKeysAll,
                     pseudoAdmin }
 
     # Level Roles Mapping
@@ -108,14 +111,41 @@ def verifyer():
         __verifyer = Verifyer(public_key=credentials.public_key)
     return __verifyer
 
+__api_keys = None
+def api_keys():
+    global __api_keys
+    if __api_keys is None:
+        from .api_keys.controllers import Controllers
+        __api_keys = Controllers(os.environ.get('ETLS_DATABASE_URL'))
+    return __api_keys
+
+def api_key_permissions(api_key):
+    """Permissions of the user owning an API key - the same ones a login of that user gets, resolved on every request."""
+    userid = api_keys().userid_for(api_key)
+    if userid is None:
+        return False
+    from . import get_permissions
+    return dict(userid=userid, permissions=get_permissions('etl-server', userid), service='etl-server')
+
+def request_api_key():
+    api_key = request.headers.get('X-Api-Key')
+    authorization = request.headers.get('Authorization', '')
+    if not api_key and authorization.startswith('Bearer '):
+        api_key = authorization[len('Bearer '):].strip()
+    return api_key
+
 def check_permission(roles):
     def decorator(func):
         def wrapper(*args, **kw):
             global __verifyer
             token = request.values.get('jwt') or request.headers.get('X-Auth')
+            api_key = None if token else request_api_key()
             permissions = dict(userid=None, permissions=dict(level=0))
             if token:
                 permissions = verifyer().extract_permissions(token)
+            elif api_key:
+                permissions = api_key_permissions(api_key)
+            g.api_key = bool(api_key)
             if not (permissions is False):
                 level = permissions.get('permissions', {}).get('level', 0)            
                 user_roles = Permissions.Roles.get(level, [])
