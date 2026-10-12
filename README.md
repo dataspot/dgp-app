@@ -2,6 +2,14 @@
 
 This library and app provide a wrapper around airflow, providing a means to add / remove DAGs (Pipelines) via a web-ui based on a configuration defining the Pipeline 'kinds' and the parameters each kind requires.
 
+## Developer documentation
+
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): processes, configuration, environment variables, authentication, how pipelines run, building and releasing, local development, and known issues.
+- [docs/API.md](docs/API.md): reference for every HTTP route, with required roles and request/response shapes.
+- [CLAUDE.md](CLAUDE.md): short list of non-obvious gotchas for agents and new contributors.
+
+> The Quickstart below predates the current code (e.g. the configuration file is `dags/configuration.json`, the image is `akariv/dgp-app`, and DAGs are built by `dags/dag_fetcher.py`). Prefer the docs above.
+
 ### Pipeline Dashboard
 ![Pipeline Dashboard](docs/images/dashboard.png)
 
